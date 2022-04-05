@@ -8,7 +8,7 @@ function App(): JSX.Element {
             <p>Initial Webpage by:</p>
             <p>Brennan Gallamoza</p>
             <p>Faizel Quabili</p>
-            <p>NAME HERE</p>
+            <p>Chad Haiges</p>
         </div>
     );
 }
