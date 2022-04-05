@@ -7,7 +7,7 @@ function App(): JSX.Element {
             <header className="App-header">UD-CIS-Scheduler</header>
             <p>Initial Webpage by:</p>
             <p>Brennan Gallamoza</p>
-            <p>NAME HERE</p>
+            <p>Faizel Quabili</p>
             <p>NAME HERE</p>
         </div>
     );
