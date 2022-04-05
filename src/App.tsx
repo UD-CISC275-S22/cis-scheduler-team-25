@@ -4,13 +4,11 @@ import "./App.css";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript
-            </header>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
+            <header className="App-header">UD-CIS-Scheduler</header>
+            <p>Initial Webpage by:</p>
+            <p>Brennan Gallamoza</p>
+            <p>NAME HERE</p>
+            <p>NAME HERE</p>
         </div>
     );
 }
