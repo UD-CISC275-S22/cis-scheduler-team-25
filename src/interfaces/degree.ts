@@ -1,8 +1,8 @@
-import { course } from "./course";
+import { Course } from "./Course";
 
-export interface degree {
+export interface Degree {
     id: number;
     name: string;
-    requiredCourses: course[];
+    requiredCourses: Course[];
     creditTotal: number;
 }

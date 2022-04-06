@@ -1,4 +1,4 @@
-export interface section {
+export interface Section {
     //course ID
     id: number;
     //days of course ['M', 'W', 'F']
