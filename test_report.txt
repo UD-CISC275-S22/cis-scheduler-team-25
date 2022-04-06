@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (42 ms)
+  ✕ renders the course name somewhere (35 ms)
 
   ● renders the course name somewhere
 
@@ -54,14 +54,21 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-----------|---------|----------|---------|---------|-------------------
-File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------|---------|----------|---------|---------|-------------------
-All files |     100 |      100 |     100 |     100 |                   
- App.tsx  |     100 |      100 |     100 |     100 |                   
-----------|---------|----------|---------|---------|-------------------
+----------------|---------|----------|---------|---------|-------------------
+File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------|---------|----------|---------|---------|-------------------
+All files       |     100 |      100 |     100 |     100 |                   
+ src            |     100 |      100 |     100 |     100 |                   
+  App.tsx       |     100 |      100 |     100 |     100 |                   
+ src/interfaces |       0 |        0 |       0 |       0 |                   
+  course.ts     |       0 |        0 |       0 |       0 |                   
+  degree.ts     |       0 |        0 |       0 |       0 |                   
+  degreeplan.ts |       0 |        0 |       0 |       0 |                   
+  section.ts    |       0 |        0 |       0 |       0 |                   
+  semester.ts   |       0 |        0 |       0 |       0 |                   
+----------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.631 s
+Time:        1.626 s
 Ran all test suites.
