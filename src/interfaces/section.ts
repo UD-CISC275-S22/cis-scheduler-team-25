@@ -1,10 +1,9 @@
 export interface section {
     //course ID
     id: number;
-    //days of course
-    //days: string;
+    //days of course ['M', 'W', 'F']
     days: string[];
-    //class times
+    //class times XX:XX
     startTime: string;
     endTime: string;
 }
