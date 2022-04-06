@@ -1,8 +1,8 @@
-import { section } from "./section";
-export interface course {
+import { Section } from "./Section";
+export interface Course {
     name: string;
     credits: number;
-    prereqs: course[];
+    prereqs: Course[];
     courseCode: number;
-    sections: section[];
+    sections: Section[];
 }
