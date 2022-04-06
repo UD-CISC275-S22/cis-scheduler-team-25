@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DegreePlan } from "./interfaces/DegreePlan";
+import { DegreePlan } from "./interfaces/degreeplan";
 import { DegreePlanList } from "./components/DegreePlanList";
 import "./App.css";
 

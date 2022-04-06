@@ -1,5 +1,5 @@
 import React from "react";
-import { DegreePlan } from "../interfaces/DegreePlan";
+import { DegreePlan } from "../interfaces/degreeplan";
 import { Form } from "react-bootstrap";
 
 // dropdown list generated from a list of DegreePlan objects passed in
