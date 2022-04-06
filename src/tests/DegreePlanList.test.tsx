@@ -8,16 +8,16 @@ describe("DegreePlanList Tests", () => {
         render(<App />);
     });
     test("There is a select box", () => {
-        expect(screen.getByRole("combobox")).toBeInTheDocument();
-        expect(screen.getByRole("combobox")).toHaveLength(2);
+        expect(screen.getByTestId("plan-list")).toBeInTheDocument();
+        expect(screen.getByTestId("plan-list")).toHaveLength(2);
     });
     test("You can select the test plan length displays", () => {
-        const select = screen.getByRole("combobox");
+        const select = screen.getByTestId("plan-list");
 
         userEvent.selectOptions(select, "Test");
-        expect(screen.getByText("0 Questions")).toBeInTheDocument();
+        expect(screen.getByText("0 Semesters Included")).toBeInTheDocument();
 
         userEvent.selectOptions(select, "Test2");
-        expect(screen.getByText("1 Questions")).toBeInTheDocument();
+        expect(screen.getByText("1 Semesters Included")).toBeInTheDocument();
     });
 });

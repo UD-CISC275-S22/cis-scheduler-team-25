@@ -1,0 +1,6 @@
+.DegreePlanList {
+    width: calc(50% + 2vmin);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
