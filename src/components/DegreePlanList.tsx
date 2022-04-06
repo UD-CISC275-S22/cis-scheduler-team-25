@@ -35,7 +35,7 @@ export function DegreePlanList({
                             <option
                                 key={plan.id}
                                 value={plan.id}
-                                data-testid={`quiz-option-${plan.id}`}
+                                data-testid={`plan-option-${plan.id}`}
                             >
                                 {plan.name}
                             </option>
@@ -43,7 +43,7 @@ export function DegreePlanList({
                     )}
                 </Form.Select>
             </Form.Group>
-            <p>{currentPlan.length} Questions</p>
+            <p>{currentPlan.length} Semesters Included</p>
             <br></br>
         </div>
     );
