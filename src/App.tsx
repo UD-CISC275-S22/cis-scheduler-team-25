@@ -43,7 +43,7 @@ function App(): JSX.Element {
                         backgroundColor: "#00539F"
                     }}
                 >
-                    BUT BETTER
+                    BUT BETTER.
                 </span>
             </h3>
             <span style={{ fontSize: "17px" }}>Brennan 🇵🇭 Gallamoza </span>
