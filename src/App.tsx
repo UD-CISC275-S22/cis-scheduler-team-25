@@ -1,13 +1,37 @@
 import React, { useState } from "react";
 import { DegreePlan } from "./interfaces/degreeplan";
+import { Semester } from "./interfaces/semester";
+import { Course } from "./interfaces/course";
+import { Section } from "./interfaces/section";
 import { DegreePlanList } from "./components/DegreePlanList";
+import defaultPlans from "./exampleData/example_degree_plan.json";
 import "./App.css";
 
 // default plans read in by degreeplans.json
-const DEFAULT_PLANS: DegreePlan[] = [
-    { id: 0, name: "Test", semesters: [], length: 0 },
-    { id: 1, name: "Test2", semesters: [], length: 1 }
-];
+const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
+    (plan): DegreePlan => ({
+        ...plan,
+        semesters: plan.semesters.map(
+            (semester): Semester => ({
+                ...semester,
+                courses: semester.courses.map(
+                    (course): Course => ({
+                        ...course,
+                        sections: course.sections.map(
+                            (section): Section => ({ ...section })
+                        )
+                    })
+                )
+            })
+        )
+    })
+);
+
+// const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
+//     (plan): DegreePlan => ({
+//         ...plan,
+//         semesters: plan.semesters.map()
+//     })
 
 function App(): JSX.Element {
     const [
