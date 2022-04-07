@@ -1,133 +1,203 @@
-{
-    "Naruto's Degree Plan": [
-        {
-            "id": 1,
-            "name": "Degree Plan 1",
-            "semesters": [
-                {"courses": [
-                    {"name": "Introduction to Computer Science I", "credits": 3, "prereqs": [], "courseCode": 108, "sections": [
-                        {
-                            "id": 20, "days": ["M", "W", "F"], "startTime": "10:10", "endTime": "11:00"
-                        }, 
-                        {
-                            "id": 21, "days": ["M", "W", "F"], "startTime": "11:10", "endTime": "12:00"
-                        },
-                        {
-                            "id": 20, "days": ["M", "W", "F"], "startTime": "12:10", "endTime": "13:00"
-                        }
-                    ]},
-                    {"name": "Analytical Geometry and Calculus I", "credits": 3, "prereqs": [], "courseCode": 241, "sections": [
-                        {
-                            "id": 31, "days": ["W", "F"], "startTime": "09:00", "endTime": "10:15"
-                        },
-                        {
-                            "id": 32, "days": ["T", "TH"], "startTime": "10:00", "endTime": "11:15"
-                        }, 
-                        {
-                            "id": 33, "days": ["T", "TH"], "startTime": "11:30", "endTime": "12:45"
-                        }
-                    ]},
-                    {"name": "Introduction to Engineering", "credits": 3, "prereqs": [], "courseCode": 101, "sections": [
-                        {
-                            "id": 43, "days": ["M", "W", "F"], "startTime": "08:00", "endTime": "08:50"
-                        },
-                        {
-                            "id": 44, "days": ["M", "W", "F"], "startTime": "13:10", "endTime": "14:00"
-                        }, 
-                        {
-                            "id": 45, "days": ["M", "W", "F"], "startTime": "14:10", "endTime": "15:00"
-                        }
-                    ]},
-                    {"name": "University Breath", "credits": 3, "prereqs": [], "courseCode": 100, "sections": [
-                        {
-                            "id": 12, "days": ["M"], "startTime": "16:00", "endTime": "16:45"
-                        },
-                        {
-                            "id": 13, "days": ["W"], "startTime": "17:00", "endTime": "17:45"
-                        }, 
-                        {
-                            "id": 14, "days": ["F"], "startTime": "18:00", "endTime": "18:45"
-                        }
-                    ]}
+[
+    {
+        "id": 1,
+        "name": "Naruto's Degree Plan 1",
+        "semesters": [
+            {
+                "courses": [
+                    {
+                        "name": "Introduction to Computer Science I",
+                        "credits": 3,
+                        "prereqs": [],
+                        "courseCode": 108,
+                        "sections": [
+                            {
+                                "id": 20,
+                                "days": ["M", "W", "F"],
+                                "startTime": "10:10",
+                                "endTime": "11:00"
+                            },
+                            {
+                                "id": 21,
+                                "days": ["M", "W", "F"],
+                                "startTime": "11:10",
+                                "endTime": "12:00"
+                            },
+                            {
+                                "id": 20,
+                                "days": ["M", "W", "F"],
+                                "startTime": "12:10",
+                                "endTime": "13:00"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Analytical Geometry and Calculus I",
+                        "credits": 3,
+                        "prereqs": [],
+                        "courseCode": 241,
+                        "sections": [
+                            {
+                                "id": 31,
+                                "days": ["W", "F"],
+                                "startTime": "09:00",
+                                "endTime": "10:15"
+                            },
+                            {
+                                "id": 32,
+                                "days": ["T", "TH"],
+                                "startTime": "10:00",
+                                "endTime": "11:15"
+                            },
+                            {
+                                "id": 33,
+                                "days": ["T", "TH"],
+                                "startTime": "11:30",
+                                "endTime": "12:45"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Introduction to Engineering",
+                        "credits": 3,
+                        "prereqs": [],
+                        "courseCode": 101,
+                        "sections": [
+                            {
+                                "id": 43,
+                                "days": ["M", "W", "F"],
+                                "startTime": "08:00",
+                                "endTime": "08:50"
+                            },
+                            {
+                                "id": 44,
+                                "days": ["M", "W", "F"],
+                                "startTime": "13:10",
+                                "endTime": "14:00"
+                            },
+                            {
+                                "id": 45,
+                                "days": ["M", "W", "F"],
+                                "startTime": "14:10",
+                                "endTime": "15:00"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "University Breath",
+                        "credits": 3,
+                        "prereqs": [],
+                        "courseCode": 100,
+                        "sections": [
+                            {
+                                "id": 12,
+                                "days": ["M"],
+                                "startTime": "16:00",
+                                "endTime": "16:45"
+                            },
+                            {
+                                "id": 13,
+                                "days": ["W"],
+                                "startTime": "17:00",
+                                "endTime": "17:45"
+                            },
+                            {
+                                "id": 14,
+                                "days": ["F"],
+                                "startTime": "18:00",
+                                "endTime": "18:45"
+                            }
+                        ]
+                    }
                 ],
-                "season": "F", "year": 2022
-                },
-                {"courses": [
-                    {"name": "Introduction to Computer Science II", "credits": 3, "prereqs": [
-                        {"name": "Introduction to Computer Science I", "credits": 3, "prereqs": [], "courseCode": 108, "sections": [
-                        {
-                            "id": 20, "days": ["M", "W", "F"], "startTime": "10:10", "endTime": "11:00"
-                        }, 
-                        {
-                            "id": 21, "days": ["M", "W", "F"], "startTime": "11:10", "endTime": "12:00"
-                        },
-                        {
-                            "id": 20, "days": ["M", "W", "F"], "startTime": "12:10", "endTime": "13:00"
-                        }
-                    ]}
-                    ], "courseCode": 181, "sections": [
-                        {
-                            "id": 27, "days": ["M", "W", "F"], "startTime": "10:10", "endTime": "11:00"
-                        }, 
-                        {
-                            "id": 28, "days": ["M", "W", "F"], "startTime": "11:10", "endTime": "12:00"
-                        },
-                        {
-                            "id": 29, "days": ["M", "W", "F"], "startTime": "12:10", "endTime": "13:00"
-                        }
-                    ]},
-                    {"name": "Analytical Geometry and Calculus II", "credits": 3, "prereqs": [
-                        {"name": "Analytical Geometry and Calculus I", "credits": 3, "prereqs": [], "courseCode": 241, "sections": [
-                        {
-                            "id": 31, "days": ["W", "F"], "startTime": "09:00", "endTime": "10:15"
-                        },
-                        {
-                            "id": 32, "days": ["T", "TH"], "startTime": "10:00", "endTime": "11:15"
-                        }, 
-                        {
-                            "id": 33, "days": ["T", "TH"], "startTime": "11:30", "endTime": "12:45"
-                        }
-                    ]}
-                    ], "courseCode": 242, "sections": [
-                        {
-                            "id": 67, "days": ["W", "F"], "startTime": "09:00", "endTime": "10:15"
-                        },
-                        {
-                            "id": 68, "days": ["T", "TH"], "startTime": "10:00", "endTime": "11:15"
-                        }, 
-                        {
-                            "id": 69, "days": ["T", "TH"], "startTime": "11:30", "endTime": "12:45"
-                        }
-                    ]},
-                    {"name": "Introduction to Systems Programming", "credits": 3, "prereqs": [
-                        {"name": "Introduction to Computer Science I", "credits": 3, "prereqs": [], "courseCode": 108, "sections": [
-                        {
-                            "id": 20, "days": ["M", "W", "F"], "startTime": "10:10", "endTime": "11:00"
-                        }, 
-                        {
-                            "id": 21, "days": ["M", "W", "F"], "startTime": "11:10", "endTime": "12:00"
-                        },
-                        {
-                            "id": 20, "days": ["M", "W", "F"], "startTime": "12:10", "endTime": "13:00"
-                        }
-                    ]}
-                    ], "courseCode": 108, "sections": [
-                        {
-                            "id": 89, "days": ["M"], "startTime": "16:00", "endTime": "16:45"
-                        },
-                        {
-                            "id": 90, "days": ["W"], "startTime": "17:00", "endTime": "17:45"
-                        }, 
-                        {
-                            "id": 91, "days": ["F"], "startTime": "18:00", "endTime": "18:45"
-                        }
-                    ]}
+                "season": "F",
+                "year": 2022
+            },
+            {
+                "courses": [
+                    {
+                        "name": "Introduction to Computer Science II",
+                        "credits": 3,
+                        "prereqs": [1.181],
+                        "courseCode": 181,
+                        "sections": [
+                            {
+                                "id": 27,
+                                "days": ["M", "W", "F"],
+                                "startTime": "10:10",
+                                "endTime": "11:00"
+                            },
+                            {
+                                "id": 28,
+                                "days": ["M", "W", "F"],
+                                "startTime": "11:10",
+                                "endTime": "12:00"
+                            },
+                            {
+                                "id": 29,
+                                "days": ["M", "W", "F"],
+                                "startTime": "12:10",
+                                "endTime": "13:00"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Analytical Geometry and Calculus II",
+                        "credits": 3,
+                        "prereqs": [2.241],
+                        "courseCode": 242,
+                        "sections": [
+                            {
+                                "id": 67,
+                                "days": ["W", "F"],
+                                "startTime": "09:00",
+                                "endTime": "10:15"
+                            },
+                            {
+                                "id": 68,
+                                "days": ["T", "TH"],
+                                "startTime": "10:00",
+                                "endTime": "11:15"
+                            },
+                            {
+                                "id": 69,
+                                "days": ["T", "TH"],
+                                "startTime": "11:30",
+                                "endTime": "12:45"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Introduction to Systems Programming",
+                        "credits": 3,
+                        "prereqs": [2.241],
+                        "courseCode": 108,
+                        "sections": [
+                            {
+                                "id": 89,
+                                "days": ["M"],
+                                "startTime": "16:00",
+                                "endTime": "16:45"
+                            },
+                            {
+                                "id": 90,
+                                "days": ["W"],
+                                "startTime": "17:00",
+                                "endTime": "17:45"
+                            },
+                            {
+                                "id": 91,
+                                "days": ["F"],
+                                "startTime": "18:00",
+                                "endTime": "18:45"
+                            }
+                        ]
+                    }
                 ],
-                "season": "S", "year": 2023
-                }
-            ],
-            "length": 2
-        }
-        
-    ]
-}
+                "season": "S",
+                "year": 2023
+            }
+        ],
+        "length": 2
+    }
+]
