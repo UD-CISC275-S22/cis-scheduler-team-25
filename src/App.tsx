@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
 import { DegreePlanList } from "./components/DegreePlanList";
+import defaultPlans from "./exampleData/example_degree_plan.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
 
