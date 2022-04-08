@@ -10,7 +10,11 @@ function SemesterViewButton({
 }): JSX.Element {
     return (
         <div>
-            <Button className="mode-button" onClick={() => setMode("semester")}>
+            <Button
+                data-testid="plan-semester-button"
+                className="mode-button"
+                onClick={() => setMode("semester")}
+            >
                 View Semester
             </Button>
         </div>
@@ -24,7 +28,11 @@ function MainViewButton({
 }): JSX.Element {
     return (
         <div>
-            <Button className="mode-button" onClick={() => setMode("main")}>
+            <Button
+                data-testid="plan-main-button"
+                className="mode-button"
+                onClick={() => setMode("main")}
+            >
                 Return to Main Menu
             </Button>
         </div>

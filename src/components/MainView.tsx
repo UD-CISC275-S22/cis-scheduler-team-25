@@ -8,7 +8,11 @@ function PlanViewButton({
 }: {
     setMode: (newMode: string) => void;
 }): JSX.Element {
-    return <Button onClick={() => setMode("plan")}>View Degree Plan</Button>;
+    return (
+        <Button data-testid="main-plan-button" onClick={() => setMode("plan")}>
+            View Degree Plan
+        </Button>
+    );
 }
 
 export function MainView({
