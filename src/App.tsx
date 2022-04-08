@@ -85,7 +85,7 @@ function App(): JSX.Element {
             <br></br>
             <div>
                 <CSVLink
-                    style={{ backgroundColor: "gold", fontSize: "12px" }}
+                    style={{ fontSize: "12px" }}
                     data={csvData}
                     headers={csvHeaders}
                 >
