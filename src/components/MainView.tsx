@@ -4,6 +4,7 @@ import { DegreePlan } from "../interfaces/degreeplan";
 import { DegreePlanList } from "./DegreePlanList";
 import { CSVExport } from "./CSVExport";
 
+// button for switching to the PlanView
 function PlanViewButton({
     setMode
 }: {
@@ -16,6 +17,10 @@ function PlanViewButton({
     );
 }
 
+/*
+View for the main menu, showing a list of degree plans you can select OR choose
+to make a new one
+*/
 export function MainView({
     setMode,
     plans,

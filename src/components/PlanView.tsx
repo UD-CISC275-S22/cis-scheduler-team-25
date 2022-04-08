@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import "./components.css";
 
+// Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({
     setMode
 }: {
@@ -21,6 +22,7 @@ function SemesterViewButton({
     );
 }
 
+// Button for switching back to the main menu
 function MainViewButton({
     setMode
 }: {
@@ -39,6 +41,10 @@ function MainViewButton({
     );
 }
 
+/*
+View for seeing the semesters of a plan laid out, also showing information about
+how the current plan compares to the necessary requirements for a specified major
+*/
 export function PlanView({
     setMode,
     currentPlan

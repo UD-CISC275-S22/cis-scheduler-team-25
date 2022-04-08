@@ -4,6 +4,10 @@ import { MainView } from "./MainView";
 import { PlanView } from "./PlanView";
 import { SemesterView } from "./SemesterView";
 
+/*
+View helper for handling switching between the main menu, the planner for a
+specific degree plan, and the view for editing a specific semester within a plan
+*/
 export function CurrentView({
     mode,
     setMode,
