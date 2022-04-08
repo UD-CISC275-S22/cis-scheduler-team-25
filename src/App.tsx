@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
-import { DegreePlanList } from "./components/DegreePlanList";
+import { CurrentView } from "./components/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
@@ -19,10 +19,8 @@ const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
 );
 
 function App(): JSX.Element {
-    const [
-        plans
-        // setPlans
-    ] = useState<DegreePlan[]>(DEFAULT_PLANS);
+    const [plans, setPlans] = useState<DegreePlan[]>(DEFAULT_PLANS);
+    const [mode, setMode] = useState<string>("main");
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
     );
@@ -59,7 +57,9 @@ function App(): JSX.Element {
             <span style={{ fontSize: "17px" }}>Faizel 🇧🇩 Quabili </span>
             <div></div>
             <span style={{ fontSize: "17px" }}>Chad 🇨🇦 Haiges </span>
-            <DegreePlanList
+            <CurrentView
+                mode={mode}
+                setMode={setMode}
                 plans={plans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
