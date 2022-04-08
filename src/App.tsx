@@ -51,7 +51,7 @@ function App(): JSX.Element {
                         backgroundColor: "#00539F"
                     }}
                 >
-                    BUT BETTER.
+                    BUT BETTER ( ͡° ͜ʖ ͡°)
                 </span>
             </h3>
             <span style={{ fontSize: "17px" }}>Brennan 🇵🇭 Gallamoza </span>
@@ -59,6 +59,10 @@ function App(): JSX.Element {
             <span style={{ fontSize: "17px" }}>Faizel 🇧🇩 Quabili </span>
             <div></div>
             <span style={{ fontSize: "17px" }}>Chad 🇨🇦 Haiges </span>
+            <div>
+                Welcome to the UD CIS Course Scheduler. <br></br>Create and edit
+                degree plans following courses and requirements.
+            </div>
             <DegreePlanList
                 plans={plans}
                 currentPlan={currentPlan}
