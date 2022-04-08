@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { DegreePlanList } from "./DegreePlanList";
+import { CSVExport } from "./CSVExport";
 
 function PlanViewButton({
     setMode
@@ -35,6 +36,7 @@ export function MainView({
                 setCurrentPlan={setCurrentPlan}
             />
             <PlanViewButton setMode={setMode} />
+            <CSVExport plans={plans} />
         </div>
     );
 }
