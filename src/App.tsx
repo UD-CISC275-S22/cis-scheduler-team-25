@@ -5,6 +5,7 @@ import { DegreePlanList } from "./components/DegreePlanList";
 import defaultPlans from "./exampleData/example_degree_plan.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
+import { CSVLink } from "react-csv";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -26,6 +27,14 @@ function App(): JSX.Element {
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
     );
+
+    const csvData = plans;
+    const csvHeaders = [
+        { label: "ID", key: "id" },
+        { label: "Name", key: "name" },
+        { label: "Semesters", key: "semesters" },
+        { label: "Length", key: "length" }
+    ];
 
     return (
         <div className="App">
@@ -68,6 +77,21 @@ function App(): JSX.Element {
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
             />
+            <div
+                style={{
+                    border: "solid 00539F"
+                }}
+            ></div>
+            <br></br>
+            <div>
+                <CSVLink
+                    style={{ backgroundColor: "gold", fontSize: "12px" }}
+                    data={csvData}
+                    headers={csvHeaders}
+                >
+                    Click to Download Degree Plans
+                </CSVLink>
+            </div>
         </div>
     );
 }
