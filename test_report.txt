@@ -2,7 +2,10 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+PASS src/tests/PlanView.test.tsx
 PASS src/tests/DegreePlanList.test.tsx
+PASS src/tests/SemesterView.test.tsx
+PASS src/tests/MainView.test.tsx
 PASS src/App.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -11,7 +14,12 @@ All files            |     100 |      100 |     100 |     100 |
  src                 |     100 |      100 |     100 |     100 |                   
   App.tsx            |     100 |      100 |     100 |     100 |                   
  src/components      |     100 |      100 |     100 |     100 |                   
+  CSVExport.tsx      |     100 |      100 |     100 |     100 |                   
+  CurrentView.tsx    |     100 |      100 |     100 |     100 |                   
   DegreePlanList.tsx |     100 |      100 |     100 |     100 |                   
+  MainView.tsx       |     100 |      100 |     100 |     100 |                   
+  PlanView.tsx       |     100 |      100 |     100 |     100 |                   
+  SemesterView.tsx   |     100 |      100 |     100 |     100 |                   
  src/interfaces      |       0 |        0 |       0 |       0 |                   
   course.ts          |       0 |        0 |       0 |       0 |                   
   degree.ts          |       0 |        0 |       0 |       0 |                   
@@ -20,8 +28,8 @@ All files            |     100 |      100 |     100 |     100 |
   semester.ts        |       0 |        0 |       0 |       0 |                   
 ---------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 2 passed, 2 total
-Tests:       3 passed, 3 total
+Test Suites: 5 passed, 5 total
+Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        2.774 s
+Time:        4.054 s
 Ran all test suites.
