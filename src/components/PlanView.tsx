@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import "./components.css";
+import { SemesterScrollBox } from "./SemesterScrollBox";
 
 // Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({
@@ -55,6 +56,7 @@ export function PlanView({
     return (
         <div>
             <h1>{currentPlan.name}</h1>
+            <SemesterScrollBox plan={currentPlan} />
             <p>{currentPlan.length} Semesters Total</p>
             <SemesterViewButton setMode={setMode} />
             <MainViewButton setMode={setMode} />
