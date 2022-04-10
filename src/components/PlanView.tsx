@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
+import { Semester } from "../interfaces/semester";
 import "./components.css";
 import { SemesterScrollBox } from "./SemesterScrollBox";
 
@@ -48,15 +49,21 @@ how the current plan compares to the necessary requirements for a specified majo
 */
 export function PlanView({
     setMode,
+    setCurrentSemester,
     currentPlan
 }: {
     currentPlan: DegreePlan;
+    setCurrentSemester: (newSemester: Semester) => void;
     setMode: (newMode: string) => void;
 }): JSX.Element {
     return (
         <div>
             <h1>{currentPlan.name}</h1>
-            <SemesterScrollBox plan={currentPlan} />
+            <SemesterScrollBox
+                plan={currentPlan}
+                setMode={setMode}
+                setCurrentSemester={setCurrentSemester}
+            />
             <p>{currentPlan.length} Semesters Total</p>
             <SemesterViewButton setMode={setMode} />
             <MainViewButton setMode={setMode} />

@@ -4,13 +4,26 @@ import { DegreePlan } from "../interfaces/degreeplan";
 import { Semester } from "../interfaces/semester";
 import { ListGroup } from "react-bootstrap";
 
-export function SemesterScrollBox({ plan }: { plan: DegreePlan }): JSX.Element {
+export function SemesterScrollBox({
+    plan,
+    setMode,
+    setCurrentSemester
+}: {
+    plan: DegreePlan;
+    setMode: (newMode: string) => void;
+    setCurrentSemester: (newSemester: Semester) => void;
+}): JSX.Element {
     return (
         <div>
             <ListGroup horizontal={true} className="semester-scroll-box">
                 {plan.semesters.map(
                     (semester: Semester): JSX.Element => (
                         <ListGroup.Item
+                            action={true}
+                            onClick={() => {
+                                setMode("semester");
+                                setCurrentSemester(semester);
+                            }}
                             className="semester-box-length"
                             key={
                                 semester.season.toString() +
