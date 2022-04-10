@@ -21,18 +21,19 @@ export function CurrentView({
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
 }): JSX.Element {
-    // Wouldn't it be nice if the linter let me use switches? Alas
-    if (mode === "plan") {
-        return <PlanView currentPlan={currentPlan} setMode={setMode} />;
-    } else if (mode === "semester") {
-        return <SemesterView setMode={setMode} />;
+    switch (mode) {
+        case "plan":
+            return <PlanView currentPlan={currentPlan} setMode={setMode} />;
+        case "semester":
+            return <SemesterView setMode={setMode} />;
+        default:
+            return (
+                <MainView
+                    setMode={setMode}
+                    plans={plans}
+                    currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
+                />
+            );
     }
-    return (
-        <MainView
-            setMode={setMode}
-            plans={plans}
-            currentPlan={currentPlan}
-            setCurrentPlan={setCurrentPlan}
-        />
-    );
 }
