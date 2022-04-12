@@ -27,6 +27,11 @@ function App(): JSX.Element {
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
     );
+    const [currentSemester, setCurrentSemester] = useState<Semester>({
+        courses: [],
+        season: "INVALID",
+        year: -1
+    });
 
     return (
         <div className="App">
@@ -70,6 +75,8 @@ function App(): JSX.Element {
                 plans={plans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
+                currentSemester={currentSemester}
+                setCurrentSemester={setCurrentSemester}
             />
         </div>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { Semester } from "../interfaces/semester";
 
 // Button for returning back to the PlanView
 function PlanViewButton({
@@ -23,13 +24,20 @@ from a list of available courses and also showing the time schedule of your
 selected classes
 */
 export function SemesterView({
-    setMode
+    setMode,
+    currentSemester
 }: {
     setMode: (newMode: string) => void;
+    currentSemester: Semester;
 }): JSX.Element {
     return (
         <div>
-            <h1>Your Semester Schedule</h1>
+            <h1>
+                Schedule for{" "}
+                {currentSemester.season.toString() +
+                    "-" +
+                    currentSemester.year.toString()}
+            </h1>
             <PlanViewButton setMode={setMode} />
         </div>
     );
