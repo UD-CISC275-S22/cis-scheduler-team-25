@@ -19,10 +19,7 @@ const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
 );
 
 function App(): JSX.Element {
-    const [
-        plans
-        // setPlans
-    ] = useState<DegreePlan[]>(DEFAULT_PLANS);
+    const [plans, setPlans] = useState<DegreePlan[]>(DEFAULT_PLANS);
     const [mode, setMode] = useState<string>("main");
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
@@ -73,6 +70,7 @@ function App(): JSX.Element {
                 mode={mode}
                 setMode={setMode}
                 plans={plans}
+                setPlans={setPlans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
                 currentSemester={currentSemester}

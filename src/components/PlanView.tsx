@@ -6,10 +6,22 @@ import "./components.css";
 import { SemesterScrollBox } from "./SemesterScrollBox";
 
 // Button for switching to the SemesterView after selecting a semester
+function removeAllSemesters(plans: DegreePlan[]): DegreePlan[] {
+    const clearId = -1;
+    const newPlans = plans.map(
+        (currPlan: DegreePlan): DegreePlan =>
+            clearId === currPlan.id ? { ...currPlan, semesters: [] } : currPlan
+    );
+    return newPlans;
+}
 function SemesterViewButton({
-    setMode
+    setMode,
+    setPlans,
+    plans
 }: {
     setMode: (newMode: string) => void;
+    setPlans: (newPlans: DegreePlan[]) => void;
+    plans: DegreePlan[];
 }): JSX.Element {
     return (
         <div>
@@ -20,6 +32,15 @@ function SemesterViewButton({
             >
                 View Semester
             </Button>
+            <div>
+                <Button
+                    data-testtd="remove-all-semesters-button"
+                    className="mode-button"
+                    onClick={() => setPlans(removeAllSemesters(plans))}
+                >
+                    Remove All Semesters
+                </Button>
+            </div>
         </div>
     );
 }
@@ -50,11 +71,15 @@ how the current plan compares to the necessary requirements for a specified majo
 export function PlanView({
     setMode,
     setCurrentSemester,
-    currentPlan
+    currentPlan,
+    setPlans,
+    plans
 }: {
     currentPlan: DegreePlan;
     setCurrentSemester: (newSemester: Semester) => void;
     setMode: (newMode: string) => void;
+    setPlans: (newPlans: DegreePlan[]) => void;
+    plans: DegreePlan[];
 }): JSX.Element {
     return (
         <div>
@@ -65,7 +90,11 @@ export function PlanView({
                 setCurrentSemester={setCurrentSemester}
             />
             <p>{currentPlan.length} Semesters Total</p>
-            <SemesterViewButton setMode={setMode} />
+            <SemesterViewButton
+                setMode={setMode}
+                plans={plans}
+                setPlans={setPlans}
+            />
             <MainViewButton setMode={setMode} />
         </div>
     );
