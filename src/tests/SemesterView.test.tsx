@@ -9,7 +9,7 @@ describe("SemesterView Tests", () => {
         screen.getByTestId("plan-semester-button").click();
     });
     test("Expect semester view text to display", () => {
-        expect(screen.getByText("Your Semester Schedule")).toBeInTheDocument();
+        expect(screen.getByText(/Schedule for/i)).toBeInTheDocument();
     });
     test("There is a button for switching the view to degree plan", () => {
         const planButton = screen.getByTestId("semester-plan-button");

@@ -15,10 +15,19 @@ export function SemesterScrollBox({
 }): JSX.Element {
     return (
         <div>
-            <ListGroup horizontal={true} className="semester-scroll-box">
+            <ListGroup
+                horizontal={true}
+                data-testid="semester-scroll-box"
+                className="semester-scroll-box"
+            >
                 {plan.semesters.map(
                     (semester: Semester): JSX.Element => (
                         <ListGroup.Item
+                            data-testid={
+                                "semester-" +
+                                semester.season.toString() +
+                                semester.year.toString()
+                            }
                             action={true}
                             onClick={() => {
                                 setMode("semester");
