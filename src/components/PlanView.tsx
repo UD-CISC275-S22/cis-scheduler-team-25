@@ -6,14 +6,6 @@ import "./components.css";
 import { SemesterScrollBox } from "./SemesterScrollBox";
 
 // Button for switching to the SemesterView after selecting a semester
-function removeAllSemesters(plans: DegreePlan[]): DegreePlan[] {
-    const clearId = -1;
-    const newPlans = plans.map(
-        (currPlan: DegreePlan): DegreePlan =>
-            clearId === currPlan.id ? { ...currPlan, semesters: [] } : currPlan
-    );
-    return newPlans;
-}
 function SemesterViewButton({
     setMode,
     setPlans,
@@ -36,7 +28,16 @@ function SemesterViewButton({
                 <Button
                     data-testtd="remove-all-semesters-button"
                     className="mode-button"
-                    onClick={() => setPlans(removeAllSemesters(plans))}
+                    onClick={() => {
+                        const clearId = -1;
+                        const newPlans = plans.map(
+                            (currPlan: DegreePlan): DegreePlan =>
+                                clearId === currPlan.id
+                                    ? { ...currPlan, semesters: [] }
+                                    : currPlan
+                        );
+                        setPlans(newPlans);
+                    }}
                 >
                     Remove All Semesters
                 </Button>
