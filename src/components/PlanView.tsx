@@ -58,7 +58,7 @@ function RemoveAllSemestersButton({
     return (
         <div>
             <Button
-                data-testtd="remove-all-semesters-button"
+                data-testid="remove-all-semesters-button"
                 className="mode-button"
                 onClick={() => {
                     // create DegreePlan based on currentPlan, but with empty semesters

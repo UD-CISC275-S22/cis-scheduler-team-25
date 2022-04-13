@@ -37,6 +37,7 @@ describe("PlanView Tests", () => {
         removeAllSemesters.click();
         expect(screen.queryByText("F-2022")).not.toBeInTheDocument();
         expect(screen.queryByText("S-2023")).not.toBeInTheDocument();
+        expect(screen.getByText("0 Semesters Total")).toBeInTheDocument();
     });
     test("Different header is displayed for a different degree plan", () => {
         screen.getByTestId("plan-main-button").click();
