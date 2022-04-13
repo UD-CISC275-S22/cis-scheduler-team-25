@@ -62,7 +62,11 @@ function RemoveAllSemestersButton({
                 className="mode-button"
                 onClick={() => {
                     // create DegreePlan based on currentPlan, but with empty semesters
-                    const clearedPlan = { ...currentPlan, semesters: [] };
+                    const clearedPlan = {
+                        ...currentPlan,
+                        semesters: [],
+                        length: 0
+                    };
                     // modify plans array so that the DegreePlan matching the
                     // current plan is switched with clearedPlan
                     const newPlans = plans.map(
