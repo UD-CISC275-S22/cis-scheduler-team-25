@@ -33,6 +33,7 @@ export function CurrentView({
             return (
                 <PlanView
                     currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
                     setCurrentSemester={setCurrentSemester}
                     setMode={setMode}
                     setPlans={setPlans}

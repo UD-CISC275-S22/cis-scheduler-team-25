@@ -7,13 +7,9 @@ import { SemesterScrollBox } from "./SemesterScrollBox";
 
 // Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({
-    setMode,
-    setPlans,
-    plans
+    setMode
 }: {
     setMode: (newMode: string) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
-    plans: DegreePlan[];
 }): JSX.Element {
     return (
         <div>
@@ -24,24 +20,6 @@ function SemesterViewButton({
             >
                 View Semester
             </Button>
-            <div>
-                <Button
-                    data-testtd="remove-all-semesters-button"
-                    className="mode-button"
-                    onClick={() => {
-                        const clearId = -1;
-                        const newPlans = plans.map(
-                            (currPlan: DegreePlan): DegreePlan =>
-                                clearId === currPlan.id
-                                    ? { ...currPlan, semesters: [] }
-                                    : currPlan
-                        );
-                        setPlans(newPlans);
-                    }}
-                >
-                    Remove All Semesters
-                </Button>
-            </div>
         </div>
     );
 }
@@ -65,6 +43,45 @@ function MainViewButton({
     );
 }
 
+// Button for completely clearing a plan's existing semesters
+function RemoveAllSemestersButton({
+    currentPlan,
+    setCurrentPlan,
+    setPlans,
+    plans
+}: {
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
+    setPlans: (newPlans: DegreePlan[]) => void;
+    plans: DegreePlan[];
+}): JSX.Element {
+    return (
+        <div>
+            <Button
+                data-testtd="remove-all-semesters-button"
+                className="mode-button"
+                onClick={() => {
+                    // create DegreePlan based on currentPlan, but with empty semesters
+                    const clearedPlan = { ...currentPlan, semesters: [] };
+                    // modify plans array so that the DegreePlan matching the
+                    // current plan is switched with clearedPlan
+                    const newPlans = plans.map(
+                        (currPlan: DegreePlan): DegreePlan =>
+                            currentPlan.id === currPlan.id
+                                ? clearedPlan
+                                : currPlan
+                    );
+                    // set plans to newPlans, and make currentPlan the new clearedPlan
+                    setPlans(newPlans);
+                    setCurrentPlan(clearedPlan);
+                }}
+            >
+                Remove All Semesters
+            </Button>
+        </div>
+    );
+}
+
 /*
 View for seeing the semesters of a plan laid out, also showing information about
 how the current plan compares to the necessary requirements for a specified major
@@ -73,12 +90,14 @@ export function PlanView({
     setMode,
     setCurrentSemester,
     currentPlan,
+    setCurrentPlan,
     setPlans,
     plans
 }: {
-    currentPlan: DegreePlan;
-    setCurrentSemester: (newSemester: Semester) => void;
     setMode: (newMode: string) => void;
+    setCurrentSemester: (newSemester: Semester) => void;
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPLan: DegreePlan) => void;
     setPlans: (newPlans: DegreePlan[]) => void;
     plans: DegreePlan[];
 }): JSX.Element {
@@ -91,10 +110,12 @@ export function PlanView({
                 setCurrentSemester={setCurrentSemester}
             />
             <p>{currentPlan.length} Semesters Total</p>
-            <SemesterViewButton
-                setMode={setMode}
-                plans={plans}
+            <SemesterViewButton setMode={setMode} />
+            <RemoveAllSemestersButton
+                currentPlan={currentPlan}
+                setCurrentPlan={setCurrentPlan}
                 setPlans={setPlans}
+                plans={plans}
             />
             <MainViewButton setMode={setMode} />
         </div>
