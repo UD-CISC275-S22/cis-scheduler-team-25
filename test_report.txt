@@ -2,8 +2,8 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/PlanView.test.tsx
+PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/DegreePlanList.test.tsx
 PASS src/tests/SemesterView.test.tsx
 PASS src/tests/MainView.test.tsx
@@ -32,7 +32,7 @@ All files               |     100 |      100 |     100 |     100 |
 ------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 6 passed, 6 total
-Tests:       15 passed, 15 total
+Tests:       16 passed, 16 total
 Snapshots:   0 total
-Time:        4.566 s
+Time:        4.743 s
 Ran all test suites.
