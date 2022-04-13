@@ -4,13 +4,15 @@
         "name": "Naruto's Degree Plan 1",
         "semesters": [
             {
+                "id": 2022.4,
                 "courses": [1.108, 1.181, 2.241],
-                "season": "F",
+                "season": "Fall",
                 "year": 2022
             },
             {
+                "id": 2023.2,
                 "courses": [3.123, 1.181, 2.242],
-                "season": "S",
+                "season": "Spring",
                 "year": 2023
             }
         ],
@@ -21,18 +23,21 @@
         "name": "Naruto's Degree Plan 2",
         "semesters": [
             {
+                "id": 2022.4,
                 "courses": [1.108, 1.181, 2.241],
-                "season": "F",
+                "season": "Fall",
                 "year": 2022
             },
             {
+                "id": 2023.2,
                 "courses": [3.123, 1.181, 2.242],
-                "season": "S",
+                "season": "Spring",
                 "year": 2023
             },
             {
+                "id": 2023.4,
                 "courses": [3.123, 1.181, 2.242],
-                "season": "F",
+                "season": "Fall",
                 "year": 2023
             }
         ],

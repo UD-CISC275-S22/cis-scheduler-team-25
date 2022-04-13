@@ -13,6 +13,7 @@ export function CurrentView({
     mode,
     setMode,
     plans,
+    setPlans,
     currentPlan,
     setCurrentPlan,
     currentSemester,
@@ -21,6 +22,7 @@ export function CurrentView({
     mode: string;
     setMode: (newMode: string) => void;
     plans: DegreePlan[];
+    setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
     currentSemester: Semester;
@@ -30,7 +32,10 @@ export function CurrentView({
         case "plan":
             return (
                 <PlanView
+                    plans={plans}
+                    setPlans={setPlans}
                     currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
                     setCurrentSemester={setCurrentSemester}
                     setMode={setMode}
                 />
