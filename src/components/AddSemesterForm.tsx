@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
+import { Semester } from "../interfaces/semester";
 import "./components.css";
+
+function semesterSort(sem1: Semester, sem2: Semester): number {
+    if (sem1.id > sem2.id) {
+        return 1;
+    } else if (sem1.id < sem2.id) {
+        return -1;
+    }
+    return 0;
+}
 
 function makeNewSemester(
     plans: DegreePlan[],
@@ -40,7 +50,9 @@ function makeNewSemester(
 
         const newPlan = {
             ...currentPlan,
-            semesters: [...currentPlan.semesters, newSemester]
+            semesters: [...currentPlan.semesters, newSemester].sort(
+                semesterSort
+            )
         };
 
         const newPlans = plans.map(
