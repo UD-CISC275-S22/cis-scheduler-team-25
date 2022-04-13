@@ -71,7 +71,8 @@ function ConfirmButton({
     currentPlan,
     setCurrentPlan,
     season,
-    year
+    year,
+    setShowAdd
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
@@ -79,11 +80,18 @@ function ConfirmButton({
     setCurrentPlan: (newPlan: DegreePlan) => void;
     season: string;
     year: number;
+    setShowAdd: (value: boolean) => void;
 }): JSX.Element {
+    const exists = currentPlan.semesters.filter(
+        (semester: Semester): boolean =>
+            semester.season === season && semester.year === year
+    ).length;
+
     return (
         <Button
+            disabled={exists > 0}
             data-testid="add-semester-confirm-button"
-            onClick={() =>
+            onClick={() => {
                 makeNewSemester(
                     plans,
                     setPlans,
@@ -91,8 +99,9 @@ function ConfirmButton({
                     setCurrentPlan,
                     season,
                     year
-                )
-            }
+                );
+                setShowAdd(false);
+            }}
         >
             Confirm
         </Button>
@@ -103,12 +112,14 @@ export function AddSemesterForm({
     plans,
     setPlans,
     currentPlan,
-    setCurrentPlan
+    setCurrentPlan,
+    setShowAdd
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
+    setShowAdd: (value: boolean) => void;
 }): JSX.Element {
     const [season, setSeason] = useState<string>("Fall");
     const [year, setYear] = useState<number>(NaN);
@@ -169,6 +180,7 @@ export function AddSemesterForm({
                 setCurrentPlan={setCurrentPlan}
                 year={year}
                 season={season}
+                setShowAdd={setShowAdd}
             />
         </div>
     );

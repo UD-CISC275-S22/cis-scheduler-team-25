@@ -144,6 +144,7 @@ export function PlanView({
                     setPlans={setPlans}
                     currentPlan={currentPlan}
                     setCurrentPlan={setCurrentPlan}
+                    setShowAdd={setShowAdd}
                 />
             )}
             <SemesterViewButton setMode={setMode} />
