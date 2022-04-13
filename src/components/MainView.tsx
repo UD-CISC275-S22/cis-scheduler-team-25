@@ -3,15 +3,25 @@ import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { DegreePlanList } from "./DegreePlanList";
 import { CSVExport } from "./CSVExport";
+import invalidSemester from "../exampleData/invalid_semester.json";
+import { Semester } from "../interfaces/semester";
 
 // button for switching to the PlanView
 function PlanViewButton({
-    setMode
+    setMode,
+    setCurrentSemester
 }: {
     setMode: (newMode: string) => void;
+    setCurrentSemester: (newSemester: Semester) => void;
 }): JSX.Element {
     return (
-        <Button data-testid="main-plan-button" onClick={() => setMode("plan")}>
+        <Button
+            data-testid="main-plan-button"
+            onClick={() => {
+                setCurrentSemester(invalidSemester);
+                setMode("plan");
+            }}
+        >
             View Degree Plan
         </Button>
     );
@@ -25,12 +35,14 @@ export function MainView({
     setMode,
     plans,
     currentPlan,
-    setCurrentPlan
+    setCurrentPlan,
+    setCurrentSemester
 }: {
     setMode: (newMode: string) => void;
     plans: DegreePlan[];
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
+    setCurrentSemester: (newSemester: Semester) => void;
 }): JSX.Element {
     return (
         <div>
@@ -40,7 +52,10 @@ export function MainView({
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
             />
-            <PlanViewButton setMode={setMode} />
+            <PlanViewButton
+                setMode={setMode}
+                setCurrentSemester={setCurrentSemester}
+            />
             <CSVExport plans={plans} />
         </div>
     );

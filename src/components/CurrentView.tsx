@@ -36,6 +36,7 @@ export function CurrentView({
                     setPlans={setPlans}
                     currentPlan={currentPlan}
                     setCurrentPlan={setCurrentPlan}
+                    currentSemester={currentSemester}
                     setCurrentSemester={setCurrentSemester}
                     setMode={setMode}
                 />
@@ -54,6 +55,7 @@ export function CurrentView({
                     plans={plans}
                     currentPlan={currentPlan}
                     setCurrentPlan={setCurrentPlan}
+                    setCurrentSemester={setCurrentSemester}
                 />
             );
     }

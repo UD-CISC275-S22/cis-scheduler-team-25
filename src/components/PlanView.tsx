@@ -8,18 +8,26 @@ import { SemesterScrollBox } from "./SemesterScrollBox";
 
 // Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({
-    setMode
+    setMode,
+    currentSemester
 }: {
     setMode: (newMode: string) => void;
+    currentSemester: Semester;
 }): JSX.Element {
     return (
         <div>
             <Button
+                disabled={currentSemester.id === -1}
                 data-testid="plan-semester-button"
                 className="mode-button"
                 onClick={() => setMode("semester")}
             >
-                View Semester
+                {currentSemester.id !== -1
+                    ? "View " +
+                      currentSemester.season +
+                      "-" +
+                      currentSemester.year.toString()
+                    : "Pick a Semester!"}
             </Button>
         </div>
     );
@@ -117,6 +125,7 @@ export function PlanView({
     setPlans,
     currentPlan,
     setCurrentPlan,
+    currentSemester,
     setCurrentSemester
 }: {
     setMode: (newMode: string) => void;
@@ -124,6 +133,7 @@ export function PlanView({
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
+    currentSemester: Semester;
     setCurrentSemester: (newSemester: Semester) => void;
 }): JSX.Element {
     const [showAdd, setShowAdd] = useState<boolean>(false);
@@ -133,7 +143,6 @@ export function PlanView({
             <h1>{currentPlan.name}</h1>
             <SemesterScrollBox
                 plan={currentPlan}
-                setMode={setMode}
                 setCurrentSemester={setCurrentSemester}
             />
             <p>{currentPlan.length} Semesters Total</p>
@@ -147,7 +156,10 @@ export function PlanView({
                     setShowAdd={setShowAdd}
                 />
             )}
-            <SemesterViewButton setMode={setMode} />
+            <SemesterViewButton
+                setMode={setMode}
+                currentSemester={currentSemester}
+            />
             <RemoveAllSemestersButton
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
