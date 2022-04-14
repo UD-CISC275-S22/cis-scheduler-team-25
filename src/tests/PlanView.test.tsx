@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
+
 describe("PlanView Tests", () => {
     beforeEach(() => {
         render(<App />);
@@ -28,8 +29,8 @@ describe("PlanView Tests", () => {
 
         expect(screen.getByText("Remove All Semesters")).toBeInTheDocument();
         removeAllSemesters.click();
-        expect(screen.queryByText("F-2022")).not.toBeInTheDocument();
-        expect(screen.queryByText("S-2023")).not.toBeInTheDocument();
+        expect(screen.queryByText("Fall-2022")).not.toBeInTheDocument();
+        expect(screen.queryByText("Spring-2023")).not.toBeInTheDocument();
         expect(screen.getByText("0 Semesters Total")).toBeInTheDocument();
     });
     test("Different header is displayed for a different degree plan", () => {

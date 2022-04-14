@@ -62,7 +62,7 @@ function AddSemesterButton({
     return (
         <div>
             <Button
-                data-testtd="add-semester-button"
+                data-testid="add-semester-button"
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}
             >

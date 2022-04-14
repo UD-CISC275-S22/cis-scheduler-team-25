@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Semester } from "../interfaces/semester";
 import "./components.css";
@@ -89,8 +89,8 @@ function ConfirmButton({
 
     return (
         <Button
-            disabled={exists > 0}
-            data-testid="add-semester-confirm-button"
+            disabled={exists > 0 || isNaN(year)}
+            data-testid="semester-add-confirm-button"
             onClick={() => {
                 makeNewSemester(
                     plans,
@@ -134,7 +134,7 @@ export function AddSemesterForm({
                 <Row>
                     <Col>
                         <Form.Select
-                            data-testid="add-semester-list"
+                            data-testid="semester-add-season"
                             value={season}
                             onChange={updateSeason}
                         >
@@ -171,6 +171,7 @@ export function AddSemesterForm({
                     <Col>
                         <Form.Control
                             type="number"
+                            data-testid="semester-add-year"
                             placeholder="Year"
                             value={year}
                             onChange={(
