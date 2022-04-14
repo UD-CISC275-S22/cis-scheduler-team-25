@@ -44,6 +44,7 @@ export function CurrentView({
             return (
                 <SemesterView
                     setMode={setMode}
+                    setCurrentSemester={setCurrentSemester}
                     currentSemester={currentSemester}
                 />
             );
