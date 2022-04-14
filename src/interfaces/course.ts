@@ -18,5 +18,5 @@ export interface Course {
     //availability
     typ: string;
     // Array of sections for this course
-    sections: Section[];
+    // sections: Section[];s
 }

@@ -5,6 +5,8 @@ import { CurrentView } from "./components/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
+import { catalog } from "./components/ReadJSON";
+import { Course } from "./interfaces/course";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -32,6 +34,8 @@ function App(): JSX.Element {
         season: "INVALID",
         year: -1
     });
+    const [courses, setCourses] =
+        useState<Record<string, Record<string, Course>>>(catalog);
 
     return (
         <div className="App">
