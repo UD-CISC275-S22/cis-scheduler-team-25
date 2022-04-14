@@ -1,7 +1,5 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { JsxAttributeLike } from "typescript";
-import { Course } from "../interfaces/course";
 import { Semester } from "../interfaces/semester";
 
 // Button for returning back to the PlanView
