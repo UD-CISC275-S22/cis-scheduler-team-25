@@ -1,4 +1,3 @@
-import { check } from "prettier";
 import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
