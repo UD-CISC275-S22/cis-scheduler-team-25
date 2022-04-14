@@ -173,7 +173,7 @@ export function AddSemesterForm({
                             type="number"
                             data-testid="semester-add-year"
                             placeholder="Year"
-                            value={year}
+                            value={year.toString()}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
                             ) => setYear(parseInt(event.target.value))}
