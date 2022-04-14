@@ -19,14 +19,7 @@ describe("PlanView Tests", () => {
         expect(screen.getByText("Degree Plan Selector")).toBeInTheDocument();
     });
     test("There is a button for switching the view to the semester view", () => {
-        const semesterButton = screen.getByTestId("plan-semester-button");
-
-        expect(screen.getByText("Naruto's Degree Plan 1")).toBeInTheDocument();
-        semesterButton.click();
-
-        expect(
-            screen.queryByText("Naruto's Degree Plan 1")
-        ).not.toBeInTheDocument();
+        expect(screen.getByTestId("plan-semester-button")).toBeInTheDocument();
     });
     test("There is a button for removing all semesters", () => {
         const removeAllSemesters = screen.getByTestId(

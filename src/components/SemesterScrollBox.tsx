@@ -24,6 +24,7 @@ export function SemesterScrollBox({
                             data-testid={
                                 "semester-" +
                                 semester.season.toString() +
+                                "-" +
                                 semester.year.toString()
                             }
                             action={true}
