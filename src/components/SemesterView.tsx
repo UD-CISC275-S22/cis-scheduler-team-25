@@ -43,7 +43,7 @@ function RemoveAllCourses({
                 const newSemester = { ...currentSemester, courses: [] };
                 const updateSemesters = currentPlan.semesters.map(
                     (checkSemester: Semester): Semester =>
-                        checkSemester.season === newSemester.season
+                        checkSemester.id === newSemester.id
                             ? newSemester
                             : checkSemester
                 );
