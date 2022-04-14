@@ -5,10 +5,6 @@
     margin: 0 auto;
 }
 
-.mode-button {
-    margin-bottom: 10px;
-}
-
 .semester-scroll-box {
     max-height: calc(100% + 2vmin);
     max-width: calc(100% + 2vmin);
@@ -28,4 +24,10 @@
 .semester-box-height {
     min-height: calc(100px + 20vmin);
     /* min-height: 200px; */
+}
+
+.semester-add-form {
+    height: calc(25% + 2vmin);
+    width: calc(40% + 2vmin);
+    margin: 0 auto;
 }

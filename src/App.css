@@ -29,6 +29,42 @@
     color: #61dafb;
 }
 
+.btn-primary {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(0, 0, 0);
+    border-color: rgb(50, 112, 255);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(207, 222, 253);
+    font-weight: 600;
+}
+
+.btn-primary {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(0, 0, 0);
+    border-color: rgb(50, 112, 255);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(207, 222, 253);
+    font-weight: 600;
+}
+
+.btn-primary:disabled {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(103, 96, 111);
+    border-color: rgb(165, 145, 255);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(206, 202, 213);
+    font-weight: 600;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);

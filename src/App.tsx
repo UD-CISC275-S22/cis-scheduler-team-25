@@ -3,6 +3,7 @@ import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
 import { CurrentView } from "./components/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
+import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
 
@@ -24,11 +25,8 @@ function App(): JSX.Element {
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
     );
-    const [currentSemester, setCurrentSemester] = useState<Semester>({
-        courses: [],
-        season: "INVALID",
-        year: -1
-    });
+    const [currentSemester, setCurrentSemester] =
+        useState<Semester>(invalidSemester);
 
     return (
         <div className="App" style={{ backgroundColor: "gold" }}>

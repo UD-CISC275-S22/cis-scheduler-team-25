@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Semester } from "../interfaces/semester";
-import "./components.css";
+import { AddSemesterForm } from "./AddSemesterForm";
 import { SemesterScrollBox } from "./SemesterScrollBox";
+import invalidSemester from "../exampleData/invalid_semester.json";
+import "./components.css";
 
 // Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({
-    setMode
+    setMode,
+    currentSemester
 }: {
     setMode: (newMode: string) => void;
+    currentSemester: Semester;
 }): JSX.Element {
     return (
-        <div>
-            <Button
-                data-testid="plan-semester-button"
-                className="mode-button"
-                onClick={() => setMode("semester")}
-            >
-                View Semester
-            </Button>
-        </div>
+        <Button
+            disabled={currentSemester.id === -1}
+            data-testid="plan-semester-button"
+            className="mode-button"
+            onClick={() => setMode("semester")}
+        >
+            {currentSemester.id !== -1
+                ? "View " +
+                  currentSemester.season +
+                  "-" +
+                  currentSemester.year.toString()
+                : "Pick a Semester!"}
+        </Button>
     );
 }
 
@@ -44,6 +52,80 @@ function MainViewButton({
 }
 
 // Button for completely clearing a plan's existing semesters
+function AddSemesterButton({
+    showAdd,
+    setShowAdd
+}: {
+    showAdd: boolean;
+    setShowAdd: (value: boolean) => void;
+}): JSX.Element {
+    return (
+        <div>
+            <Button
+                data-testid="add-semester-button"
+                className="mode-button"
+                onClick={() => setShowAdd(!showAdd)}
+            >
+                Add Semester
+            </Button>
+        </div>
+    );
+}
+
+function RemoveCurrentSemestersButton({
+    currentPlan,
+    setCurrentPlan,
+    currentSemester,
+    setCurrentSemester,
+    setPlans,
+    plans
+}: {
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
+    currentSemester: Semester;
+    setCurrentSemester: (newSemester: Semester) => void;
+    setPlans: (newPlans: DegreePlan[]) => void;
+    plans: DegreePlan[];
+}): JSX.Element {
+    return (
+        <Button
+            disabled={currentSemester.id === -1}
+            data-testid="remove-current-semester-button"
+            className="mode-button"
+            onClick={() => {
+                // create DegreePlan based on currentPlan, but with empty semesters
+                const rmvSemesterPlan = {
+                    ...currentPlan,
+                    semesters: currentPlan.semesters.filter(
+                        (semester: Semester): boolean =>
+                            semester.id !== currentSemester.id
+                    ),
+                    length: 0
+                };
+                // modify plans array so that the DegreePlan matching the
+                // current plan is switched with clearedPlan
+                const newPlans = plans.map(
+                    (currPlan: DegreePlan): DegreePlan =>
+                        currentPlan.id === currPlan.id
+                            ? rmvSemesterPlan
+                            : currPlan
+                );
+                // set plans to newPlans, and make currentPlan the new clearedPlan
+                setPlans(newPlans);
+                setCurrentPlan(rmvSemesterPlan);
+                setCurrentSemester(invalidSemester);
+            }}
+        >
+            {currentSemester.id !== -1
+                ? "Delete " +
+                  currentSemester.season +
+                  "-" +
+                  currentSemester.year.toString()
+                : "Pick a Semester!"}
+        </Button>
+    );
+}
+
 function RemoveAllSemestersButton({
     currentPlan,
     setCurrentPlan,
@@ -92,29 +174,55 @@ how the current plan compares to the necessary requirements for a specified majo
 */
 export function PlanView({
     setMode,
-    setCurrentSemester,
+    plans,
+    setPlans,
     currentPlan,
     setCurrentPlan,
-    setPlans,
-    plans
+    currentSemester,
+    setCurrentSemester
 }: {
     setMode: (newMode: string) => void;
-    setCurrentSemester: (newSemester: Semester) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPLan: DegreePlan) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
     plans: DegreePlan[];
+    setPlans: (newPlans: DegreePlan[]) => void;
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
+    currentSemester: Semester;
+    setCurrentSemester: (newSemester: Semester) => void;
 }): JSX.Element {
+    const [showAdd, setShowAdd] = useState<boolean>(false);
+
     return (
         <div>
             <h1>{currentPlan.name}</h1>
             <SemesterScrollBox
                 plan={currentPlan}
-                setMode={setMode}
                 setCurrentSemester={setCurrentSemester}
             />
             <p>{currentPlan.length} Semesters Total</p>
-            <SemesterViewButton setMode={setMode} />
+            <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
+            {showAdd && (
+                <AddSemesterForm
+                    plans={plans}
+                    setPlans={setPlans}
+                    currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
+                    setShowAdd={setShowAdd}
+                />
+            )}
+            <div>
+                <SemesterViewButton
+                    setMode={setMode}
+                    currentSemester={currentSemester}
+                />
+                <RemoveCurrentSemestersButton
+                    currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
+                    setPlans={setPlans}
+                    plans={plans}
+                    currentSemester={currentSemester}
+                    setCurrentSemester={setCurrentSemester}
+                />
+            </div>
             <RemoveAllSemestersButton
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
