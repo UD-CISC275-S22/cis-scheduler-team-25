@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
 
@@ -66,5 +66,24 @@ describe("Add Semester Form Tests", () => {
         userEvent.type(yearTextBox, "2023");
 
         expect(confirmButton).toBeDisabled();
+    });
+    test("Added semesters are automatically sorted", () => {
+        screen.getByTestId("add-semester-button").click();
+
+        const confirmButton = screen.getByTestId("semester-add-confirm-button");
+        const yearTextBox = screen.getByTestId("semester-add-year");
+        const seasonSelect = screen.getByTestId("semester-add-season");
+
+        userEvent.selectOptions(seasonSelect, "Winter");
+        userEvent.type(yearTextBox, "2023");
+        confirmButton.click();
+
+        // use regex to get the ListGroup.Item in SemesterScrollBox,
+        // if sorting is correct, Winter 2023 should be between
+        // Fall 2022 and Spring 2023
+        const listItems = screen.getAllByTestId(/semester-.*-..../i);
+        expect(
+            within(listItems[1]).getByText("Winter-2023")
+        ).toBeInTheDocument();
     });
 });

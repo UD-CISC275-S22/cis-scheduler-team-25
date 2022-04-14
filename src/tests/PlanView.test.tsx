@@ -33,6 +33,18 @@ describe("PlanView Tests", () => {
         expect(screen.queryByText("Spring-2023")).not.toBeInTheDocument();
         expect(screen.getByText("0 Semesters Total")).toBeInTheDocument();
     });
+    test("There is a button for deleting a single semester", () => {
+        const removeCurrentSemesters = screen.getByTestId(
+            "remove-current-semester-button"
+        );
+
+        expect(screen.getByText("Fall-2022")).toBeInTheDocument();
+        screen.getByTestId("semester-Fall-2022").click();
+        removeCurrentSemesters.click();
+
+        expect(screen.queryByText("Fall-2022")).not.toBeInTheDocument();
+        expect(screen.queryByText("Spring-2023")).toBeInTheDocument();
+    });
     test("Different header is displayed for a different degree plan", () => {
         screen.getByTestId("plan-main-button").click();
 
