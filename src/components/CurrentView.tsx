@@ -44,9 +44,13 @@ export function CurrentView({
         case "semester":
             return (
                 <SemesterView
+                    setPlans={setPlans}
+                    plans={plans}
                     setMode={setMode}
                     setCurrentSemester={setCurrentSemester}
                     currentSemester={currentSemester}
+                    setCurrentPlan={setCurrentPlan}
+                    currentPlan={currentPlan}
                 />
             );
         default:
