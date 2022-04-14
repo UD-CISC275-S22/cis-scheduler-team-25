@@ -23,17 +23,17 @@ function PlanViewButton({
 function RemoveAllCourses({
     setCurrentSemester,
     setCurrentPlan,
-    //setPlans,
+    setPlans,
     currentPlan,
-    //plans,
+    plans,
     currentSemester
 }: {
     setCurrentSemester: (currentSemester: Semester) => void;
     setCurrentPlan: (currentPlan: DegreePlan) => void;
-    //setPlans: (plans: DegreePlan[]) => void;
+    setPlans: (plans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     currentSemester: Semester;
-    //plans: DegreePlan[];
+    plans: DegreePlan[];
 }): JSX.Element {
     return (
         <Button
@@ -51,8 +51,14 @@ function RemoveAllCourses({
                     ...currentPlan,
                     semesters: updateSemesters
                 };
+
+                const newPlans = plans.map(
+                    (plan: DegreePlan): DegreePlan =>
+                        plan.id === currentPlan.id ? newDegreePlan : plan
+                );
                 setCurrentSemester(newSemester);
                 setCurrentPlan(newDegreePlan);
+                setPlans(newPlans);
             }}
         >
             Remove All Courses
@@ -69,17 +75,18 @@ export function SemesterView({
     setMode,
     setCurrentSemester,
     setCurrentPlan,
-    //setPlans,
+    setPlans,
     currentPlan,
-    //plans,
+    plans,
     currentSemester
 }: {
     setMode: (newMode: string) => void;
     setCurrentSemester: (currentSemester: Semester) => void;
     setCurrentPlan: (currentPlan: DegreePlan) => void;
     currentSemester: Semester;
-    //setPlans: (plans: DegreePlan[]) => void;
+    setPlans: (plans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
+    plans: DegreePlan[];
 }): JSX.Element {
     return (
         <div>
@@ -97,6 +104,8 @@ export function SemesterView({
                 setCurrentPlan={setCurrentPlan}
                 currentPlan={currentPlan}
                 currentSemester={currentSemester}
+                setPlans={setPlans}
+                plans={plans}
             ></RemoveAllCourses>
             <div></div>
             <PlanViewButton setMode={setMode} />
