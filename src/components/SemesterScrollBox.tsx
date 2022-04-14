@@ -6,11 +6,9 @@ import { ListGroup } from "react-bootstrap";
 
 export function SemesterScrollBox({
     plan,
-    setMode,
     setCurrentSemester
 }: {
     plan: DegreePlan;
-    setMode: (newMode: string) => void;
     setCurrentSemester: (newSemester: Semester) => void;
 }): JSX.Element {
     return (
@@ -27,11 +25,11 @@ export function SemesterScrollBox({
                             data-testid={
                                 "semester-" +
                                 semester.season.toString() +
+                                "-" +
                                 semester.year.toString()
                             }
                             action={true}
                             onClick={() => {
-                                setMode("semester");
                                 setCurrentSemester(semester);
                             }}
                             className="semester-box-length"
