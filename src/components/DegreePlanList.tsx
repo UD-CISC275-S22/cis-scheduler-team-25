@@ -23,7 +23,10 @@ export function DegreePlanList({
     return (
         <div className="DegreePlanList">
             <p>Please choose a Degree Plan:</p>
-            <Form.Group controlId="planList">
+            <Form.Group
+                style={{ border: "3px solid #00539F" }}
+                controlId="planList"
+            >
                 <Form.Select
                     htmlSize={5}
                     data-testid="plan-list"

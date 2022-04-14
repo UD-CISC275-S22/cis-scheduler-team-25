@@ -31,7 +31,7 @@ function App(): JSX.Element {
     });
 
     return (
-        <div className="App">
+        <div className="App" style={{ backgroundColor: "gold" }}>
             <header
                 style={{
                     backgroundImage: `url(${Background})`,

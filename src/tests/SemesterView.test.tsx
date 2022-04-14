@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import App from "../App";
 
 describe("SemesterView Tests", () => {
@@ -17,5 +17,12 @@ describe("SemesterView Tests", () => {
         expect(
             screen.queryByText("Your Semester Schedule")
         ).not.toBeInTheDocument();
+    });
+    test("remove-all-courses-from-semester", () => {
+        const removeAllCourses = screen.getByTestId(
+            "remove-all-courses-from-semester"
+        );
+        removeAllCourses.click();
+        expect(screen.queryByText(/\d.\d\d\d/)).not.toBeInTheDocument();
     });
 });
