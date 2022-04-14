@@ -23,15 +23,6 @@ describe("SemesterView Tests", () => {
             "remove-all-courses-from-semester"
         );
         removeAllCourses.click();
-        const semester1 = screen.getByTestId("semester-F2022");
-        const semester2 = screen.getByTestId("semester-S2023");
-
-        expect(within(semester1).getByText("1.108")).not.toBeInTheDocument();
-        expect(within(semester1).getByText("1.181")).not.toBeInTheDocument();
-        expect(within(semester1).getByText("2.241")).not.toBeInTheDocument();
-
-        expect(within(semester2).getByText("3.123")).not.toBeInTheDocument();
-        expect(within(semester2).getByText("1.181")).not.toBeInTheDocument();
-        expect(within(semester2).getByText("2.242")).not.toBeInTheDocument();
+        expect(screen.queryByText(/\d.\d\d\d/)).not.toBeInTheDocument();
     });
 });
