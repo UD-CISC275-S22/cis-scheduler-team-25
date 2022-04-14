@@ -3,6 +3,7 @@ import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
 import { CurrentView } from "./components/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
+import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
 import { catalog } from "./components/ReadJSON";
@@ -21,24 +22,19 @@ const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
 );
 
 function App(): JSX.Element {
-    const [
-        plans
-        // setPlans
-    ] = useState<DegreePlan[]>(DEFAULT_PLANS);
+    const [plans, setPlans] = useState<DegreePlan[]>(DEFAULT_PLANS);
     const [mode, setMode] = useState<string>("main");
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
     );
-    const [currentSemester, setCurrentSemester] = useState<Semester>({
-        courses: [],
-        season: "INVALID",
-        year: -1
-    });
+
     const [courses, setCourses] =
         useState<Record<string, Record<string, Course>>>(catalog);
+    const [currentSemester, setCurrentSemester] =
+        useState<Semester>(invalidSemester);
 
     return (
-        <div className="App">
+        <div className="App" style={{ backgroundColor: "gold" }}>
             <header
                 style={{
                     backgroundImage: `url(${Background})`,
@@ -77,6 +73,7 @@ function App(): JSX.Element {
                 mode={mode}
                 setMode={setMode}
                 plans={plans}
+                setPlans={setPlans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
                 currentSemester={currentSemester}

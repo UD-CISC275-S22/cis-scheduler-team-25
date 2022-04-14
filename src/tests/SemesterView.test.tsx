@@ -6,6 +6,7 @@ describe("SemesterView Tests", () => {
     beforeEach(() => {
         render(<App />);
         screen.getByTestId("main-plan-button").click();
+        screen.getByTestId("semester-Fall-2022").click();
         screen.getByTestId("plan-semester-button").click();
     });
     test("Expect semester view text to display", () => {
@@ -15,7 +16,14 @@ describe("SemesterView Tests", () => {
         const planButton = screen.getByTestId("semester-plan-button");
         planButton.click();
         expect(
-            screen.queryByText("Your Semester Schedule")
+            screen.queryByText("Schedule for Fall-2022")
         ).not.toBeInTheDocument();
+    });
+    test("remove-all-courses-from-semester", () => {
+        const removeAllCourses = screen.getByTestId(
+            "remove-all-courses-from-semester"
+        );
+        removeAllCourses.click();
+        expect(screen.queryByText(/\d.\d\d\d/)).not.toBeInTheDocument();
     });
 });
