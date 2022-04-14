@@ -12,10 +12,10 @@ PASS src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   94.31 |     87.5 |     100 |   94.31 |                   
+All files               |   94.79 |    88.88 |     100 |   94.79 |                   
  src                    |     100 |      100 |     100 |     100 |                   
   App.tsx               |     100 |      100 |     100 |     100 |                   
- src/components         |   93.75 |     87.5 |     100 |   93.75 |                   
+ src/components         |   94.31 |    88.88 |     100 |   94.31 |                   
   AddSemesterForm.tsx   |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40    
   CSVExport.tsx         |     100 |      100 |     100 |     100 |                   
   CurrentView.tsx       |     100 |      100 |     100 |     100 |                   
@@ -36,5 +36,5 @@ All files               |   94.31 |     87.5 |     100 |   94.31 |
 Test Suites: 7 passed, 7 total
 Tests:       24 passed, 24 total
 Snapshots:   0 total
-Time:        5.927 s
+Time:        8.377 s
 Ran all test suites.
