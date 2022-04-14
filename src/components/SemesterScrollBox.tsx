@@ -16,6 +16,7 @@ export function SemesterScrollBox({
     return (
         <div>
             <ListGroup
+                style={{ border: "3px solid #00539F" }}
                 horizontal={true}
                 data-testid="semester-scroll-box"
                 className="semester-scroll-box"
