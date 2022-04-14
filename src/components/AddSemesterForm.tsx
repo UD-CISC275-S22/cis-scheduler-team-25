@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Semester } from "../interfaces/semester";
 import "./components.css";
@@ -129,49 +129,56 @@ export function AddSemesterForm({
     }
 
     return (
-        <div>
+        <div className="semester-add-form">
             <Form.Group>
-                <Form.Select
-                    data-testid="add-semester-list"
-                    value={season}
-                    onChange={updateSeason}
-                >
-                    <option
-                        key="Fall"
-                        value="Fall"
-                        data-testid="semester-season-option-fall"
-                    >
-                        Fall
-                    </option>
-                    <option
-                        key="Winter"
-                        value="Winter"
-                        data-testid="semester-season-option-winter"
-                    >
-                        Winter
-                    </option>
-                    <option
-                        key="Spring"
-                        value="Spring"
-                        data-testid="semester-season-option-spring"
-                    >
-                        Spring
-                    </option>
-                    <option
-                        key="Summer"
-                        value="Summer"
-                        data-testid="semester-season-option-summer"
-                    >
-                        Summer
-                    </option>
-                </Form.Select>
-                <Form.Control
-                    type="number"
-                    value={year}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        setYear(parseInt(event.target.value))
-                    }
-                />
+                <Row>
+                    <Col>
+                        <Form.Select
+                            data-testid="add-semester-list"
+                            value={season}
+                            onChange={updateSeason}
+                        >
+                            <option
+                                key="Fall"
+                                value="Fall"
+                                data-testid="semester-season-option-fall"
+                            >
+                                Fall
+                            </option>
+                            <option
+                                key="Winter"
+                                value="Winter"
+                                data-testid="semester-season-option-winter"
+                            >
+                                Winter
+                            </option>
+                            <option
+                                key="Spring"
+                                value="Spring"
+                                data-testid="semester-season-option-spring"
+                            >
+                                Spring
+                            </option>
+                            <option
+                                key="Summer"
+                                value="Summer"
+                                data-testid="semester-season-option-summer"
+                            >
+                                Summer
+                            </option>
+                        </Form.Select>
+                    </Col>
+                    <Col>
+                        <Form.Control
+                            type="number"
+                            placeholder="Year"
+                            value={year}
+                            onChange={(
+                                event: React.ChangeEvent<HTMLInputElement>
+                            ) => setYear(parseInt(event.target.value))}
+                        />
+                    </Col>
+                </Row>
             </Form.Group>
             <ConfirmButton
                 plans={plans}
