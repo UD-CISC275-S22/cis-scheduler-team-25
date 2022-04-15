@@ -1,4 +1,4 @@
-import { Section } from "./section";
+// import { Section } from "./section";
 export interface Course {
     /* numeric code for a course, e.g. 1.181 corresponds to CISC181,
     where CISC = 1 and .181 identifies the department course number */
