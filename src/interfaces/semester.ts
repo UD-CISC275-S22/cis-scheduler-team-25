@@ -1,3 +1,5 @@
+import { Course } from "./course";
+
 export interface Semester {
     /* ID follows a numbering system of year.season, where season decimal values
     are as follows:
@@ -10,7 +12,7 @@ export interface Semester {
     */
     id: number;
     // Array of course IDs; used to reference a list of all courses
-    courses: number[];
+    courses: Course[];
     // Season of this semester
     season: string;
     // academic year of this semester

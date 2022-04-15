@@ -5,13 +5,65 @@
         "semesters": [
             {
                 "id": 2022.4,
-                "courses": [1.108, 1.181, 2.241],
+                "courses": [
+                    {
+                        "code": "CISC 108",
+                        "name": "Introduction to Computer Science I",
+                        "descr": "Computing and principles of programming with an emphasis on systematic program design. Topics include functional programming, data abstraction, procedural abstraction, use of control and state, recursion, testing, and object-oriented programming concepts. Requires no prior programming experience, open to any major, but intended primarily for majors and minors in computer science or mathematics.",
+                        "credits": " 3",
+                        "preReq": "",
+                        "restrict": "",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall and Spring"
+                    },
+                    {
+                        "code": "MATH 241",
+                        "name": "Analytic Geometry and Calculus A",
+                        "descr": "Functions, limits, continuity, derivatives. Polynomial, rational, exponential, hyperbolic, logarithmic, trigonometric and inverse trigonometric functions. Definite and indefinite integrals and the Fundamental Theorem of Calculus. Simple differential equations (separable ODE, linear ODE). ODE models leading to exponential growth and decay.",
+                        "credits": " 4",
+                        "preReq": "MATH 117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
+                        "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Winter, Spring, Summer"
+                    }
+                ],
                 "season": "Fall",
                 "year": 2022
             },
             {
                 "id": 2023.2,
-                "courses": [3.123, 1.181, 2.242],
+                "courses": [
+                    {
+                        "code": "MATH 242",
+                        "name": "Analytic Geometry and Calculus B",
+                        "descr": "Brief review of MATH 241; evaluation of limits by L\u2019Hospital\u2019s rule; applications of integration; integration techniques; parametric curves; polar coordinates; infinite sequences and series. Includes use of computers to perform symbolic, numerical and graphical analysis.",
+                        "credits": " 4",
+                        "preReq": "MATH 241 or MATH 232.",
+                        "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Winter, Spring, Summer"
+                    },
+                    {
+                        "code": "CISC 181",
+                        "name": "Introduction to Computer Science II",
+                        "descr": "Principles of computer science illustrated and applied through programming in an object oriented language. Programming projects illustrate computational problems, styles and issues that arise in computer systems development and in all application areas of computation.",
+                        "credits": " 3",
+                        "preReq": "Grade of C- or better in CISC 108 or CISC 106.",
+                        "restrict": "",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Summer and Spring"
+                    },
+                    {
+                        "code": "CISC 210",
+                        "name": "Introduction to Systems Programming",
+                        "descr": "",
+                        "credits": " 3",
+                        "preReq": "A grade of C- or better in CISC 106 or CISC 108.",
+                        "restrict": "",
+                        "breadth": "University: ; A&S: ",
+                        "typ": "Fall and Spring"
+                    }
+                ],
                 "season": "Spring",
                 "year": 2023
             }
@@ -24,19 +76,92 @@
         "semesters": [
             {
                 "id": 2022.4,
-                "courses": [1.108, 1.181, 2.241],
+                "courses": [
+                    {
+                        "code": "CISC 108",
+                        "name": "Introduction to Computer Science I",
+                        "descr": "Computing and principles of programming with an emphasis on systematic program design. Topics include functional programming, data abstraction, procedural abstraction, use of control and state, recursion, testing, and object-oriented programming concepts. Requires no prior programming experience, open to any major, but intended primarily for majors and minors in computer science or mathematics.",
+                        "credits": " 3",
+                        "preReq": "",
+                        "restrict": "",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall and Spring"
+                    },
+                    {
+                        "code": "MATH 241",
+                        "name": "Analytic Geometry and Calculus A",
+                        "descr": "Functions, limits, continuity, derivatives. Polynomial, rational, exponential, hyperbolic, logarithmic, trigonometric and inverse trigonometric functions. Definite and indefinite integrals and the Fundamental Theorem of Calculus. Simple differential equations (separable ODE, linear ODE). ODE models leading to exponential growth and decay.",
+                        "credits": " 4",
+                        "preReq": "MATH 117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
+                        "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Winter, Spring, Summer"
+                    }
+                ],
                 "season": "Fall",
                 "year": 2022
             },
             {
                 "id": 2023.2,
-                "courses": [3.123, 1.181, 2.242],
+                "courses": [
+                    {
+                        "code": "ENGL 110",
+                        "name": "Seminar in Composition",
+                        "descr": "",
+                        "credits": " 3",
+                        "preReq": "",
+                        "restrict": "Required of all students. Should be taken first year on campus.",
+                        "breadth": "University: ; A&S: ",
+                        "typ": "Fall, Winter, Spring, Summer"
+                    },
+                    {
+                        "code": "BISC 208",
+                        "name": "Introductory Biology II",
+                        "descr": "Mechanisms of evolution. Physiology of multicellular plants and animals. Principles of ecology with emphasis on the biology of populations. Laboratory focuses on testing of hypotheses, data analysis and scientific writing. Animal and plant anatomy also studied.",
+                        "credits": " 4",
+                        "preReq": "BISC 207.",
+                        "restrict": "",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Winter, Spring, Summer"
+                    }
+                ],
                 "season": "Spring",
                 "year": 2023
             },
             {
                 "id": 2023.4,
-                "courses": [3.123, 1.181, 2.242],
+                "courses": [
+                    {
+                        "code": "MATH 242",
+                        "name": "Analytic Geometry and Calculus B",
+                        "descr": "Brief review of MATH 241; evaluation of limits by L\u2019Hospital\u2019s rule; applications of integration; integration techniques; parametric curves; polar coordinates; infinite sequences and series. Includes use of computers to perform symbolic, numerical and graphical analysis.",
+                        "credits": " 4",
+                        "preReq": "MATH 241 or MATH 232.",
+                        "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Winter, Spring, Summer"
+                    },
+                    {
+                        "code": "CISC 181",
+                        "name": "Introduction to Computer Science II",
+                        "descr": "Principles of computer science illustrated and applied through programming in an object oriented language. Programming projects illustrate computational problems, styles and issues that arise in computer systems development and in all application areas of computation.",
+                        "credits": " 3",
+                        "preReq": "Grade of C- or better in CISC 108 or CISC 106.",
+                        "restrict": "",
+                        "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
+                        "typ": "Fall, Summer and Spring"
+                    },
+                    {
+                        "code": "CISC 210",
+                        "name": "Introduction to Systems Programming",
+                        "descr": "",
+                        "credits": " 3",
+                        "preReq": "A grade of C- or better in CISC 106 or CISC 108.",
+                        "restrict": "",
+                        "breadth": "University: ; A&S: ",
+                        "typ": "Fall and Spring"
+                    }
+                ],
                 "season": "Fall",
                 "year": 2023
             }
