@@ -6,6 +6,8 @@ import defaultPlans from "./exampleData/example_degree_plan.json";
 import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
+import { courseList } from "./components/ReadJSON";
+import { Course } from "./interfaces/course";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -25,8 +27,14 @@ function App(): JSX.Element {
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
         DEFAULT_PLANS[0]
     );
+    const [
+        courses
+        //  setCourses
+    ] = useState<Course[]>(courseList);
     const [currentSemester, setCurrentSemester] =
         useState<Semester>(invalidSemester);
+
+    console.log(courses);
 
     return (
         <div className="App" style={{ backgroundColor: "gold" }}>
