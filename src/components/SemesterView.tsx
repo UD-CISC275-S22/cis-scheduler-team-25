@@ -102,6 +102,10 @@ export function SemesterView({
             <CourseDragDrop
                 currentSemester={currentSemester}
                 setCurrentSemester={setCurrentSemester}
+                plans={plans}
+                setPlans={setPlans}
+                currentPlan={currentPlan}
+                setCurrentPlan={setCurrentPlan}
             />
             <RemoveAllCourses
                 setCurrentSemester={setCurrentSemester}

@@ -6,10 +6,15 @@ import { Semester } from "../../interfaces/semester";
 import { CourseDropPool } from "./CourseDropPool";
 import { courseList } from "../ReadJSON";
 import { handleOnDragEnd } from "./handleOnDragEnd";
+import { DegreePlan } from "../../interfaces/degreeplan";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
     setCurrentSemester: (newSemester: Semester) => void;
+    plans: DegreePlan[];
+    setPlans: (newPlans: DegreePlan[]) => void;
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
 };
 
 /* Component allowing for courses to be dragged and dropped from a pool of courses
@@ -17,7 +22,11 @@ type CourseDragDropProps = {
 */
 export function CourseDragDrop({
     currentSemester,
-    setCurrentSemester
+    setCurrentSemester,
+    plans,
+    setPlans,
+    currentPlan,
+    setCurrentPlan
 }: CourseDragDropProps): JSX.Element {
     const [coursePool, setCoursePool] = useState<Course[]>(
         courseList.filter(
@@ -36,7 +45,11 @@ export function CourseDragDrop({
                         semesterPool: currentSemester.courses,
                         currentSemester: currentSemester,
                         setCurrentSemester: setCurrentSemester,
-                        setCoursePool: setCoursePool
+                        setCoursePool: setCoursePool,
+                        plans: plans,
+                        setPlans: setPlans,
+                        currentPlan: currentPlan,
+                        setCurrentPlan: setCurrentPlan
                     })
                 }
             >

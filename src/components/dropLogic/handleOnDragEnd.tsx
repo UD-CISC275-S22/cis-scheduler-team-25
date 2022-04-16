@@ -1,6 +1,7 @@
 import React from "react";
 import { DropResult } from "react-beautiful-dnd";
 import { Course } from "../../interfaces/course";
+import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 
 type DragEndProps = {
@@ -10,6 +11,10 @@ type DragEndProps = {
     currentSemester: Semester;
     setCurrentSemester: (newSemester: Semester) => void;
     setCoursePool: (newCoursePool: Course[]) => void;
+    plans: DegreePlan[];
+    setPlans: (newPlans: DegreePlan[]) => void;
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
 };
 
 /* Function for handling the drag/drop updating logic
@@ -22,6 +27,10 @@ export function handleOnDragEnd({
     coursePool,
     semesterPool,
     currentSemester,
+    plans,
+    setPlans,
+    currentPlan,
+    setCurrentPlan,
     setCurrentSemester,
     setCoursePool
 }: DragEndProps) {
@@ -41,10 +50,30 @@ export function handleOnDragEnd({
             0,
             draggedCourses
         );
+
+        const newSemester = {
+            ...currentSemester,
+            courses: reorderedSemesterCourses
+        };
+        const newPlan = {
+            ...currentPlan,
+            semesters: currentPlan.semesters.map(
+                (semester: Semester): Semester =>
+                    semester.id === currentSemester.id ? newSemester : semester
+            )
+        };
+
         setCurrentSemester({
             ...currentSemester,
             courses: reorderedSemesterCourses
         });
+        setCurrentPlan(newPlan);
+        setPlans(
+            plans.map(
+                (plan: DegreePlan): DegreePlan =>
+                    plan.id === currentPlan.id ? newPlan : plan
+            )
+        );
     } else if (action === "coursePool->semesterPool") {
         console.log("asdas");
     } else if (action === "semesterPool->coursePool") {
