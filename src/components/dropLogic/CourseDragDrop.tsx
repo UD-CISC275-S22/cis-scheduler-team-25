@@ -28,10 +28,16 @@ export function CourseDragDrop({
     currentPlan,
     setCurrentPlan
 }: CourseDragDropProps): JSX.Element {
+    const [category, setCategory] = useState<string>("CISC Core");
     const [coursePool, setCoursePool] = useState<Course[]>(
         courseList.filter(
             (course: Course): boolean =>
                 !currentSemester.courses.includes(course)
+        )
+    );
+    const [currentCourses, setcurrentCourses] = useState<Course[]>(
+        coursePool.filter((course: Course): boolean =>
+            course.degreeCategory.includes(category)
         )
     );
 
@@ -63,7 +69,7 @@ export function CourseDragDrop({
                     <Col>
                         {" "}
                         <CourseDropPool
-                            courses={coursePool.slice(0, 10)}
+                            courses={currentCourses}
                             droppableId="coursePool"
                         />
                     </Col>

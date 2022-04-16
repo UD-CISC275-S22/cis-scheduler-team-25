@@ -35,48 +35,78 @@ export function handleOnDragEnd({
     setCoursePool
 }: DragEndProps) {
     if (!result.destination) return;
+    const args = {
+        result,
+        coursePool,
+        semesterPool,
+        currentSemester,
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        setCurrentSemester,
+        setCoursePool
+    };
+
     const action =
         result.source.droppableId.toString() +
         "->" +
         result.destination.droppableId.toString();
     if (action === "semesterPool->semesterPool") {
-        const reorderedSemesterCourses = [...semesterPool];
-        const [draggedCourses] = reorderedSemesterCourses.splice(
-            result.source.index,
-            1
-        );
-        reorderedSemesterCourses.splice(
-            result.destination.index,
-            0,
-            draggedCourses
-        );
-
-        const newSemester = {
-            ...currentSemester,
-            courses: reorderedSemesterCourses
-        };
-        const newPlan = {
-            ...currentPlan,
-            semesters: currentPlan.semesters.map(
-                (semester: Semester): Semester =>
-                    semester.id === currentSemester.id ? newSemester : semester
-            )
-        };
-
-        setCurrentSemester({
-            ...currentSemester,
-            courses: reorderedSemesterCourses
-        });
-        setCurrentPlan(newPlan);
-        setPlans(
-            plans.map(
-                (plan: DegreePlan): DegreePlan =>
-                    plan.id === currentPlan.id ? newPlan : plan
-            )
-        );
+        handleSemester2Semester(args);
     } else if (action === "coursePool->semesterPool") {
         console.log("asdas");
     } else if (action === "semesterPool->coursePool") {
         console.log("asdas");
     }
+}
+
+function handleSemester2Semester({
+    result,
+    coursePool,
+    semesterPool,
+    currentSemester,
+    plans,
+    setPlans,
+    currentPlan,
+    setCurrentPlan,
+    setCurrentSemester,
+    setCoursePool
+}: DragEndProps) {
+    if (!result.destination) return;
+
+    const reorderedSemesterCourses = [...semesterPool];
+    const [draggedCourses] = reorderedSemesterCourses.splice(
+        result.source.index,
+        1
+    );
+    reorderedSemesterCourses.splice(
+        result.destination.index,
+        0,
+        draggedCourses
+    );
+
+    const newSemester = {
+        ...currentSemester,
+        courses: reorderedSemesterCourses
+    };
+    const newPlan = {
+        ...currentPlan,
+        semesters: currentPlan.semesters.map(
+            (semester: Semester): Semester =>
+                semester.id === currentSemester.id ? newSemester : semester
+        )
+    };
+
+    setCurrentSemester({
+        ...currentSemester,
+        courses: reorderedSemesterCourses
+    });
+    setCurrentPlan(newPlan);
+    setPlans(
+        plans.map(
+            (plan: DegreePlan): DegreePlan =>
+                plan.id === currentPlan.id ? newPlan : plan
+        )
+    );
 }

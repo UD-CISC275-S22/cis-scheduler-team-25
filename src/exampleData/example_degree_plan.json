@@ -14,7 +14,8 @@
                         "preReq": "",
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall and Spring"
+                        "typ": "Fall and Spring",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "MATH 241",
@@ -24,7 +25,8 @@
                         "preReq": "MATH 117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Winter, Spring, Summer"
+                        "typ": "Fall, Winter, Spring, Summer",
+                        "degreeCategory": [0]
                     }
                 ],
                 "season": "Fall",
@@ -41,7 +43,8 @@
                         "preReq": "MATH 241 or MATH 232.",
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Winter, Spring, Summer"
+                        "typ": "Fall, Winter, Spring, Summer",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "CISC 181",
@@ -51,7 +54,8 @@
                         "preReq": "Grade of C- or better in CISC 108 or CISC 106.",
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Summer and Spring"
+                        "typ": "Fall, Summer and Spring",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "CISC 210",
@@ -61,7 +65,8 @@
                         "preReq": "A grade of C- or better in CISC 106 or CISC 108.",
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
-                        "typ": "Fall and Spring"
+                        "typ": "Fall and Spring",
+                        "degreeCategory": [0]
                     }
                 ],
                 "season": "Spring",
@@ -85,7 +90,8 @@
                         "preReq": "",
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall and Spring"
+                        "typ": "Fall and Spring",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "MATH 241",
@@ -95,7 +101,8 @@
                         "preReq": "MATH 117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Winter, Spring, Summer"
+                        "typ": "Fall, Winter, Spring, Summer",
+                        "degreeCategory": [0]
                     }
                 ],
                 "season": "Fall",
@@ -112,7 +119,8 @@
                         "preReq": "",
                         "restrict": "Required of all students. Should be taken first year on campus.",
                         "breadth": "University: ; A&S: ",
-                        "typ": "Fall, Winter, Spring, Summer"
+                        "typ": "Fall, Winter, Spring, Summer",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "BISC 208",
@@ -122,7 +130,8 @@
                         "preReq": "BISC 207.",
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Winter, Spring, Summer"
+                        "typ": "Fall, Winter, Spring, Summer",
+                        "degreeCategory": [0]
                     }
                 ],
                 "season": "Spring",
@@ -139,7 +148,8 @@
                         "preReq": "MATH 241 or MATH 232.",
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Winter, Spring, Summer"
+                        "typ": "Fall, Winter, Spring, Summer",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "CISC 181",
@@ -149,7 +159,8 @@
                         "preReq": "Grade of C- or better in CISC 108 or CISC 106.",
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
-                        "typ": "Fall, Summer and Spring"
+                        "typ": "Fall, Summer and Spring",
+                        "degreeCategory": [0]
                     },
                     {
                         "code": "CISC 210",
@@ -159,7 +170,8 @@
                         "preReq": "A grade of C- or better in CISC 106 or CISC 108.",
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
-                        "typ": "Fall and Spring"
+                        "typ": "Fall and Spring",
+                        "degreeCategory": [0]
                     }
                 ],
                 "season": "Fall",
