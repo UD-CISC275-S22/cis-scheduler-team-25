@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Semester } from "../interfaces/semester";
+import { CourseDragDrop } from "./dropLogic/CourseDragDrop";
 
 // Button for returning back to the PlanView
 function PlanViewButton({
@@ -98,6 +99,10 @@ export function SemesterView({
             <div>
                 FOR TESTING PURPOSES: {currentSemester.courses.toString()}
             </div>
+            <CourseDragDrop
+                currentSemester={currentSemester}
+                setCurrentSemester={setCurrentSemester}
+            />
             <RemoveAllCourses
                 setCurrentSemester={setCurrentSemester}
                 setCurrentPlan={setCurrentPlan}

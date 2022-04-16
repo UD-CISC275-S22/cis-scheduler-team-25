@@ -1,6 +1,7 @@
 import React from "react";
 import { Droppable, Draggable, DroppableProvided } from "react-beautiful-dnd";
-import { Course } from "../interfaces/course";
+import { Course } from "../../interfaces/course";
+import "../components.css";
 
 type CourseDropPoolProps = {
     courses: Course[];
@@ -24,6 +25,7 @@ export function CourseDropPool({
                             >
                                 {(provided) => (
                                     <li
+                                        className="course-draggable"
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
