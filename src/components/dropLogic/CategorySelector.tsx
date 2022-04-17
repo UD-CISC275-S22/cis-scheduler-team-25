@@ -40,10 +40,7 @@ export function CategorySelector({
     return (
         <div className="DegreePlanList">
             <p>Please select a category</p>
-            <Form.Group
-                style={{ border: "3px solid #00539F" }}
-                controlId="planList"
-            >
+            <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select
                     data-testid="plan-list"
                     value={category}

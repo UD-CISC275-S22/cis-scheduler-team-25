@@ -5,6 +5,10 @@
     margin: 0 auto;
 }
 
+.dropdown-border {
+    border: 3px solid #00539f;
+}
+
 .semester-scroll-box {
     max-height: calc(100% + 2vmin);
     max-width: calc(100% + 2vmin);
@@ -33,12 +37,20 @@
 }
 
 .course-draggable {
-    list-style: none;
-    padding-left: 0;
     background-color: white;
-    width: calc(40% + 2vmin);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* width: calc(30% + 2vmin); */
+    margin: 10px;
+    border-bottom: 4px solid #00539f;
+}
+
+.droppable-area {
+    border: 3px solid #00539f;
+    background-color: rgb(224, 234, 253);
+    min-height: calc(210px + 20vmin);
+    max-height: calc(210px + 20vmin);
+    width: calc(75% + 2vmin);
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }

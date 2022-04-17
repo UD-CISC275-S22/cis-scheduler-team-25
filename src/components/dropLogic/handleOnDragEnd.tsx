@@ -1,4 +1,3 @@
-import React from "react";
 import { DropResult } from "react-beautiful-dnd";
 import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";

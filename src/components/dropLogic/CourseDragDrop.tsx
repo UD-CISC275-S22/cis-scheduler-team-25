@@ -63,7 +63,20 @@ export function CourseDragDrop({
                 }
             >
                 <Row>
-                    <Col></Col>
+                    <Col>
+                        <div>
+                            <p>Semester Load:</p>
+                            <p>
+                                {currentSemester.courses
+                                    .reduce(
+                                        (credits: number, course: Course) =>
+                                            credits + parseInt(course.credits),
+                                        0
+                                    )
+                                    .toString() + " Credits"}
+                            </p>
+                        </div>
+                    </Col>
                     <Col>
                         {" "}
                         <CategorySelector

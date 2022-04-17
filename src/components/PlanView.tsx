@@ -199,16 +199,6 @@ export function PlanView({
                 setCurrentSemester={setCurrentSemester}
             />
             <p>{currentPlan.length} Semesters Total</p>
-            <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
-            {showAdd && (
-                <AddSemesterForm
-                    plans={plans}
-                    setPlans={setPlans}
-                    currentPlan={currentPlan}
-                    setCurrentPlan={setCurrentPlan}
-                    setShowAdd={setShowAdd}
-                />
-            )}
             <div>
                 <SemesterViewButton
                     setMode={setMode}
@@ -223,6 +213,16 @@ export function PlanView({
                     setCurrentSemester={setCurrentSemester}
                 />
             </div>
+            <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
+            {showAdd && (
+                <AddSemesterForm
+                    plans={plans}
+                    setPlans={setPlans}
+                    currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
+                    setShowAdd={setShowAdd}
+                />
+            )}
             <RemoveAllSemestersButton
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
