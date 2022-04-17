@@ -3,8 +3,10 @@ import { DropResult } from "react-beautiful-dnd";
 import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
+import { courseList } from "../ReadJSON";
 
 type DragEndProps = {
+    category: string;
     result: DropResult;
     coursePool: Course[];
     semesterPool: Course[];
@@ -26,6 +28,7 @@ type DragEndProps = {
    States for the currentSemester's courses array and the coursePool itself are updated
 */
 export function handleOnDragEnd({
+    category,
     result,
     coursePool,
     semesterPool,
@@ -40,6 +43,7 @@ export function handleOnDragEnd({
     if (!result.destination) return;
 
     const args = {
+        category,
         result,
         coursePool,
         semesterPool,
@@ -61,8 +65,7 @@ export function handleOnDragEnd({
     } else if (action === "coursePool->semesterPool") {
         handleCourse2Semester(args);
     } else if (action === "semesterPool->coursePool") {
-        // handleSemester2Course(args);
-        console.log("dasdsa");
+        handleSemester2Course(args);
     }
 }
 // ================================================================
@@ -153,6 +156,53 @@ function handleCourse2Semester({
     setCoursePool(
         coursePool.filter(
             (course: Course): boolean => course.code !== draggedCourse.code
+        )
+    );
+}
+
+function handleSemester2Course({
+    category,
+    result,
+    semesterPool,
+    currentSemester,
+    plans,
+    setPlans,
+    currentPlan,
+    setCurrentPlan,
+    setCurrentSemester,
+    setCoursePool
+}: DragEndProps) {
+    if (!result.destination) return;
+
+    const reorderedSemesterCourses = [...semesterPool];
+    reorderedSemesterCourses.splice(result.source.index, 1);
+
+    const newSemester = {
+        ...currentSemester,
+        courses: reorderedSemesterCourses
+    };
+    const newPlan = {
+        ...currentPlan,
+        semesters: currentPlan.semesters.map(
+            (semester: Semester): Semester =>
+                semester.id === currentSemester.id ? newSemester : semester
+        )
+    };
+    const newPlans = plans.map(
+        (plan: DegreePlan): DegreePlan =>
+            plan.id === currentPlan.id ? newPlan : plan
+    );
+
+    setCurrentSemester(newSemester);
+    setCurrentPlan(newPlan);
+    setPlans(newPlans);
+    setCoursePool(
+        courseList.filter(
+            (course: Course): boolean =>
+                !newSemester.courses
+                    .map((currCourse: Course): string => currCourse.code)
+                    .includes(course.code) &&
+                course.degreeCategory.includes(category)
         )
     );
 }

@@ -48,6 +48,7 @@ export function CourseDragDrop({
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
                     handleOnDragEnd({
+                        category: category,
                         result: result,
                         coursePool: coursePool,
                         semesterPool: currentSemester.courses,
@@ -62,6 +63,18 @@ export function CourseDragDrop({
                 }
             >
                 <Row>
+                    <Col></Col>
+                    <Col>
+                        {" "}
+                        <CategorySelector
+                            category={category}
+                            setCategory={setCategory}
+                            setCoursePool={setCoursePool}
+                            currentSemester={currentSemester}
+                        />
+                    </Col>
+                </Row>
+                <Row>
                     <Col>
                         <p>Current Course Schedule</p>
                         <CourseDropPool
@@ -71,12 +84,6 @@ export function CourseDragDrop({
                     </Col>
                     <Col>
                         <p>Potential Courses</p>
-                        <CategorySelector
-                            category={category}
-                            setCategory={setCategory}
-                            setCoursePool={setCoursePool}
-                            currentSemester={currentSemester}
-                        />
                         <CourseDropPool
                             courses={coursePool}
                             droppableId="coursePool"
