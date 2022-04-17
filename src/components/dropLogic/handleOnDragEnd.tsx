@@ -17,8 +17,11 @@ type DragEndProps = {
     setCurrentPlan: (newPlan: DegreePlan) => void;
 };
 
-/* Function for handling the drag/drop updating logic
-   the action string provides information about where a course is being dragged
+/* handleOnDragEnd is the primary func for handling the drag/drop updating logic
+   This file is a module of functions for handleOnDragEnd and its associated
+   helper functions
+
+   The action string provides information about where a course is being dragged
    to, i.e. dragged from the coursePool or semester schedule
    States for the currentSemester's courses array and the coursePool itself are updated
 */
