@@ -7,6 +7,7 @@ import { CourseDropPool } from "./CourseDropPool";
 import { courseList } from "../ReadJSON";
 import { handleOnDragEnd } from "./handleOnDragEnd";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { CategorySelector } from "./CategorySelector";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
@@ -70,6 +71,12 @@ export function CourseDragDrop({
                     </Col>
                     <Col>
                         <p>Potential Courses</p>
+                        <CategorySelector
+                            category={category}
+                            setCategory={setCategory}
+                            setCoursePool={setCoursePool}
+                            currentSemester={currentSemester}
+                        />
                         <CourseDropPool
                             courses={coursePool}
                             droppableId="coursePool"
