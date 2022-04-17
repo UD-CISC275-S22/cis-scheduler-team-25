@@ -38,6 +38,7 @@ export function handleOnDragEnd({
     setCoursePool
 }: DragEndProps) {
     if (!result.destination) return;
+
     const args = {
         result,
         coursePool,
@@ -58,23 +59,25 @@ export function handleOnDragEnd({
     if (action === "semesterPool->semesterPool") {
         handleSemester2Semester(args);
     } else if (action === "coursePool->semesterPool") {
-        console.log("asdas");
+        handleCourse2Semester(args);
     } else if (action === "semesterPool->coursePool") {
-        console.log("asdas");
+        // handleSemester2Course(args);
+        console.log("dasdsa");
     }
 }
+// ================================================================
+// ======================= HELPER FUNCTIONS =======================
+// ================================================================
 
 function handleSemester2Semester({
     result,
-    coursePool,
     semesterPool,
     currentSemester,
     plans,
     setPlans,
     currentPlan,
     setCurrentPlan,
-    setCurrentSemester,
-    setCoursePool
+    setCurrentSemester
 }: DragEndProps) {
     if (!result.destination) return;
 
@@ -100,16 +103,56 @@ function handleSemester2Semester({
                 semester.id === currentSemester.id ? newSemester : semester
         )
     };
+    const newPlans = plans.map(
+        (plan: DegreePlan): DegreePlan =>
+            plan.id === currentPlan.id ? newPlan : plan
+    );
 
-    setCurrentSemester({
+    setCurrentSemester(newSemester);
+    setCurrentPlan(newPlan);
+    setPlans(newPlans);
+}
+
+function handleCourse2Semester({
+    result,
+    coursePool,
+    semesterPool,
+    currentSemester,
+    plans,
+    setPlans,
+    currentPlan,
+    setCurrentPlan,
+    setCurrentSemester,
+    setCoursePool
+}: DragEndProps) {
+    if (!result.destination) return;
+
+    const draggedCourse = coursePool[result.source.index];
+    const reorderedSemesterCourses = [...semesterPool];
+    reorderedSemesterCourses.splice(result.destination.index, 0, draggedCourse);
+
+    const newSemester = {
         ...currentSemester,
         courses: reorderedSemesterCourses
-    });
+    };
+    const newPlan = {
+        ...currentPlan,
+        semesters: currentPlan.semesters.map(
+            (semester: Semester): Semester =>
+                semester.id === currentSemester.id ? newSemester : semester
+        )
+    };
+    const newPlans = plans.map(
+        (plan: DegreePlan): DegreePlan =>
+            plan.id === currentPlan.id ? newPlan : plan
+    );
+
+    setCurrentSemester(newSemester);
     setCurrentPlan(newPlan);
-    setPlans(
-        plans.map(
-            (plan: DegreePlan): DegreePlan =>
-                plan.id === currentPlan.id ? newPlan : plan
+    setPlans(newPlans);
+    setCoursePool(
+        coursePool.filter(
+            (course: Course): boolean => course.code !== draggedCourse.code
         )
     );
 }
