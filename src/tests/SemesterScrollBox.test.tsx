@@ -16,17 +16,31 @@ describe("Semester Scroll Box Tests", () => {
         expect(screen.getByText("Fall-2022")).toBeInTheDocument();
         expect(screen.getByText("Spring-2023")).toBeInTheDocument();
     });
-    test("Each SemesterBox contains that semester's courses", () => {
+    test("Each SemesterBox contains that semester's courses and descriptions", () => {
         const semester1 = screen.getByTestId("semester-Fall-2022");
         const semester2 = screen.getByTestId("semester-Spring-2023");
 
-        expect(within(semester1).getByText("1.108")).toBeInTheDocument();
-        expect(within(semester1).getByText("1.181")).toBeInTheDocument();
-        expect(within(semester1).getByText("2.241")).toBeInTheDocument();
+        expect(within(semester1).getByText(/CISC 108/i)).toBeInTheDocument();
+        expect(
+            within(semester1).getByText(/Introduction to Computer Science I/i)
+        ).toBeInTheDocument();
+        expect(within(semester1).getByText(/MATH 241/i)).toBeInTheDocument();
+        expect(
+            within(semester1).getByText(/Analytic Geometry and Calculus A/i)
+        ).toBeInTheDocument();
 
-        expect(within(semester2).getByText("3.123")).toBeInTheDocument();
-        expect(within(semester2).getByText("1.181")).toBeInTheDocument();
-        expect(within(semester2).getByText("2.242")).toBeInTheDocument();
+        expect(within(semester2).getByText(/MATH 242/i)).toBeInTheDocument();
+        expect(
+            within(semester2).getByText(/Analytic Geometry and Calculus B/i)
+        ).toBeInTheDocument();
+        expect(within(semester2).getByText(/CISC 181/i)).toBeInTheDocument();
+        expect(
+            within(semester2).getByText(/Introduction to Computer Science II/i)
+        ).toBeInTheDocument();
+        expect(within(semester2).getByText(/CISC 210/i)).toBeInTheDocument();
+        expect(
+            within(semester2).getByText(/Introduction to Systems Programming/i)
+        ).toBeInTheDocument();
     });
     test("Clicking the first SemesterBox displays a header for that specific semester", () => {
         const semester1 = screen.getByTestId("semester-Fall-2022");

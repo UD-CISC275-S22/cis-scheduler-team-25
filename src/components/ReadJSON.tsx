@@ -55,6 +55,6 @@ const courseList = uniqueCourseCodes.map(
 );
 
 // simple log to check work
-console.log(courseList);
+// console.log(courseList);
 
 export { courseList };
