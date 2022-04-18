@@ -1,24 +1,24 @@
 {
     "General": [
         "CISC Core",
-        "Lab",
-        "Writing",
+        "Lab Requirements",
+        "Writing Requirements",
         "Capstone",
         "First Year Seminar",
-        "ArtsHumanitiesBreadth",
-        "HistoryCulturalBreadth",
-        "SocialBehavioralBreadth",
-        "MathSciTechBreadth",
-        "AdditionalEngineeringBreadth",
-        "MultiCulturalBreadth"
+        "Arts & Humanities Breadth",
+        "History & Cultural Breadth",
+        "Social & Behavioral Breadth",
+        "Math/Science/Tech Breadth",
+        "Additional Engineering Breadth",
+        "MultiCultural Breadth"
     ],
     "Concentration": [
-        "Bioinformatics Conc",
-        "AI & Robotics Conc",
-        "Cybersecurity Conc",
-        "DataScience Conc",
-        "High Performance Comp Conc",
-        "Systems & Networks Conc",
-        "Theory & Comp Conc"
+        "Bioinformatics Concentration",
+        "AI & Robotics Concentration",
+        "Cybersecurity Concentration",
+        "DataScience Concentration",
+        "High Performance Comp Concentration",
+        "Systems & Networks Concentration",
+        "Theory & Comp Concentration"
     ]
 }

@@ -11,7 +11,7 @@
         "MATH 210",
         "MATH 241"
     ],
-    "Lab": [
+    "Lab Requirements": [
         "BISC 207",
         "BISC 208",
         "CHEM 103",
@@ -22,7 +22,7 @@
         "PHYS 207",
         "PHYS 208"
     ],
-    "Writing": ["ENGL 110", "ENGL 312", "ENGL 410", "CISC 355"],
+    "Writing Requirements": ["ENGL 110", "ENGL 312", "ENGL 410", "CISC 355"],
     "Capstone": ["CISC 498", "CISC 499", "UNIV 401", "UNIV 402"],
     "First Year Seminar": ["UNIV 101", "EGGG 101"]
 }
