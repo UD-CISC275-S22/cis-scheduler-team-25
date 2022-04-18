@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
