@@ -5,6 +5,7 @@ import { Form } from "react-bootstrap";
 import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
 import { courseList } from "../ReadJSON";
+import { GroupRadioButtons } from "./GroupRadioButtons";
 
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
 
@@ -29,10 +30,10 @@ export function CategorySelector({
         setCoursePool(
             courseList.filter(
                 (course: Course): boolean =>
+                    course.degreeCategory.includes(event.target.value) &&
                     !currentSemester.courses
                         .map((currCourse: Course): string => currCourse.code)
-                        .includes(course.code) &&
-                    course.degreeCategory.includes(event.target.value)
+                        .includes(course.code)
             )
         );
     }
@@ -40,6 +41,13 @@ export function CategorySelector({
     return (
         <div className="DegreePlanList">
             <p>Please select a category</p>
+            <GroupRadioButtons
+                grouping={grouping}
+                currentSemester={currentSemester}
+                setGrouping={setGrouping}
+                setCategory={setCategory}
+                setCoursePool={setCoursePool}
+            />
             <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select
                     data-testid="plan-list"
