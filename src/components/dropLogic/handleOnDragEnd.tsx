@@ -41,6 +41,7 @@ export function handleOnDragEnd({
 }: DragEndProps) {
     if (!result.destination) return;
 
+    // arguments to pass to helper functions
     const args = {
         category,
         result,
@@ -55,22 +56,27 @@ export function handleOnDragEnd({
         setCoursePool
     };
 
+    // use result from drag action to discover where the dragged course originated
+    // from (source) and where it ended up (destination)
     const action =
         result.source.droppableId.toString() +
         "->" +
         result.destination.droppableId.toString();
+
+    // call helper functions depending on the specified action
     if (action === "semesterPool->semesterPool") {
         handleSemester2Semester(args);
     } else if (action === "coursePool->semesterPool") {
-        handleCourse2Semester(args);
+        handleCoursePool2Semester(args);
     } else if (action === "semesterPool->coursePool") {
-        handleSemester2Course(args);
+        handleSemester2CoursePool(args);
     }
 }
 // ================================================================
 // ======================= HELPER FUNCTIONS =======================
 // ================================================================
 
+// helper function for reordering courses within your currentSemester
 function handleSemester2Semester({
     result,
     semesterPool,
@@ -83,17 +89,22 @@ function handleSemester2Semester({
 }: DragEndProps) {
     if (!result.destination) return;
 
+    // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
     const [draggedCourses] = reorderedSemesterCourses.splice(
         result.source.index,
         1
     );
+
+    // add dragged course to new semester course list
     reorderedSemesterCourses.splice(
         result.destination.index,
         0,
         draggedCourses
     );
 
+    // create new values for the currentSemester, currentPlan, and plans based
+    // on the reorderedSemesterCourses
     const newSemester = {
         ...currentSemester,
         courses: reorderedSemesterCourses
@@ -110,12 +121,14 @@ function handleSemester2Semester({
             plan.id === currentPlan.id ? newPlan : plan
     );
 
+    // set state to new values
     setCurrentSemester(newSemester);
     setCurrentPlan(newPlan);
     setPlans(newPlans);
 }
 
-function handleCourse2Semester({
+// helper function for transferring course from coursePool to currentSemester
+function handleCoursePool2Semester({
     result,
     coursePool,
     semesterPool,
@@ -129,11 +142,15 @@ function handleCourse2Semester({
 }: DragEndProps) {
     if (!result.destination) return;
 
+    // copy courses in current semester and remove the dragged course
     const draggedCourse = coursePool[result.source.index];
-
     const reorderedSemesterCourses = [...semesterPool];
+
+    // add dragged course to new semester course list
     reorderedSemesterCourses.splice(result.destination.index, 0, draggedCourse);
 
+    // create new values for the currentSemester, currentPlan, and plans based
+    // on the reorderedSemesterCourses
     const newSemester = {
         ...currentSemester,
         courses: reorderedSemesterCourses
@@ -150,6 +167,7 @@ function handleCourse2Semester({
             plan.id === currentPlan.id ? newPlan : plan
     );
 
+    // set state to new values
     setCurrentSemester(newSemester);
     setCurrentPlan(newPlan);
     setPlans(newPlans);
@@ -160,7 +178,8 @@ function handleCourse2Semester({
     );
 }
 
-function handleSemester2Course({
+// helper function for transferring course from currentSemester to coursePool
+function handleSemester2CoursePool({
     category,
     result,
     semesterPool,
@@ -176,8 +195,12 @@ function handleSemester2Course({
 
     // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
+
+    // remove dragged course to new semester course list
     reorderedSemesterCourses.splice(result.source.index, 1);
 
+    // create new values for the currentSemester, currentPlan, and plans based
+    // on the reorderedSemesterCourses
     const newSemester = {
         ...currentSemester,
         courses: reorderedSemesterCourses
@@ -194,6 +217,7 @@ function handleSemester2Course({
             plan.id === currentPlan.id ? newPlan : plan
     );
 
+    // set state to new values
     setCurrentSemester(newSemester);
     setCurrentPlan(newPlan);
     setPlans(newPlans);
