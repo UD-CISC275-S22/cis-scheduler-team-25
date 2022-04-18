@@ -17,7 +17,8 @@ export function CurrentView({
     currentPlan,
     setCurrentPlan,
     currentSemester,
-    setCurrentSemester
+    setCurrentSemester,
+    setShowAdd
 }: {
     mode: string;
     setMode: (newMode: string) => void;
@@ -27,6 +28,7 @@ export function CurrentView({
     setCurrentPlan: (newPlan: DegreePlan) => void;
     currentSemester: Semester;
     setCurrentSemester: (newSemester: Semester) => void;
+    setShowAdd: (value: boolean) => void;
 }): JSX.Element {
     switch (mode) {
         case "plan":
@@ -56,6 +58,8 @@ export function CurrentView({
         default:
             return (
                 <MainView
+                    setShowAdd={setShowAdd}
+                    setPlans={setPlans}
                     setMode={setMode}
                     plans={plans}
                     currentPlan={currentPlan}

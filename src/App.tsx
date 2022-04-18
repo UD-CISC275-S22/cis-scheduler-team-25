@@ -27,7 +27,6 @@ function App(): JSX.Element {
     );
     const [currentSemester, setCurrentSemester] =
         useState<Semester>(invalidSemester);
-
     return (
         <div className="App" style={{ backgroundColor: "gold" }}>
             <header
@@ -65,6 +64,7 @@ function App(): JSX.Element {
                 degree plans following courses and requirements.
             </div>
             <CurrentView
+                setShowAdd={setShowAdd}
                 mode={mode}
                 setMode={setMode}
                 plans={plans}
