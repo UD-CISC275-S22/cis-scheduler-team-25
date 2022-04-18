@@ -21,7 +21,7 @@ export function CourseDropPool({
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
-                            minHeight: "min-height: calc(210px + 20vmin)",
+                            minHeight: "calc(210px + 20vmin)",
                             backgroundColor: snapshot.isDraggingOver
                                 ? "rgb(127, 255, 163)"
                                 : "rgb(224, 234, 253)"
