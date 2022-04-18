@@ -54,3 +54,7 @@
     justify-content: center;
     margin: 0 auto;
 }
+
+.droppable-component {
+    min-height: calc(100px + 20vmin);
+}

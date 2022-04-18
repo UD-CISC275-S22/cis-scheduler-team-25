@@ -130,6 +130,7 @@ function handleCourse2Semester({
     if (!result.destination) return;
 
     const draggedCourse = coursePool[result.source.index];
+
     const reorderedSemesterCourses = [...semesterPool];
     reorderedSemesterCourses.splice(result.destination.index, 0, draggedCourse);
 
@@ -173,6 +174,7 @@ function handleSemester2Course({
 }: DragEndProps) {
     if (!result.destination) return;
 
+    // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
     reorderedSemesterCourses.splice(result.source.index, 1);
 

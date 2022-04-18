@@ -16,10 +16,16 @@ export function CourseDropPool({
     return (
         <div className="droppable-area">
             <Droppable droppableId={droppableId}>
-                {(provided: DroppableProvided) => (
+                {(provided: DroppableProvided, snapshot) => (
                     <ListGroup
                         {...provided.droppableProps}
                         ref={provided.innerRef}
+                        style={{
+                            minHeight: "min-height: calc(210px + 20vmin)",
+                            backgroundColor: snapshot.isDraggingOver
+                                ? "rgb(127, 255, 163)"
+                                : "rgb(224, 234, 253)"
+                        }}
                     >
                         {courses.map((course: Course, index: number) => {
                             return (
