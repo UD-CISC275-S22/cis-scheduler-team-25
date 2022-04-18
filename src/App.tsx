@@ -64,7 +64,6 @@ function App(): JSX.Element {
                 degree plans following courses and requirements.
             </div>
             <CurrentView
-                setShowAdd={setShowAdd}
                 mode={mode}
                 setMode={setMode}
                 plans={plans}

@@ -1,20 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
-import { Semester } from "../interfaces/semester";
 import "./components.css";
-import defaultPlans from "../exampleData/example_degree_plan.json";
-
-const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
-    (plan): DegreePlan => ({
-        ...plan,
-        semesters: plan.semesters.map(
-            (semester): Semester => ({
-                ...semester
-            })
-        )
-    })
-);
 
 function makeNewPlan(
     plans: DegreePlan[],
