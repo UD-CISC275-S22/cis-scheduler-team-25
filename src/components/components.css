@@ -5,6 +5,10 @@
     margin: 0 auto;
 }
 
+.dropdown-border {
+    border: 3px solid #00539f;
+}
+
 .semester-scroll-box {
     max-height: calc(100% + 2vmin);
     max-width: calc(100% + 2vmin);
@@ -29,5 +33,24 @@
 .semester-add-form {
     height: calc(25% + 2vmin);
     width: calc(40% + 2vmin);
+    margin: 0 auto;
+}
+
+.course-draggable {
+    background-color: white;
+    /* width: calc(30% + 2vmin); */
+    margin: 10px;
+    border-bottom: 4px solid #00539f;
+}
+
+.droppable-area {
+    border: 3px solid #00539f;
+    background-color: rgb(224, 234, 253);
+    min-height: calc(210px + 20vmin);
+    max-height: calc(210px + 20vmin);
+    width: calc(75% + 2vmin);
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
 }
