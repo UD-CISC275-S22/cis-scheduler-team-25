@@ -37,7 +37,6 @@ export function MainView({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester,
-    setShowAdd,
     setPlans
 }: {
     setPlans: (newPlans: DegreePlan[]) => void;
@@ -46,14 +45,12 @@ export function MainView({
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
     setCurrentSemester: (newSemester: Semester) => void;
-    setShowAdd: (value: boolean) => void;
 }): JSX.Element {
     return (
         <div>
             <h1>Degree Plan Selector</h1>
             <DegreePlanList
                 setPlans={setPlans}
-                setShowAdd={setShowAdd}
                 plans={plans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Button, Form } from "react-bootstrap";
 import "./components.css";
@@ -29,15 +29,14 @@ export function DegreePlanList({
     plans,
     currentPlan,
     setCurrentPlan,
-    setPlans,
-    setShowAdd
+    setPlans
 }: {
     plans: DegreePlan[];
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
     setPlans: (newPlans: DegreePlan[]) => void;
-    setShowAdd: (value: boolean) => void;
 }): JSX.Element {
+    const [showAdd, setShowAdd] = useState<boolean>(false);
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
         const id = parseInt(event.target.value);
@@ -72,11 +71,17 @@ export function DegreePlanList({
             </Form.Group>
             <p>{currentPlan.length} Semesters Included</p>
             <br></br>
-            <AddPlanForm
-                plans={plans}
-                setPlans={setPlans}
+            <AddPlanButton
+                showAdd={showAdd}
                 setShowAdd={setShowAdd}
-            ></AddPlanForm>
+            ></AddPlanButton>
+            {showAdd && (
+                <AddPlanForm
+                    plans={plans}
+                    setPlans={setPlans}
+                    setShowAdd={setShowAdd}
+                ></AddPlanForm>
+            )}
         </div>
     );
 }

@@ -19,7 +19,7 @@ function makeNewPlan(
             length: 0
         };
 
-        const newPlans = { ...plans, newPlan };
+        const newPlans = [...plans, newPlan];
         setPlans(newPlans);
     }
 }
@@ -79,10 +79,10 @@ export function AddPlanForm({
                 </Row>
             </Form.Group>
             <ConfirmNewPlan
+                setShowAdd={setShowAdd}
                 plans={plans}
                 setPlans={setPlans}
                 name={name}
-                setShowAdd={setShowAdd}
             ></ConfirmNewPlan>
         </div>
     );
