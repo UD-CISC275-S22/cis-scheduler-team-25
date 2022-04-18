@@ -36,8 +36,10 @@ export function MainView({
     plans,
     currentPlan,
     setCurrentPlan,
-    setCurrentSemester
+    setCurrentSemester,
+    setPlans
 }: {
+    setPlans: (newPlans: DegreePlan[]) => void;
     setMode: (newMode: string) => void;
     plans: DegreePlan[];
     currentPlan: DegreePlan;
@@ -48,6 +50,7 @@ export function MainView({
         <div>
             <h1>Degree Plan Selector</h1>
             <DegreePlanList
+                setPlans={setPlans}
                 plans={plans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}

@@ -56,6 +56,7 @@ export function CurrentView({
         default:
             return (
                 <MainView
+                    setPlans={setPlans}
                     setMode={setMode}
                     plans={plans}
                     currentPlan={currentPlan}

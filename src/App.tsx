@@ -6,6 +6,7 @@ import defaultPlans from "./exampleData/example_degree_plan.json";
 import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
+import { Course } from "./interfaces/course";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -13,7 +14,10 @@ const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
         ...plan,
         semesters: plan.semesters.map(
             (semester): Semester => ({
-                ...semester
+                ...semester,
+                courses: semester.courses.map(
+                    (course): Course => ({ ...course })
+                )
             })
         )
     })
