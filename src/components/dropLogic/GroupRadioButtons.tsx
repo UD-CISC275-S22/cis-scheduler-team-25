@@ -14,9 +14,17 @@ type GroupRadioButtonsProps = {
     setCoursePool: (newPool: Course[]) => void;
 };
 
+// read in degreeCategories JSON, where keys are groupings of degreeCategories
+// and the values are the degreeCategories associated with that category
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
 const GROUPS = Object.keys(degreeCategoriesData);
 
+/*
+Component for radio buttons for selecting a "grouping" of degreeCategories,
+being "General" and "Concentration" requirements. This make the dropdown
+for selecting a degreeCategory be from a specific subset for more easily
+choosing what courses you want the coursePool to show
+*/
 export function GroupRadioButtons({
     grouping,
     currentSemester,
