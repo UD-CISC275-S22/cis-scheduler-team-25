@@ -6,8 +6,6 @@ import userEvent from "@testing-library/user-event";
 describe("Add Semester Form Tests", () => {
     beforeEach(() => {
         render(<App />);
-        const planButton = screen.getByTestId("main-plan-button");
-        planButton.click();
     });
     test("There is button for adding a new plan, which toggles the AddSemesterForm", () => {
         const addPlanButton = screen.getByTestId("add-plan-button");
