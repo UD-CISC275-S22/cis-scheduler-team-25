@@ -18,8 +18,11 @@ type CourseDragDropProps = {
     setCurrentPlan: (newPlan: DegreePlan) => void;
 };
 
-/* Component allowing for courses to be dragged and dropped from a pool of courses
-   to add to a selected semester
+/*
+Component allowing for courses to be dragged and dropped from a pool of courses
+to add to a selected semester. Organized into rows and columns
+
+Semester load is also displayed as credit total
 */
 export function CourseDragDrop({
     currentSemester,
