@@ -9,6 +9,14 @@ type CourseDropPoolProps = {
     droppableId: string;
 };
 
+/*
+Component for creating a droppable area for Courses using react-beautiful-dnd.
+Takes in a list of courses and generates Draggable components based on Course
+information.
+
+Draggable components are ListGroupItems of a ListGroup to allow for clicking
+of the Draggable courses
+*/
 export function CourseDropPool({
     courses,
     droppableId
@@ -21,7 +29,7 @@ export function CourseDropPool({
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
-                            minHeight: "min-height: calc(210px + 20vmin)",
+                            minHeight: "calc(210px + 20vmin)",
                             backgroundColor: snapshot.isDraggingOver
                                 ? "rgb(127, 255, 163)"
                                 : "rgb(224, 234, 253)"
