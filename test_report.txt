@@ -23,16 +23,16 @@ All files                 |   59.24 |    47.36 |   69.47 |   60.38 |
   InsertPlanForm.tsx      |       0 |        0 |       0 |       0 | 11-76             
   MainView.tsx            |     100 |      100 |     100 |     100 |                   
   PlanView.tsx            |     100 |      100 |     100 |     100 |                   
-  ReadJSON.tsx            |   92.85 |      100 |   85.71 |   92.85 | 48                
+  ReadJSON.tsx            |   92.85 |      100 |   85.71 |   92.85 | 59                
   SemesterBox.tsx         |     100 |      100 |     100 |     100 |                   
   SemesterScrollBox.tsx   |     100 |      100 |     100 |     100 |                   
   SemesterView.tsx        |     100 |      100 |     100 |     100 |                   
  src/components/dropLogic |   21.68 |     8.33 |    37.5 |   22.78 |                   
   CategorySelector.tsx    |      50 |        0 |      40 |      50 | 29-35             
-  CourseDragDrop.tsx      |   85.71 |      100 |      80 |   85.71 | 50                
-  CourseDropPool.tsx      |     100 |       50 |     100 |     100 | 25                
-  GroupRadioButtons.tsx   |   36.36 |        0 |      40 |   36.36 | 28-38             
-  handleOnDragEnd.tsx     |       0 |        0 |       0 |       0 | 42-204            
+  CourseDragDrop.tsx      |   85.71 |      100 |      80 |   85.71 | 53                
+  CourseDropPool.tsx      |     100 |       50 |     100 |     100 | 33                
+  GroupRadioButtons.tsx   |   36.36 |        0 |      40 |   36.36 | 36-46             
+  handleOnDragEnd.tsx     |       0 |        0 |       0 |       0 | 42-228            
  src/interfaces           |       0 |        0 |       0 |       0 |                   
   course.ts               |       0 |        0 |       0 |       0 |                   
   degree.ts               |       0 |        0 |       0 |       0 |                   
@@ -44,5 +44,5 @@ All files                 |   59.24 |    47.36 |   69.47 |   60.38 |
 Test Suites: 7 passed, 7 total
 Tests:       24 passed, 24 total
 Snapshots:   0 total
-Time:        6.712 s
+Time:        6.905 s
 Ran all test suites.
