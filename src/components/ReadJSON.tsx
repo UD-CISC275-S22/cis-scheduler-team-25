@@ -8,7 +8,8 @@ export interface CatalogCourse {
     name: string;
     descr: string;
     credits: string;
-    preReq: string;
+    preReqDesc: string;
+    preReqs: string[][];
     restrict: string;
     breadth: string;
     typ: string;
@@ -30,9 +31,7 @@ const courseArrList = categories.map((category: string): Course[] =>
     courseCategories[category].map(
         (code: string): Course => ({
             ...catalog[code.slice(0, 4)][code],
-            preReqDesc: catalog[code.slice(0, 4)][code].preReq,
-            degreeCategory: [category],
-            preReqs: []
+            degreeCategory: [category]
         })
     )
 );
