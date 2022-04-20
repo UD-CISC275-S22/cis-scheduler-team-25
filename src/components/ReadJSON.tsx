@@ -30,7 +30,9 @@ const courseArrList = categories.map((category: string): Course[] =>
     courseCategories[category].map(
         (code: string): Course => ({
             ...catalog[code.slice(0, 4)][code],
-            degreeCategory: [category]
+            preReqDesc: catalog[code.slice(0, 4)][code].preReq,
+            degreeCategory: [category],
+            preReqs: []
         })
     )
 );
