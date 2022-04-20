@@ -16,7 +16,10 @@ const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
             (semester): Semester => ({
                 ...semester,
                 courses: semester.courses.map(
-                    (course): Course => ({ ...course })
+                    (course): Course => ({
+                        ...course,
+                        preReqs: course.preReqs as string[][]
+                    })
                 )
             })
         )

@@ -1,0 +1,20 @@
+{
+    "Cybersecurity Concentration": {
+        "General": [
+            "CISC 361",
+            "CISC 372",
+            "CISC 450",
+            "CISC 464",
+            "CPEG 465",
+            "CPEG 494"
+        ],
+        "Probability/Statistics Requirement": ["MATH 205", "MATH 350"],
+        "Advanced Cybersecurity Requirement": [
+            "CPEG 472",
+            "CPEG 473",
+            "CPEG 475",
+            "CPEG 476",
+            "CPEG 495"
+        ]
+    }
+}
