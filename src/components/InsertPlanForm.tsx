@@ -36,7 +36,7 @@ function ConfirmNewPlan({
     setShowAdd: (value: boolean) => void;
 }): JSX.Element {
     const valid = plans.every(
-        (plan: DegreePlan): boolean => name !== plan.name
+        (plan: DegreePlan): boolean => name !== plan.name && name !== ""
     );
     return (
         <Button
