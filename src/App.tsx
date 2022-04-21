@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
-import { CurrentView } from "./components/CurrentView";
+import { CurrentView } from "./components/views/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
 import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";

@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { DegreePlan } from "../interfaces/degreeplan";
-import { Semester } from "../interfaces/semester";
-import { CourseDragDrop } from "./dropLogic/CourseDragDrop";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import { Semester } from "../../interfaces/semester";
+import { CourseDragDrop } from "../dropLogic/CourseDragDrop";
 
 // Button for returning back to the PlanView
 function PlanViewButton({

@@ -1,6 +1,6 @@
 import React from "react";
-import { DegreePlan } from "../interfaces/degreeplan";
-import { Semester } from "../interfaces/semester";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import { Semester } from "../../interfaces/semester";
 import { MainView } from "./MainView";
 import { PlanView } from "./PlanView";
 import { SemesterView } from "./SemesterView";
