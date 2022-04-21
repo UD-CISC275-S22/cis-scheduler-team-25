@@ -1,30 +1,10 @@
 import React, { useState } from "react";
-import { DegreePlan } from "../interfaces/degreeplan";
-import { Button, Form } from "react-bootstrap";
 import "./components.css";
 import { AddPlanForm } from "./InsertPlanForm";
+import { AddPlanButton } from "./AddPlanButton";
+import { DegreePlan } from "../interfaces/degreeplan";
+import { Form } from "react-bootstrap";
 
-// dropdown list generated from a list of DegreePlan objects passed in
-// Updates the selected currentPlan when clicked
-function AddPlanButton({
-    showAdd,
-    setShowAdd
-}: {
-    showAdd: boolean;
-    setShowAdd: (value: boolean) => void;
-}): JSX.Element {
-    return (
-        <div>
-            <Button
-                data-testid="add-plan-button"
-                className="mode-button"
-                onClick={() => setShowAdd(!showAdd)}
-            >
-                Add Plan
-            </Button>
-        </div>
-    );
-}
 export function DegreePlanList({
     plans,
     currentPlan,
