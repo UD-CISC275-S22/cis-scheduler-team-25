@@ -4,6 +4,7 @@ import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import { AddSemesterForm } from "../AddSemesterForm";
 import { SemesterScrollBox } from "../SemesterScrollBox";
+import { SetDegreeList } from "../SetDegreeList";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import "../components.css";
 
@@ -199,6 +200,12 @@ export function PlanView({
                 setCurrentSemester={setCurrentSemester}
             />
             <p>{currentPlan.length} Semesters Total</p>
+            <SetDegreeList
+                plans={plans}
+                currentPlan={currentPlan}
+                setCurrentPlan={setCurrentPlan}
+                setPlans={setPlans}
+            />
             <div>
                 <SemesterViewButton
                     setMode={setMode}

@@ -45,14 +45,16 @@ export function SetDegreeList({
     }
 
     return (
-        <div className="DegreePlanList">
+        <div
+            className="DegreePlanList"
+            style={{ paddingBottom: "calc(10px + 2vmin)" }}
+        >
             <p>Please choose a Degree Concentration:</p>
             <Form.Group
                 className="dropdown-border"
                 controlId="concentrationList"
             >
                 <Form.Select
-                    htmlSize={5}
                     data-testid="concentration-list"
                     value={concentration}
                     onChange={updateSelection}

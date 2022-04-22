@@ -36,7 +36,13 @@ function App(): JSX.Element {
         useState<Semester>(invalidSemester);
 
     return (
-        <div className="App" style={{ backgroundColor: "gold" }}>
+        <div
+            className="App"
+            style={{
+                backgroundColor: "gold",
+                paddingBottom: "calc(100px + 2vmin)"
+            }}
+        >
             <header
                 style={{
                     backgroundImage: `url(${Background})`,
