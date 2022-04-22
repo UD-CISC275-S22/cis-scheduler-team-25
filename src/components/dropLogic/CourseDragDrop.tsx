@@ -33,7 +33,8 @@ export function CourseDragDrop({
     setCurrentPlan
 }: CourseDragDropProps): JSX.Element {
     // state for selecting what Degree Requirement requirement you want to choose from
-    const [requirement, setRequirement] = useState<string>("General-CISC Core");
+    const [requirement, setRequirement] = useState<string>("CISC Core");
+    const [category, setCategory] = useState<string>("General");
 
     // state for the set of courses available for dragging into your currentSemester
     const [coursePool, setCoursePool] = useState<Course[]>(
@@ -42,7 +43,7 @@ export function CourseDragDrop({
                 !currentSemester.courses
                     .map((currCourse: Course): string => currCourse.code)
                     .includes(course.code) &&
-                course.degreeRequirement.includes(requirement)
+                course.degreeRequirement.includes(category + "-" + requirement)
         )
     );
 
@@ -51,6 +52,7 @@ export function CourseDragDrop({
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
                     handleOnDragEnd({
+                        category: category,
                         requirement: requirement,
                         result: result,
                         coursePool: coursePool,
@@ -83,6 +85,8 @@ export function CourseDragDrop({
                     <Col>
                         {" "}
                         <RequirementSelector
+                            category={category}
+                            setCategory={setCategory}
                             currentPlan={currentPlan}
                             requirement={requirement}
                             setRequirement={setRequirement}

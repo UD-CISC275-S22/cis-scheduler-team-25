@@ -22,7 +22,10 @@ export function CourseDropPool({
     droppableId
 }: CourseDropPoolProps): JSX.Element {
     return (
-        <div className="droppable-area">
+        <div
+            className="droppable-area"
+            data-testid={"droppable-" + droppableId}
+        >
             <Droppable droppableId={droppableId}>
                 {(provided: DroppableProvided, snapshot) => (
                     <ListGroup
@@ -44,6 +47,9 @@ export function CourseDropPool({
                                 >
                                     {(provided) => (
                                         <ListGroupItem
+                                            data-testid={
+                                                "draggable-" + course.code
+                                            }
                                             className="course-draggable"
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}

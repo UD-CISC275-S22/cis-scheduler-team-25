@@ -8,25 +8,29 @@ import { courseList } from "../ReadJSON";
 import { CategoryRadioButtons } from "./CategoryRadioButtons";
 import { DegreePlan } from "../../interfaces/degreeplan";
 
+type RequirementSelectorProps = {
+    category: string;
+    setCategory: (newCat: string) => void;
+    currentPlan: DegreePlan;
+    requirement: string;
+    setRequirement: (newReq: string) => void;
+    setCoursePool: (newPool: Course[]) => void;
+    currentSemester: Semester;
+};
+
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
 
 // dropdown list generated from a list of DegreePlan objects passed in
 // Updates the selected currentPlan when clicked
 export function RequirementSelector({
+    category,
+    setCategory,
     currentPlan,
     requirement,
     setRequirement,
     setCoursePool,
     currentSemester
-}: {
-    currentPlan: DegreePlan;
-    requirement: string;
-    setRequirement: (newCat: string) => void;
-    setCoursePool: (newPool: Course[]) => void;
-    currentSemester: Semester;
-}): JSX.Element {
-    const [category, setCategory] = useState<string>("General");
-
+}: RequirementSelectorProps): JSX.Element {
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
         const requirementOption = event.target.value;
@@ -59,7 +63,7 @@ export function RequirementSelector({
             />
             <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select
-                    data-testid="plan-list"
+                    data-testid="requirement-list"
                     value={requirement}
                     onChange={updateSelection}
                 >

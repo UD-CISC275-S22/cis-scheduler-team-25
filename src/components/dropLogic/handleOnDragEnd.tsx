@@ -5,6 +5,7 @@ import { Semester } from "../../interfaces/semester";
 import { courseList } from "../ReadJSON";
 
 type DragEndProps = {
+    category: string;
     requirement: string;
     result: DropResult;
     coursePool: Course[];
@@ -27,6 +28,7 @@ type DragEndProps = {
    States for the currentSemester's courses array and the coursePool itself are updated
 */
 export function handleOnDragEnd({
+    category,
     requirement,
     result,
     coursePool,
@@ -43,6 +45,7 @@ export function handleOnDragEnd({
 
     // arguments to pass to helper functions
     const args = {
+        category,
         requirement,
         result,
         coursePool,
@@ -182,6 +185,7 @@ function handleCoursePool2Semester({
 
 // helper function for transferring course from currentSemester to coursePool
 function handleSemester2CoursePool({
+    category,
     requirement,
     result,
     semesterPool,
@@ -229,7 +233,7 @@ function handleSemester2CoursePool({
                 !newSemester.courses
                     .map((currCourse: Course): string => currCourse.code)
                     .includes(course.code) &&
-                course.degreeRequirement.includes(requirement)
+                course.degreeRequirement.includes(category + "-" + requirement)
         )
     );
 }
