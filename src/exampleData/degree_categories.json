@@ -12,13 +12,60 @@
         "Additional Engineering Breadth",
         "MultiCultural Breadth"
     ],
-    "Concentration": [
-        "Bioinformatics Concentration",
-        "AI & Robotics Concentration",
-        "Cybersecurity Concentration",
-        "Data Science Concentration",
-        "High Performance Comp Concentration",
-        "Systems & Networks Concentration",
-        "Theory & Comp Concentration"
+    "Artifical Intelligence & Robotics Concentration": [
+        "Concentration Requirements",
+        "Probability/Statistics Requirement",
+        "Systems Requirement",
+        "Restricted Electives"
+    ],
+    "Bioinformatics Concentration": [
+        "Concentration Requirements",
+        "Organic Chemistry Sequence",
+        "Probability/Statistics Requirement",
+        "Data Analysis Requirement",
+        "Restricted Electives"
+    ],
+    "Cybersecurity Concentration": [
+        "Concentration Requirements",
+        "Probability/Statistics Requirements",
+        "Advanced Cybersecurity Requirements",
+        "Restricted Electives"
+    ],
+    "Data Science Concentration": [
+        "Concentration Requirements",
+        "Advanced Data Science",
+        "Advanced Math",
+        "Restricted Electives"
+    ],
+    "High Performance Computing (Applied Math Track) Concentration": [
+        "Concentration Requirements",
+        "Applied Math Track Requirements",
+        "Proability/Statistics Requirement",
+        "Applied Math Track Electives"
+    ],
+    "High Performance Computing (Data Track) Concentration": [
+        "Concentration Requirements",
+        "Data Track Requirements",
+        "Machine Learning Requirement",
+        "Data Track Electives"
+    ],
+    "Systems & Networks Concentration": [
+        "Concentration Requirements",
+        "Probability/Statistics Requirement",
+        "Security Requirement",
+        "Advanced Systems Requirement",
+        "Restricted Electives"
+    ],
+    "Theory & Computation (Discrete Track) Concentration": [
+        "Concentration Requirements",
+        "Probability/Statistics Requirements",
+        "Restricted Electives",
+        "Discrete Track"
+    ],
+    "Theory & Computation (Continuous Track) Concentration": [
+        "Concentration Requirements",
+        "Probability/Statistics Requirements",
+        "Restricted Electives",
+        "Continuous Track"
     ]
 }

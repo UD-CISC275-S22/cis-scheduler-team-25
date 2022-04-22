@@ -15,7 +15,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": []
                     },
                     {
@@ -27,7 +27,7 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": []
                     }
                 ],
@@ -46,7 +46,7 @@
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": [["MATH 241"]]
                     },
                     {
@@ -58,7 +58,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     },
                     {
@@ -70,7 +70,7 @@
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": [["CISC 108", "CISC 106"]]
                     }
                 ],
@@ -78,7 +78,11 @@
                 "year": 2023
             }
         ],
-        "length": 2
+        "length": 2,
+        "degree": {
+            "name": "Computer Science BS - Bioinformatics Concentration",
+            "concentration": "Bioinformatics Concentration"
+        }
     },
     {
         "id": 1,
@@ -96,7 +100,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeCategory": ["CISC Core"]
+                        "degreeRequirement": ["CISC Core"]
                     },
                     {
                         "code": "MATH 241",
@@ -107,7 +111,7 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeCategory": ["CISC Core"]
+                        "degreeRequirement": ["CISC Core"]
                     }
                 ],
                 "season": "Fall",
@@ -125,7 +129,7 @@
                         "restrict": "Required of all students. Should be taken first year on campus.",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeCategory": ["Writing Requirements"]
+                        "degreeRequirement": ["Writing Requirements"]
                     },
                     {
                         "code": "BISC 208",
@@ -136,7 +140,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeCategory": ["Lab Requirements"],
+                        "degreeRequirement": ["Lab Requirements"],
                         "preReqs": [["BISC 207"]]
                     }
                 ],
@@ -155,7 +159,7 @@
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": [["MATH 241"]]
                     },
                     {
@@ -167,7 +171,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     },
                     {
@@ -179,7 +183,7 @@
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
-                        "degreeCategory": ["CISC Core"],
+                        "degreeRequirement": ["CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     }
                 ],
@@ -187,6 +191,10 @@
                 "year": 2023
             }
         ],
-        "length": 3
+        "length": 3,
+        "degree": {
+            "name": "Computer Science BS - Cybersecurity Concentration",
+            "concentration": "Cybersecurity Concentration"
+        }
     }
 ]

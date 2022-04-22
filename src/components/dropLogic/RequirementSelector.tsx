@@ -5,32 +5,40 @@ import { Form } from "react-bootstrap";
 import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
 import { courseList } from "../ReadJSON";
-import { GroupRadioButtons } from "./GroupRadioButtons";
+import { CategoryRadioButtons } from "./CategoryRadioButtons";
+import { DegreePlan } from "../../interfaces/degreeplan";
 
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
 
 // dropdown list generated from a list of DegreePlan objects passed in
 // Updates the selected currentPlan when clicked
-export function CategorySelector({
-    category,
-    setCategory,
+export function RequirementSelector({
+    currentPlan,
+    requirement,
+    setRequirement,
     setCoursePool,
     currentSemester
 }: {
-    category: string;
-    setCategory: (newCat: string) => void;
+    currentPlan: DegreePlan;
+    requirement: string;
+    setRequirement: (newCat: string) => void;
     setCoursePool: (newPool: Course[]) => void;
     currentSemester: Semester;
 }): JSX.Element {
-    const [grouping, setGrouping] = useState<string>("General");
+    const [category, setCategory] = useState<string>("General");
 
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
-        setCategory(event.target.value);
+        const requirementOption = event.target.value;
+        const requirementFilter = category + "-";
+
+        setRequirement(requirementOption);
         setCoursePool(
             courseList.filter(
                 (course: Course): boolean =>
-                    course.degreeCategory.includes(event.target.value) &&
+                    course.degreeRequirement.includes(
+                        requirementFilter + requirementOption
+                    ) &&
                     !currentSemester.courses
                         .map((currCourse: Course): string => currCourse.code)
                         .includes(course.code)
@@ -40,28 +48,29 @@ export function CategorySelector({
 
     return (
         <div className="DegreePlanList">
-            <p>Please select a category</p>
-            <GroupRadioButtons
-                grouping={grouping}
+            <p>Please select a requirement</p>
+            <CategoryRadioButtons
+                currentPlan={currentPlan}
+                category={category}
                 currentSemester={currentSemester}
-                setGrouping={setGrouping}
                 setCategory={setCategory}
+                setRequirement={setRequirement}
                 setCoursePool={setCoursePool}
             />
             <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select
                     data-testid="plan-list"
-                    value={category}
+                    value={requirement}
                     onChange={updateSelection}
                 >
-                    {degreeCategories[grouping].map(
-                        (catOption: string): JSX.Element => (
+                    {degreeCategories[category].map(
+                        (reqOption: string): JSX.Element => (
                             <option
-                                key={catOption}
-                                value={catOption}
-                                data-testid={`category-option-${catOption}`}
+                                key={reqOption}
+                                value={reqOption}
+                                data-testid={`requirement-option-${reqOption}`}
                             >
-                                {catOption}
+                                {reqOption}
                             </option>
                         )
                     )}

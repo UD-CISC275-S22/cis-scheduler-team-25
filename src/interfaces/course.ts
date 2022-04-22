@@ -21,7 +21,7 @@ export interface Course {
     //availability
     typ: string;
     // Requirement that the course fulfills for a degree
-    degreeCategory: string[];
+    degreeRequirement: string[];
     // Array of sections for this course
     // sections: Section[];s
 }

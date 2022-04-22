@@ -5,11 +5,13 @@ import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
 import { courseList } from "../ReadJSON";
 import { Semester } from "../../interfaces/semester";
+import { DegreePlan } from "../../interfaces/degreeplan";
 
 type GroupRadioButtonsProps = {
-    grouping: string;
+    currentPlan: DegreePlan;
+    category: string;
     currentSemester: Semester;
-    setGrouping: (newGroup: string) => void;
+    setRequirement: (newGroup: string) => void;
     setCategory: (newCategory: string) => void;
     setCoursePool: (newPool: Course[]) => void;
 };
@@ -17,7 +19,6 @@ type GroupRadioButtonsProps = {
 // read in degreeCategories JSON, where keys are groupings of degreeCategories
 // and the values are the degreeCategories associated with that category
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
-const GROUPS = Object.keys(degreeCategoriesData);
 
 /*
 Component for radio buttons for selecting a "grouping" of degreeCategories,
@@ -25,23 +26,32 @@ being "General" and "Concentration" requirements. This make the dropdown
 for selecting a degreeCategory be from a specific subset for more easily
 choosing what courses you want the coursePool to show
 */
-export function GroupRadioButtons({
-    grouping,
+export function CategoryRadioButtons({
+    currentPlan,
+    category,
     currentSemester,
-    setGrouping,
+    setRequirement,
     setCategory,
     setCoursePool
 }: GroupRadioButtonsProps): JSX.Element {
-    function updateGrouping(event: React.ChangeEvent<HTMLInputElement>) {
-        const newGrouping = event.target.value;
-        const newCategory = degreeCategories[newGrouping][0];
+    const CATEGORIES = Object.keys(degreeCategoriesData).filter(
+        (catOption: string): boolean =>
+            catOption === "General" ||
+            catOption === currentPlan.degree.concentration
+    );
 
-        setGrouping(newGrouping);
+    function updateCategory(event: React.ChangeEvent<HTMLInputElement>) {
+        const newCategory = event.target.value;
+        const newRequirement = degreeCategories[newCategory][0];
+
         setCategory(newCategory);
+        setRequirement(newRequirement);
         setCoursePool(
             courseList.filter(
                 (course: Course): boolean =>
-                    course.degreeCategory.includes(newCategory) &&
+                    course.degreeRequirement.includes(
+                        newCategory + "-" + newRequirement
+                    ) &&
                     !currentSemester.courses
                         .map((currCourse: Course): string => currCourse.code)
                         .includes(course.code)
@@ -52,18 +62,18 @@ export function GroupRadioButtons({
     return (
         <div>
             <Form.Group>
-                {GROUPS.map(
-                    (group: string): JSX.Element => (
+                {CATEGORIES.map(
+                    (catOption: string): JSX.Element => (
                         <Form.Check
                             inline
-                            key={group}
+                            key={catOption}
                             type="radio"
                             name="response"
-                            onChange={updateGrouping}
-                            id={group}
-                            label={group}
-                            value={group}
-                            checked={grouping === group}
+                            onChange={updateCategory}
+                            id={catOption}
+                            label={catOption}
+                            value={catOption}
+                            checked={category === catOption}
                         />
                     )
                 )}

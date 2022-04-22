@@ -5,7 +5,7 @@ import { Semester } from "../../interfaces/semester";
 import { AddSemesterForm } from "../AddSemesterForm";
 import { SemesterScrollBox } from "../SemesterScrollBox";
 import invalidSemester from "../../exampleData/invalid_semester.json";
-import "./components.css";
+import "../components.css";
 
 // Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({

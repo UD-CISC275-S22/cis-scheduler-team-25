@@ -7,7 +7,7 @@ import { CourseDropPool } from "./CourseDropPool";
 import { courseList } from "../ReadJSON";
 import { handleOnDragEnd } from "./handleOnDragEnd";
 import { DegreePlan } from "../../interfaces/degreeplan";
-import { CategorySelector } from "./CategorySelector";
+import { RequirementSelector } from "./RequirementSelector";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
@@ -32,8 +32,8 @@ export function CourseDragDrop({
     currentPlan,
     setCurrentPlan
 }: CourseDragDropProps): JSX.Element {
-    // state for selecting what Degree Requirement Category you want to choose from
-    const [category, setCategory] = useState<string>("CISC Core");
+    // state for selecting what Degree Requirement requirement you want to choose from
+    const [requirement, setRequirement] = useState<string>("General-CISC Core");
 
     // state for the set of courses available for dragging into your currentSemester
     const [coursePool, setCoursePool] = useState<Course[]>(
@@ -42,7 +42,7 @@ export function CourseDragDrop({
                 !currentSemester.courses
                     .map((currCourse: Course): string => currCourse.code)
                     .includes(course.code) &&
-                course.degreeCategory.includes(category)
+                course.degreeRequirement.includes(requirement)
         )
     );
 
@@ -51,7 +51,7 @@ export function CourseDragDrop({
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
                     handleOnDragEnd({
-                        category: category,
+                        requirement: requirement,
                         result: result,
                         coursePool: coursePool,
                         semesterPool: currentSemester.courses,
@@ -82,9 +82,10 @@ export function CourseDragDrop({
                     </Col>
                     <Col>
                         {" "}
-                        <CategorySelector
-                            category={category}
-                            setCategory={setCategory}
+                        <RequirementSelector
+                            currentPlan={currentPlan}
+                            requirement={requirement}
+                            setRequirement={setRequirement}
                             setCoursePool={setCoursePool}
                             currentSemester={currentSemester}
                         />
