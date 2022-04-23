@@ -60,7 +60,8 @@
         "eslint-plugin-react": "^7.28.0",
         "gh-pages": "^3.2.3",
         "prettier": "2.5.1",
-        "prettier-eslint": "^13.0.0"
+        "prettier-eslint": "^13.0.0",
+        "react-beautiful-dnd-tester": "^0.0.10"
     },
     "jest": {
         "collectCoverageFrom": [
