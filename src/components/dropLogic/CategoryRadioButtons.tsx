@@ -66,9 +66,10 @@ export function CategoryRadioButtons({
                     (catOption: string): JSX.Element => (
                         <Form.Check
                             inline
+                            data-testid={"radio-" + catOption}
                             key={catOption}
                             type="radio"
-                            name="response"
+                            name={"radio-" + catOption}
                             onChange={updateCategory}
                             id={catOption}
                             label={catOption}
