@@ -8,6 +8,7 @@ import { courseList } from "../ReadJSON";
 import { handleOnDragEnd } from "./handleOnDragEnd";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
+import { AlertMessage } from "./AlertMessage";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
@@ -32,8 +33,10 @@ export function CourseDragDrop({
     currentPlan,
     setCurrentPlan
 }: CourseDragDropProps): JSX.Element {
-    // state for selecting what Degree Requirement requirement you want to choose from
+    // state for selecting what Degree Requirement you want to choose from
     const [requirement, setRequirement] = useState<string>("CISC Core");
+
+    // state for selecting what Category of degree requirements you want to choose from
     const [category, setCategory] = useState<string>("General");
 
     // state for the set of courses available for dragging into your currentSemester
@@ -46,6 +49,10 @@ export function CourseDragDrop({
                 course.degreeRequirement.includes(category + "-" + requirement)
         )
     );
+
+    const [status, setStatus] = useState<string>("");
+
+    const [alertActive, setAlertActive] = useState<boolean>(false);
 
     return (
         <div>
@@ -63,7 +70,9 @@ export function CourseDragDrop({
                         plans: plans,
                         setPlans: setPlans,
                         currentPlan: currentPlan,
-                        setCurrentPlan: setCurrentPlan
+                        setCurrentPlan: setCurrentPlan,
+                        setStatus: setStatus,
+                        setAlertActive: setAlertActive
                     })
                 }
             >
@@ -81,6 +90,11 @@ export function CourseDragDrop({
                                     .toString() + " Credits"}
                             </p>
                         </div>
+                        <AlertMessage
+                            alertActive={alertActive}
+                            setAlertActive={setAlertActive}
+                            status={status}
+                        />
                     </Col>
                     <Col>
                         {" "}

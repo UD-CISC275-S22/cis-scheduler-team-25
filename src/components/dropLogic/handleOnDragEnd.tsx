@@ -17,6 +17,8 @@ type DragEndProps = {
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
+    setStatus: (newStatus: string) => void;
+    setAlertActive: (newAlert: boolean) => void;
 };
 
 /* handleOnDragEnd is the primary func for handling the drag/drop updating logic
@@ -39,7 +41,9 @@ export function handleOnDragEnd({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester,
-    setCoursePool
+    setCoursePool,
+    setStatus,
+    setAlertActive
 }: DragEndProps): void {
     if (!result.destination) return;
 
@@ -56,7 +60,9 @@ export function handleOnDragEnd({
         currentPlan,
         setCurrentPlan,
         setCurrentSemester,
-        setCoursePool
+        setCoursePool,
+        setStatus,
+        setAlertActive
     };
 
     // use result from drag action to discover where the dragged course originated
@@ -66,16 +72,27 @@ export function handleOnDragEnd({
         "->" +
         result.destination.droppableId.toString();
 
+    let dragSuccess: boolean;
+    let status = "";
+
     // call helper functions depending on the specified action
     if (action === "semesterPool->semesterPool") {
-        handleSemester2Semester(args);
+        dragSuccess = handleSemester2Semester(args);
+        status = dragSuccess ? "swapSuccess" : "";
     } else if (action === "coursePool->semesterPool") {
         if (checkPrerequesites(args)) {
-            handleCoursePool2Semester(args);
+            dragSuccess = handleCoursePool2Semester(args);
+            status = dragSuccess ? "addSuccess" : "";
+        } else {
+            status = "preReqError";
         }
     } else if (action === "semesterPool->coursePool") {
-        handleSemester2CoursePool(args);
+        dragSuccess = handleSemester2CoursePool(args);
+        status = dragSuccess ? "removeSuccess" : "";
     }
+
+    setStatus(status);
+    setAlertActive(true);
 }
 // ================================================================
 // ======================= HELPER FUNCTIONS =======================
@@ -91,8 +108,8 @@ function handleSemester2Semester({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester
-}: DragEndProps): void {
-    if (!result.destination) return;
+}: DragEndProps): boolean {
+    if (!result.destination) return false;
 
     // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
@@ -130,6 +147,8 @@ function handleSemester2Semester({
     setCurrentSemester(newSemester);
     setCurrentPlan(newPlan);
     setPlans(newPlans);
+
+    return true;
 }
 
 // helper function for transferring course from coursePool to currentSemester
@@ -144,8 +163,8 @@ function handleCoursePool2Semester({
     setCurrentPlan,
     setCurrentSemester,
     setCoursePool
-}: DragEndProps): void {
-    if (!result.destination) return;
+}: DragEndProps): boolean {
+    if (!result.destination) return false;
 
     // copy courses in current semester and remove the dragged course
     const draggedCourse = coursePool[result.source.index];
@@ -181,6 +200,8 @@ function handleCoursePool2Semester({
             (course: Course): boolean => course.code !== draggedCourse.code
         )
     );
+
+    return true;
 }
 
 // helper function for transferring course from currentSemester to coursePool
@@ -196,8 +217,8 @@ function handleSemester2CoursePool({
     setCurrentPlan,
     setCurrentSemester,
     setCoursePool
-}: DragEndProps): void {
-    if (!result.destination) return;
+}: DragEndProps): boolean {
+    if (!result.destination) return false;
 
     // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
@@ -236,6 +257,8 @@ function handleSemester2CoursePool({
                 course.degreeRequirement.includes(category + "-" + requirement)
         )
     );
+
+    return true;
 }
 
 /*
