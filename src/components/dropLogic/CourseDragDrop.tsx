@@ -9,6 +9,8 @@ import { handleOnDragEnd } from "./handleOnDragEnd";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
+import INVALID_COURSE from "../../exampleData/invalid_course.json";
+import { CourseModal } from "./courseModal/CourseModal";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
@@ -50,12 +52,21 @@ export function CourseDragDrop({
         )
     );
 
+    // states for handling an action's status and whether or not the status displays
     const [status, setStatus] = useState<string>("");
-
     const [alertActive, setAlertActive] = useState<boolean>(false);
+
+    // state
+    const [showCourseEditor, setShowCourseEditor] = useState<boolean>(false);
+    const [currentCourse, setCurrentCourse] = useState<Course>(INVALID_COURSE);
 
     return (
         <div>
+            <CourseModal
+                showCourseEditor={showCourseEditor}
+                setShowCourseEditor={setShowCourseEditor}
+                currentCourse={currentCourse}
+            />
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
                     handleOnDragEnd({
@@ -115,6 +126,8 @@ export function CourseDragDrop({
                         <CourseDropPool
                             courses={currentSemester.courses}
                             droppableId="semesterPool"
+                            setShowCourseEditor={setShowCourseEditor}
+                            setCurrentCourse={setCurrentCourse}
                         />
                     </Col>
                     <Col>
@@ -122,6 +135,8 @@ export function CourseDragDrop({
                         <CourseDropPool
                             courses={coursePool}
                             droppableId="coursePool"
+                            setShowCourseEditor={setShowCourseEditor}
+                            setCurrentCourse={setCurrentCourse}
                         />
                     </Col>
                 </Row>
