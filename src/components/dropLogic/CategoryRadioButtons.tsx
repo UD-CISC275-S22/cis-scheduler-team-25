@@ -3,7 +3,6 @@ import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
-import { courseList } from "../ReadJSON";
 import { Semester } from "../../interfaces/semester";
 import { DegreePlan } from "../../interfaces/degreeplan";
 
@@ -14,6 +13,7 @@ type GroupRadioButtonsProps = {
     setRequirement: (newGroup: string) => void;
     setCategory: (newCategory: string) => void;
     setCoursePool: (newPool: Course[]) => void;
+    courseList: Course[];
 };
 
 // read in degreeCategories JSON, where keys are groupings of degreeCategories
@@ -32,7 +32,8 @@ export function CategoryRadioButtons({
     currentSemester,
     setRequirement,
     setCategory,
-    setCoursePool
+    setCoursePool,
+    courseList
 }: GroupRadioButtonsProps): JSX.Element {
     const CATEGORIES = Object.keys(degreeCategoriesData).filter(
         (catOption: string): boolean =>

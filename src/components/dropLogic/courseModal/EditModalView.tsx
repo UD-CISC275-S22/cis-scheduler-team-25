@@ -1,22 +1,68 @@
-import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import React from "react";
+import { Button, Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
+import "../../components.css";
 
 type EditModalViewProps = {
     currentCourse: Course;
+    setShowCourseEditor: (newVal: boolean) => void;
+    setCourseModalMode: (newMode: string) => void;
 };
 
 export function EditModalView({
-    currentCourse
+    currentCourse,
+    setShowCourseEditor,
+    setCourseModalMode
 }: EditModalViewProps): JSX.Element {
     return (
         <>
             <Modal.Header closeButton>
                 <Modal.Title>
-                    Edit Course Information for {currentCourse.code}
+                    Course Information for {currentCourse.code}
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>Sample Sentence</Modal.Body>
+            <Modal.Body>
+                <div className="modal-section">
+                    <div>
+                        <strong>
+                            {currentCourse.code + " - " + currentCourse.name}
+                        </strong>
+                    </div>
+                    <div>{"Credits: (" + currentCourse.credits + ")"}</div>
+                </div>
+                <div className="modal-section">
+                    <i>Restrictions</i>
+                    <p></p>
+                    <div>{currentCourse.preReqDesc}</div>
+                    <div>{currentCourse.restrict}</div>
+                </div>
+                <div className="modal-section">
+                    <i>Other Information</i>
+                    <p></p>
+                    <div>{currentCourse.breadth}</div>
+                    <div>{currentCourse.typ}</div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button
+                    variant="primary"
+                    onClick={() => setCourseModalMode("info")}
+                >
+                    Save Changes
+                </Button>
+                <Button
+                    variant="primary"
+                    onClick={() => setCourseModalMode("info")}
+                >
+                    Cancel Changes
+                </Button>
+                <Button
+                    variant="secondary"
+                    onClick={() => setShowCourseEditor(false)}
+                >
+                    Close
+                </Button>
+            </Modal.Footer>
         </>
     );
 }

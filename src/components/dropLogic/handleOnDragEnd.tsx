@@ -2,7 +2,6 @@ import { DropResult } from "react-beautiful-dnd";
 import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
-import { courseList } from "../ReadJSON";
 
 type DragEndProps = {
     category: string;
@@ -19,6 +18,7 @@ type DragEndProps = {
     setCurrentPlan: (newPlan: DegreePlan) => void;
     setStatus: (newStatus: string) => void;
     setAlertActive: (newAlert: boolean) => void;
+    courseList: Course[];
 };
 
 /* handleOnDragEnd is the primary func for handling the drag/drop updating logic
@@ -43,7 +43,8 @@ export function handleOnDragEnd({
     setCurrentSemester,
     setCoursePool,
     setStatus,
-    setAlertActive
+    setAlertActive,
+    courseList
 }: DragEndProps): void {
     if (!result.destination) return;
 
@@ -62,7 +63,8 @@ export function handleOnDragEnd({
         setCurrentSemester,
         setCoursePool,
         setStatus,
-        setAlertActive
+        setAlertActive,
+        courseList
     };
 
     // use result from drag action to discover where the dragged course originated
@@ -216,7 +218,8 @@ function handleSemester2CoursePool({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester,
-    setCoursePool
+    setCoursePool,
+    courseList
 }: DragEndProps): boolean {
     if (!result.destination) return false;
 

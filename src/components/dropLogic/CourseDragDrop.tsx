@@ -4,7 +4,6 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
 import { Semester } from "../../interfaces/semester";
 import { CourseDropPool } from "./CourseDropPool";
-import { courseList } from "../ReadJSON";
 import { handleOnDragEnd } from "./handleOnDragEnd";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
@@ -19,6 +18,8 @@ type CourseDragDropProps = {
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
+    courseList: Course[];
+    setCourseList: (newCourses: Course[]) => void;
 };
 
 /*
@@ -33,7 +34,9 @@ export function CourseDragDrop({
     plans,
     setPlans,
     currentPlan,
-    setCurrentPlan
+    setCurrentPlan,
+    courseList,
+    setCourseList
 }: CourseDragDropProps): JSX.Element {
     // state for selecting what Degree Requirement you want to choose from
     const [requirement, setRequirement] = useState<string>("CISC Core");
@@ -66,6 +69,8 @@ export function CourseDragDrop({
                 showCourseEditor={showCourseEditor}
                 setShowCourseEditor={setShowCourseEditor}
                 currentCourse={currentCourse}
+                courseList={courseList}
+                setCourseList={setCourseList}
             />
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
@@ -83,7 +88,8 @@ export function CourseDragDrop({
                         currentPlan: currentPlan,
                         setCurrentPlan: setCurrentPlan,
                         setStatus: setStatus,
-                        setAlertActive: setAlertActive
+                        setAlertActive: setAlertActive,
+                        courseList: courseList
                     })
                 }
             >
@@ -117,6 +123,7 @@ export function CourseDragDrop({
                             setRequirement={setRequirement}
                             setCoursePool={setCoursePool}
                             currentSemester={currentSemester}
+                            courseList={courseList}
                         />
                     </Col>
                 </Row>

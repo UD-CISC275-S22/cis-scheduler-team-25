@@ -1,14 +1,18 @@
 import React from "react";
-import { Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
 import "../../components.css";
 
 type InfoModalViewProps = {
     currentCourse: Course;
+    setShowCourseEditor: (newVal: boolean) => void;
+    setCourseModalMode: (newMode: string) => void;
 };
 
 export function InfoModalView({
-    currentCourse
+    currentCourse,
+    setShowCourseEditor,
+    setCourseModalMode
 }: InfoModalViewProps): JSX.Element {
     return (
         <>
@@ -39,6 +43,20 @@ export function InfoModalView({
                     <div>{currentCourse.typ}</div>
                 </div>
             </Modal.Body>
+            <Modal.Footer>
+                <Button
+                    variant="primary"
+                    onClick={() => setCourseModalMode("edit")}
+                >
+                    Edit Information
+                </Button>
+                <Button
+                    variant="secondary"
+                    onClick={() => setShowCourseEditor(false)}
+                >
+                    Close
+                </Button>
+            </Modal.Footer>
         </>
     );
 }

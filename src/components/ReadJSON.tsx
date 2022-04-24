@@ -91,7 +91,7 @@ const uniqueCourseCodes = Array.from(
 
 // combine all duplicates into a single Course by merging all of the
 // degreeCategories into a single list
-const courseList = uniqueCourseCodes.map(
+const defaultCourseList = uniqueCourseCodes.map(
     (code: string): Course =>
         unfilteredCourseList
             .filter((course: Course): boolean => course.code === code)
@@ -107,4 +107,4 @@ const courseList = uniqueCourseCodes.map(
 // simple log to check work
 // console.log(courseList);
 
-export { courseList, categories };
+export { defaultCourseList, categories };

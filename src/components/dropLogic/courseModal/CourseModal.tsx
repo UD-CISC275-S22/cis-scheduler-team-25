@@ -7,34 +7,33 @@ type CourseEditModalProps = {
     showCourseEditor: boolean;
     setShowCourseEditor: (newVal: boolean) => void;
     currentCourse: Course;
+    courseList: Course[];
+    setCourseList: (newCourses: Course[]) => void;
 };
 
 export function CourseModal({
     showCourseEditor,
     setShowCourseEditor,
-    currentCourse
+    currentCourse,
+    courseList,
+    setCourseList
 }: CourseEditModalProps): JSX.Element {
     const [courseModalMode, setCourseModalMode] = useState<string>("info");
 
-    const handleClose = () => setShowCourseEditor(false);
-
     return (
-        <Modal show={showCourseEditor} onHide={handleClose}>
+        <Modal
+            show={showCourseEditor}
+            onHide={() => setShowCourseEditor(false)}
+        >
             {courseModalMode == "info" ? (
-                <InfoModalView currentCourse={currentCourse} />
+                <InfoModalView
+                    currentCourse={currentCourse}
+                    setShowCourseEditor={setShowCourseEditor}
+                    setCourseModalMode={setCourseModalMode}
+                />
             ) : (
                 ""
             )}
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    {courseModalMode == "info"
-                        ? "Edit Information"
-                        : "Save Changes"}
-                </Button>
-            </Modal.Footer>
         </Modal>
     );
 }

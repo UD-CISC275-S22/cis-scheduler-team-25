@@ -8,6 +8,16 @@ import { SetDegreeList } from "../SetDegreeList";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import "../components.css";
 
+type PlanViewProps = {
+    setMode: (newMode: string) => void;
+    plans: DegreePlan[];
+    setPlans: (newPlans: DegreePlan[]) => void;
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
+    currentSemester: Semester;
+    setCurrentSemester: (newSemester: Semester) => void;
+};
+
 // Button for switching to the SemesterView after selecting a semester
 function SemesterViewButton({
     setMode,
@@ -181,15 +191,7 @@ export function PlanView({
     setCurrentPlan,
     currentSemester,
     setCurrentSemester
-}: {
-    setMode: (newMode: string) => void;
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-}): JSX.Element {
+}: PlanViewProps): JSX.Element {
     const [showAdd, setShowAdd] = useState<boolean>(false);
 
     return (

@@ -4,7 +4,6 @@ import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
-import { courseList } from "../ReadJSON";
 import { CategoryRadioButtons } from "./CategoryRadioButtons";
 import { DegreePlan } from "../../interfaces/degreeplan";
 
@@ -16,6 +15,7 @@ type RequirementSelectorProps = {
     setRequirement: (newReq: string) => void;
     setCoursePool: (newPool: Course[]) => void;
     currentSemester: Semester;
+    courseList: Course[];
 };
 
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
@@ -29,7 +29,8 @@ export function RequirementSelector({
     requirement,
     setRequirement,
     setCoursePool,
-    currentSemester
+    currentSemester,
+    courseList
 }: RequirementSelectorProps): JSX.Element {
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -60,6 +61,7 @@ export function RequirementSelector({
                 setCategory={setCategory}
                 setRequirement={setRequirement}
                 setCoursePool={setCoursePool}
+                courseList={courseList}
             />
             <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select

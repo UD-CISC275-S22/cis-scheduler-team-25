@@ -1,8 +1,21 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import { CourseDragDrop } from "../dropLogic/CourseDragDrop";
+
+type SemesterViewProps = {
+    setMode: (newMode: string) => void;
+    setCurrentSemester: (currentSemester: Semester) => void;
+    setCurrentPlan: (currentPlan: DegreePlan) => void;
+    currentSemester: Semester;
+    setPlans: (plans: DegreePlan[]) => void;
+    currentPlan: DegreePlan;
+    plans: DegreePlan[];
+    courseList: Course[];
+    setCourseList: (newCourses: Course[]) => void;
+};
 
 // Button for returning back to the PlanView
 function PlanViewButton({
@@ -78,16 +91,10 @@ export function SemesterView({
     setPlans,
     currentPlan,
     plans,
-    currentSemester
-}: {
-    setMode: (newMode: string) => void;
-    setCurrentSemester: (currentSemester: Semester) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
-    currentSemester: Semester;
-    setPlans: (plans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    plans: DegreePlan[];
-}): JSX.Element {
+    currentSemester,
+    courseList,
+    setCourseList
+}: SemesterViewProps): JSX.Element {
     return (
         <div>
             <h1>
@@ -106,6 +113,8 @@ export function SemesterView({
                 setPlans={setPlans}
                 currentPlan={currentPlan}
                 setCurrentPlan={setCurrentPlan}
+                courseList={courseList}
+                setCourseList={setCourseList}
             />
             <RemoveAllCourses
                 setCurrentSemester={setCurrentSemester}
