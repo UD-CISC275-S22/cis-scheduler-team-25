@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
+import { InfoModalView } from "./InfoModalView";
 
 type CourseEditModalProps = {
     showCourseEditor: boolean;
@@ -13,24 +14,25 @@ export function CourseModal({
     setShowCourseEditor,
     currentCourse
 }: CourseEditModalProps): JSX.Element {
-    const handleClose = () => setShowCourseEditor(false);
+    const [courseModalMode, setCourseModalMode] = useState<string>("info");
 
-    const [courseModalMode, setCourseModalMode] = useState<string>("view");
+    const handleClose = () => setShowCourseEditor(false);
 
     return (
         <Modal show={showCourseEditor} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>
-                    Edit Course Information for {currentCourse.code}
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Sample Sentence</Modal.Body>
+            {courseModalMode == "info" ? (
+                <InfoModalView currentCourse={currentCourse} />
+            ) : (
+                ""
+            )}
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                    Save Changes
+                    {courseModalMode == "info"
+                        ? "Edit Information"
+                        : "Save Changes"}
                 </Button>
             </Modal.Footer>
         </Modal>

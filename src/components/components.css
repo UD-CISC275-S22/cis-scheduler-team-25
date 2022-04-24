@@ -59,6 +59,11 @@
     min-height: calc(100px + 20vmin);
 }
 
+.modal-section {
+    padding-bottom: calc(1% + 2vmin);
+    border-bottom: 2px solid #a3b0ba;
+}
+
 .alert-shown {
     opacity: 1;
     transition: all 250ms linear;
