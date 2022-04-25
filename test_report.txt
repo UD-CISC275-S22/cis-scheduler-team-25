@@ -4,45 +4,59 @@
 
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
+PASS src/tests/CourseDragDrop.test.tsx
 PASS src/tests/PlanView.test.tsx
+PASS src/tests/AddPlanForm.test.tsx
+PASS src/tests/CategoryRadioButtons.test.tsx
 PASS src/tests/SemesterView.test.tsx
+PASS src/tests/RequirementSelector.test.tsx
 PASS src/tests/DegreePlanList.test.tsx
 PASS src/tests/MainView.test.tsx
 PASS src/App.test.tsx
---------------------------|---------|----------|---------|---------|-------------------
-File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------------|---------|----------|---------|---------|-------------------
-All files                 |   59.24 |    47.36 |   69.47 |   60.38 |                   
- src                      |     100 |      100 |     100 |     100 |                   
-  App.tsx                 |     100 |      100 |     100 |     100 |                   
- src/components           |   82.35 |     82.5 |   84.74 |   82.35 |                   
-  AddSemesterForm.tsx     |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40    
-  CSVExport.tsx           |     100 |      100 |     100 |     100 |                   
-  CurrentView.tsx         |     100 |      100 |     100 |     100 |                   
-  DegreePlanList.tsx      |   85.71 |       50 |      80 |   85.71 | 21                
-  InsertPlanForm.tsx      |       0 |        0 |       0 |       0 | 11-76             
-  MainView.tsx            |     100 |      100 |     100 |     100 |                   
-  PlanView.tsx            |     100 |      100 |     100 |     100 |                   
-  ReadJSON.tsx            |   92.85 |      100 |   85.71 |   92.85 | 59                
-  SemesterBox.tsx         |     100 |      100 |     100 |     100 |                   
-  SemesterScrollBox.tsx   |     100 |      100 |     100 |     100 |                   
-  SemesterView.tsx        |     100 |      100 |     100 |     100 |                   
- src/components/dropLogic |   21.68 |     8.33 |    37.5 |   22.78 |                   
-  CategorySelector.tsx    |      50 |        0 |      40 |      50 | 29-35             
-  CourseDragDrop.tsx      |   85.71 |      100 |      80 |   85.71 | 53                
-  CourseDropPool.tsx      |     100 |       50 |     100 |     100 | 33                
-  GroupRadioButtons.tsx   |   36.36 |        0 |      40 |   36.36 | 36-46             
-  handleOnDragEnd.tsx     |       0 |        0 |       0 |       0 | 42-228            
- src/interfaces           |       0 |        0 |       0 |       0 |                   
-  course.ts               |       0 |        0 |       0 |       0 |                   
-  degree.ts               |       0 |        0 |       0 |       0 |                   
-  degreeplan.ts           |       0 |        0 |       0 |       0 |                   
-  section.ts              |       0 |        0 |       0 |       0 |                   
-  semester.ts             |       0 |        0 |       0 |       0 |                   
---------------------------|---------|----------|---------|---------|-------------------
+--------------------------------------|---------|----------|---------|---------|---------------------
+File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
+--------------------------------------|---------|----------|---------|---------|---------------------
+All files                             |   66.11 |    59.09 |   70.58 |   67.22 |                     
+ src                                  |     100 |      100 |     100 |     100 |                     
+  App.tsx                             |     100 |      100 |     100 |     100 |                     
+ src/components                       |   86.66 |    74.07 |   95.12 |   86.66 |                     
+  AddPlanButton.tsx                   |     100 |      100 |     100 |     100 |                     
+  AddSemesterForm.tsx                 |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40      
+  CSVExport.tsx                       |     100 |      100 |     100 |     100 |                     
+  DegreePlanList.tsx                  |     100 |      100 |     100 |     100 |                     
+  EditPlanForm.tsx                    |       0 |        0 |       0 |       0 |                     
+  InsertPlanForm.tsx                  |     100 |       75 |     100 |     100 | 14                  
+  ReadJSON.tsx                        |     100 |      100 |     100 |     100 |                     
+  SemesterBox.tsx                     |     100 |      100 |     100 |     100 |                     
+  SemesterScrollBox.tsx               |     100 |      100 |     100 |     100 |                     
+  SetDegreeList.tsx                   |   41.66 |        0 |      60 |   41.66 | 27-44               
+ src/components/dropLogic             |   51.12 |    43.54 |   57.44 |   53.12 |                     
+  AlertMessage.tsx                    |   58.33 |       50 |      75 |   58.33 | 13-15,19,32,46      
+  CategoryRadioButtons.tsx            |     100 |      100 |     100 |     100 |                     
+  CourseDragDrop.tsx                  |     100 |      100 |     100 |     100 |                     
+  CourseDropPool.tsx                  |      50 |       50 |   66.66 |      50 | 19-20,78-82         
+  RequirementSelector.tsx             |     100 |      100 |     100 |     100 |                     
+  handleOnDragEnd.tsx                 |      30 |    28.94 |   19.04 |      32 | 85-89,92-93,169-319 
+ src/components/dropLogic/courseModal |    7.14 |       25 |    5.26 |    7.14 |                     
+  CourseModal.tsx                     |   66.66 |       50 |      50 |   66.66 | 27                  
+  EditModalView.tsx                   |       0 |      100 |       0 |       0 | 21-114              
+  InfoModalView.tsx                   |       0 |      100 |       0 |       0 | 17-55               
+  courseEditValidation.tsx            |       0 |        0 |       0 |       0 | 13-39               
+ src/components/views                 |     100 |      100 |     100 |     100 |                     
+  CurrentView.tsx                     |     100 |      100 |     100 |     100 |                     
+  MainView.tsx                        |     100 |      100 |     100 |     100 |                     
+  PlanView.tsx                        |     100 |      100 |     100 |     100 |                     
+  SemesterView.tsx                    |     100 |      100 |     100 |     100 |                     
+ src/interfaces                       |       0 |        0 |       0 |       0 |                     
+  course.ts                           |       0 |        0 |       0 |       0 |                     
+  degree.ts                           |       0 |        0 |       0 |       0 |                     
+  degreeplan.ts                       |       0 |        0 |       0 |       0 |                     
+  section.ts                          |       0 |        0 |       0 |       0 |                     
+  semester.ts                         |       0 |        0 |       0 |       0 |                     
+--------------------------------------|---------|----------|---------|---------|---------------------
 
-Test Suites: 7 passed, 7 total
-Tests:       24 passed, 24 total
+Test Suites: 11 passed, 11 total
+Tests:       36 passed, 36 total
 Snapshots:   0 total
-Time:        6.905 s
+Time:        16.418 s
 Ran all test suites.
