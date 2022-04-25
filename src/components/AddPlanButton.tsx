@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import React from "react";
+import { Button } from "react-bootstrap";
 import "./components.css";
 
 // dropdown list generated from a list of DegreePlan objects passed in
