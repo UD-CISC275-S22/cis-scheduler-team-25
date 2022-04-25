@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
 import { InfoModalView } from "./InfoModalView";
+import { EditModalView } from "./EditModalView";
 
 type CourseEditModalProps = {
     showCourseEditor: boolean;
@@ -32,7 +33,13 @@ export function CourseModal({
                     setCourseModalMode={setCourseModalMode}
                 />
             ) : (
-                ""
+                <EditModalView
+                    currentCourse={currentCourse}
+                    setShowCourseEditor={setShowCourseEditor}
+                    setCourseModalMode={setCourseModalMode}
+                    courseList={courseList}
+                    setCourseList={setCourseList}
+                />
             )}
         </Modal>
     );
