@@ -7,7 +7,19 @@ import "../components.css";
 type CourseDropPoolProps = {
     courses: Course[];
     droppableId: string;
+    setShowCourseEditor: (newVal: boolean) => void;
+    setCurrentCourse: (newCourse: Course) => void;
 };
+
+function displayEditorDoubleClick(
+    e: React.MouseEvent<Element, MouseEvent>,
+    setShowCourseEditor: (newVal: boolean) => void
+): void {
+    // double click, hence 2
+    if (e.detail == 2) {
+        setShowCourseEditor(true);
+    }
+}
 
 /*
 Component for creating a droppable area for Courses using react-beautiful-dnd.
@@ -19,10 +31,15 @@ of the Draggable courses
 */
 export function CourseDropPool({
     courses,
-    droppableId
+    droppableId,
+    setShowCourseEditor,
+    setCurrentCourse
 }: CourseDropPoolProps): JSX.Element {
     return (
-        <div className="droppable-area">
+        <div
+            className="droppable-area"
+            data-testid={"droppable-" + droppableId}
+        >
             <Droppable droppableId={droppableId}>
                 {(provided: DroppableProvided, snapshot) => (
                     <ListGroup
@@ -44,6 +61,9 @@ export function CourseDropPool({
                                 >
                                     {(provided) => (
                                         <ListGroupItem
+                                            data-testid={
+                                                "draggable-" + course.code
+                                            }
                                             className="course-draggable"
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
@@ -53,6 +73,15 @@ export function CourseDropPool({
                                                     .style,
                                                 textAlign: "left"
                                             }}
+                                            action={true}
+                                            onClick={(e) => {
+                                                displayEditorDoubleClick(
+                                                    e,
+                                                    setShowCourseEditor
+                                                );
+                                                setCurrentCourse(course);
+                                            }}
+                                            as="a"
                                         >
                                             {course.code} <br></br>
                                             {course.name}

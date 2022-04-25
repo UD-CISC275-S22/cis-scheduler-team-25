@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
-import { CurrentView } from "./components/CurrentView";
+import { CurrentView } from "./components/views/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
 import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";
 import Background from "./computerScienceBackGround.jpeg";
 import { Course } from "./interfaces/course";
+import { defaultCourseList } from "./components/ReadJSON";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -16,7 +17,10 @@ const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
             (semester): Semester => ({
                 ...semester,
                 courses: semester.courses.map(
-                    (course): Course => ({ ...course })
+                    (course): Course => ({
+                        ...course,
+                        preReqs: course.preReqs as string[][]
+                    })
                 )
             })
         )
@@ -31,9 +35,16 @@ function App(): JSX.Element {
     );
     const [currentSemester, setCurrentSemester] =
         useState<Semester>(invalidSemester);
+    const [courseList, setCourseList] = useState<Course[]>(defaultCourseList);
 
     return (
-        <div className="App" style={{ backgroundColor: "gold" }}>
+        <div
+            className="App"
+            style={{
+                backgroundColor: "gold",
+                paddingBottom: "calc(100px + 2vmin)"
+            }}
+        >
             <header
                 style={{
                     backgroundImage: `url(${Background})`,
@@ -77,6 +88,8 @@ function App(): JSX.Element {
                 setCurrentPlan={setCurrentPlan}
                 currentSemester={currentSemester}
                 setCurrentSemester={setCurrentSemester}
+                courseList={courseList}
+                setCourseList={setCourseList}
             />
         </div>
     );

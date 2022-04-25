@@ -2,10 +2,10 @@ import { DropResult } from "react-beautiful-dnd";
 import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
-import { courseList } from "../ReadJSON";
 
 type DragEndProps = {
     category: string;
+    requirement: string;
     result: DropResult;
     coursePool: Course[];
     semesterPool: Course[];
@@ -16,6 +16,9 @@ type DragEndProps = {
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setCurrentPlan: (newPlan: DegreePlan) => void;
+    setStatus: (newStatus: string) => void;
+    setAlertActive: (newAlert: boolean) => void;
+    courseList: Course[];
 };
 
 /* handleOnDragEnd is the primary func for handling the drag/drop updating logic
@@ -28,6 +31,7 @@ type DragEndProps = {
 */
 export function handleOnDragEnd({
     category,
+    requirement,
     result,
     coursePool,
     semesterPool,
@@ -37,13 +41,17 @@ export function handleOnDragEnd({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester,
-    setCoursePool
-}: DragEndProps) {
+    setCoursePool,
+    setStatus,
+    setAlertActive,
+    courseList
+}: DragEndProps): void {
     if (!result.destination) return;
 
     // arguments to pass to helper functions
     const args = {
         category,
+        requirement,
         result,
         coursePool,
         semesterPool,
@@ -53,7 +61,10 @@ export function handleOnDragEnd({
         currentPlan,
         setCurrentPlan,
         setCurrentSemester,
-        setCoursePool
+        setCoursePool,
+        setStatus,
+        setAlertActive,
+        courseList
     };
 
     // use result from drag action to discover where the dragged course originated
@@ -63,14 +74,27 @@ export function handleOnDragEnd({
         "->" +
         result.destination.droppableId.toString();
 
+    let dragSuccess: boolean;
+    let status = "";
+
     // call helper functions depending on the specified action
     if (action === "semesterPool->semesterPool") {
-        handleSemester2Semester(args);
+        dragSuccess = handleSemester2Semester(args);
+        status = dragSuccess ? "swapSuccess" : "";
     } else if (action === "coursePool->semesterPool") {
-        handleCoursePool2Semester(args);
+        if (checkPrerequesites(args)) {
+            dragSuccess = handleCoursePool2Semester(args);
+            status = dragSuccess ? "addSuccess" : "";
+        } else {
+            status = "preReqError";
+        }
     } else if (action === "semesterPool->coursePool") {
-        handleSemester2CoursePool(args);
+        dragSuccess = handleSemester2CoursePool(args);
+        status = dragSuccess ? "removeSuccess" : "";
     }
+
+    setStatus(status);
+    setAlertActive(true);
 }
 // ================================================================
 // ======================= HELPER FUNCTIONS =======================
@@ -86,8 +110,8 @@ function handleSemester2Semester({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester
-}: DragEndProps) {
-    if (!result.destination) return;
+}: DragEndProps): boolean {
+    if (!result.destination) return false;
 
     // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
@@ -125,6 +149,8 @@ function handleSemester2Semester({
     setCurrentSemester(newSemester);
     setCurrentPlan(newPlan);
     setPlans(newPlans);
+
+    return true;
 }
 
 // helper function for transferring course from coursePool to currentSemester
@@ -139,8 +165,8 @@ function handleCoursePool2Semester({
     setCurrentPlan,
     setCurrentSemester,
     setCoursePool
-}: DragEndProps) {
-    if (!result.destination) return;
+}: DragEndProps): boolean {
+    if (!result.destination) return false;
 
     // copy courses in current semester and remove the dragged course
     const draggedCourse = coursePool[result.source.index];
@@ -176,11 +202,14 @@ function handleCoursePool2Semester({
             (course: Course): boolean => course.code !== draggedCourse.code
         )
     );
+
+    return true;
 }
 
 // helper function for transferring course from currentSemester to coursePool
 function handleSemester2CoursePool({
     category,
+    requirement,
     result,
     semesterPool,
     currentSemester,
@@ -189,9 +218,10 @@ function handleSemester2CoursePool({
     currentPlan,
     setCurrentPlan,
     setCurrentSemester,
-    setCoursePool
-}: DragEndProps) {
-    if (!result.destination) return;
+    setCoursePool,
+    courseList
+}: DragEndProps): boolean {
+    if (!result.destination) return false;
 
     // copy courses in current semester and remove the dragged course
     const reorderedSemesterCourses = [...semesterPool];
@@ -227,7 +257,65 @@ function handleSemester2CoursePool({
                 !newSemester.courses
                     .map((currCourse: Course): string => currCourse.code)
                     .includes(course.code) &&
-                course.degreeCategory.includes(category)
+                course.degreeRequirement.includes(category + "-" + requirement)
         )
+    );
+
+    return true;
+}
+
+/*
+Helper function for checking if a student meets all the required prerequisites
+for a course before adding it from the coursePool -> semesterPool.
+Only semesters checked PRIOR to the current semester are checked
+*/
+function checkPrerequesites({
+    result,
+    coursePool,
+    currentSemester,
+    currentPlan
+}: DragEndProps): boolean {
+    const currentIdx = currentPlan.semesters.findIndex(
+        (semester: Semester): boolean => semester.id === currentSemester.id
+    );
+
+    const takenCourses = currentPlan.semesters
+        .slice(0, currentIdx)
+        .reduce(
+            (courses: Course[], semester: Semester) => [
+                ...courses,
+                ...semester.courses
+            ],
+            []
+        );
+
+    const draggedCourse = coursePool[result.source.index];
+    const coursePreReqs = draggedCourse.preReqs;
+
+    if (coursePreReqs.length === 0) {
+        return true;
+    }
+
+    const courseChecks = coursePreReqs.map((preReqList: string[]): boolean =>
+        isCourseTaken(preReqList, takenCourses)
+    );
+
+    return courseChecks.every((check: boolean): boolean => check);
+}
+
+/*
+Helper function for the checkPrerequisites() helper function.
+Used to map an array of course code prerequsites to a boolean value to determine
+if that particular requirement is met.
+*/
+function isCourseTaken(preReqList: string[], takenCourses: Course[]): boolean {
+    const takenCourseCodes = takenCourses.map(
+        (course: Course): string => course.code
+    );
+
+    // Prerequisite arrays with multiple codes represent an "or" requirement,
+    // e.g. "CISC 108 or CISC 106", so only one code needs to be taken already
+    return preReqList.some((code: string): boolean =>
+        takenCourseCodes.includes(code)
     );
 }
