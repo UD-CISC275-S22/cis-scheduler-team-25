@@ -23,6 +23,8 @@ export function CourseModal({
 
     return (
         <Modal
+            size="lg"
+            centered
             show={showCourseEditor}
             onHide={() => setShowCourseEditor(false)}
         >
