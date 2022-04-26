@@ -16,7 +16,12 @@ function makeNewPlan(
             id: plans.length,
             name: name,
             semesters: [],
-            length: 0
+            length: 0,
+            degree: {
+                name: "Computer Science BS - Artificial Intelligence & Robotics Concentration",
+                concentration:
+                    "Artificial Intelligence & Robotics Concentration"
+            }
         };
 
         const newPlans = [...plans, newPlan];
@@ -36,7 +41,7 @@ function ConfirmNewPlan({
     setShowAdd: (value: boolean) => void;
 }): JSX.Element {
     const valid = plans.every(
-        (plan: DegreePlan): boolean => name !== plan.name
+        (plan: DegreePlan): boolean => name !== plan.name && name !== ""
     );
     return (
         <Button

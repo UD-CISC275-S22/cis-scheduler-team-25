@@ -1,3 +1,4 @@
+import { Degree } from "./degree";
 import { Semester } from "./semester";
 
 export interface DegreePlan {
@@ -9,4 +10,6 @@ export interface DegreePlan {
     semesters: Semester[];
     // number of semesters for this plan
     length: number;
+    // degree and associated concentration
+    degree: Degree;
 }

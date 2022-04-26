@@ -70,3 +70,29 @@
     color: #ffffff;
     border: 3px solid lightgoldenrodyellow;
 }
+.modal-section {
+    padding-bottom: calc(1% + 2vmin);
+    border-bottom: 2px solid #a3b0ba;
+}
+
+.alert-shown {
+    opacity: 1;
+    transition: all 250ms linear;
+    width: calc(75% + 2vmin);
+    padding-top: calc(0.5% + 2vmin);
+    padding-bottom: calc(0.5% + 2vmin);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.alert-hidden {
+    opacity: 0;
+    transition: all 250ms linear 3s;
+    width: calc(75% + 2vmin);
+    padding-top: calc(0.5% + 2vmin);
+    padding-bottom: calc(0.5% + 2vmin);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
