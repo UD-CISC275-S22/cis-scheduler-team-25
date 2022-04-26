@@ -3,49 +3,56 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../interfaces/degreeplan";
 import "./components.css";
 
+//filters through plans and removes the current plan selected and updates setPlan
 function removePlanByName(
     plans: DegreePlan[],
     setPlans: (newPlans: DegreePlan[]) => void,
-    currentPlan: DegreePlan
-    // setCurrentPlan: (currentPlan: DegreePlan) => void
+    currentPlan: DegreePlan,
+    setCurrentPlan: (currentPlan: DegreePlan) => void
 ): void {
     const updatedPlans = plans.filter(
-        (currPlan: DegreePlan): boolean => currPlan.id === currentPlan.id
+        (currPlan: DegreePlan): boolean => currPlan.id !== currentPlan.id
     );
     setPlans(updatedPlans);
-    // setCurrentPlan();
+    setCurrentPlan(plans[0]);
 }
 
+//iterates through plans and updates the current selected plans name
 function editPlanName(
     plans: DegreePlan[],
     setPlans: (newPlans: DegreePlan[]) => void,
     currentPlan: DegreePlan,
-    newName: string
+    newName: string,
+    setCurrentPlan: (currentPlan: DegreePlan) => void
 ): void {
     const updatedPlans = plans.map((currPlan: DegreePlan) =>
-        currPlan.name === currentPlan.name
+        currPlan.id === currentPlan.id
             ? { ...currPlan, name: newName, semesters: [...currPlan.semesters] }
             : currPlan
     );
     setPlans(updatedPlans);
+    setCurrentPlan(plans[0]);
 }
 
-export function RemovePlanButton({
+//remove plan button, calls removePlanByName function
+function RemovePlanButton({
     plans,
     setPlans,
     currentPlan,
-    setShowRemove
+    setShowRemove,
+    setCurrentPlan
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setShowRemove: (value: boolean) => void;
+    setCurrentPlan: (currentPlan: DegreePlan) => void;
 }): JSX.Element {
     return (
         <Button
             data-testid="remove-plan-by-name-button"
             onClick={() => {
-                removePlanByName(plans, setPlans, currentPlan);
+                removePlanByName(plans, setPlans, currentPlan, setCurrentPlan);
                 setShowRemove(false);
             }}
         >
@@ -54,41 +61,53 @@ export function RemovePlanButton({
     );
 }
 
+//calls editPlanName function
 function EditPlanNameButton({
     plans,
     setPlans,
     currentPlan,
     setShowRemove,
-    newName
+    newName,
+    setCurrentPlan
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
     currentPlan: DegreePlan;
     setShowRemove: (value: boolean) => void;
+    setCurrentPlan: (currentPlan: DegreePlan) => void;
     newName: string;
 }): JSX.Element {
     return (
         <Button
             data-testid="edit-plan-by-name-button"
             onClick={() => {
-                editPlanName(plans, setPlans, currentPlan, newName);
+                editPlanName(
+                    plans,
+                    setPlans,
+                    currentPlan,
+                    newName,
+                    setCurrentPlan
+                );
                 setShowRemove(false);
             }}
         >
-            Edit Plan Name
+            Confirm Edit Name
         </Button>
     );
 }
 
+//name state to pass through to edit name
 export function EditRemovePlanForm({
     plans,
     setPlans,
     setShowRemove,
-    currentPlan
+    currentPlan,
+    setCurrentPlan
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
     setShowRemove: (value: boolean) => void;
+    setCurrentPlan: (currentPlan: DegreePlan) => void;
     currentPlan: DegreePlan;
 }): JSX.Element {
     const [newName, setNewName] = useState<string>("");
@@ -115,12 +134,14 @@ export function EditRemovePlanForm({
                 currentPlan={currentPlan}
                 setShowRemove={setShowRemove}
                 newName={newName}
+                setCurrentPlan={setCurrentPlan}
             ></EditPlanNameButton>
             <RemovePlanButton
                 plans={plans}
                 setPlans={setPlans}
                 currentPlan={currentPlan}
                 setShowRemove={setShowRemove}
+                setCurrentPlan={setCurrentPlan}
             ></RemovePlanButton>
         </div>
     );

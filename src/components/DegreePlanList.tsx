@@ -4,6 +4,8 @@ import { AddPlanForm } from "./InsertPlanForm";
 import { AddPlanButton } from "./AddPlanButton";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Form } from "react-bootstrap";
+import { EditRemovePlanForm } from "./EditPlanForm";
+import { EditPlanButton } from "./EditPlanButton";
 
 export function DegreePlanList({
     plans,
@@ -17,6 +19,7 @@ export function DegreePlanList({
     setPlans: (newPlans: DegreePlan[]) => void;
 }): JSX.Element {
     const [showAdd, setShowAdd] = useState<boolean>(false);
+    const [showRemove, setShowRemove] = useState<boolean>(false);
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
         const id = parseInt(event.target.value);
@@ -58,6 +61,20 @@ export function DegreePlanList({
                     setPlans={setPlans}
                     setShowAdd={setShowAdd}
                 ></AddPlanForm>
+            )}
+            <br></br>
+            <EditPlanButton
+                showRemove={showRemove}
+                setShowRemove={setShowRemove}
+            ></EditPlanButton>
+            {showRemove && (
+                <EditRemovePlanForm
+                    plans={plans}
+                    setPlans={setPlans}
+                    currentPlan={currentPlan}
+                    setShowRemove={setShowRemove}
+                    setCurrentPlan={setCurrentPlan}
+                ></EditRemovePlanForm>
             )}
         </div>
     );
