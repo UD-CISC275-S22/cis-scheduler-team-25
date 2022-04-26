@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Button, Modal } from "react-bootstrap";
 import "./components.css";
@@ -16,6 +16,12 @@ export function ProgressList(): JSX.Element {
             <Collapsible
                 className="collapsible"
                 trigger="View Breadth Requirements"
+            >
+                <p>missing the following courses:</p>
+            </Collapsible>
+            <Collapsible
+                className="collapsible"
+                trigger="View Concentration Requirements"
             >
                 <p>missing the following courses:</p>
             </Collapsible>

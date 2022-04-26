@@ -62,11 +62,22 @@
 .collapsible {
     background-color: #00539f;
     color: #ffffff;
-    border: 3px solid #fceb05;
+    border: 2px solid lightgoldenrodyellow;
 }
 
-.modal {
-    background-color: #00539f;
+.modalFull .modal-content {
+    background: #00539f;
+    border: 3px solid lightgoldenrodyellow;
+}
+.modalHead {
+    color: #ffffff;
+    border: 3px solid lightgoldenrodyellow;
+}
+.modalBody {
+    color: #ffffff;
+    border: 3px solid lightgoldenrodyellow;
+}
+.modalFoot {
     color: #ffffff;
     border: 3px solid lightgoldenrodyellow;
 }
