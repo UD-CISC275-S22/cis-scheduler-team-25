@@ -58,3 +58,15 @@
 .droppable-component {
     min-height: calc(100px + 20vmin);
 }
+
+.collapsible {
+    background-color: #00539f;
+    color: #ffffff;
+    border: 3px solid #fceb05;
+}
+
+.modal {
+    background-color: #00539f;
+    color: #ffffff;
+    border: 3px solid lightgoldenrodyellow;
+}
