@@ -4,23 +4,45 @@ import { Course } from "../../../interfaces/course";
 import { saveChanges, checkValidFields } from "./courseEditValidation";
 import degreeCategoriesData from "../../../exampleData/degree_categories.json";
 import "../../components.css";
+import { Semester } from "../../../interfaces/semester";
+import { DegreePlan } from "../../../interfaces/degreeplan";
 
 type EditModalViewProps = {
     currentCourse: Course;
+    setCurrentCourse: (newCourse: Course) => void;
     setShowCourseEditor: (newVal: boolean) => void;
     setCourseModalMode: (newMode: string) => void;
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
+    currentSemester: Semester;
+    setCurrentSemester: (newSemester: Semester) => void;
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
+    plans: DegreePlan[];
+    setPlans: (newPlans: DegreePlan[]) => void;
+    setCoursePool: (newCourses: Course[]) => void;
+    category: string;
+    requirement: string;
 };
 
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
 
 export function EditModalView({
     currentCourse,
+    setCurrentCourse,
     setShowCourseEditor,
     setCourseModalMode,
     courseList,
-    setCourseList
+    setCourseList,
+    currentSemester,
+    setCurrentSemester,
+    currentPlan,
+    setCurrentPlan,
+    plans,
+    setPlans,
+    setCoursePool,
+    category,
+    requirement
 }: EditModalViewProps): JSX.Element {
     const [name, setName] = useState<string>(currentCourse.name);
     const [descr, setDescr] = useState<string>(currentCourse.descr);
@@ -158,8 +180,18 @@ export function EditModalView({
                             preReqs,
                             degreeRequirement,
                             currentCourse,
+                            setCurrentCourse,
                             courseList,
-                            setCourseList
+                            setCourseList,
+                            currentSemester,
+                            setCurrentSemester,
+                            currentPlan,
+                            setCurrentPlan,
+                            plans,
+                            setPlans,
+                            setCoursePool,
+                            category,
+                            requirement
                         )
                     }
                 >

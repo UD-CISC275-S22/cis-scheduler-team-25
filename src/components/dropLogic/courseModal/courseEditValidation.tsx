@@ -1,4 +1,6 @@
 import { Course } from "../../../interfaces/course";
+import { DegreePlan } from "../../../interfaces/degreeplan";
+import { Semester } from "../../../interfaces/semester";
 import { catalog } from "../../ReadJSON";
 
 function saveChanges(
@@ -8,8 +10,18 @@ function saveChanges(
     preReqs: string,
     degreeRequirement: string[],
     currentCourse: Course,
+    setCurrentCourse: (newCourse: Course) => void,
     courseList: Course[],
-    setCourseList: (newCourses: Course[]) => void
+    setCourseList: (newCourses: Course[]) => void,
+    currentSemester: Semester,
+    setCurrentSemester: (newSemester: Semester) => void,
+    currentPlan: DegreePlan,
+    setCurrentPlan: (newPlan: DegreePlan) => void,
+    plans: DegreePlan[],
+    setPlans: (newPlans: DegreePlan[]) => void,
+    setCoursePool: (newCourses: Course[]) => void,
+    category: string,
+    requirement: string
 ) {
     const editedPreReqs = preReqs
         .trim()
@@ -29,7 +41,44 @@ function saveChanges(
         (course: Course): Course =>
             course.code === currentCourse.code ? editedCourse : course
     );
+
+    setCurrentCourse(editedCourse);
     setCourseList(newCourseList);
+
+    const newSemester = {
+        ...currentSemester,
+        courses: currentSemester.courses.map(
+            (course: Course): Course =>
+                course.code === editedCourse.code ? editedCourse : course
+        )
+    };
+
+    const newPlan = {
+        ...currentPlan,
+        semesters: currentPlan.semesters.map(
+            (semester: Semester): Semester =>
+                semester.id === currentSemester.id ? newSemester : semester
+        )
+    };
+    const newPlans = plans.map(
+        (plan: DegreePlan): DegreePlan =>
+            plan.id === currentPlan.id ? newPlan : plan
+    );
+
+    // set state to new values
+    setCurrentSemester(newSemester);
+    setCurrentPlan(newPlan);
+    setPlans(newPlans);
+
+    setCoursePool(
+        newCourseList.filter(
+            (course: Course): boolean =>
+                !newSemester.courses
+                    .map((currCourse: Course): string => currCourse.code)
+                    .includes(course.code) &&
+                course.degreeRequirement.includes(category + "-" + requirement)
+        )
+    );
 }
 
 function checkIfCourseExists(code: string) {
