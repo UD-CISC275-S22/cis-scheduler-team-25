@@ -62,7 +62,6 @@ export function DegreePlanList({
                     setShowAdd={setShowAdd}
                 ></AddPlanForm>
             )}
-            <br></br>
             <EditPlanButton
                 showRemove={showRemove}
                 setShowRemove={setShowRemove}
