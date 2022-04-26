@@ -16,7 +16,7 @@ PASS src/App.test.tsx
 --------------------------------------|---------|----------|---------|---------|---------------------
 File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 --------------------------------------|---------|----------|---------|---------|---------------------
-All files                             |   66.11 |    59.09 |   70.58 |   67.22 |                     
+All files                             |   58.89 |    48.87 |      64 |   60.11 |                     
  src                                  |     100 |      100 |     100 |     100 |                     
   App.tsx                             |     100 |      100 |     100 |     100 |                     
  src/components                       |   86.66 |    74.07 |   95.12 |   86.66 |                     
@@ -37,11 +37,11 @@ All files                             |   66.11 |    59.09 |   70.58 |   67.22 |
   CourseDropPool.tsx                  |      50 |       50 |   66.66 |      50 | 19-20,78-82         
   RequirementSelector.tsx             |     100 |      100 |     100 |     100 |                     
   handleOnDragEnd.tsx                 |      30 |    28.94 |   19.04 |      32 | 85-89,92-93,169-319 
- src/components/dropLogic/courseModal |    7.14 |       25 |    5.26 |    7.14 |                     
-  CourseModal.tsx                     |   66.66 |       50 |      50 |   66.66 | 27                  
-  EditModalView.tsx                   |       0 |      100 |       0 |       0 | 21-114              
+ src/components/dropLogic/courseModal |    4.47 |      3.7 |    3.03 |    4.61 |                     
+  CourseModal.tsx                     |   66.66 |       50 |      50 |   66.66 | 51                  
+  EditModalView.tsx                   |    4.54 |        0 |       0 |    4.54 | 47-208              
   InfoModalView.tsx                   |       0 |      100 |       0 |       0 | 17-55               
-  courseEditValidation.tsx            |       0 |        0 |       0 |       0 | 13-39               
+  courseEditValidation.tsx            |       0 |        0 |       0 |       0 | 26-138              
  src/components/views                 |     100 |      100 |     100 |     100 |                     
   CurrentView.tsx                     |     100 |      100 |     100 |     100 |                     
   MainView.tsx                        |     100 |      100 |     100 |     100 |                     
@@ -58,5 +58,5 @@ All files                             |   66.11 |    59.09 |   70.58 |   67.22 |
 Test Suites: 11 passed, 11 total
 Tests:       36 passed, 36 total
 Snapshots:   0 total
-Time:        16.418 s
+Time:        12.109 s
 Ran all test suites.
