@@ -1,10 +1,9 @@
 import { Course } from "../interfaces/course";
 import catalogData from "../exampleData/catalog.json";
 import courseCategoriesData from "../exampleData/category_courses.json";
-// import concentrationCategoriesData from "../exampleData/concentration_courses.json";
 
 // initial interface for the information in catalog.json
-export interface CatalogCourse {
+interface CatalogCourse {
     code: string;
     name: string;
     descr: string;
@@ -106,5 +105,5 @@ const defaultCourseList = uniqueCourseCodes.map(
 
 // simple log to check work
 // console.log(courseList);
-
-export { defaultCourseList, categories };
+export { defaultCourseList, categories, catalog };
+export type { CatalogCourse };

@@ -69,8 +69,18 @@ export function CourseDragDrop({
                 showCourseEditor={showCourseEditor}
                 setShowCourseEditor={setShowCourseEditor}
                 currentCourse={currentCourse}
+                setCurrentCourse={setCurrentCourse}
                 courseList={courseList}
                 setCourseList={setCourseList}
+                setCurrentSemester={setCurrentSemester}
+                setCurrentPlan={setCurrentPlan}
+                currentPlan={currentPlan}
+                currentSemester={currentSemester}
+                setPlans={setPlans}
+                plans={plans}
+                setCoursePool={setCoursePool}
+                category={category}
+                requirement={requirement}
             />
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
