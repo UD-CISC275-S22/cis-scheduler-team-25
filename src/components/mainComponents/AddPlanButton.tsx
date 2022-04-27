@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import "./components.css";
+import "../components.css";
 
 // dropdown list generated from a list of DegreePlan objects passed in
 // Updates the selected currentPlan when clicked

@@ -5,7 +5,7 @@ import { CurrentView } from "./components/views/CurrentView";
 import defaultPlans from "./exampleData/example_degree_plan.json";
 import invalidSemester from "./exampleData/invalid_semester.json";
 import "./App.css";
-import Background from "./computerScienceBackGround.jpeg";
+import logo from "./ud-logo.png";
 import { Course } from "./interfaces/course";
 import { defaultCourseList } from "./components/ReadJSON";
 
@@ -38,59 +38,41 @@ function App(): JSX.Element {
     const [courseList, setCourseList] = useState<Course[]>(defaultCourseList);
 
     return (
-        <div
-            className="App"
-            style={{
-                backgroundColor: "gold",
-                paddingBottom: "calc(100px + 2vmin)"
-            }}
-        >
-            <header
-                style={{
-                    backgroundImage: `url(${Background})`,
-                    backgroundPosition: "center"
-                }}
-                className="App-header"
-            ></header>
-            <h3
-                style={{
-                    border: "3px solid #00539F",
-                    padding: "3px",
-                    backgroundColor: "#FFD200"
-                }}
-            >
-                UD-CIS-Scheduler{" "}
-                <span
-                    style={{
-                        fontSize: "50px",
-                        color: "gold",
-                        backgroundColor: "#00539F"
-                    }}
-                >
-                    BUT BETTER ( ͡° ͜ʖ ͡°)
-                </span>
+        <div className="App">
+            <header className="App-header">
+                <div className="App-header-title">
+                    <p>COMPUTER &</p>
+                    <p>INFORMATION SCIENCES</p>
+                </div>
+                <div className="App-header-subtitle">
+                    <img src={logo}></img>
+                </div>
+            </header>
+            <h3 className="App-subheader">
+                <strong>UD-CIS-Scheduler</strong>{" "}
             </h3>
-            <span style={{ fontSize: "17px" }}>Brennan 🇵🇭 Gallamoza </span>
-            <div></div>
-            <span style={{ fontSize: "17px" }}>Faizel 🇧🇩 Quabili </span>
-            <div></div>
-            <span style={{ fontSize: "17px" }}>Chad 🇨🇦 Haiges </span>
             <div>
                 Welcome to the UD CIS Course Scheduler. <br></br>Create and edit
                 degree plans following courses and requirements.
             </div>
-            <CurrentView
-                mode={mode}
-                setMode={setMode}
-                plans={plans}
-                setPlans={setPlans}
-                currentPlan={currentPlan}
-                setCurrentPlan={setCurrentPlan}
-                currentSemester={currentSemester}
-                setCurrentSemester={setCurrentSemester}
-                courseList={courseList}
-                setCourseList={setCourseList}
-            />
+            <div>
+                <CurrentView
+                    mode={mode}
+                    setMode={setMode}
+                    plans={plans}
+                    setPlans={setPlans}
+                    currentPlan={currentPlan}
+                    setCurrentPlan={setCurrentPlan}
+                    currentSemester={currentSemester}
+                    setCurrentSemester={setCurrentSemester}
+                    courseList={courseList}
+                    setCourseList={setCourseList}
+                />
+            </div>
+            <div className="name-signatures">
+                ( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩 Quabili, and
+                Chad 🇨🇦 Haiges ( ͡° ͜ʖ ͡°)
+            </div>
         </div>
     );
 }

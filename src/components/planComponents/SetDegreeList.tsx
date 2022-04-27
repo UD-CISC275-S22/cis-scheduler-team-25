@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { DegreePlan } from "../interfaces/degreeplan";
-import { categories } from "./ReadJSON";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import { categories } from "../ReadJSON";
 
 const CONCENTRATIONS = categories.filter(
     (category: string): boolean => category !== "General"

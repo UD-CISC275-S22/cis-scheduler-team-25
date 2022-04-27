@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
-import { DegreePlan } from "../interfaces/degreeplan";
-import "./components.css";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import "../components.css";
 
 //filters through plans and removes the current plan selected and updates setPlan
 function removePlanByName(
@@ -112,7 +112,7 @@ export function EditRemovePlanForm({
 }): JSX.Element {
     const [newName, setNewName] = useState<string>("");
     return (
-        <div className="edit-plan-form">
+        <div className="plan-form">
             <Form.Group>
                 <Row>
                     <Col>

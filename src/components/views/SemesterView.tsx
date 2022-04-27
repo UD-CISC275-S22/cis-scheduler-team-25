@@ -28,53 +28,7 @@ function PlanViewButton({
             data-testid="semester-plan-button"
             onClick={() => setMode("plan")}
         >
-            View Degree Plan
-        </Button>
-    );
-}
-
-function RemoveAllCourses({
-    setCurrentSemester,
-    setCurrentPlan,
-    setPlans,
-    currentPlan,
-    plans,
-    currentSemester
-}: {
-    setCurrentSemester: (currentSemester: Semester) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
-    setPlans: (plans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    currentSemester: Semester;
-    plans: DegreePlan[];
-}): JSX.Element {
-    return (
-        <Button
-            data-testid="remove-all-courses-from-semester"
-            className="mode-button"
-            onClick={() => {
-                const newSemester = { ...currentSemester, courses: [] };
-                const updateSemesters = currentPlan.semesters.map(
-                    (checkSemester: Semester): Semester =>
-                        checkSemester.id === newSemester.id
-                            ? newSemester
-                            : checkSemester
-                );
-                const newDegreePlan = {
-                    ...currentPlan,
-                    semesters: updateSemesters
-                };
-
-                const newPlans = plans.map(
-                    (plan: DegreePlan): DegreePlan =>
-                        plan.id === currentPlan.id ? newDegreePlan : plan
-                );
-                setCurrentSemester(newSemester);
-                setCurrentPlan(newDegreePlan);
-                setPlans(newPlans);
-            }}
-        >
-            Remove All Courses
+            Return to Degree Plan
         </Button>
     );
 }
@@ -103,9 +57,6 @@ export function SemesterView({
                     "-" +
                     currentSemester.year.toString()}
             </h1>
-            <div>
-                FOR TESTING PURPOSES: {currentSemester.courses.toString()}
-            </div>
             <CourseDragDrop
                 currentSemester={currentSemester}
                 setCurrentSemester={setCurrentSemester}
@@ -116,14 +67,6 @@ export function SemesterView({
                 courseList={courseList}
                 setCourseList={setCourseList}
             />
-            <RemoveAllCourses
-                setCurrentSemester={setCurrentSemester}
-                setCurrentPlan={setCurrentPlan}
-                currentPlan={currentPlan}
-                currentSemester={currentSemester}
-                setPlans={setPlans}
-                plans={plans}
-            ></RemoveAllCourses>
             <div></div>
             <PlanViewButton setMode={setMode} />
         </div>
