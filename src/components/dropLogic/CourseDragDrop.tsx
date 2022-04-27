@@ -10,6 +10,7 @@ import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
 import INVALID_COURSE from "../../exampleData/invalid_course.json";
 import { CourseModal } from "./courseModal/CourseModal";
+import { RemoveAllCoursesButton } from "../semesterComponents/RemoveAllCoursesButton";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
@@ -158,6 +159,18 @@ export function CourseDragDrop({
                     </Col>
                 </Row>
             </DragDropContext>
+            <RemoveAllCoursesButton
+                setCurrentSemester={setCurrentSemester}
+                setCurrentPlan={setCurrentPlan}
+                currentPlan={currentPlan}
+                currentSemester={currentSemester}
+                setPlans={setPlans}
+                plans={plans}
+                courseList={courseList}
+                setCoursePool={setCoursePool}
+                requirement={requirement}
+                category={category}
+            ></RemoveAllCoursesButton>
         </div>
     );
 }
