@@ -112,7 +112,7 @@ export function EditRemovePlanForm({
 }): JSX.Element {
     const [newName, setNewName] = useState<string>("");
     return (
-        <div className="edit-plan-form">
+        <div className="plan-form">
             <Form.Group>
                 <Row>
                     <Col>

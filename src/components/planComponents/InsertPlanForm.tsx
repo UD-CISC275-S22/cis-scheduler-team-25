@@ -67,7 +67,7 @@ export function AddPlanForm({
 }): JSX.Element {
     const [name, setName] = useState<string>("");
     return (
-        <div className="add-plan-form">
+        <div className="plan-form">
             <Form.Group>
                 <Row>
                     <Col>
