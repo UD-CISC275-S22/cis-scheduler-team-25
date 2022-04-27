@@ -16,21 +16,11 @@ PASS src/App.test.tsx
 --------------------------------------|---------|----------|---------|---------|---------------------
 File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 --------------------------------------|---------|----------|---------|---------|---------------------
-All files                             |   56.19 |    48.17 |   59.87 |    57.3 |                     
+All files                             |   56.28 |    49.64 |   59.75 |   57.38 |                     
  src                                  |     100 |      100 |     100 |     100 |                     
   App.tsx                             |     100 |      100 |     100 |     100 |                     
- src/components                       |   72.72 |    67.74 |   75.47 |   72.72 |                     
-  AddPlanButton.tsx                   |     100 |      100 |     100 |     100 |                     
-  AddSemesterForm.tsx                 |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40      
-  CSVExport.tsx                       |     100 |      100 |     100 |     100 |                     
-  DegreePlanList.tsx                  |     100 |       75 |     100 |     100 | 69                  
-  EditPlanButton.tsx                  |      50 |      100 |      50 |      50 | 19                  
-  EditPlanForm.tsx                    |       0 |        0 |       0 |       0 | 13-126              
-  InsertPlanForm.tsx                  |     100 |       75 |     100 |     100 | 14                  
+ src/components                       |     100 |      100 |     100 |     100 |                     
   ReadJSON.tsx                        |     100 |      100 |     100 |     100 |                     
-  SemesterBox.tsx                     |     100 |      100 |     100 |     100 |                     
-  SemesterScrollBox.tsx               |     100 |      100 |     100 |     100 |                     
-  SetDegreeList.tsx                   |   41.66 |        0 |      60 |   41.66 | 27-44               
  src/components/dropLogic             |   51.12 |    43.54 |   57.44 |   53.12 |                     
   AlertMessage.tsx                    |   58.33 |       50 |      75 |   58.33 | 13-15,19,32,46      
   CategoryRadioButtons.tsx            |     100 |      100 |     100 |     100 |                     
@@ -43,9 +33,23 @@ All files                             |   56.19 |    48.17 |   59.87 |    57.3 |
   EditModalView.tsx                   |    4.54 |        0 |       0 |    4.54 | 47-208              
   InfoModalView.tsx                   |       0 |      100 |       0 |       0 | 17-55               
   courseEditValidation.tsx            |       0 |        0 |       0 |       0 | 26-138              
- src/components/views                 |     100 |      100 |     100 |     100 |                     
+ src/components/mainComponents        |   35.71 |        0 |   38.88 |   35.71 |                     
+  AddPlanButton.tsx                   |     100 |      100 |     100 |     100 |                     
+  CSVExport.tsx                       |     100 |      100 |     100 |     100 |                     
+  DegreePlanList.tsx                  |     100 |      100 |     100 |     100 |                     
+  EditPlanButton.tsx                  |      50 |      100 |      50 |      50 | 19                  
+  EditPlanForm.tsx                    |       0 |        0 |       0 |       0 | 13-126              
+ src/components/planComponents        |   81.25 |       72 |    92.3 |   81.25 |                     
+  AddSemesterForm.tsx                 |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40      
+  InsertPlanForm.tsx                  |     100 |       75 |     100 |     100 | 14                  
+  SemesterBox.tsx                     |     100 |      100 |     100 |     100 |                     
+  SemesterScrollBox.tsx               |     100 |      100 |     100 |     100 |                     
+  SetDegreeList.tsx                   |   41.66 |        0 |      60 |   41.66 | 27-44               
+ src/components/semesterComponents    |    92.3 |      100 |   83.33 |    92.3 |                     
+  RemoveAllCoursesButton.tsx          |    92.3 |      100 |   83.33 |    92.3 | 62                  
+ src/components/views                 |     100 |    94.73 |     100 |     100 |                     
   CurrentView.tsx                     |     100 |      100 |     100 |     100 |                     
-  MainView.tsx                        |     100 |      100 |     100 |     100 |                     
+  MainView.tsx                        |     100 |       75 |     100 |     100 | 83                  
   PlanView.tsx                        |     100 |      100 |     100 |     100 |                     
   SemesterView.tsx                    |     100 |      100 |     100 |     100 |                     
  src/interfaces                       |       0 |        0 |       0 |       0 |                     
@@ -59,5 +63,5 @@ All files                             |   56.19 |    48.17 |   59.87 |    57.3 |
 Test Suites: 11 passed, 11 total
 Tests:       36 passed, 36 total
 Snapshots:   0 total
-Time:        11.364 s
+Time:        12.643 s
 Ran all test suites.
