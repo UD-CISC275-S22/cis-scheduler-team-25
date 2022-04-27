@@ -118,7 +118,7 @@ export function EditRemovePlanForm({
                     <Col>
                         <Form.Control
                             type="text"
-                            data-testid="edit-plan-name"
+                            data-testid="edit-plan-name-text"
                             placeholder="Edit Plan Name"
                             value={newName}
                             onChange={(
