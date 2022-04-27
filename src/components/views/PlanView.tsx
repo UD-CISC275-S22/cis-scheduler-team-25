@@ -77,7 +77,7 @@ function AddSemesterButton({
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}
             >
-                Add Semester
+                {showAdd ? "Cancel Add" : "Add Semester"}
             </Button>
         </div>
     );

@@ -2,7 +2,7 @@ import React from "react";
 import { Semester } from "../../interfaces/semester";
 import { Course } from "../../interfaces/course";
 import { ListGroup } from "react-bootstrap";
-import "./components.css";
+import "../components.css";
 
 export function SemesterBox({ semester }: { semester: Semester }): JSX.Element {
     return (
