@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
-import { DegreePlan } from "../interfaces/degreeplan";
-import { Semester } from "../interfaces/semester";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import { Semester } from "../../interfaces/semester";
 import "./components.css";
 
 function semesterSort(sem1: Semester, sem2: Semester): number {

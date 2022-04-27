@@ -1,6 +1,6 @@
 import React from "react";
-import { Semester } from "../interfaces/semester";
-import { Course } from "../interfaces/course";
+import { Semester } from "../../interfaces/semester";
+import { Course } from "../../interfaces/course";
 import { ListGroup } from "react-bootstrap";
 import "./components.css";
 

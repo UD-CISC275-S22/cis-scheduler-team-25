@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./components.css";
-import { AddPlanForm } from "./InsertPlanForm";
+import { AddPlanForm } from "../InsertPlanForm";
 import { AddPlanButton } from "./AddPlanButton";
-import { DegreePlan } from "../interfaces/degreeplan";
+import { DegreePlan } from "../../interfaces/degreeplan";
 import { Form } from "react-bootstrap";
 import { EditRemovePlanForm } from "./EditPlanForm";
 import { EditPlanButton } from "./EditPlanButton";

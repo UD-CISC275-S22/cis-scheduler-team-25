@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
-import { DegreePlanList } from "../DegreePlanList";
-import { CSVExport } from "../CSVExport";
+import { DegreePlanList } from "../mainComponents/DegreePlanList";
+import { CSVExport } from "../mainComponents/CSVExport";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import { Semester } from "../../interfaces/semester";
 
