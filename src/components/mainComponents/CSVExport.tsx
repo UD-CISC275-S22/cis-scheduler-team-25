@@ -8,6 +8,7 @@ export function CSVExport({ plans }: { plans: DegreePlan[] }): JSX.Element {
         { label: "ID", key: "id" },
         { label: "Name", key: "name" },
         { label: "Semesters", key: "semesters" },
+        { label: "Courses", key: "semesters.courses" },
         { label: "Length", key: "length" }
     ];
 
@@ -20,6 +21,7 @@ export function CSVExport({ plans }: { plans: DegreePlan[] }): JSX.Element {
                     style={{ fontSize: "12px" }}
                     data={csvData}
                     headers={csvHeaders}
+                    filename={"degreeplan.csv"}
                 >
                     Click to Download Degree Plans
                 </CSVLink>
