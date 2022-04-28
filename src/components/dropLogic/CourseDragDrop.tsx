@@ -4,12 +4,13 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
 import { Semester } from "../../interfaces/semester";
 import { CourseDropPool } from "./CourseDropPool";
-import { handleOnDragEnd } from "./handleOnDragEnd";
+import { handleOnDragEnd, getUnusedCourses } from "./handleOnDragEnd";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
 import INVALID_COURSE from "../../exampleData/invalid_course.json";
 import { CourseModal } from "./courseModal/CourseModal";
+import { RemoveAllCoursesButton } from "../semesterComponents/RemoveAllCoursesButton";
 
 type CourseDragDropProps = {
     currentSemester: Semester;
@@ -46,12 +47,11 @@ export function CourseDragDrop({
 
     // state for the set of courses available for dragging into your currentSemester
     const [coursePool, setCoursePool] = useState<Course[]>(
-        courseList.filter(
-            (course: Course): boolean =>
-                !currentSemester.courses
-                    .map((currCourse: Course): string => currCourse.code)
-                    .includes(course.code) &&
-                course.degreeRequirement.includes(category + "-" + requirement)
+        getUnusedCourses(
+            currentPlan,
+            currentSemester,
+            courseList,
+            category + "-" + requirement
         )
     );
 
@@ -85,8 +85,7 @@ export function CourseDragDrop({
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
                     handleOnDragEnd({
-                        category: category,
-                        requirement: requirement,
+                        reqFilter: category + "-" + requirement,
                         result: result,
                         coursePool: coursePool,
                         semesterPool: currentSemester.courses,
@@ -158,6 +157,18 @@ export function CourseDragDrop({
                     </Col>
                 </Row>
             </DragDropContext>
+            <RemoveAllCoursesButton
+                setCurrentSemester={setCurrentSemester}
+                setCurrentPlan={setCurrentPlan}
+                currentPlan={currentPlan}
+                currentSemester={currentSemester}
+                setPlans={setPlans}
+                plans={plans}
+                courseList={courseList}
+                setCoursePool={setCoursePool}
+                requirement={requirement}
+                category={category}
+            ></RemoveAllCoursesButton>
         </div>
     );
 }

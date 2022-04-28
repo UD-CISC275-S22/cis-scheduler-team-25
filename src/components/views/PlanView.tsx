@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
-import { AddSemesterForm } from "../AddSemesterForm";
-import { SemesterScrollBox } from "../SemesterScrollBox";
-import { SetDegreeList } from "../SetDegreeList";
+import { AddSemesterForm } from "../planComponents/AddSemesterForm";
+import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
+import { SetDegreeList } from "../planComponents/SetDegreeList";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import "../components.css";
 import { ViewProgress } from "../ViewProgress";
@@ -78,7 +78,7 @@ function AddSemesterButton({
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}
             >
-                Add Semester
+                {showAdd ? "Cancel Add" : "Add Semester"}
             </Button>
         </div>
     );
