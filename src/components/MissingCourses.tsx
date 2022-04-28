@@ -8,14 +8,12 @@ import { Course } from "../interfaces/course";
 import { Semester } from "../interfaces/semester";
 
 export function MissingCourses({
-    courses,
-    semester
+    courseList,
+    currentSemester
 }: {
-    courses: Course[];
-    semester: Semester;
+    courseList: Course[];
+    currentSemester: Semester;
 }): JSX.Element {
-    const courseList = courses;
-    const currentSemester = semester;
     courseList.filter(
         (course: Course): boolean =>
             !currentSemester.courses
