@@ -8,6 +8,7 @@ import "./App.css";
 import logo from "./ud-logo.png";
 import { Course } from "./interfaces/course";
 import { defaultCourseList } from "./components/ReadJSON";
+import { HelpBar } from "./components/navBar/HelpBar";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -48,13 +49,16 @@ function App(): JSX.Element {
                     <img src={logo}></img>
                 </div>
             </header>
-            <h3 className="App-subheader">
+            {/* <h3 className="App-subheader">
                 <strong>UD-CIS-Scheduler</strong>{" "}
-            </h3>
-            <div>
+            </h3> */}
+            <div className="App-subheader">
+                <HelpBar />
+            </div>
+            {/* <div>
                 Welcome to the UD CIS Course Scheduler. <br></br>Create and edit
                 degree plans following courses and requirements.
-            </div>
+            </div> */}
             <div>
                 <CurrentView
                     mode={mode}
