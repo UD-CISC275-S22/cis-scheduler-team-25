@@ -16,7 +16,7 @@ PASS src/App.test.tsx
 --------------------------------------|---------|----------|---------|---------|---------------------
 File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 --------------------------------------|---------|----------|---------|---------|---------------------
-All files                             |   59.03 |    51.96 |   62.02 |   60.23 |                     
+All files                             |   58.44 |    50.75 |    61.3 |   59.56 |                     
  src                                  |     100 |      100 |     100 |     100 |                     
   App.tsx                             |     100 |      100 |     100 |     100 |                     
  src/components                       |     100 |      100 |     100 |     100 |                     
@@ -39,6 +39,13 @@ All files                             |   59.03 |    51.96 |   62.02 |   60.23 |
   DegreePlanList.tsx                  |     100 |      100 |     100 |     100 |                     
   EditPlanButton.tsx                  |      50 |      100 |      50 |      50 | 19                  
   EditPlanForm.tsx                    |       0 |        0 |       0 |       0 | 13-126              
+ src/components/navBar                |   47.36 |       20 |      50 |   47.36 |                     
+  HelpBar.tsx                         |   71.42 |      100 |   66.66 |   71.42 | 40-41               
+  HelpIntroView.tsx                   |     100 |      100 |     100 |     100 |                     
+  HelpMainView.tsx                    |       0 |      100 |       0 |       0 | 5                   
+  HelpModal.tsx                       |    37.5 |       20 |   66.66 |    37.5 | 13-33               
+  HelpPlanView.tsx                    |       0 |      100 |       0 |       0 | 5                   
+  HelpSemesterView.tsx                |       0 |      100 |       0 |       0 | 5                   
  src/components/planComponents        |   81.25 |       72 |    92.3 |   81.25 |                     
   AddSemesterForm.tsx                 |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40      
   InsertPlanForm.tsx                  |     100 |       75 |     100 |     100 | 14                  
@@ -63,5 +70,5 @@ All files                             |   59.03 |    51.96 |   62.02 |   60.23 |
 Test Suites: 11 passed, 11 total
 Tests:       36 passed, 36 total
 Snapshots:   0 total
-Time:        12.422 s
+Time:        12.68 s
 Ran all test suites.
