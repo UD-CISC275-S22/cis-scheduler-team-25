@@ -16,18 +16,18 @@ PASS src/App.test.tsx
 --------------------------------------|---------|----------|---------|---------|---------------------
 File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 --------------------------------------|---------|----------|---------|---------|---------------------
-All files                             |   56.28 |    49.64 |   59.75 |   57.38 |                     
+All files                             |   59.03 |    51.96 |   62.02 |   60.23 |                     
  src                                  |     100 |      100 |     100 |     100 |                     
   App.tsx                             |     100 |      100 |     100 |     100 |                     
  src/components                       |     100 |      100 |     100 |     100 |                     
   ReadJSON.tsx                        |     100 |      100 |     100 |     100 |                     
- src/components/dropLogic             |   51.12 |    43.54 |   57.44 |   53.12 |                     
+ src/components/dropLogic             |   58.67 |    47.91 |   65.85 |    61.2 |                     
   AlertMessage.tsx                    |   58.33 |       50 |      75 |   58.33 | 13-15,19,32,46      
   CategoryRadioButtons.tsx            |     100 |      100 |     100 |     100 |                     
   CourseDragDrop.tsx                  |     100 |      100 |     100 |     100 |                     
   CourseDropPool.tsx                  |      50 |       50 |   66.66 |      50 | 19-20,78-82         
   RequirementSelector.tsx             |     100 |      100 |     100 |     100 |                     
-  handleOnDragEnd.tsx                 |      30 |    28.94 |   19.04 |      32 | 85-89,92-93,169-319 
+  handleOnDragEnd.tsx                 |   44.59 |    43.33 |   47.61 |   47.82 | 82-86,89-90,220-345 
  src/components/dropLogic/courseModal |    4.47 |      3.7 |    3.03 |    4.61 |                     
   CourseModal.tsx                     |   66.66 |       50 |      50 |   66.66 | 51                  
   EditModalView.tsx                   |    4.54 |        0 |       0 |    4.54 | 47-208              
@@ -63,5 +63,5 @@ All files                             |   56.28 |    49.64 |   59.75 |   57.38 |
 Test Suites: 11 passed, 11 total
 Tests:       36 passed, 36 total
 Snapshots:   0 total
-Time:        12.643 s
+Time:        12.422 s
 Ran all test suites.
