@@ -5,6 +5,7 @@ import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
 import { Semester } from "../../interfaces/semester";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { getUnusedCourses } from "./handleOnDragEnd";
 
 type GroupRadioButtonsProps = {
     currentPlan: DegreePlan;
@@ -48,14 +49,11 @@ export function CategoryRadioButtons({
         setCategory(newCategory);
         setRequirement(newRequirement);
         setCoursePool(
-            courseList.filter(
-                (course: Course): boolean =>
-                    course.degreeRequirement.includes(
-                        newCategory + "-" + newRequirement
-                    ) &&
-                    !currentSemester.courses
-                        .map((currCourse: Course): string => currCourse.code)
-                        .includes(course.code)
+            getUnusedCourses(
+                currentPlan,
+                currentSemester,
+                courseList,
+                newCategory + "-" + newRequirement
             )
         );
     }
