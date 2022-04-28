@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
-import { DegreePlan } from "../interfaces/degreeplan";
-import "./components.css";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import "../components.css";
 
 function makeNewPlan(
     plans: DegreePlan[],
@@ -67,7 +67,7 @@ export function AddPlanForm({
 }): JSX.Element {
     const [name, setName] = useState<string>("");
     return (
-        <div className="add-plan-form">
+        <div className="plan-form">
             <Form.Group>
                 <Row>
                     <Col>

@@ -1,6 +1,6 @@
 import React from "react";
 import { CSVLink } from "react-csv";
-import { DegreePlan } from "../interfaces/degreeplan";
+import { DegreePlan } from "../../interfaces/degreeplan";
 
 export function CSVExport({ plans }: { plans: DegreePlan[] }): JSX.Element {
     const csvData = plans;

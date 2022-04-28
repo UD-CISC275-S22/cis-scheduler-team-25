@@ -36,6 +36,11 @@
     margin: 0 auto;
 }
 
+.plan-form {
+    width: calc(40% + 2vmin);
+    margin: 0 auto;
+}
+
 .course-draggable {
     background-color: white;
     /* width: calc(30% + 2vmin); */
