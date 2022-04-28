@@ -1,8 +1,11 @@
 import React from "react";
 import { DegreePlan } from "../interfaces/degreeplan";
 import { Button, Modal } from "react-bootstrap";
+import { PlanView } from "./views/PlanView";
 import "./components.css";
 import Collapsible from "react-collapsible";
+import { Semester } from "../interfaces/semester";
+import { MissingCourses } from "./MissingCourses";
 
 export function ProgressList(): JSX.Element {
     return (
