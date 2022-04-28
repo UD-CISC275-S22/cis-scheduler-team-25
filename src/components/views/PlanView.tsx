@@ -7,7 +7,7 @@ import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
 import { SetDegreeList } from "../planComponents/SetDegreeList";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import "../components.css";
-import { ViewProgress } from "../ViewProgress";
+import { ViewProgress } from "../progressChecker/ViewProgress";
 
 type PlanViewProps = {
     setMode: (newMode: string) => void;

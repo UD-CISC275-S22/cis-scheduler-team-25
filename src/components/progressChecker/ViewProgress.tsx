@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { DegreePlan } from "../interfaces/degreeplan";
+import { DegreePlan } from "../../interfaces/degreeplan";
 import { Button, Modal } from "react-bootstrap";
-import "./components.css";
+import "../components.css";
 import { ProgressList } from "./ProgressList";
 
-export function ViewProgress(): JSX.Element {
+type ViewProgressProps = {
+    currentPlan: DegreePlan;
+};
+
+export function ViewProgress({ currentPlan }: ViewProgressProps): JSX.Element {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -26,7 +30,7 @@ export function ViewProgress(): JSX.Element {
                     <Modal.Title>Degree Progress</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="modalBody">
-                    <ProgressList />
+                    <ProgressList currentPlan={currentPlan} />
                 </Modal.Body>
                 <Modal.Footer className="modalFoot">
                     <Button variant="primary" onClick={handleClose}>
