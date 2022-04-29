@@ -1,14 +1,16 @@
 import { Course } from "../../../interfaces/course";
+import { EditableCourse } from "../../../interfaces/editable_course";
 import { DegreePlan } from "../../../interfaces/degreeplan";
 import { Semester } from "../../../interfaces/semester";
 import { catalog } from "../../ReadJSON";
 
+/**
+ * Implements all the changes made in an EditableCourse object to be used to modify
+ * a Course in a courseList.
+ * @param editCourse EditableCourse object with new changes to be used for selected Course object
+ */
 function saveChanges(
-    name: string,
-    descr: string,
-    credits: string,
-    preReqs: string,
-    degreeRequirement: string[],
+    editCourse: EditableCourse,
     currentCourse: Course,
     setCurrentCourse: (newCourse: Course) => void,
     courseList: Course[],
@@ -20,36 +22,35 @@ function saveChanges(
     plans: DegreePlan[],
     setPlans: (newPlans: DegreePlan[]) => void,
     setCoursePool: (newCourses: Course[]) => void,
-    category: string,
-    requirement: string
+    reqFilter: string
 ) {
-    const editedPreReqs = preReqs
+    const editedPreReqs = editCourse.preReqs
         .trim()
         .split("\n")
         .map((preReqGroup: string): string[] => preReqGroup.split(","));
 
-    const editedCourse = {
+    const newCourse = {
         ...currentCourse,
-        name: name.trim(),
-        descr: descr.trim(),
-        credits: credits.trim(),
+        name: editCourse.name.trim(),
+        descr: editCourse.descr.trim(),
+        credits: editCourse.credits.trim(),
         preReqs: editedPreReqs,
-        degreeRequirement: degreeRequirement
+        degreeRequirement: editCourse.degreeRequirement
     };
 
     const newCourseList = courseList.map(
         (course: Course): Course =>
-            course.code === currentCourse.code ? editedCourse : course
+            course.code === currentCourse.code ? newCourse : course
     );
 
-    setCurrentCourse(editedCourse);
+    setCurrentCourse(newCourse);
     setCourseList(newCourseList);
 
     const newSemester = {
         ...currentSemester,
         courses: currentSemester.courses.map(
             (course: Course): Course =>
-                course.code === editedCourse.code ? editedCourse : course
+                course.code === newCourse.code ? newCourse : course
         )
     };
 
@@ -76,7 +77,7 @@ function saveChanges(
                 !newSemester.courses
                     .map((currCourse: Course): string => currCourse.code)
                     .includes(course.code) &&
-                course.degreeRequirement.includes(category + "-" + requirement)
+                course.degreeRequirement.includes(reqFilter)
         )
     );
 }
@@ -102,30 +103,33 @@ function checkPreReqGroup(group: string[]) {
     return group.every((code: string): boolean => checkIfCourseExists(code));
 }
 
-function checkValidFields(
-    name: string,
-    descr: string,
-    credits: string,
-    preReqs: string,
-    degreeRequirement: string[]
-): boolean {
+/**
+ * Validates all the changes made in an EditableCourse object to be used to modify
+ * a Course in a courseList. Returns a boolean describing if all tests pass.
+ * @param editCourse EditableCourse object with new changes to be used for selected Course object
+ */
+function checkValidFields(editCourse: EditableCourse): boolean {
     // prevent empty strings in these fields
-    if (name.trim() === "" || descr.trim() === "" || credits.trim() === "") {
+    if (
+        editCourse.name.trim() === "" ||
+        editCourse.descr.trim() === "" ||
+        editCourse.credits.trim() === ""
+    ) {
         return false;
     }
 
     // course should satisfy at least one degreeRequirement
-    if (degreeRequirement.length === 0) {
+    if (editCourse.degreeRequirement.length === 0) {
         return false;
     }
 
     // skip checking preReqs if there are none
-    if (preReqs.trim().length === 0) {
+    if (editCourse.preReqs.trim().length === 0) {
         return true;
     }
 
     // turn preReqs string into a proper string[][]
-    const editedPreReqs = preReqs
+    const editedPreReqs = editCourse.preReqs
         .split("\n")
         .map((preReqGroup: string): string[] => preReqGroup.split(","));
 
