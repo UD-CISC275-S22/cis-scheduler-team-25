@@ -69,6 +69,7 @@ export function EditModalView({
 
             <Modal.Footer>
                 <Button
+                    data-testid="courseModal-save-button"
                     variant="primary"
                     disabled={!checkValidFields(editCourse)}
                     onClick={() =>
@@ -92,12 +93,14 @@ export function EditModalView({
                     Save Changes
                 </Button>
                 <Button
+                    data-testid="courseModal-cancel-button"
                     variant="primary"
                     onClick={() => setCourseModalMode("info")}
                 >
                     Cancel Changes
                 </Button>
                 <Button
+                    data-testid="courseModal-close-button"
                     variant="secondary"
                     onClick={() => {
                         setShowCourseEditor(false);

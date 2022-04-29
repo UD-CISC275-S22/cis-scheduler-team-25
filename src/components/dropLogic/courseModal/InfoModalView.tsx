@@ -69,12 +69,14 @@ export function InfoModalView({
                 <Button
                     variant="primary"
                     onClick={() => setCourseModalMode("edit")}
+                    data-testid="courseModal-edit-button"
                 >
                     Edit Information
                 </Button>
                 <Button
                     variant="secondary"
                     onClick={() => setShowCourseEditor(false)}
+                    data-testid="courseModal-close-button"
                 >
                     Close
                 </Button>
