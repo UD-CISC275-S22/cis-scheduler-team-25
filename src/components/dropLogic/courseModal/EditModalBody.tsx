@@ -14,21 +14,24 @@ export function EditModalBody({
     editCourse,
     setEditCourse
 }: EditModalBodyProps) {
-    function updateDegreeRequirement(
+    function updatedegreeRequirements(
         event: React.ChangeEvent<HTMLInputElement>
     ) {
         const checkedReq = event.target.value;
-        if (editCourse.degreeRequirement.includes(checkedReq)) {
+        if (editCourse.degreeRequirements.includes(checkedReq)) {
             setEditCourse({
                 ...editCourse,
-                degreeRequirement: editCourse.degreeRequirement.filter(
+                degreeRequirements: editCourse.degreeRequirements.filter(
                     (req: string): boolean => req !== checkedReq
                 )
             });
         } else {
             setEditCourse({
                 ...editCourse,
-                degreeRequirement: [...editCourse.degreeRequirement, checkedReq]
+                degreeRequirements: [
+                    ...editCourse.degreeRequirements,
+                    checkedReq
+                ]
             });
         }
     }
@@ -38,6 +41,7 @@ export function EditModalBody({
             <Form.Group controlId="form-course-name">
                 <Form.Label>Name:</Form.Label>
                 <Form.Control
+                    data-testid="textbox-edit-name"
                     value={editCourse.name}
                     onChange={(e) =>
                         setEditCourse({
@@ -51,6 +55,7 @@ export function EditModalBody({
             <Form.Group controlId="form-course-descr">
                 <Form.Label>Course Description:</Form.Label>
                 <Form.Control
+                    data-testid="textbox-edit-descr"
                     value={editCourse.descr}
                     onChange={(e) =>
                         setEditCourse({
@@ -66,6 +71,7 @@ export function EditModalBody({
             <Form.Group controlId="form-course-credits">
                 <Form.Label>Credits:</Form.Label>
                 <Form.Control
+                    data-testid="textbox-edit-credits"
                     type="number"
                     value={parseInt(editCourse.credits)}
                     onChange={(e) =>
@@ -80,6 +86,7 @@ export function EditModalBody({
             <Form.Group controlId="form-course-preReqs">
                 <Form.Label>Course Prerequesites:</Form.Label>
                 <Form.Control
+                    data-testid="textbox-edit-preReqs"
                     value={editCourse.preReqs}
                     onChange={(e) =>
                         setEditCourse({
@@ -92,7 +99,7 @@ export function EditModalBody({
                 />
             </Form.Group>
             <p></p>
-            <Form.Group controlId="form-course-degreeRequirement">
+            <Form.Group controlId="form-course-degreeRequirements">
                 <Form.Label>Degree Requirements:</Form.Label>
                 {Object.keys(degreeCategories).map(
                     (category: string): JSX.Element => (
@@ -106,12 +113,18 @@ export function EditModalBody({
                                     <Form.Check
                                         inline
                                         key={category + "-" + req}
+                                        data-testid={
+                                            "radio-edit-degReq-" +
+                                            category +
+                                            "-" +
+                                            req
+                                        }
                                         label={req}
                                         value={category + "-" + req}
-                                        checked={editCourse.degreeRequirement.includes(
+                                        checked={editCourse.degreeRequirements.includes(
                                             category + "-" + req
                                         )}
-                                        onChange={updateDegreeRequirement}
+                                        onChange={updatedegreeRequirements}
                                     />
                                 )
                             )}

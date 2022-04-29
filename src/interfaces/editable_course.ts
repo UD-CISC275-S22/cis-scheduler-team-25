@@ -13,5 +13,5 @@ export interface EditableCourse {
     // requirements where only one course of many is required
     preReqs: string;
     // Requirement that the course fulfills for a degree
-    degreeRequirement: string[];
+    degreeRequirements: string[];
 }

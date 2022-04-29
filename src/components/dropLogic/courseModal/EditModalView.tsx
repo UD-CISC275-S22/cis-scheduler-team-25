@@ -50,7 +50,7 @@ export function EditModalView({
         preReqs: currentCourse.preReqs
             .map((reqGroup: string[]): string => reqGroup.join(","))
             .join("\n"),
-        degreeRequirement: currentCourse.degreeRequirement
+        degreeRequirements: currentCourse.degreeRequirements
     });
 
     return (

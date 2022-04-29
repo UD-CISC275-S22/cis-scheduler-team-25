@@ -35,7 +35,7 @@ function saveChanges(
         descr: editCourse.descr.trim(),
         credits: editCourse.credits.trim(),
         preReqs: editedPreReqs,
-        degreeRequirement: editCourse.degreeRequirement
+        degreeRequirements: editCourse.degreeRequirements
     };
 
     const newCourseList = courseList.map(
@@ -77,7 +77,7 @@ function saveChanges(
                 !newSemester.courses
                     .map((currCourse: Course): string => currCourse.code)
                     .includes(course.code) &&
-                course.degreeRequirement.includes(reqFilter)
+                course.degreeRequirements.includes(reqFilter)
         )
     );
 }
@@ -118,8 +118,8 @@ function checkValidFields(editCourse: EditableCourse): boolean {
         return false;
     }
 
-    // course should satisfy at least one degreeRequirement
-    if (editCourse.degreeRequirement.length === 0) {
+    // course should satisfy at least one degreeRequirements
+    if (editCourse.degreeRequirements.length === 0) {
         return false;
     }
 

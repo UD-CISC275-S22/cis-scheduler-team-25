@@ -24,12 +24,18 @@ export function InfoModalView({
             </Modal.Header>
             <Modal.Body>
                 <div className="modal-section">
-                    <div>
+                    <p>
                         <strong>
                             {currentCourse.code + " - " + currentCourse.name}
                         </strong>
-                    </div>
-                    <div>{"Credits: (" + currentCourse.credits + ")"}</div>
+                    </p>
+                    <p>{"Credits: (" + currentCourse.credits + ")"}</p>
+                </div>
+                <div className="modal-section">
+                    <p>
+                        <strong>Description</strong>
+                    </p>
+                    <p>{currentCourse.descr}</p>
                 </div>
                 <div className="modal-section">
                     <p>

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
 
@@ -30,6 +30,11 @@ describe("CourseModal Tests", () => {
         ).not.toBeInTheDocument();
 
         // Expect other information to be present as well
+        expect(
+            screen.getByText(
+                "Principles of computer science illustrated and applied through programming in an object oriented language. Programming projects illustrate computational problems, styles and issues that arise in computer systems development and in all application areas of computation."
+            )
+        ).toBeInTheDocument();
         expect(screen.getByText("CISC 108 or CISC 106")).toBeInTheDocument();
         expect(
             screen.getByText("Grade of C- or better in CISC 108 or CISC 106.")
@@ -54,7 +59,7 @@ describe("CourseModal Tests", () => {
         const closeButton = screen.getByTestId("courseModal-close-button");
         closeButton.click();
     });
-    test("The edit button exists in the InfoView and switches to EditView", async () => {
+    test("The edit button exists in the InfoView and switches to EditView", () => {
         const CISC181 = screen.getByTestId("draggable-CISC 181");
         userEvent.dblClick(CISC181);
 

@@ -134,7 +134,7 @@ export function getUnusedCourses(
             !usedCourses
                 .map((currCourse: Course): string => currCourse.code)
                 .includes(course.code) &&
-            course.degreeRequirement.includes(reqFilter)
+            course.degreeRequirements.includes(reqFilter)
     );
 }
 

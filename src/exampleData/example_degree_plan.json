@@ -15,7 +15,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": ["CISC Core"],
                         "preReqs": ["General-CISC Core"]
                     },
                     {
@@ -27,7 +27,7 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["General-CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": []
                     }
                 ],
@@ -46,7 +46,7 @@
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": [
+                        "degreeRequirements": [
                             "Artificial Intelligence & Robotics Concentration-Restricted Electives",
                             "Cybersecurity Concentration-Restricted Electives",
                             "Bioinformatics Concentration-Concentration Requirements",
@@ -68,7 +68,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
-                        "degreeRequirement": ["General-CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     },
                     {
@@ -80,7 +80,7 @@
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["General-CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC 106"]]
                     }
                 ],
@@ -110,7 +110,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["General-CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"]
                     },
                     {
                         "code": "MATH 241",
@@ -121,7 +121,7 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["General-CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"]
                     }
                 ],
                 "season": "Fall",
@@ -139,7 +139,7 @@
                         "restrict": "Required of all students. Should be taken first year on campus.",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["General-Writing Requirements"]
+                        "degreeRequirements": ["General-Writing Requirements"]
                     },
                     {
                         "code": "BISC 208",
@@ -150,7 +150,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["General-Lab Requirements"],
+                        "degreeRequirements": ["General-Lab Requirements"],
                         "preReqs": [["BISC 207"]]
                     }
                 ],
@@ -169,7 +169,7 @@
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": [
+                        "degreeRequirements": [
                             "Artificial Intelligence & Robotics Concentration-Restricted Electives",
                             "Cybersecurity Concentration-Restricted Electives",
                             "Bioinformatics Concentration-Concentration Requirements",
@@ -191,7 +191,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
-                        "degreeRequirement": ["General-CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     },
                     {
@@ -203,7 +203,7 @@
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["General-CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     }
                 ],
