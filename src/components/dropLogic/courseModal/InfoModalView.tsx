@@ -9,6 +9,7 @@ type InfoModalViewProps = {
     setCourseModalMode: (newMode: string) => void;
 };
 
+// View that displays the course's general information
 export function InfoModalView({
     currentCourse,
     setShowCourseEditor,
@@ -31,16 +32,37 @@ export function InfoModalView({
                     <div>{"Credits: (" + currentCourse.credits + ")"}</div>
                 </div>
                 <div className="modal-section">
-                    <i>Restrictions</i>
-                    <p></p>
-                    <div>{currentCourse.preReqDesc}</div>
-                    <div>{currentCourse.restrict}</div>
+                    <p>
+                        <strong>Constraints</strong>
+                    </p>
+                    <p>
+                        <i>Prerequisites</i>
+                    </p>
+                    <p>
+                        {currentCourse.preReqs
+                            .map((reqGroup: string[]): string =>
+                                reqGroup.join(" or ")
+                            )
+                            .join(", ")}
+                    </p>
+                    <p>{currentCourse.preReqDesc}</p>
+                    <p>
+                        <i>Restrictions</i>
+                    </p>
+                    <p>{currentCourse.restrict}</p>
                 </div>
                 <div className="modal-section">
-                    <i>Other Information</i>
-                    <p></p>
-                    <div>{currentCourse.breadth}</div>
-                    <div>{currentCourse.typ}</div>
+                    <p>
+                        <strong>Other Information</strong>
+                    </p>
+                    <p>
+                        <i>Breadth Description</i>
+                    </p>
+                    <p>{currentCourse.breadth}</p>
+                    <p>
+                        <i>Availability</i>
+                    </p>
+                    <p>{currentCourse.typ}</p>
                 </div>
             </Modal.Body>
             <Modal.Footer>

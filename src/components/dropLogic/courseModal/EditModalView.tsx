@@ -99,7 +99,10 @@ export function EditModalView({
                 </Button>
                 <Button
                     variant="secondary"
-                    onClick={() => setShowCourseEditor(false)}
+                    onClick={() => {
+                        setShowCourseEditor(false);
+                        setCourseModalMode("info");
+                    }}
                 >
                     Close
                 </Button>
