@@ -51,4 +51,40 @@ describe("CourseModal Tests", () => {
         expect(modal).toHaveTextContent("CISC 108 or MATH 242 or BISC 207");
         expect(modal).toHaveTextContent("CISC 101");
     });
+    test("Expect checkboxes to change what requirements a course fulfills", () => {
+        screen.getByTestId("radio-edit-degReq-General-CISC Core").click();
+        screen
+            .getByTestId("radio-edit-degReq-General-Lab Requirements")
+            .click();
+        screen
+            .getByTestId(
+                "radio-edit-degReq-Bioinformatics Concentration-Concentration Requirements"
+            )
+            .click();
+
+        screen.getByTestId("courseModal-save-button").click();
+        screen.getByTestId("courseModal-close-button").click();
+
+        const coursePool = screen.getByTestId("droppable-coursePool");
+        const select = screen.getByTestId("requirement-list");
+
+        // CISC 181 should no longer by in General-CISC Core
+        expect(
+            within(coursePool).queryByTestId("draggable-CISC 181")
+        ).not.toBeInTheDocument();
+
+        userEvent.selectOptions(select, "Lab Requirements");
+
+        // CISC 181 should now be in Lab Requirements
+        expect(
+            within(coursePool).queryByTestId("draggable-CISC 181")
+        ).toBeInTheDocument();
+
+        screen.getByTestId("radio-Bioinformatics Concentration").click();
+
+        // ...and also
+        expect(
+            within(coursePool).queryByTestId("draggable-CISC 181")
+        ).toBeInTheDocument();
+    });
 });
