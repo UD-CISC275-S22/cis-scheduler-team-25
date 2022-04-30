@@ -15,8 +15,8 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeRequirements": ["CISC Core"],
-                        "preReqs": ["General-CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"],
+                        "preReqs": []
                     },
                     {
                         "code": "MATH 241",
@@ -110,7 +110,8 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeRequirements": ["General-CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"],
+                        "preReqs": []
                     },
                     {
                         "code": "MATH 241",
@@ -121,7 +122,8 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirements": ["General-CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"],
+                        "preReqs": []
                     }
                 ],
                 "season": "Fall",
@@ -139,7 +141,8 @@
                         "restrict": "Required of all students. Should be taken first year on campus.",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirements": ["General-Writing Requirements"]
+                        "degreeRequirements": ["General-Writing Requirements"],
+                        "preReqs": []
                     },
                     {
                         "code": "BISC 208",
