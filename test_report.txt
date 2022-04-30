@@ -3,10 +3,13 @@
 > react-scripts test "--coverage"
 
 PASS src/tests/AddSemesterForm.test.tsx
+PASS src/tests/EditModalView.test.tsx
+PASS src/tests/CourseModal.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/CourseDragDrop.test.tsx
 PASS src/tests/PlanView.test.tsx
 PASS src/tests/AddPlanForm.test.tsx
+PASS src/tests/SetDegreeList.test.tsx
 PASS src/tests/CategoryRadioButtons.test.tsx
 PASS src/tests/SemesterView.test.tsx
 PASS src/tests/RequirementSelector.test.tsx
@@ -16,23 +19,24 @@ PASS src/App.test.tsx
 --------------------------------------|---------|----------|---------|---------|---------------------
 File                                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 --------------------------------------|---------|----------|---------|---------|---------------------
-All files                             |   58.44 |    50.75 |    61.3 |   59.56 |                     
+All files                             |   77.68 |    71.21 |   82.35 |   78.63 |                     
  src                                  |     100 |      100 |     100 |     100 |                     
   App.tsx                             |     100 |      100 |     100 |     100 |                     
  src/components                       |     100 |      100 |     100 |     100 |                     
   ReadJSON.tsx                        |     100 |      100 |     100 |     100 |                     
- src/components/dropLogic             |   58.67 |    47.91 |   65.85 |    61.2 |                     
+ src/components/dropLogic             |   61.98 |    52.08 |   70.73 |   64.65 |                     
   AlertMessage.tsx                    |   58.33 |       50 |      75 |   58.33 | 13-15,19,32,46      
   CategoryRadioButtons.tsx            |     100 |      100 |     100 |     100 |                     
   CourseDragDrop.tsx                  |     100 |      100 |     100 |     100 |                     
-  CourseDropPool.tsx                  |      50 |       50 |   66.66 |      50 | 19-20,78-82         
+  CourseDropPool.tsx                  |     100 |      100 |     100 |     100 |                     
   RequirementSelector.tsx             |     100 |      100 |     100 |     100 |                     
-  handleOnDragEnd.tsx                 |   44.59 |    43.33 |   47.61 |   47.82 | 82-86,89-90,220-345 
- src/components/dropLogic/courseModal |    4.47 |      3.7 |    3.03 |    4.61 |                     
-  CourseModal.tsx                     |   66.66 |       50 |      50 |   66.66 | 51                  
-  EditModalView.tsx                   |    4.54 |        0 |       0 |    4.54 | 47-208              
-  InfoModalView.tsx                   |       0 |      100 |       0 |       0 | 17-55               
-  courseEditValidation.tsx            |       0 |        0 |       0 |       0 | 26-138              
+  handleOnDragEnd.tsx                 |   44.59 |    43.33 |   47.61 |   47.82 | 83-87,90-91,230-355 
+ src/components/dropLogic/courseModal |   95.45 |    88.88 |   97.14 |   95.31 |                     
+  CourseModal.tsx                     |   66.66 |      100 |      50 |   66.66 | 52                  
+  EditModalBody.tsx                   |     100 |      100 |     100 |     100 |                     
+  EditModalView.tsx                   |     100 |      100 |     100 |     100 |                     
+  InfoModalView.tsx                   |     100 |      100 |     100 |     100 |                     
+  courseEditValidation.tsx            |   94.87 |    86.95 |     100 |   94.59 | 118,128             
  src/components/mainComponents        |   35.71 |        0 |   38.88 |   35.71 |                     
   AddPlanButton.tsx                   |     100 |      100 |     100 |     100 |                     
   CSVExport.tsx                       |     100 |      100 |     100 |     100 |                     
@@ -46,12 +50,12 @@ All files                             |   58.44 |    50.75 |    61.3 |   59.56 |
   HelpModal.tsx                       |    37.5 |       20 |   66.66 |    37.5 | 13-33               
   HelpPlanView.tsx                    |       0 |      100 |       0 |       0 | 5                   
   HelpSemesterView.tsx                |       0 |      100 |       0 |       0 | 5                   
- src/components/planComponents        |   81.25 |       72 |    92.3 |   81.25 |                     
+ src/components/planComponents        |   92.18 |       80 |     100 |   92.18 |                     
   AddSemesterForm.tsx                 |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40      
   InsertPlanForm.tsx                  |     100 |       75 |     100 |     100 | 14                  
   SemesterBox.tsx                     |     100 |      100 |     100 |     100 |                     
   SemesterScrollBox.tsx               |     100 |      100 |     100 |     100 |                     
-  SetDegreeList.tsx                   |   41.66 |        0 |      60 |   41.66 | 27-44               
+  SetDegreeList.tsx                   |     100 |      100 |     100 |     100 |                     
  src/components/semesterComponents    |    92.3 |      100 |   83.33 |    92.3 |                     
   RemoveAllCoursesButton.tsx          |    92.3 |      100 |   83.33 |    92.3 | 62                  
  src/components/views                 |     100 |    94.73 |     100 |     100 |                     
@@ -63,12 +67,13 @@ All files                             |   58.44 |    50.75 |    61.3 |   59.56 |
   course.ts                           |       0 |        0 |       0 |       0 |                     
   degree.ts                           |       0 |        0 |       0 |       0 |                     
   degreeplan.ts                       |       0 |        0 |       0 |       0 |                     
+  editable_course.ts                  |       0 |        0 |       0 |       0 |                     
   section.ts                          |       0 |        0 |       0 |       0 |                     
   semester.ts                         |       0 |        0 |       0 |       0 |                     
 --------------------------------------|---------|----------|---------|---------|---------------------
 
-Test Suites: 11 passed, 11 total
-Tests:       36 passed, 36 total
+Test Suites: 14 passed, 14 total
+Tests:       45 passed, 45 total
 Snapshots:   0 total
-Time:        12.68 s
+Time:        17.405 s
 Ran all test suites.
