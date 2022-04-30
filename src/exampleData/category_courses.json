@@ -39,7 +39,7 @@
         "First Year Seminar": ["UNIV 101", "EGGG 101"]
     },
 
-    "Artificial Intelligence & Robotics": {
+    "Artificial Intelligence & Robotics Concentration": {
         "Concentration Requirements": [
             "CISC 304",
             "CISC 442",
@@ -217,7 +217,7 @@
         "Machine Learning Requirement": ["CISC 483", "CISC 484"],
         "Data Track Electives": ["MATH 302", "MATH 349", "MATH 351"]
     },
-    "Systems and Networks Concentration": {
+    "Systems & Networks Concentration": {
         "Concentration Requirements": [
             "CISC 360",
             "CISC 361",

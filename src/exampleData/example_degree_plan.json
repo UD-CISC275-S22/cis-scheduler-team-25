@@ -15,8 +15,8 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["CISC Core"],
-                        "preReqs": []
+                        "degreeRequirements": ["CISC Core"],
+                        "preReqs": ["General-CISC Core"]
                     },
                     {
                         "code": "MATH 241",
@@ -27,7 +27,7 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": []
                     }
                 ],
@@ -46,7 +46,17 @@
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": [
+                            "Artificial Intelligence & Robotics Concentration-Restricted Electives",
+                            "Cybersecurity Concentration-Restricted Electives",
+                            "Bioinformatics Concentration-Concentration Requirements",
+                            "Data Science Concentration-Concentration Requirements",
+                            "High Performance Computing (Applied Math Track) Concentration-Concentration Requirements",
+                            "High Performance Computing (Data Track) Concentration-Concentration Requirements",
+                            "Systems & Networks Concentration-Restricted Electives",
+                            "Theory & Computation (Discrete Track) Concentration-Concentration Requirements",
+                            "Theory & Computation (Continuous Track) Concentration-Concentration Requirements"
+                        ],
                         "preReqs": [["MATH 241"]]
                     },
                     {
@@ -58,7 +68,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     },
                     {
@@ -70,7 +80,7 @@
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC 106"]]
                     }
                 ],
@@ -100,7 +110,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"]
                     },
                     {
                         "code": "MATH 241",
@@ -111,7 +121,7 @@
                         "restrict": "Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["CISC Core"]
+                        "degreeRequirements": ["General-CISC Core"]
                     }
                 ],
                 "season": "Fall",
@@ -129,7 +139,7 @@
                         "restrict": "Required of all students. Should be taken first year on campus.",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["Writing Requirements"]
+                        "degreeRequirements": ["General-Writing Requirements"]
                     },
                     {
                         "code": "BISC 208",
@@ -140,7 +150,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["Lab Requirements"],
+                        "degreeRequirements": ["General-Lab Requirements"],
                         "preReqs": [["BISC 207"]]
                     }
                 ],
@@ -159,7 +169,17 @@
                         "restrict": "Students who received credit in MATH 243 are not eligible to take this course without permission.",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Winter, Spring, Summer",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": [
+                            "Artificial Intelligence & Robotics Concentration-Restricted Electives",
+                            "Cybersecurity Concentration-Restricted Electives",
+                            "Bioinformatics Concentration-Concentration Requirements",
+                            "Data Science Concentration-Concentration Requirements",
+                            "High Performance Computing (Applied Math Track) Concentration-Concentration Requirements",
+                            "High Performance Computing (Data Track) Concentration-Concentration Requirements",
+                            "Systems & Networks Concentration-Restricted Electives",
+                            "Theory & Computation (Discrete Track) Concentration-Concentration Requirements",
+                            "Theory & Computation (Continuous Track) Concentration-Concentration Requirements"
+                        ],
                         "preReqs": [["MATH 241"]]
                     },
                     {
@@ -171,7 +191,7 @@
                         "restrict": "",
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     },
                     {
@@ -183,7 +203,7 @@
                         "restrict": "",
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
-                        "degreeRequirement": ["CISC Core"],
+                        "degreeRequirements": ["General-CISC Core"],
                         "preReqs": [["CISC 108", "CISC106"]]
                     }
                 ],

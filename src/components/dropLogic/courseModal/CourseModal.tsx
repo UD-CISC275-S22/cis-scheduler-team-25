@@ -45,6 +45,7 @@ export function CourseModal({
 
     return (
         <Modal
+            data-testid="courseModal"
             size="lg"
             centered
             show={showCourseEditor}

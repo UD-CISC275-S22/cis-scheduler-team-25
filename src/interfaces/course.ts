@@ -1,7 +1,5 @@
-// import { Section } from "./section";
 export interface Course {
-    /* numeric code for a course, e.g. 1.181 corresponds to CISC181,
-    where CISC = 1 and .181 identifies the department course number */
+    // string containing a Course code name, ex CISC 108
     code: string;
     // name of course
     name: string;
@@ -21,7 +19,7 @@ export interface Course {
     //availability
     typ: string;
     // Requirement that the course fulfills for a degree
-    degreeRequirement: string[];
+    degreeRequirements: string[];
     // Array of sections for this course
     // sections: Section[];s
 }

@@ -20,14 +20,15 @@ type DragEndProps = {
     courseList: Course[];
 };
 
-/* handleOnDragEnd is the primary func for handling the drag/drop updating logic
-   This file is a module of functions for handleOnDragEnd and its associated
-   helper functions
-
-   The action string provides information about where a course is being dragged
-   to, i.e. dragged from the coursePool or semester schedule
-   States for the currentSemester's courses array and the coursePool itself are updated
-*/
+/**
+ * handleOnDragEnd is the primary func for handling the drag/drop updating logic
+ *  This file is a module of functions for handleOnDragEnd and its associated
+ *  helper functions
+ *
+ *  The action string provides information about where a course is being dragged
+ *  to, i.e. dragged from the coursePool or semester schedule
+ *  States for the currentSemester's courses array and the coursePool itself are updated
+ */
 export function handleOnDragEnd({
     reqFilter,
     result,
@@ -94,17 +95,26 @@ export function handleOnDragEnd({
     setAlertActive(true);
 }
 
-/*
-Function for gathering all courses that have not been taken up to this point
-*/
+/**
+ * Returns an array of Courses that have NOT already been taken based on all the semesters
+ * up to a chosen semester.
+ * @param currentPlan Current DegreePlan that is being observed. Taken courses are based on all
+ * the courses within all the Semesters within currentPlan.semesters
+ * @param currentSemester The most recent Semester you want to observe. This function observes
+ * all semesters from the beginning of currentPlan.semesters up to the currentSemester (inclusive)
+ * @param courseList The list of courses you want to filter. Essenetially, this function gets
+ * the difference between courseList and some usedCourses array
+ * @param reqFilter category + "-" + requirement; used to further filter courseList by a specific
+ * preReq
+ */
 export function getUnusedCourses(
     currentPlan: DegreePlan,
-    newSemester: Semester,
+    currentSemester: Semester,
     courseList: Course[],
     reqFilter: string
 ): Course[] {
     const currentIdx = currentPlan.semesters.findIndex(
-        (semester: Semester): boolean => semester.id === newSemester.id
+        (semester: Semester): boolean => semester.id === currentSemester.id
     );
 
     const previousCourses = currentPlan.semesters
@@ -117,14 +127,14 @@ export function getUnusedCourses(
             []
         );
 
-    const usedCourses = [...previousCourses, ...newSemester.courses];
+    const usedCourses = [...previousCourses, ...currentSemester.courses];
 
     return courseList.filter(
         (course: Course): boolean =>
             !usedCourses
                 .map((currCourse: Course): string => currCourse.code)
                 .includes(course.code) &&
-            course.degreeRequirement.includes(reqFilter)
+            course.degreeRequirements.includes(reqFilter)
     );
 }
 
@@ -135,7 +145,7 @@ function updatePlanStates(
     plans: DegreePlan[],
     currentPlan: DegreePlan,
     currentSemester: Semester,
-    reorderedSemesterCourses: Course[],
+    newSemesterCourses: Course[],
     setPlans: (newPlans: DegreePlan[]) => void,
     setCurrentPlan: (newPlan: DegreePlan) => void,
     setCurrentSemester: (newSemester: Semester) => void
@@ -144,7 +154,7 @@ function updatePlanStates(
     // on the reorderedSemesterCourses
     const newSemester = {
         ...currentSemester,
-        courses: reorderedSemesterCourses
+        courses: newSemesterCourses
     };
     const newPlan = {
         ...currentPlan,
