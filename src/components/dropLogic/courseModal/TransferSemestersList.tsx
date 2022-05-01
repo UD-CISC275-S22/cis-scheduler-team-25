@@ -33,7 +33,7 @@ export function TransferSemestersList({
                         (semester: Semester): JSX.Element => (
                             <option
                                 key={semester.id}
-                                value={transferId}
+                                value={semester.id}
                                 data-testid={`transfer-option-${
                                     semester.season +
                                     "-" +
