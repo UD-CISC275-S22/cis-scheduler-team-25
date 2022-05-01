@@ -96,7 +96,7 @@ export function TransferModalView({
                     }}
                     data-testid="courseModal-close-button"
                 >
-                    Save and Close
+                    Transfer and Close
                 </Button>
                 <Button
                     variant="secondary"
