@@ -94,7 +94,7 @@ export function TransferModalView({
                         );
                         setCourseModalMode("info");
                     }}
-                    data-testid="courseModal-close-button"
+                    data-testid="courseModal-transfer-close-button"
                 >
                     Transfer and Close
                 </Button>

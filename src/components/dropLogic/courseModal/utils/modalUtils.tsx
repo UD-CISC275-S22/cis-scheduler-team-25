@@ -1,7 +1,7 @@
 import { Course } from "../../../../interfaces/course";
 import { DegreePlan } from "../../../../interfaces/degreeplan";
 import { Semester } from "../../../../interfaces/semester";
-import { checkPrerequesites, updatePlanStates } from "../../handleOnDragEnd";
+import { checkPrerequesites } from "../../utils/dragUtils";
 
 /**
  * Validation function for checking if transferring a course from one semester

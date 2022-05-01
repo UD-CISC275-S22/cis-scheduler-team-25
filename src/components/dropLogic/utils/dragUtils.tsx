@@ -1,7 +1,7 @@
 import { DropResult } from "react-beautiful-dnd";
-import { Course } from "../../interfaces/course";
-import { DegreePlan } from "../../interfaces/degreeplan";
-import { Semester } from "../../interfaces/semester";
+import { Course } from "../../../interfaces/course";
+import { DegreePlan } from "../../../interfaces/degreeplan";
+import { Semester } from "../../../interfaces/semester";
 
 type DragEndProps = {
     reqFilter: string;

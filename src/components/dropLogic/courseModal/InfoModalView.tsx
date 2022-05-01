@@ -97,7 +97,7 @@ export function InfoModalView({
                 <Button
                     variant="primary"
                     onClick={() => setCourseModalMode("transfer")}
-                    data-testid="courseModal-edit-button"
+                    data-testid="courseModal-transfer-button"
                     disabled={
                         !validateTransferButton(
                             currentCourse,
