@@ -6,6 +6,7 @@ import { DegreePlan } from "../../../interfaces/degreeplan";
 import { TransferSemestersList } from "./TransferSemestersList";
 import "../../components.css";
 import { validateTransfer } from "./utils/modalUtils";
+import { transferCourse } from "./utils/modalUtils";
 
 type TransferModalViewProps = {
     currentCourse: Course;
@@ -81,6 +82,16 @@ export function TransferModalView({
                     }
                     onClick={() => {
                         setShowCourseEditor(false);
+                        transferCourse(
+                            transferId,
+                            currentCourse,
+                            plans,
+                            currentPlan,
+                            currentSemester,
+                            setPlans,
+                            setCurrentPlan,
+                            setCurrentSemester
+                        );
                         setCourseModalMode("info");
                     }}
                     data-testid="courseModal-close-button"

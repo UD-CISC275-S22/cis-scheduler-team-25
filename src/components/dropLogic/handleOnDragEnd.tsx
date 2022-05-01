@@ -148,7 +148,7 @@ export function getUnusedCourses(
 // ================================================================
 // ======================= HELPER FUNCTIONS =======================
 // ================================================================
-function updatePlanStates(
+export function updatePlanStates(
     plans: DegreePlan[],
     currentPlan: DegreePlan,
     currentSemester: Semester,

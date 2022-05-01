@@ -1,7 +1,7 @@
 import { Course } from "../../../../interfaces/course";
 import { DegreePlan } from "../../../../interfaces/degreeplan";
 import { Semester } from "../../../../interfaces/semester";
-import { checkPrerequesites, isCourseTaken } from "../../handleOnDragEnd";
+import { checkPrerequesites, updatePlanStates } from "../../handleOnDragEnd";
 
 /**
  * Validation function for checking if transferring a course from one semester
@@ -93,4 +93,75 @@ export function validateTransfer(
     }
 
     return false;
+}
+
+/**
+ * Handles logic for transferring a course from your currentSemester to another target
+ * semester, specified by an associated transferId
+ * @param transferId
+ * @param currentCourse
+ * @param plans
+ * @param currentPlan
+ * @param currentSemester
+ * @param setPlans
+ * @param setCurrentPlan
+ * @param setCurrentSemester
+ */
+export function transferCourse(
+    transferId: number,
+    currentCourse: Course,
+    plans: DegreePlan[],
+    currentPlan: DegreePlan,
+    currentSemester: Semester,
+    setPlans: (newPlans: DegreePlan[]) => void,
+    setCurrentPlan: (newPlan: DegreePlan) => void,
+    setCurrentSemester: (newSemester: Semester) => void
+) {
+    const destSemester = currentPlan.semesters.find(
+        (semester: Semester): boolean => semester.id === transferId
+    );
+
+    if (destSemester === undefined) {
+        console.log("Could not find transferId semester in transferCourse");
+        return;
+    }
+
+    const newDestSemester = {
+        ...destSemester,
+        courses: [...destSemester.courses, currentCourse]
+    };
+
+    const newCurrentSemester = {
+        ...currentSemester,
+        courses: currentSemester.courses.filter(
+            (course: Course): boolean => course.code !== currentCourse.code
+        )
+    };
+
+    const replaceSemester = (semester: Semester): Semester => {
+        switch (semester.id) {
+            case destSemester.id:
+                return newDestSemester;
+            case currentSemester.id:
+                return newCurrentSemester;
+            default:
+                return semester;
+        }
+    };
+
+    const newPlan = {
+        ...currentPlan,
+        semesters: currentPlan.semesters.map(
+            (semester: Semester): Semester => replaceSemester(semester)
+        )
+    };
+
+    const newPlans = plans.map(
+        (plan: DegreePlan): DegreePlan =>
+            plan.id === currentPlan.id ? newPlan : plan
+    );
+
+    setCurrentSemester(newCurrentSemester);
+    setCurrentPlan(newPlan);
+    setPlans(newPlans);
 }
