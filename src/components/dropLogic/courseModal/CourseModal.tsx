@@ -5,6 +5,7 @@ import { InfoModalView } from "./InfoModalView";
 import { EditModalView } from "./EditModalView";
 import { Semester } from "../../../interfaces/semester";
 import { DegreePlan } from "../../../interfaces/degreeplan";
+import { TransferModalView } from "./TransferModalView";
 
 type CourseEditModalProps = {
     showCourseEditor: boolean;
@@ -43,6 +44,55 @@ export function CourseModal({
 }: CourseEditModalProps): JSX.Element {
     const [courseModalMode, setCourseModalMode] = useState<string>("info");
 
+    const getView = () => {
+        switch (courseModalMode) {
+            case "edit":
+                return (
+                    <EditModalView
+                        currentCourse={currentCourse}
+                        setCurrentCourse={setCurrentCourse}
+                        setShowCourseEditor={setShowCourseEditor}
+                        setCourseModalMode={setCourseModalMode}
+                        courseList={courseList}
+                        setCourseList={setCourseList}
+                        setCurrentSemester={setCurrentSemester}
+                        setCurrentPlan={setCurrentPlan}
+                        currentPlan={currentPlan}
+                        currentSemester={currentSemester}
+                        setPlans={setPlans}
+                        plans={plans}
+                        setCoursePool={setCoursePool}
+                        category={category}
+                        requirement={requirement}
+                    />
+                );
+            case "transfer":
+                return (
+                    <TransferModalView
+                        currentPlan={currentPlan}
+                        currentSemester={currentSemester}
+                        currentCourse={currentCourse}
+                        setCurrentSemester={setCurrentSemester}
+                        setCurrentPlan={setCurrentPlan}
+                        plans={plans}
+                        setPlans={setPlans}
+                        setShowCourseEditor={setShowCourseEditor}
+                        setCourseModalMode={setCourseModalMode}
+                    />
+                );
+            default:
+                return (
+                    <InfoModalView
+                        currentPlan={currentPlan}
+                        currentSemester={currentSemester}
+                        currentCourse={currentCourse}
+                        setShowCourseEditor={setShowCourseEditor}
+                        setCourseModalMode={setCourseModalMode}
+                    />
+                );
+        }
+    };
+
     return (
         <Modal
             data-testid="courseModal"
@@ -51,31 +101,7 @@ export function CourseModal({
             show={showCourseEditor}
             onHide={() => setShowCourseEditor(false)}
         >
-            {courseModalMode == "info" ? (
-                <InfoModalView
-                    currentCourse={currentCourse}
-                    setShowCourseEditor={setShowCourseEditor}
-                    setCourseModalMode={setCourseModalMode}
-                />
-            ) : (
-                <EditModalView
-                    currentCourse={currentCourse}
-                    setCurrentCourse={setCurrentCourse}
-                    setShowCourseEditor={setShowCourseEditor}
-                    setCourseModalMode={setCourseModalMode}
-                    courseList={courseList}
-                    setCourseList={setCourseList}
-                    setCurrentSemester={setCurrentSemester}
-                    setCurrentPlan={setCurrentPlan}
-                    currentPlan={currentPlan}
-                    currentSemester={currentSemester}
-                    setPlans={setPlans}
-                    plans={plans}
-                    setCoursePool={setCoursePool}
-                    category={category}
-                    requirement={requirement}
-                />
-            )}
+            {getView()}
         </Modal>
     );
 }

@@ -1,20 +1,42 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
+import { DegreePlan } from "../../../interfaces/degreeplan";
+import { Semester } from "../../../interfaces/semester";
 import "../../components.css";
 
 type InfoModalViewProps = {
+    currentPlan: DegreePlan;
+    currentSemester: Semester;
     currentCourse: Course;
     setShowCourseEditor: (newVal: boolean) => void;
     setCourseModalMode: (newMode: string) => void;
 };
 
+function validateTransferButton(
+    currentCourse: Course,
+    currentSemester: Semester,
+    validTransferSemesters: Semester[]
+): boolean {
+    return (
+        currentSemester.courses
+            .map((course: Course): string => course.code)
+            .includes(currentCourse.code) && validTransferSemesters.length > 0
+    );
+}
+
 // View that displays the course's general information
 export function InfoModalView({
+    currentPlan,
+    currentSemester,
     currentCourse,
     setShowCourseEditor,
     setCourseModalMode
 }: InfoModalViewProps): JSX.Element {
+    const validTransferSemesters = currentPlan.semesters.filter(
+        (semester: Semester): boolean => semester.id !== currentSemester.id
+    );
+
     return (
         <>
             <Modal.Header closeButton>
@@ -72,6 +94,20 @@ export function InfoModalView({
                 </div>
             </Modal.Body>
             <Modal.Footer>
+                <Button
+                    variant="primary"
+                    onClick={() => setCourseModalMode("transfer")}
+                    data-testid="courseModal-transfer-button"
+                    disabled={
+                        !validateTransferButton(
+                            currentCourse,
+                            currentSemester,
+                            validTransferSemesters
+                        )
+                    }
+                >
+                    Transfer Course to Other Semester
+                </Button>
                 <Button
                     variant="primary"
                     onClick={() => setCourseModalMode("edit")}

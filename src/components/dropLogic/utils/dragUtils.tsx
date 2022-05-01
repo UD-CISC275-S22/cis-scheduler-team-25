@@ -1,7 +1,7 @@
 import { DropResult } from "react-beautiful-dnd";
-import { Course } from "../../interfaces/course";
-import { DegreePlan } from "../../interfaces/degreeplan";
-import { Semester } from "../../interfaces/semester";
+import { Course } from "../../../interfaces/course";
+import { DegreePlan } from "../../../interfaces/degreeplan";
+import { Semester } from "../../../interfaces/semester";
 
 type DragEndProps = {
     reqFilter: string;
@@ -80,7 +80,14 @@ export function handleOnDragEnd({
         dragSuccess = handleSemester2Semester(args);
         status = dragSuccess ? "swapSuccess" : "";
     } else if (action === "coursePool->semesterPool") {
-        if (checkPrerequesites(args)) {
+        if (
+            checkPrerequesites(
+                result.source.index,
+                coursePool,
+                currentSemester,
+                currentPlan
+            )
+        ) {
             dragSuccess = handleCoursePool2Semester(args);
             status = dragSuccess ? "addSuccess" : "";
         } else {
@@ -141,7 +148,7 @@ export function getUnusedCourses(
 // ================================================================
 // ======================= HELPER FUNCTIONS =======================
 // ================================================================
-function updatePlanStates(
+export function updatePlanStates(
     plans: DegreePlan[],
     currentPlan: DegreePlan,
     currentSemester: Semester,
@@ -300,17 +307,21 @@ function handleSemester2CoursePool({
     return true;
 }
 
-/*
-Helper function for checking if a student meets all the required prerequisites
-for a course before adding it from the coursePool -> semesterPool.
-Only semesters checked PRIOR to the current semester are checked
-*/
-function checkPrerequesites({
-    result,
-    coursePool,
-    currentSemester,
-    currentPlan
-}: DragEndProps): boolean {
+/**
+ * Helper function for checking if a student meets all the required prerequisites
+ * for a course before adding it from the coursePool -> semesterPool.
+ * Only semesters checked PRIOR to the current semester are checked
+ * @param courseIdx Index of the dragged course from coursePool
+ * @param coursePool Array of Courses which you're dragging into your currentSemester
+ * @param currentSemester Current Semester being dragged into
+ * @param currentPlan DegreePlan that currentSemester belongs to
+ */
+export function checkPrerequesites(
+    courseIdx: number,
+    coursePool: Course[],
+    currentSemester: Semester,
+    currentPlan: DegreePlan
+): boolean {
     const currentIdx = currentPlan.semesters.findIndex(
         (semester: Semester): boolean => semester.id === currentSemester.id
     );
@@ -325,7 +336,7 @@ function checkPrerequesites({
             []
         );
 
-    const draggedCourse = coursePool[result.source.index];
+    const draggedCourse = coursePool[courseIdx];
     const coursePreReqs = draggedCourse.preReqs;
 
     if (coursePreReqs.length === 0) {
@@ -339,12 +350,15 @@ function checkPrerequesites({
     return courseChecks.every((check: boolean): boolean => check);
 }
 
-/*
-Helper function for the checkPrerequisites() helper function.
-Used to map an array of course code prerequsites to a boolean value to determine
-if that particular requirement is met.
-*/
-function isCourseTaken(preReqList: string[], takenCourses: Course[]): boolean {
+/**
+ * Helper function for the checkPrerequisites() helper function.
+ * Used to map an array of course code prerequsites to a boolean value to determine
+ * if that particular requirement is met.
+ */
+export function isCourseTaken(
+    preReqList: string[],
+    takenCourses: Course[]
+): boolean {
     const takenCourseCodes = takenCourses.map(
         (course: Course): string => course.code
     );
