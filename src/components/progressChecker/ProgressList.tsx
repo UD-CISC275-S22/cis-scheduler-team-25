@@ -1,14 +1,11 @@
 import React from "react";
 import { DegreePlan } from "../../interfaces/degreeplan";
-import { Button, Modal } from "react-bootstrap";
-import { PlanView } from "../views/PlanView";
 import "../components.css";
-import Collapsible from "react-collapsible";
-import { Semester } from "../../interfaces/semester";
 import { MissingCourses } from "./MissingCourses";
-import { categories } from "../ReadJSON";
 import DegreeCategories from "../../exampleData/degree_categories.json";
 import CategoryCourses from "../../exampleData/category_courses.json";
+import INVALID_COURSE from "../../exampleData/invalid_course.json";
+import { Course } from "../../interfaces/course";
 
 const degreeCategories = DegreeCategories as Record<string, string[]>;
 const categoryCourses = CategoryCourses as Record<
@@ -26,24 +23,51 @@ export function ProgressList({ currentPlan }: ProgressListProps): JSX.Element {
 
     return (
         <div>
-            <Collapsible
-                className="collapsible"
-                trigger="View CISC Core Requirements"
-            >
-                <p>missing the following courses:</p>
-            </Collapsible>
-            <Collapsible
-                className="collapsible"
-                trigger="View Breadth Requirements"
-            >
-                <p>missing the following courses:</p>
-            </Collapsible>
-            <Collapsible
-                className="collapsible"
-                trigger="View Concentration Requirements"
-            >
-                <p>missing the following courses:</p>
-            </Collapsible>
+            <p>
+                <strong>General Requirements</strong>
+            </p>
+            <br></br>
+            {generalReqs.map(
+                (req: string): JSX.Element => (
+                    <MissingCourses
+                        key={"General-" + req}
+                        requiredCourses={categoryCourses["General"][req].map(
+                            (code: string): Course => ({
+                                ...INVALID_COURSE,
+                                code: code,
+                                degreeRequirements: ["General-" + req]
+                            })
+                        )}
+                        currentPlan={currentPlan}
+                        category="General"
+                        requirement={req}
+                    />
+                )
+            )}
+            <p>
+                <strong>Concentration Requirements</strong>
+            </p>
+            {concReqs.map(
+                (req: string): JSX.Element => (
+                    <MissingCourses
+                        key={currentPlan.degree.concentration + "-" + req}
+                        requiredCourses={categoryCourses[
+                            currentPlan.degree.concentration
+                        ][req].map(
+                            (code: string): Course => ({
+                                ...INVALID_COURSE,
+                                code: code,
+                                degreeRequirements: [
+                                    currentPlan.degree.concentration + "-" + req
+                                ]
+                            })
+                        )}
+                        currentPlan={currentPlan}
+                        category={currentPlan.degree.concentration}
+                        requirement={req}
+                    />
+                )
+            )}
         </div>
     );
 }

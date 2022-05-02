@@ -223,7 +223,7 @@ export function PlanView({
                     setCurrentSemester={setCurrentSemester}
                 />
             </div>
-            <ViewProgress />
+            <ViewProgress currentPlan={currentPlan} />
             <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
             {showAdd && (
                 <AddSemesterForm

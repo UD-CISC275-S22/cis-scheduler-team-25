@@ -1,25 +1,45 @@
-import React, { useState } from "react";
-
-import "./components.css";
-import { ProgressList } from "./ProgressList";
+import React from "react";
+import "../components.css";
 import { Course } from "../../interfaces/course";
-import { Semester } from "../../interfaces/semester";
 import Collapsible from "react-collapsible";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import { getUnusedCourses } from "../dropLogic/utils/dragUtils";
+
+type MissingCoursesProps = {
+    requiredCourses: Course[];
+    currentPlan: DegreePlan;
+    category: string;
+    requirement: string;
+};
 
 export function MissingCourses({
-    courseList,
-    currentSemester
-}: {
-    courseList: Course[];
-    currentSemester: Semester;
-}): JSX.Element {
-    //code here
+    requiredCourses,
+    currentPlan,
+    category,
+    requirement
+}: MissingCoursesProps): JSX.Element {
+    const lastSemester =
+        currentPlan.semesters[currentPlan.semesters.length - 1];
+    const missingCourses = getUnusedCourses(
+        currentPlan,
+        lastSemester,
+        requiredCourses,
+        category + "-" + requirement
+    );
+
     return (
         <Collapsible
             className="collapsible"
-            trigger="View CISC Core Requirements"
+            trigger={"View " + requirement + " Progress"}
         >
-            <p>missing the following courses:</p>
+            <p>Requirement not met; can choose from the following courses:</p>
+            <ul>
+                {missingCourses.map(
+                    (course: Course): JSX.Element => (
+                        <li key={course.code}>{course.code}</li>
+                    )
+                )}
+            </ul>
         </Collapsible>
     );
 }
