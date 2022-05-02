@@ -6,6 +6,7 @@ import { AddSemesterForm } from "../planComponents/AddSemesterForm";
 import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
 import { SetDegreeList } from "../planComponents/SetDegreeList";
 import invalidSemester from "../../exampleData/invalid_semester.json";
+import { CSVExport } from "../mainComponents/CSVExport";
 import "../components.css";
 
 type PlanViewProps = {

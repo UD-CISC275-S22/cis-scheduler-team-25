@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { DegreePlanList } from "../mainComponents/DegreePlanList";
-import { CSVExport } from "../mainComponents/CSVExport";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import { Semester } from "../../interfaces/semester";
 import { AddPlanButton } from "../mainComponents/AddPlanButton";
 import { EditPlanButton } from "../mainComponents/EditPlanButton";
 import { EditRemovePlanForm } from "../mainComponents/EditPlanForm";
 import { AddPlanForm } from "../planComponents/InsertPlanForm";
+import { CSVExport } from "../mainComponents/CSVExport";
 
 // button for switching to the PlanView
 function PlanViewButton({
@@ -89,7 +89,7 @@ export function MainView({
                     setCurrentPlan={setCurrentPlan}
                 ></EditRemovePlanForm>
             )}
-            <CSVExport plans={plans} />
+            <CSVExport plans={plans}></CSVExport>
         </div>
     );
 }
