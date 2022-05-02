@@ -37,7 +37,7 @@ export function HelpModal({
     }
 
     return (
-        <Modal show={showModal} onHide={handleClose}>
+        <Modal show={showModal} onHide={handleClose} data-testid="helpModal">
             <Modal.Header closeButton>
                 <Modal.Title>{helpMode}</Modal.Title>
             </Modal.Header>

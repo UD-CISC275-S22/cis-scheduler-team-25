@@ -1,7 +1,6 @@
 import React from "react";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../App";
-import userEvent from "@testing-library/user-event";
 
 describe("HelpBar Tests", () => {
     beforeEach(() => {
@@ -19,27 +18,76 @@ describe("HelpBar Tests", () => {
         );
         howToButton.click();
 
-        // screen.getByRole("nav-drop-Introduction").click();
-
         expect(screen.getByTestId("HelpIntroView")).toBeInTheDocument();
     });
     test("Managing Degree Plans help button shows appropriate text", () => {
-        const howToUse = screen.getByTestId(
-            "nav-drop-How to Use the Scheduler"
+        // get NavBar "How to Use the Scheduler" html element
+        const howToUse = screen
+            .getAllByText("How to Use the Scheduler")
+            .filter(
+                (e: HTMLElement): boolean => e.getAttribute("role") === "button"
+            )[0];
+
+        // click NavBar button to show dropdown choices and click one
+        howToUse.click();
+        screen.getByText("Managing Your Degree Plans").click();
+
+        // expect helpModal to appear and have correct text
+        const modal = screen.getByTestId("helpModal");
+        expect(modal).toHaveTextContent("Managing Your Degree Plans");
+    });
+    test("Selecting Semesters in a Plan help button shows appropriate text", () => {
+        // get NavBar "How to Use the Scheduler" html element
+        const howToUse = screen
+            .getAllByText("How to Use the Scheduler")
+            .filter(
+                (e: HTMLElement): boolean => e.getAttribute("role") === "button"
+            )[0];
+
+        // click NavBar button to show dropdown choices and click one
+        howToUse.click();
+        screen.getByText("Selecting Semesters in a Plan").click();
+
+        // expect helpModal to appear and have correct text
+        const modal = screen.getByTestId("helpModal");
+        expect(modal).toHaveTextContent("Selecting Semesters in a Plan");
+    });
+    test("Editing Semesters with Course Drag and Drop help button shows appropriate text", () => {
+        // get NavBar "How to Use the Scheduler" html element
+        const howToUse = screen
+            .getAllByText("How to Use the Scheduler")
+            .filter(
+                (e: HTMLElement): boolean => e.getAttribute("role") === "button"
+            )[0];
+
+        // click NavBar button to show dropdown choices and click one
+        howToUse.click();
+        screen.getByText("Editing Semesters with Course Drag and Drop").click();
+
+        // expect helpModal to appear and have correct text
+        const modal = screen.getByTestId("helpModal");
+        expect(modal).toHaveTextContent(
+            "Editing Semesters with Course Drag and Drop"
         );
-        userEvent.click(howToUse);
-        // expect(howToUse.querySelectorAll("a")).toHaveLength(5);
+    });
+    test("Using the Course Viewer, Editor, and Transfer help button shows appropriate text", () => {
+        // get NavBar "How to Use the Scheduler" html element
+        const howToUse = screen
+            .getAllByText("How to Use the Scheduler")
+            .filter(
+                (e: HTMLElement): boolean => e.getAttribute("role") === "button"
+            )[0];
 
-        const test = within(howToUse).getAllByRole("button")[0];
-        test.setAttribute("aria-expanded", "true");
-        console.log(test);
-        expect(document.querySelectorAll("a")).toHaveLength(5);
-        // test.click();
-        // expect(within(test).queryAllByRole("button")).toHaveLength(5);
-        // expect(within(howToUse).getAllByRole("button")).toHaveLength(5);
-        // expect(howToUse.childElementCount).toBe(5);
-        // screen.getByTestId("nav-drop-Managing Your Degree Plans").click();
+        // click NavBar button to show dropdown choices and click one
+        howToUse.click();
+        screen
+            .getByText("Using the Course Viewer, Editor, and Transfer")
+            .click();
 
-        // expect(screen.getByTestId("HelpIntroView")).toBeInTheDocument();
+        // expect helpModal to appear and have correct text
+        const modal = screen.getByTestId("helpModal");
+        expect(modal).toHaveTextContent(
+            "Using the Course Viewer, Editor, and Transfer"
+        );
     });
 });

@@ -35,16 +35,19 @@ export function HelpBar(): JSX.Element {
                             >
                                 {GUIDES.map(
                                     (guide: string): JSX.Element => (
-                                        <NavDropdown.Item
+                                        <div
                                             key={"nav-drop-" + guide}
                                             data-testid={"nav-drop-" + guide}
-                                            onClick={() => {
-                                                setHelpMode(guide);
-                                                setShowModal(true);
-                                            }}
                                         >
-                                            {guide}
-                                        </NavDropdown.Item>
+                                            <NavDropdown.Item
+                                                onClick={() => {
+                                                    setHelpMode(guide);
+                                                    setShowModal(true);
+                                                }}
+                                            >
+                                                {guide}
+                                            </NavDropdown.Item>
+                                        </div>
                                     )
                                 )}
                             </NavDropdown>
