@@ -18,7 +18,7 @@ function getStatusMessage(status: string): string {
         case "preReqError":
             return "Error! You do not meet the prerequesites to add this course.";
         default:
-            return "Invalid status";
+            return "You cannot perform that action.";
     }
 }
 

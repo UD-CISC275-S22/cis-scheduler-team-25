@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
 import { Semester } from "../../interfaces/semester";
 import { CourseDropPool } from "./CourseDropPool";
-import { handleOnDragEnd } from "./handleOnDragEnd";
+import { handleOnDragEnd, getUnusedCourses } from "./utils/dragUtils";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
@@ -47,12 +47,11 @@ export function CourseDragDrop({
 
     // state for the set of courses available for dragging into your currentSemester
     const [coursePool, setCoursePool] = useState<Course[]>(
-        courseList.filter(
-            (course: Course): boolean =>
-                !currentSemester.courses
-                    .map((currCourse: Course): string => currCourse.code)
-                    .includes(course.code) &&
-                course.degreeRequirement.includes(category + "-" + requirement)
+        getUnusedCourses(
+            currentPlan,
+            currentSemester,
+            courseList,
+            category + "-" + requirement
         )
     );
 
@@ -86,8 +85,7 @@ export function CourseDragDrop({
             <DragDropContext
                 onDragEnd={(result: DropResult) =>
                     handleOnDragEnd({
-                        category: category,
-                        requirement: requirement,
+                        reqFilter: category + "-" + requirement,
                         result: result,
                         coursePool: coursePool,
                         semesterPool: currentSemester.courses,
