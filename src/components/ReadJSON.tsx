@@ -19,7 +19,7 @@ interface CatalogCourse {
 const catalog = catalogData as Record<string, Record<string, CatalogCourse>>;
 
 // import a record of courseCategoriesData, containing a record where keys
-// represent degreeRequirements whose values are a list of course code strings
+// represent degreeRequirementss whose values are a list of course code strings
 // const generalCategories = courseCategoriesData as Record<string, string[]>;
 
 const CISCCourses = courseCategoriesData as Record<
@@ -47,7 +47,7 @@ const courseArrList = categories.map((category: string): Course[][] =>
         CISCCourses[category][requirement].map(
             (code: string): Course => ({
                 ...catalog[code.slice(0, 4)][code],
-                degreeRequirement: [category + "-" + requirement]
+                degreeRequirements: [category + "-" + requirement]
             })
         )
     )
@@ -83,7 +83,7 @@ const unfilteredCourseList = courseArrList.reduce(
 // ];
 
 // unfilteredCourseList has duplicate course codes because a single course
-// can be in multiple degreeRequirements, so we first get all unique course codes
+// can be in multiple degreeRequirementss, so we first get all unique course codes
 const uniqueCourseCodes = Array.from(
     new Set(unfilteredCourseList.map((course: Course): string => course.code))
 );
@@ -96,9 +96,9 @@ const defaultCourseList = uniqueCourseCodes.map(
             .filter((course: Course): boolean => course.code === code)
             .reduce((mergedCourse: Course, currentCourse: Course) => ({
                 ...currentCourse,
-                degreeRequirement: [
-                    ...mergedCourse.degreeRequirement,
-                    ...currentCourse.degreeRequirement
+                degreeRequirements: [
+                    ...mergedCourse.degreeRequirements,
+                    ...currentCourse.degreeRequirements
                 ]
             }))
 );

@@ -8,5 +8,5 @@
     "restrict": "INVALID",
     "breadth": "INVALID",
     "typ": "INVALID",
-    "degreeRequirement": []
+    "degreeRequirements": []
 }

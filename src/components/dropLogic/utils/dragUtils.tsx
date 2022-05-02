@@ -1,11 +1,10 @@
 import { DropResult } from "react-beautiful-dnd";
-import { Course } from "../../interfaces/course";
-import { DegreePlan } from "../../interfaces/degreeplan";
-import { Semester } from "../../interfaces/semester";
+import { Course } from "../../../interfaces/course";
+import { DegreePlan } from "../../../interfaces/degreeplan";
+import { Semester } from "../../../interfaces/semester";
 
 type DragEndProps = {
-    category: string;
-    requirement: string;
+    reqFilter: string;
     result: DropResult;
     coursePool: Course[];
     semesterPool: Course[];
@@ -21,17 +20,17 @@ type DragEndProps = {
     courseList: Course[];
 };
 
-/* handleOnDragEnd is the primary func for handling the drag/drop updating logic
-   This file is a module of functions for handleOnDragEnd and its associated
-   helper functions
-
-   The action string provides information about where a course is being dragged
-   to, i.e. dragged from the coursePool or semester schedule
-   States for the currentSemester's courses array and the coursePool itself are updated
-*/
+/**
+ * handleOnDragEnd is the primary func for handling the drag/drop updating logic
+ *  This file is a module of functions for handleOnDragEnd and its associated
+ *  helper functions
+ *
+ *  The action string provides information about where a course is being dragged
+ *  to, i.e. dragged from the coursePool or semester schedule
+ *  States for the currentSemester's courses array and the coursePool itself are updated
+ */
 export function handleOnDragEnd({
-    category,
-    requirement,
+    reqFilter,
     result,
     coursePool,
     semesterPool,
@@ -50,8 +49,7 @@ export function handleOnDragEnd({
 
     // arguments to pass to helper functions
     const args = {
-        category,
-        requirement,
+        reqFilter,
         result,
         coursePool,
         semesterPool,
@@ -82,7 +80,14 @@ export function handleOnDragEnd({
         dragSuccess = handleSemester2Semester(args);
         status = dragSuccess ? "swapSuccess" : "";
     } else if (action === "coursePool->semesterPool") {
-        if (checkPrerequesites(args)) {
+        if (
+            checkPrerequesites(
+                result.source.index,
+                coursePool,
+                currentSemester,
+                currentPlan
+            )
+        ) {
             dragSuccess = handleCoursePool2Semester(args);
             status = dragSuccess ? "addSuccess" : "";
         } else {
@@ -96,9 +101,85 @@ export function handleOnDragEnd({
     setStatus(status);
     setAlertActive(true);
 }
+
+/**
+ * Returns an array of Courses that have NOT already been taken based on all the semesters
+ * up to a chosen semester.
+ * @param currentPlan Current DegreePlan that is being observed. Taken courses are based on all
+ * the courses within all the Semesters within currentPlan.semesters
+ * @param currentSemester The most recent Semester you want to observe. This function observes
+ * all semesters from the beginning of currentPlan.semesters up to the currentSemester (inclusive)
+ * @param courseList The list of courses you want to filter. Essenetially, this function gets
+ * the difference between courseList and some usedCourses array
+ * @param reqFilter category + "-" + requirement; used to further filter courseList by a specific
+ * preReq
+ */
+export function getUnusedCourses(
+    currentPlan: DegreePlan,
+    currentSemester: Semester,
+    courseList: Course[],
+    reqFilter: string
+): Course[] {
+    const currentIdx = currentPlan.semesters.findIndex(
+        (semester: Semester): boolean => semester.id === currentSemester.id
+    );
+
+    const previousCourses = currentPlan.semesters
+        .slice(0, currentIdx)
+        .reduce(
+            (courses: Course[], semester: Semester) => [
+                ...courses,
+                ...semester.courses
+            ],
+            []
+        );
+
+    const usedCourses = [...previousCourses, ...currentSemester.courses];
+
+    return courseList.filter(
+        (course: Course): boolean =>
+            !usedCourses
+                .map((currCourse: Course): string => currCourse.code)
+                .includes(course.code) &&
+            course.degreeRequirements.includes(reqFilter)
+    );
+}
+
 // ================================================================
 // ======================= HELPER FUNCTIONS =======================
 // ================================================================
+export function updatePlanStates(
+    plans: DegreePlan[],
+    currentPlan: DegreePlan,
+    currentSemester: Semester,
+    newSemesterCourses: Course[],
+    setPlans: (newPlans: DegreePlan[]) => void,
+    setCurrentPlan: (newPlan: DegreePlan) => void,
+    setCurrentSemester: (newSemester: Semester) => void
+) {
+    // create new values for the currentSemester, currentPlan, and plans based
+    // on the reorderedSemesterCourses
+    const newSemester = {
+        ...currentSemester,
+        courses: newSemesterCourses
+    };
+    const newPlan = {
+        ...currentPlan,
+        semesters: currentPlan.semesters.map(
+            (semester: Semester): Semester =>
+                semester.id === currentSemester.id ? newSemester : semester
+        )
+    };
+    const newPlans = plans.map(
+        (plan: DegreePlan): DegreePlan =>
+            plan.id === currentPlan.id ? newPlan : plan
+    );
+
+    // set state to new values
+    setCurrentSemester(newSemester);
+    setCurrentPlan(newPlan);
+    setPlans(newPlans);
+}
 
 // helper function for reordering courses within your currentSemester
 function handleSemester2Semester({
@@ -127,28 +208,15 @@ function handleSemester2Semester({
         draggedCourses
     );
 
-    // create new values for the currentSemester, currentPlan, and plans based
-    // on the reorderedSemesterCourses
-    const newSemester = {
-        ...currentSemester,
-        courses: reorderedSemesterCourses
-    };
-    const newPlan = {
-        ...currentPlan,
-        semesters: currentPlan.semesters.map(
-            (semester: Semester): Semester =>
-                semester.id === currentSemester.id ? newSemester : semester
-        )
-    };
-    const newPlans = plans.map(
-        (plan: DegreePlan): DegreePlan =>
-            plan.id === currentPlan.id ? newPlan : plan
+    updatePlanStates(
+        plans,
+        currentPlan,
+        currentSemester,
+        reorderedSemesterCourses,
+        setPlans,
+        setCurrentPlan,
+        setCurrentSemester
     );
-
-    // set state to new values
-    setCurrentSemester(newSemester);
-    setCurrentPlan(newPlan);
-    setPlans(newPlans);
 
     return true;
 }
@@ -175,28 +243,15 @@ function handleCoursePool2Semester({
     // add dragged course to new semester course list
     reorderedSemesterCourses.splice(result.destination.index, 0, draggedCourse);
 
-    // create new values for the currentSemester, currentPlan, and plans based
-    // on the reorderedSemesterCourses
-    const newSemester = {
-        ...currentSemester,
-        courses: reorderedSemesterCourses
-    };
-    const newPlan = {
-        ...currentPlan,
-        semesters: currentPlan.semesters.map(
-            (semester: Semester): Semester =>
-                semester.id === currentSemester.id ? newSemester : semester
-        )
-    };
-    const newPlans = plans.map(
-        (plan: DegreePlan): DegreePlan =>
-            plan.id === currentPlan.id ? newPlan : plan
+    updatePlanStates(
+        plans,
+        currentPlan,
+        currentSemester,
+        reorderedSemesterCourses,
+        setPlans,
+        setCurrentPlan,
+        setCurrentSemester
     );
-
-    // set state to new values
-    setCurrentSemester(newSemester);
-    setCurrentPlan(newPlan);
-    setPlans(newPlans);
     setCoursePool(
         coursePool.filter(
             (course: Course): boolean => course.code !== draggedCourse.code
@@ -208,8 +263,7 @@ function handleCoursePool2Semester({
 
 // helper function for transferring course from currentSemester to coursePool
 function handleSemester2CoursePool({
-    category,
-    requirement,
+    reqFilter,
     result,
     semesterPool,
     currentSemester,
@@ -235,46 +289,39 @@ function handleSemester2CoursePool({
         ...currentSemester,
         courses: reorderedSemesterCourses
     };
-    const newPlan = {
-        ...currentPlan,
-        semesters: currentPlan.semesters.map(
-            (semester: Semester): Semester =>
-                semester.id === currentSemester.id ? newSemester : semester
-        )
-    };
-    const newPlans = plans.map(
-        (plan: DegreePlan): DegreePlan =>
-            plan.id === currentPlan.id ? newPlan : plan
+
+    updatePlanStates(
+        plans,
+        currentPlan,
+        currentSemester,
+        reorderedSemesterCourses,
+        setPlans,
+        setCurrentPlan,
+        setCurrentSemester
     );
 
-    // set state to new values
-    setCurrentSemester(newSemester);
-    setCurrentPlan(newPlan);
-    setPlans(newPlans);
     setCoursePool(
-        courseList.filter(
-            (course: Course): boolean =>
-                !newSemester.courses
-                    .map((currCourse: Course): string => currCourse.code)
-                    .includes(course.code) &&
-                course.degreeRequirement.includes(category + "-" + requirement)
-        )
+        getUnusedCourses(currentPlan, newSemester, courseList, reqFilter)
     );
 
     return true;
 }
 
-/*
-Helper function for checking if a student meets all the required prerequisites
-for a course before adding it from the coursePool -> semesterPool.
-Only semesters checked PRIOR to the current semester are checked
-*/
-function checkPrerequesites({
-    result,
-    coursePool,
-    currentSemester,
-    currentPlan
-}: DragEndProps): boolean {
+/**
+ * Helper function for checking if a student meets all the required prerequisites
+ * for a course before adding it from the coursePool -> semesterPool.
+ * Only semesters checked PRIOR to the current semester are checked
+ * @param courseIdx Index of the dragged course from coursePool
+ * @param coursePool Array of Courses which you're dragging into your currentSemester
+ * @param currentSemester Current Semester being dragged into
+ * @param currentPlan DegreePlan that currentSemester belongs to
+ */
+export function checkPrerequesites(
+    courseIdx: number,
+    coursePool: Course[],
+    currentSemester: Semester,
+    currentPlan: DegreePlan
+): boolean {
     const currentIdx = currentPlan.semesters.findIndex(
         (semester: Semester): boolean => semester.id === currentSemester.id
     );
@@ -289,7 +336,7 @@ function checkPrerequesites({
             []
         );
 
-    const draggedCourse = coursePool[result.source.index];
+    const draggedCourse = coursePool[courseIdx];
     const coursePreReqs = draggedCourse.preReqs;
 
     if (coursePreReqs.length === 0) {
@@ -303,12 +350,15 @@ function checkPrerequesites({
     return courseChecks.every((check: boolean): boolean => check);
 }
 
-/*
-Helper function for the checkPrerequisites() helper function.
-Used to map an array of course code prerequsites to a boolean value to determine
-if that particular requirement is met.
-*/
-function isCourseTaken(preReqList: string[], takenCourses: Course[]): boolean {
+/**
+ * Helper function for the checkPrerequisites() helper function.
+ * Used to map an array of course code prerequsites to a boolean value to determine
+ * if that particular requirement is met.
+ */
+export function isCourseTaken(
+    preReqList: string[],
+    takenCourses: Course[]
+): boolean {
     const takenCourseCodes = takenCourses.map(
         (course: Course): string => course.code
     );

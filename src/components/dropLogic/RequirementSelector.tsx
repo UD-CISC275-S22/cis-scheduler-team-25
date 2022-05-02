@@ -6,6 +6,7 @@ import "../components.css";
 import degreeCategoriesData from "../../exampleData/degree_categories.json";
 import { CategoryRadioButtons } from "./CategoryRadioButtons";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { getUnusedCourses } from "./utils/dragUtils";
 
 type RequirementSelectorProps = {
     category: string;
@@ -39,14 +40,11 @@ export function RequirementSelector({
 
         setRequirement(requirementOption);
         setCoursePool(
-            courseList.filter(
-                (course: Course): boolean =>
-                    course.degreeRequirement.includes(
-                        requirementFilter + requirementOption
-                    ) &&
-                    !currentSemester.courses
-                        .map((currCourse: Course): string => currCourse.code)
-                        .includes(course.code)
+            getUnusedCourses(
+                currentPlan,
+                currentSemester,
+                courseList,
+                requirementFilter + requirementOption
             )
         );
     }
