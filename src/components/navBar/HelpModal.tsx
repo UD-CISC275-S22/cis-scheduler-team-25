@@ -43,7 +43,11 @@ export function HelpModal({
             </Modal.Header>
             {getModalBody(helpMode)}
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button
+                    variant="secondary"
+                    data-testid="help-close-button"
+                    onClick={handleClose}
+                >
                     Close
                 </Button>
             </Modal.Footer>

@@ -31,12 +31,13 @@ export function HelpBar(): JSX.Element {
                         <Nav className="me-auto">
                             <NavDropdown
                                 title="How to Use the Scheduler"
-                                id="basic-nav-dropdown"
+                                data-testid="nav-drop-How to Use the Scheduler"
                             >
                                 {GUIDES.map(
                                     (guide: string): JSX.Element => (
                                         <NavDropdown.Item
                                             key={"nav-drop-" + guide}
+                                            data-testid={"nav-drop-" + guide}
                                             onClick={() => {
                                                 setHelpMode(guide);
                                                 setShowModal(true);
