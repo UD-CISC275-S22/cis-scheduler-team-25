@@ -45,7 +45,7 @@ export function ProgressList({ currentPlan }: ProgressListProps): JSX.Element {
             )}
             <br></br>
             <p>
-                <strong>Concentration Requirements</strong>
+                <strong>{currentPlan.degree.concentration} Requirements</strong>
             </p>
             {concReqs.map(
                 (req: string): JSX.Element => (
