@@ -26,7 +26,6 @@ export function ProgressList({ currentPlan }: ProgressListProps): JSX.Element {
             <p>
                 <strong>General Requirements</strong>
             </p>
-            <br></br>
             {generalReqs.map(
                 (req: string): JSX.Element => (
                     <MissingCourses
@@ -44,6 +43,7 @@ export function ProgressList({ currentPlan }: ProgressListProps): JSX.Element {
                     />
                 )
             )}
+            <br></br>
             <p>
                 <strong>Concentration Requirements</strong>
             </p>

@@ -21,18 +21,18 @@ export function ViewProgress({ currentPlan }: ViewProgressProps): JSX.Element {
             </Button>
 
             <Modal
-                className="modalFull"
+                // className="modalFull"
                 size="lg"
                 show={show}
                 onHide={handleClose}
             >
-                <Modal.Header className="modalHead" closeButton>
+                <Modal.Header className="modalHead">
                     <Modal.Title>Degree Progress</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className="modalBody">
+                <Modal.Body>
                     <ProgressList currentPlan={currentPlan} />
                 </Modal.Body>
-                <Modal.Footer className="modalFoot">
+                <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close
                     </Button>

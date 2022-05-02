@@ -65,9 +65,12 @@
 }
 
 .collapsible {
-    background-color: #00539f;
-    color: #ffffff;
-    border: 2px solid lightgoldenrodyellow;
+    /* background-color: #00539f; */
+    /* color: #ffffff; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    border: 3px solid #00539f;
 }
 
 .modalFull .modal-content {
@@ -76,6 +79,7 @@
 }
 .modalHead {
     color: #ffffff;
+    background: #00539f;
     border: 3px solid lightgoldenrodyellow;
 }
 .modalBody {
