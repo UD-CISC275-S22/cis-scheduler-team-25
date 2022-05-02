@@ -62,7 +62,7 @@ export function RemoveAllCoursesButton({
                                         currCourse.code
                                 )
                                 .includes(course.code) &&
-                            course.degreeRequirement.includes(
+                            course.degreeRequirements.includes(
                                 category + "-" + requirement
                             )
                     )

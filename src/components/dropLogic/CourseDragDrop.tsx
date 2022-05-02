@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
 import { Semester } from "../../interfaces/semester";
 import { CourseDropPool } from "./CourseDropPool";
-import { handleOnDragEnd, getUnusedCourses } from "./handleOnDragEnd";
+import { handleOnDragEnd, getUnusedCourses } from "./utils/dragUtils";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
