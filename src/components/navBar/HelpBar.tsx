@@ -6,7 +6,8 @@ const GUIDES = [
     "Introduction",
     "Managing Your Degree Plans",
     "Selecting Semesters in a Plan",
-    "Editing Semesters with Course Drag and Drop"
+    "Editing Semesters with Course Drag and Drop",
+    "Using the Course Viewer, Editor, and Transfer"
 ];
 
 export function HelpBar(): JSX.Element {
