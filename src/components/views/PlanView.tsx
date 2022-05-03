@@ -7,6 +7,7 @@ import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
 import { SetDegreeList } from "../planComponents/SetDegreeList";
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import "../components.css";
+import { ViewProgress } from "../progressChecker/ViewProgress";
 
 type PlanViewProps = {
     setMode: (newMode: string) => void;
@@ -222,6 +223,7 @@ export function PlanView({
                     setCurrentSemester={setCurrentSemester}
                 />
             </div>
+            <ViewProgress currentPlan={currentPlan} />
             <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
             {showAdd && (
                 <AddSemesterForm
