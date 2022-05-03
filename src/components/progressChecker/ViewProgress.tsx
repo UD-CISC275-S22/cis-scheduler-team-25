@@ -16,7 +16,11 @@ export function ViewProgress({ currentPlan }: ViewProgressProps): JSX.Element {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button
+                variant="primary"
+                data-testid="view-progress-button"
+                onClick={handleShow}
+            >
                 View Degree Progress
             </Button>
 

@@ -104,12 +104,14 @@ export function MissingCourses({
         ") Credits";
 
     return (
-        <Collapsible
-            className="collapsible"
-            openedClassName="collapsible"
-            trigger={collapseName}
-        >
-            {showStatus(missingCourses, creditTotal, category, requirement)}
-        </Collapsible>
+        <div data-testid={"collapsible-" + category + "-" + requirement}>
+            <Collapsible
+                className="collapsible"
+                openedClassName="collapsible"
+                trigger={collapseName}
+            >
+                {showStatus(missingCourses, creditTotal, category, requirement)}
+            </Collapsible>
+        </div>
     );
 }
