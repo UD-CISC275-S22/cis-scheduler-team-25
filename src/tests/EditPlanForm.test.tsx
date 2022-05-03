@@ -35,10 +35,10 @@ describe("Edit Plan Form Tests", () => {
         editNameConfirm.click();
         expect(screen.getByText("Test: Remove")).toBeInTheDocument();
         expect(
-            screen.getByText("Naruto's Degree Plan 1")
+            screen.queryByText("Naruto's Degree Plan 1")
         ).not.toBeInTheDocument();
     });
-    test("The remove plan button works", () => {
+    test("The remove plan button works (2)", () => {
         const editPlanButton = screen.getByTestId("edit-plan-button");
         editPlanButton.click();
 
@@ -50,7 +50,7 @@ describe("Edit Plan Form Tests", () => {
         expect(screen.getByText("Naruto's Degree Plan 2")).toBeInTheDocument();
         removePlan.click();
         expect(
-            screen.getByText("Naruto's Degree Plan 2")
+            screen.queryByText("Naruto's Degree Plan 2")
         ).not.toBeInTheDocument();
     });
 });
