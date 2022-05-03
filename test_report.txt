@@ -5,25 +5,7 @@
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/HelpBar.test.tsx
-FAIL src/tests/EditModalView.test.tsx
-  ● CourseModal Tests › Expect textbox fields to appear for a Course's name, description, credits, and course prereqs
-
-    expect(received).toHaveLength(expected)
-
-    Expected length: 49
-    Received length: 43
-    Received array:  [<input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />]
-
-      22 |         screen.getByTestId("textbox-edit-preReqs");
-      23 |
-    > 24 |         expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(49);
-         |                                                                ^
-      25 |     });
-      26 |     test("Expect textbox fields to appear for a Course's name, description, credits, and course prereqs", () => {
-      27 |         const name = screen.getByTestId("textbox-edit-name");
-
-      at Object.<anonymous> (src/tests/EditModalView.test.tsx:24:64)
-
+PASS src/tests/EditModalView.test.tsx
 PASS src/tests/CourseModal.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/CourseDragDrop.test.tsx
@@ -32,32 +14,14 @@ PASS src/tests/AddPlanForm.test.tsx
 PASS src/tests/SetDegreeList.test.tsx
 PASS src/tests/CategoryRadioButtons.test.tsx
 PASS src/tests/SemesterView.test.tsx
-FAIL src/tests/RequirementSelector.test.tsx
-  ● RequirementSelector Tests › There is a dropdown for selecting a requirement type
-
-    expect(received).toHaveLength(expected)
-
-    Expected length: 11
-    Received length: 5
-    Received object: <select class="form-select" data-testid="requirement-list" id="planList"><option data-testid="requirement-option-CISC Core" value="CISC Core">CISC Core</option><option data-testid="requirement-option-Lab Requirements" value="Lab Requirements">Lab Requirements</option><option data-testid="requirement-option-Writing Requirements" value="Writing Requirements">Writing Requirements</option><option data-testid="requirement-option-Capstone" value="Capstone">Capstone</option><option data-testid="requirement-option-First Year Seminar" value="First Year Seminar">First Year Seminar</option></select>
-
-      13 |     test("There is a dropdown for selecting a requirement type", () => {
-      14 |         expect(screen.getByTestId("requirement-list")).toBeInTheDocument();
-    > 15 |         expect(screen.getByTestId("requirement-list")).toHaveLength(11);
-         |                                                        ^
-      16 |     });
-      17 |     test("You can select a new requirement type and it changes courses displayed", () => {
-      18 |         const select = screen.getByTestId("requirement-list");
-
-      at Object.<anonymous> (src/tests/RequirementSelector.test.tsx:15:56)
-
+PASS src/tests/RequirementSelector.test.tsx
 PASS src/tests/DegreePlanList.test.tsx
 PASS src/tests/MainView.test.tsx
 PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   81.62 |    73.24 |   85.44 |   82.57 |                         
+All files                                   |   81.66 |    73.58 |   85.44 |    82.6 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -78,8 +42,8 @@ All files                                   |   81.62 |    73.24 |   85.44 |   8
   courseEditValidation.tsx                  |   94.87 |    86.95 |     100 |   94.59 | 118,128                 
  src/components/dropLogic/courseModal/utils |   88.09 |    73.33 |     100 |   88.09 |                         
   modalUtils.tsx                            |   88.09 |    73.33 |     100 |   88.09 | 22,36,95,125-126        
- src/components/dropLogic/utils             |   64.86 |    46.66 |   85.71 |   68.11 |                         
-  dragUtils.tsx                             |   64.86 |    46.66 |   85.71 |   68.11 | 83-94,97-98,237-307,343 
+ src/components/dropLogic/utils             |   65.33 |       50 |   85.71 |   68.57 |                         
+  dragUtils.tsx                             |   65.33 |       50 |   85.71 |   68.57 | 83-94,97-98,239-309,345 
  src/components/mainComponents              |   35.71 |        0 |   38.88 |   35.71 |                         
   AddPlanButton.tsx                         |     100 |      100 |     100 |     100 |                         
   CSVExport.tsx                             |     100 |      100 |     100 |     100 |                         
@@ -94,9 +58,12 @@ All files                                   |   81.62 |    73.24 |   85.44 |   8
   HelpModal.tsx                             |   88.88 |    83.33 |     100 |   88.88 | 22                      
   HelpPlanView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSemesterView.tsx                      |     100 |      100 |     100 |     100 |                         
- src/components/planComponents              |   92.18 |       80 |     100 |   92.18 |                         
+ src/components/planComponents              |   93.75 |    84.84 |     100 |   93.75 |                         
+  AddSemesterButton.tsx                     |     100 |      100 |     100 |     100 |                         
   AddSemesterForm.tsx                       |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40          
   InsertPlanForm.tsx                        |     100 |       75 |     100 |     100 | 14                      
+  RemoveAllSemestersButton.tsx              |     100 |      100 |     100 |     100 |                         
+  RemoveCurrentSemestersButton.tsx          |     100 |      100 |     100 |     100 |                         
   SemesterBox.tsx                           |     100 |      100 |     100 |     100 |                         
   SemesterScrollBox.tsx                     |     100 |      100 |     100 |     100 |                         
   SetDegreeList.tsx                         |     100 |      100 |     100 |     100 |                         
@@ -106,9 +73,9 @@ All files                                   |   81.62 |    73.24 |   85.44 |   8
   ViewProgress.tsx                          |   66.66 |      100 |   33.33 |     100 |                         
  src/components/semesterComponents          |    92.3 |      100 |   83.33 |    92.3 |                         
   RemoveAllCoursesButton.tsx                |    92.3 |      100 |   83.33 |    92.3 | 62                      
- src/components/views                       |     100 |    94.73 |     100 |     100 |                         
+ src/components/views                       |     100 |     90.9 |     100 |     100 |                         
   CurrentView.tsx                           |     100 |      100 |     100 |     100 |                         
-  MainView.tsx                              |     100 |       75 |     100 |     100 | 83                      
+  MainView.tsx                              |     100 |       75 |     100 |     100 | 85                      
   PlanView.tsx                              |     100 |      100 |     100 |     100 |                         
   SemesterView.tsx                          |     100 |      100 |     100 |     100 |                         
  src/interfaces                             |       0 |        0 |       0 |       0 |                         
@@ -120,8 +87,8 @@ All files                                   |   81.62 |    73.24 |   85.44 |   8
   semester.ts                               |       0 |        0 |       0 |       0 |                         
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
-Test Suites: 2 failed, 14 passed, 16 total
-Tests:       2 failed, 55 passed, 57 total
+Test Suites: 16 passed, 16 total
+Tests:       57 passed, 57 total
 Snapshots:   0 total
-Time:        21.016 s
+Time:        20.233 s
 Ran all test suites.
