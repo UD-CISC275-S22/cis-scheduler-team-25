@@ -8,8 +8,6 @@ export interface DegreePlan {
     name: string;
     // Array of Semester objects for that plan
     semesters: Semester[];
-    // number of semesters for this plan
-    length: number;
     // degree and associated concentration
     degree: Degree;
 }

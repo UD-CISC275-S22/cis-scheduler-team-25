@@ -12,7 +12,7 @@ describe("RequirementSelector Tests", () => {
     });
     test("There is a dropdown for selecting a requirement type", () => {
         expect(screen.getByTestId("requirement-list")).toBeInTheDocument();
-        expect(screen.getByTestId("requirement-list")).toHaveLength(11);
+        expect(screen.getByTestId("requirement-list")).toHaveLength(5);
     });
     test("You can select a new requirement type and it changes courses displayed", () => {
         const select = screen.getByTestId("requirement-list");
