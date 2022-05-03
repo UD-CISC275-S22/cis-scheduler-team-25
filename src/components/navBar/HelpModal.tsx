@@ -4,6 +4,7 @@ import { HelpIntroView } from "./HelpIntroView";
 import { HelpPlanView } from "./HelpPlanView";
 import { HelpMainView } from "./HelpMainView";
 import { HelpSemesterView } from "./HelpSemesterView";
+import { HelpCourseModalView } from "./HelpCourseModalView";
 
 function getModalBody(helpMode: string): JSX.Element {
     switch (helpMode) {
@@ -15,6 +16,8 @@ function getModalBody(helpMode: string): JSX.Element {
             return <HelpPlanView />;
         case "Editing Semesters with Course Drag and Drop":
             return <HelpSemesterView />;
+        case "Using the Course Viewer, Editor, and Transfer":
+            return <HelpCourseModalView />;
         default:
             return <HelpIntroView />;
     }
@@ -34,13 +37,17 @@ export function HelpModal({
     }
 
     return (
-        <Modal show={showModal} onHide={handleClose}>
+        <Modal show={showModal} onHide={handleClose} data-testid="helpModal">
             <Modal.Header closeButton>
                 <Modal.Title>{helpMode}</Modal.Title>
             </Modal.Header>
             {getModalBody(helpMode)}
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button
+                    variant="secondary"
+                    data-testid="help-close-button"
+                    onClick={handleClose}
+                >
                     Close
                 </Button>
             </Modal.Footer>
