@@ -10,6 +10,15 @@ import { EditPlanButton } from "../mainComponents/EditPlanButton";
 import { EditRemovePlanForm } from "../mainComponents/EditPlanForm";
 import { AddPlanForm } from "../planComponents/InsertPlanForm";
 
+type MainViewProps = {
+    setPlans: (newPlans: DegreePlan[]) => void;
+    setMode: (newMode: string) => void;
+    plans: DegreePlan[];
+    currentPlan: DegreePlan;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
+    setCurrentSemester: (newSemester: Semester) => void;
+};
+
 // button for switching to the PlanView
 function PlanViewButton({
     setMode,
@@ -42,14 +51,7 @@ export function MainView({
     setCurrentPlan,
     setCurrentSemester,
     setPlans
-}: {
-    setPlans: (newPlans: DegreePlan[]) => void;
-    setMode: (newMode: string) => void;
-    plans: DegreePlan[];
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    setCurrentSemester: (newSemester: Semester) => void;
-}): JSX.Element {
+}: MainViewProps): JSX.Element {
     const [showAdd, setShowAdd] = useState<boolean>(false);
     const [showRemove, setShowRemove] = useState<boolean>(false);
 
