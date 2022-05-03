@@ -21,7 +21,7 @@ describe("CourseModal Tests", () => {
         screen.getByTestId("textbox-edit-credits");
         screen.getByTestId("textbox-edit-preReqs");
 
-        expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(49);
+        expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(43);
     });
     test("Expect textbox fields to appear for a Course's name, description, credits, and course prereqs", () => {
         const name = screen.getByTestId("textbox-edit-name");

@@ -202,7 +202,7 @@ export function PlanView({
                 plan={currentPlan}
                 setCurrentSemester={setCurrentSemester}
             />
-            <p>{currentPlan.length} Semesters Total</p>
+            <p>{currentPlan.semesters.length} Semesters Total</p>
             <SetDegreeList
                 plans={plans}
                 currentPlan={currentPlan}
