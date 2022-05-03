@@ -99,7 +99,9 @@ export function handleOnDragEnd({
     }
 
     setStatus(status);
-    setAlertActive(true);
+    if (status !== "") {
+        setAlertActive(true);
+    }
 }
 
 /**

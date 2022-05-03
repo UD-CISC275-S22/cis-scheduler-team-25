@@ -41,7 +41,7 @@ export function DegreePlanList({
                     )}
                 </Form.Select>
             </Form.Group>
-            <p>{currentPlan.length} Semesters Included</p>
+            <p>{currentPlan.semesters.length} Semesters Included</p>
             <br></br>
         </div>
     );

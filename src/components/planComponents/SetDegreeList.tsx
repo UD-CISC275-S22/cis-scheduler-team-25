@@ -27,7 +27,7 @@ export function SetDegreeList({
     setPlans: (newPlans: DegreePlan[]) => void;
 }): JSX.Element {
     const [concentration, setConcentration] = useState<string>(
-        "Artificial Intelligence & Robotics Concentration"
+        currentPlan.degree.concentration
     );
 
     // callback function for the Form onChange, updates the currently selected plan
