@@ -2,10 +2,28 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/TransferModalView.test.tsx (5.075 s)
+PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/HelpBar.test.tsx
-PASS src/tests/EditModalView.test.tsx
+FAIL src/tests/EditModalView.test.tsx
+  ● CourseModal Tests › Expect textbox fields to appear for a Course's name, description, credits, and course prereqs
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 49
+    Received length: 43
+    Received array:  [<input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />, <input … />]
+
+      22 |         screen.getByTestId("textbox-edit-preReqs");
+      23 |
+    > 24 |         expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(49);
+         |                                                                ^
+      25 |     });
+      26 |     test("Expect textbox fields to appear for a Course's name, description, credits, and course prereqs", () => {
+      27 |         const name = screen.getByTestId("textbox-edit-name");
+
+      at Object.<anonymous> (src/tests/EditModalView.test.tsx:24:64)
+
 PASS src/tests/CourseModal.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/CourseDragDrop.test.tsx
@@ -14,14 +32,32 @@ PASS src/tests/AddPlanForm.test.tsx
 PASS src/tests/SetDegreeList.test.tsx
 PASS src/tests/CategoryRadioButtons.test.tsx
 PASS src/tests/SemesterView.test.tsx
-PASS src/tests/RequirementSelector.test.tsx
+FAIL src/tests/RequirementSelector.test.tsx
+  ● RequirementSelector Tests › There is a dropdown for selecting a requirement type
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 11
+    Received length: 5
+    Received object: <select class="form-select" data-testid="requirement-list" id="planList"><option data-testid="requirement-option-CISC Core" value="CISC Core">CISC Core</option><option data-testid="requirement-option-Lab Requirements" value="Lab Requirements">Lab Requirements</option><option data-testid="requirement-option-Writing Requirements" value="Writing Requirements">Writing Requirements</option><option data-testid="requirement-option-Capstone" value="Capstone">Capstone</option><option data-testid="requirement-option-First Year Seminar" value="First Year Seminar">First Year Seminar</option></select>
+
+      13 |     test("There is a dropdown for selecting a requirement type", () => {
+      14 |         expect(screen.getByTestId("requirement-list")).toBeInTheDocument();
+    > 15 |         expect(screen.getByTestId("requirement-list")).toHaveLength(11);
+         |                                                        ^
+      16 |     });
+      17 |     test("You can select a new requirement type and it changes courses displayed", () => {
+      18 |         const select = screen.getByTestId("requirement-list");
+
+      at Object.<anonymous> (src/tests/RequirementSelector.test.tsx:15:56)
+
 PASS src/tests/DegreePlanList.test.tsx
 PASS src/tests/MainView.test.tsx
 PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   85.42 |    75.16 |   91.41 |   86.11 |                         
+All files                                   |   81.62 |    73.24 |   85.44 |   82.57 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -64,6 +100,10 @@ All files                                   |   85.42 |    75.16 |   91.41 |   8
   SemesterBox.tsx                           |     100 |      100 |     100 |     100 |                         
   SemesterScrollBox.tsx                     |     100 |      100 |     100 |     100 |                         
   SetDegreeList.tsx                         |     100 |      100 |     100 |     100 |                         
+ src/components/progressChecker             |   24.13 |        0 |    6.66 |   25.92 |                         
+  MissingCourses.tsx                        |    7.14 |        0 |       0 |    7.14 | 29-106                  
+  ProgressList.tsx                          |   22.22 |      100 |       0 |   22.22 | 21-57                   
+  ViewProgress.tsx                          |   66.66 |      100 |   33.33 |     100 |                         
  src/components/semesterComponents          |    92.3 |      100 |   83.33 |    92.3 |                         
   RemoveAllCoursesButton.tsx                |    92.3 |      100 |   83.33 |    92.3 | 62                      
  src/components/views                       |     100 |    94.73 |     100 |     100 |                         
@@ -80,8 +120,8 @@ All files                                   |   85.42 |    75.16 |   91.41 |   8
   semester.ts                               |       0 |        0 |       0 |       0 |                         
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
-Test Suites: 16 passed, 16 total
-Tests:       57 passed, 57 total
+Test Suites: 2 failed, 14 passed, 16 total
+Tests:       2 failed, 55 passed, 57 total
 Snapshots:   0 total
-Time:        21.246 s
+Time:        21.016 s
 Ran all test suites.
