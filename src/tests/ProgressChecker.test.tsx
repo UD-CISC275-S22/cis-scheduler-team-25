@@ -224,4 +224,16 @@ describe("ProgressChecker Tests", () => {
         expect(within(collapsible).getByText("MATH 428")).toBeInTheDocument();
         expect(within(collapsible).getByText("MATH 450")).toBeInTheDocument();
     });
+    test("Credits update when semester cleared", () => {
+        screen.getByTestId("view-progress-button").click();
+        screen.getByTestId("semester-Fall-2022").click();
+        screen.getByTestId("plan-semester-button").click();
+        screen.getByTestId("remove-all-courses-from-semester").click();
+        screen.getByTestId("semester-plan-button").click();
+        screen.getByTestId("semester-Fall-2022").click();
+        screen.getByTestId("view-progress-button").click();
+        expect(
+            screen.getByTestId("collapsible-General-CISC Core")
+        ).toHaveTextContent("(6/31) Credits");
+    });
 });
