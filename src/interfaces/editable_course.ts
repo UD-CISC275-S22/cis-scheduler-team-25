@@ -12,6 +12,8 @@ export interface EditableCourse {
     // Array containing arrays of course codes; allows you to handle "or"
     // requirements where only one course of many is required
     preReqs: string;
+    // description of prereqs
+    preReqDesc: string;
     // Requirement that the course fulfills for a degree
     degreeRequirements: string[];
 }

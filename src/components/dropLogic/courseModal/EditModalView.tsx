@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { saveChanges, checkValidFields } from "./courseEditValidation";
+import { saveChanges, checkValidFields } from "./utils/courseEditValidation";
 import { Course } from "../../../interfaces/course";
 import { EditableCourse } from "../../../interfaces/editable_course";
 import { Semester } from "../../../interfaces/semester";
@@ -50,6 +50,7 @@ export function EditModalView({
         preReqs: currentCourse.preReqs
             .map((reqGroup: string[]): string => reqGroup.join(","))
             .join("\n"),
+        preReqDesc: currentCourse.preReqDesc,
         degreeRequirements: currentCourse.degreeRequirements
     });
 

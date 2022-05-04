@@ -99,6 +99,22 @@ export function EditModalBody({
                 />
             </Form.Group>
             <p></p>
+            <Form.Group controlId="form-course-preReqDesc">
+                <Form.Label>Prerequisite Description::</Form.Label>
+                <Form.Control
+                    data-testid="textbox-edit-preReqDesc"
+                    value={editCourse.preReqDesc}
+                    onChange={(e) =>
+                        setEditCourse({
+                            ...editCourse,
+                            preReqDesc: e.target.value
+                        })
+                    }
+                    as="textarea"
+                    rows={2}
+                />
+            </Form.Group>
+            <p></p>
             <Form.Group controlId="form-course-degreeRequirements">
                 <Form.Label>Degree Requirements:</Form.Label>
                 {Object.keys(degreeCategories).map(
