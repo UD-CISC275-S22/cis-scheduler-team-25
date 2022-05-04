@@ -3,7 +3,7 @@ import { Semester } from "../../interfaces/semester";
 import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
-import degreeCategoriesData from "../../exampleData/degree_categories.json";
+import degreeCategoriesData from "../../data/degree_categories.json";
 import { CategoryRadioButtons } from "./CategoryRadioButtons";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { getUnusedCourses } from "./utils/dragUtils";

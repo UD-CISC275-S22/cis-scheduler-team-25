@@ -5,7 +5,7 @@ import Collapsible from "react-collapsible";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { getUnusedCourses } from "../dropLogic/utils/dragUtils";
 import { Semester } from "../../interfaces/semester";
-import RequirementCreditCounts from "../../exampleData/requirement_credit_counts.json";
+import RequirementCreditCounts from "../../data/requirement_credit_counts.json";
 
 // specifies how many credits are needed for a category + requirement pair
 const requirementCreditCounts = RequirementCreditCounts as Record<

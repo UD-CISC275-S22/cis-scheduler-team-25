@@ -1,6 +1,6 @@
 import { Course } from "../interfaces/course";
-import catalogData from "../exampleData/catalog.json";
-import courseCategoriesData from "../exampleData/category_courses.json";
+import catalogData from "../data/catalog.json";
+import courseCategoriesData from "../data/category_courses.json";
 
 // initial interface for the information in catalog.json
 interface CatalogCourse {

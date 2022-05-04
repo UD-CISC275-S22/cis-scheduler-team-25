@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Modal } from "react-bootstrap";
 import { EditableCourse } from "../../../interfaces/editable_course";
-import degreeCategoriesData from "../../../exampleData/degree_categories.json";
+import degreeCategoriesData from "../../../data/degree_categories.json";
 
 type EditModalBodyProps = {
     editCourse: EditableCourse;

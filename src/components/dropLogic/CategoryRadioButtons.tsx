@@ -2,7 +2,7 @@ import React from "react";
 import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
-import degreeCategoriesData from "../../exampleData/degree_categories.json";
+import degreeCategoriesData from "../../data/degree_categories.json";
 import { Semester } from "../../interfaces/semester";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { getUnusedCourses } from "./utils/dragUtils";
