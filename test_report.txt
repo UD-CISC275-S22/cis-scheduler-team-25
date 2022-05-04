@@ -2,6 +2,569 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+PASS src/tests/ProgressChecker.test.tsx
+  ● Console
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
+    console.error
+      Warning: Encountered two children with the same key, `GEOL 107`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at ul
+          at div
+          at div
+          at div
+          at s (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-collapsible/dist/index.js:1:4164)
+          at div
+          at MissingCourses (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/MissingCourses.tsx:60:5)
+          at div
+          at ProgressList (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ProgressList.tsx:20:32)
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+          at div
+          at div
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+          at div
+          at Transition (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-transition-group/cjs/Transition.js:133:30)
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Fade.js:38:3
+          at DialogTransition
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/@restart/ui/cjs/Modal.js:75:5
+          at /home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/node_modules/react-bootstrap/cjs/Modal.js:85:3
+          at ViewProgress (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/progressChecker/ViewProgress.tsx:11:32)
+          at div
+          at PlanView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/PlanView.tsx:73:5)
+          at CurrentView (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/components/views/CurrentView.tsx:27:5)
+          at div
+          at div
+          at App (/home/runner/work/cis-scheduler-team-25/cis-scheduler-team-25/src/App.tsx:32:31)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
+
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/HelpBar.test.tsx
@@ -21,7 +584,7 @@ PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   81.66 |    73.58 |   85.44 |    82.6 |                         
+All files                                   |   85.92 |    74.84 |   91.54 |   86.73 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -67,10 +630,10 @@ All files                                   |   81.66 |    73.58 |   85.44 |    
   SemesterBox.tsx                           |     100 |      100 |     100 |     100 |                         
   SemesterScrollBox.tsx                     |     100 |      100 |     100 |     100 |                         
   SetDegreeList.tsx                         |     100 |      100 |     100 |     100 |                         
- src/components/progressChecker             |   24.13 |        0 |    6.66 |   25.92 |                         
-  MissingCourses.tsx                        |    7.14 |        0 |       0 |    7.14 | 29-106                  
-  ProgressList.tsx                          |   22.22 |      100 |       0 |   22.22 | 21-57                   
-  ViewProgress.tsx                          |   66.66 |      100 |   33.33 |     100 |                         
+ src/components/progressChecker             |    93.1 |       50 |   93.33 |   96.29 |                         
+  MissingCourses.tsx                        |   92.85 |       50 |     100 |   92.85 | 40                      
+  ProgressList.tsx                          |     100 |      100 |     100 |     100 |                         
+  ViewProgress.tsx                          |   83.33 |      100 |   66.66 |     100 |                         
  src/components/semesterComponents          |    92.3 |      100 |   83.33 |    92.3 |                         
   RemoveAllCoursesButton.tsx                |    92.3 |      100 |   83.33 |    92.3 | 62                      
  src/components/views                       |     100 |     90.9 |     100 |     100 |                         
@@ -87,8 +650,8 @@ All files                                   |   81.66 |    73.58 |   85.44 |    
   semester.ts                               |       0 |        0 |       0 |       0 |                         
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
-Test Suites: 16 passed, 16 total
-Tests:       57 passed, 57 total
+Test Suites: 17 passed, 17 total
+Tests:       72 passed, 72 total
 Snapshots:   0 total
-Time:        20.233 s
+Time:        23.223 s
 Ran all test suites.
