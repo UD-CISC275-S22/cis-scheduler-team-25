@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "name": "Naruto's Degree Plan 1",
+        "name": "Example Degree Plan 1",
         "semesters": [
             {
                 "id": 2022.4,
@@ -95,7 +95,7 @@
     },
     {
         "id": 1,
-        "name": "Naruto's Degree Plan 2",
+        "name": "Example Degree Plan 2",
         "semesters": [
             {
                 "id": 2022.4,

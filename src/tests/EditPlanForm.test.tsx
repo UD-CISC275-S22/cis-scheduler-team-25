@@ -27,7 +27,7 @@ describe("Edit Plan Form Tests", () => {
         const editNameConfirm = screen.getByTestId("edit-plan-by-name-button");
 
         const select = screen.getByTestId("plan-list");
-        userEvent.selectOptions(select, "Naruto's Degree Plan 1");
+        userEvent.selectOptions(select, "Example Degree Plan 1");
 
         const editPlanTextBox = screen.getByTestId("edit-plan-name-text");
         userEvent.type(editPlanTextBox, "Test: Remove");
@@ -35,7 +35,7 @@ describe("Edit Plan Form Tests", () => {
         editNameConfirm.click();
         expect(screen.getByText("Test: Remove")).toBeInTheDocument();
         expect(
-            screen.queryByText("Naruto's Degree Plan 1")
+            screen.queryByText("Example Degree Plan 1")
         ).not.toBeInTheDocument();
     });
     test("The remove plan button works (2)", () => {
@@ -45,12 +45,12 @@ describe("Edit Plan Form Tests", () => {
         const removePlan = screen.getByTestId("remove-plan-by-name-button");
 
         const select = screen.getByTestId("plan-list");
-        userEvent.selectOptions(select, "Naruto's Degree Plan 2");
+        userEvent.selectOptions(select, "Example Degree Plan 2");
 
-        expect(screen.getByText("Naruto's Degree Plan 2")).toBeInTheDocument();
+        expect(screen.getByText("Example Degree Plan 2")).toBeInTheDocument();
         removePlan.click();
         expect(
-            screen.queryByText("Naruto's Degree Plan 2")
+            screen.queryByText("Example Degree Plan 2")
         ).not.toBeInTheDocument();
     });
 });

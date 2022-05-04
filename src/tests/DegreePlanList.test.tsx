@@ -14,10 +14,10 @@ describe("DegreePlanList Tests", () => {
     test("You can select the test plan length displays", () => {
         const select = screen.getByTestId("plan-list");
 
-        userEvent.selectOptions(select, "Naruto's Degree Plan 1");
+        userEvent.selectOptions(select, "Example Degree Plan 1");
         expect(screen.getByText("2 Semesters Included")).toBeInTheDocument();
 
-        userEvent.selectOptions(select, "Naruto's Degree Plan 2");
+        userEvent.selectOptions(select, "Example Degree Plan 2");
         expect(screen.getByText("3 Semesters Included")).toBeInTheDocument();
     });
 });

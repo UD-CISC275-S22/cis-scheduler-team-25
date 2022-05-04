@@ -50,10 +50,10 @@ describe("PlanView Tests", () => {
 
         userEvent.selectOptions(
             screen.getByTestId("plan-list"),
-            "Naruto's Degree Plan 2"
+            "Example Degree Plan 2"
         );
 
         screen.getByTestId("main-plan-button").click();
-        expect(screen.getByText("Naruto's Degree Plan 2")).toBeInTheDocument();
+        expect(screen.getByText("Example Degree Plan 2")).toBeInTheDocument();
     });
 });
