@@ -8,7 +8,7 @@ import { handleOnDragEnd, getUnusedCourses } from "./utils/dragUtils";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
-import INVALID_COURSE from "../../exampleData/invalid_course.json";
+import INVALID_COURSE from "../../data/invalid_course.json";
 import { CourseModal } from "./courseModal/CourseModal";
 import { RemoveAllCoursesButton } from "../semesterComponents/RemoveAllCoursesButton";
 

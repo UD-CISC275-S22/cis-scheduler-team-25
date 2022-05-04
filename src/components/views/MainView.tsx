@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { DegreePlanList } from "../mainComponents/DegreePlanList";
 import { CSVExport } from "../mainComponents/CSVExport";
-import invalidSemester from "../../exampleData/invalid_semester.json";
+import invalidSemester from "../../data/invalid_semester.json";
 import { Semester } from "../../interfaces/semester";
 import { AddPlanButton } from "../mainComponents/AddPlanButton";
 import { EditPlanButton } from "../mainComponents/EditPlanButton";

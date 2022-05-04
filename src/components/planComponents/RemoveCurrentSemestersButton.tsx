@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
-import invalidSemester from "../../exampleData/invalid_semester.json";
+import invalidSemester from "../../data/invalid_semester.json";
 import "../components.css";
 
 // planView button to remove the currently selected semester

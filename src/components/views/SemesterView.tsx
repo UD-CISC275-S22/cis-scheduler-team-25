@@ -27,7 +27,9 @@ function PlanViewButton({
         <Button
             data-testid="semester-plan-button"
             onClick={() => setMode("plan")}
-        ></Button>
+        >
+            Return to Degree Plan
+        </Button>
     );
 }
 

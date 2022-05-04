@@ -2,9 +2,9 @@ import React from "react";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import "../components.css";
 import { MissingCourses } from "./MissingCourses";
-import DegreeCategories from "../../exampleData/degree_categories.json";
-import CategoryCourses from "../../exampleData/category_courses.json";
-import INVALID_COURSE from "../../exampleData/invalid_course.json";
+import DegreeCategories from "../../data/degree_categories.json";
+import CategoryCourses from "../../data/category_courses.json";
+import INVALID_COURSE from "../../data/invalid_course.json";
 import { Course } from "../../interfaces/course";
 
 const degreeCategories = DegreeCategories as Record<string, string[]>;
