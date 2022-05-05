@@ -2,44 +2,48 @@ import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 
-export interface CSVTable {
-    code: string;
-    // name of course
-    semester: string;
-    name: string;
-    //description of the course
-    descr: string;
-    // credit value for this course
-    credits: string;
-    // Array containing arrays of course codes; allows you to handle "or"
-    // requirements where only one course of many is required
-    preReqs: string[][];
-    // Description of preReqs
-    preReqDesc: string;
-    //restrictions for who can take the course
-    restrict: string;
-    //University breadth category
-    breadth: string;
-    //availability
-    typ: string;
-    // Requirement that the course fulfills for a degree
-    degreeRequirements: string[];
-}
-
-export function validConvertCSV(currPlan: DegreePlan): CSVTable[] {
-    return currPlan.semesters.reduce((result: CSVTable[], semester: Semester): CSVTable[] => {
-        return [
-            ...result,
-            ...semester.courses.reduce((
-                courseTable: CSVTable[],
-                course: Course
-            ): CSVTable[] => {
-                return [
-                    ...courseTable,
+export function courseToCSV(currPlan: DegreePlan): string[] {
+    let csvArray: string[];
+    currPlan.semesters.map((currSemester: Semester): void => {
+        {
+            const coursesString = currSemester.courses.map(
+                (course: Course): string => {
                     {
-                        
+                        const returnString =
+                            course.code.toString() +
+                            "," +
+                            course.name +
+                            "," +
+                            course.descr +
+                            "," +
+                            course.credits +
+                            "," +
+                            course.preReqs
+                                .map((reqGroup: string[]): string =>
+                                    reqGroup.join("_")
+                                )
+                                .join("|") +
+                            "," +
+                            course.preReqDesc +
+                            "," +
+                            course.restrict +
+                            "," +
+                            course.breadth +
+                            "," +
+                            course.typ +
+                            "," +
+                            course.degreeRequirements.join("_");
+                        return returnString;
                     }
-                ]
-            })
-        ]
-    })
+                }
+            );
+            csvArray.push(
+                currSemester.season +
+                    "," +
+                    currSemester.year.toString() +
+                    coursesString
+            );
+        }
+    });
+    return csvArray;
+}
