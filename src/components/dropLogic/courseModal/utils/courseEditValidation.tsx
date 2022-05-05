@@ -3,6 +3,8 @@ import { EditableCourse } from "../../../../interfaces/editable_course";
 import { DegreePlan } from "../../../../interfaces/degreeplan";
 import { Semester } from "../../../../interfaces/semester";
 import { catalog } from "../../../ReadJSON";
+import CourseCategoriesData from "../../../../data/category_courses.json";
+import CategoryRequirements from "../../../../data/degree_categories.json";
 
 /**
  * Implements all the changes made in an EditableCourse object to be used to modify
@@ -10,7 +12,7 @@ import { catalog } from "../../../ReadJSON";
  * @param editCourse EditableCourse object with new changes to be used for selected Course object
  */
 function saveChanges(
-    editCourse: EditableCourse,
+    editCourse: EditableCourse | Course,
     currentCourse: Course,
     setCurrentCourse: (newCourse: Course) => void,
     courseList: Course[],
@@ -24,10 +26,15 @@ function saveChanges(
     setCoursePool: (newCourses: Course[]) => void,
     reqFilter: string
 ) {
-    const editedPreReqs = editCourse.preReqs
-        .trim()
-        .split("\n")
-        .map((preReqGroup: string): string[] => preReqGroup.split(","));
+    let editedPreReqs: string[][];
+    if (Object.keys(editCourse).length === 5) {
+        editedPreReqs = editCourse.preReqs
+            .trim()
+            .split("\n")
+            .map((preReqGroup: string): string[] => preReqGroup.split(","));
+    } else {
+        editedPreReqs = 
+    }
 
     const newCourse = {
         ...currentCourse,
@@ -141,6 +148,47 @@ function checkValidFields(editCourse: EditableCourse): boolean {
 
     // return whether or not every group of preReqs is valid
     return preReqChecks.every((check: boolean): boolean => check);
+}
+
+export function getDefaultCourse(code: string): Course {
+    const catalogCourse = catalog[code.slice(0, 4).trim()][code];
+    const defaultCourse: Course = {
+        ...catalogCourse,
+        credits: catalogCourse.credits.trim(),
+        degreeRequirements: []
+    };
+
+    const CISCCourses = CourseCategoriesData as Record<
+        string,
+        Record<string, string[]>
+    >;
+
+    const categoryRequirements = CategoryRequirements as Record<
+        string,
+        string[]
+    >;
+    // Get array of degree requirement categories
+    const categories = Object.keys(CISCCourses);
+
+    const result = categories.map((category: string): string[] =>
+        categoryRequirements[category].reduce(
+            (preReqs: string[], req: string) =>
+                CISCCourses[category][req].includes(code)
+                    ? [...preReqs, category + "-" + req]
+                    : [...preReqs],
+            []
+        )
+    );
+
+    const degreeRequirements = result.reduce(
+        (allPreReqs: string[], preReqGroup: string[]) => [
+            ...allPreReqs,
+            ...preReqGroup
+        ],
+        []
+    );
+
+    return { ...defaultCourse, degreeRequirements: degreeRequirements };
 }
 
 export { saveChanges, checkValidFields };
