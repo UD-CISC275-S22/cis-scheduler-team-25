@@ -21,13 +21,14 @@ describe("CourseModal Tests", () => {
         screen.getByTestId("textbox-edit-credits");
         screen.getByTestId("textbox-edit-preReqs");
 
-        expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(49);
+        expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(43);
     });
     test("Expect textbox fields to appear for a Course's name, description, credits, and course prereqs", () => {
         const name = screen.getByTestId("textbox-edit-name");
         const descr = screen.getByTestId("textbox-edit-descr");
         const credits = screen.getByTestId("textbox-edit-credits");
         const preReqs = screen.getByTestId("textbox-edit-preReqs");
+        const preReqDesc = screen.getByTestId("textbox-edit-preReqDesc");
 
         userEvent.type(name, "{selectall}Intro to Waffles");
         userEvent.type(
@@ -38,6 +39,10 @@ describe("CourseModal Tests", () => {
         userEvent.type(
             preReqs,
             "{selectall}CISC 108,MATH 242,BISC 207\nCISC 101"
+        );
+        userEvent.type(
+            preReqDesc,
+            "{selectall}Requires an A in CISC 108/MATH 242/BISC 207"
         );
 
         screen.getByTestId("courseModal-save-button").click();
@@ -50,6 +55,9 @@ describe("CourseModal Tests", () => {
         expect(modal).toHaveTextContent("Credits: (8)");
         expect(modal).toHaveTextContent("CISC 108 or MATH 242 or BISC 207");
         expect(modal).toHaveTextContent("CISC 101");
+        expect(modal).toHaveTextContent(
+            "Requires an A in CISC 108/MATH 242/BISC 207"
+        );
     });
     test("Expect checkboxes to change what requirements a course fulfills", () => {
         screen.getByTestId("radio-edit-degReq-General-CISC Core").click();

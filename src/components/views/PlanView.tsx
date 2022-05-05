@@ -5,9 +5,16 @@ import { Semester } from "../../interfaces/semester";
 import { AddSemesterForm } from "../planComponents/AddSemesterForm";
 import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
 import { SetDegreeList } from "../planComponents/SetDegreeList";
+<<<<<<< HEAD
 import invalidSemester from "../../exampleData/invalid_semester.json";
 import { CSVExport } from "../mainComponents/CSVExport";
+=======
+>>>>>>> 48eb974fb6803d9e450bd897c0fc7a4e592fbaa7
 import "../components.css";
+import { ViewProgress } from "../progressChecker/ViewProgress";
+import { RemoveCurrentSemestersButton } from "../planComponents/RemoveCurrentSemestersButton";
+import { RemoveAllSemestersButton } from "../planComponents/RemoveAllSemestersButton";
+import { AddSemesterButton } from "../planComponents/AddSemesterButton";
 
 type PlanViewProps = {
     setMode: (newMode: string) => void;
@@ -63,123 +70,6 @@ function MainViewButton({
     );
 }
 
-// Button for completely clearing a plan's existing semesters
-function AddSemesterButton({
-    showAdd,
-    setShowAdd
-}: {
-    showAdd: boolean;
-    setShowAdd: (value: boolean) => void;
-}): JSX.Element {
-    return (
-        <div>
-            <Button
-                data-testid="add-semester-button"
-                className="mode-button"
-                onClick={() => setShowAdd(!showAdd)}
-            >
-                {showAdd ? "Cancel Add" : "Add Semester"}
-            </Button>
-        </div>
-    );
-}
-
-function RemoveCurrentSemestersButton({
-    currentPlan,
-    setCurrentPlan,
-    currentSemester,
-    setCurrentSemester,
-    setPlans,
-    plans
-}: {
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
-    plans: DegreePlan[];
-}): JSX.Element {
-    return (
-        <Button
-            disabled={currentSemester.id === -1}
-            data-testid="remove-current-semester-button"
-            className="mode-button"
-            onClick={() => {
-                // create DegreePlan based on currentPlan, but with empty semesters
-                const rmvSemesterPlan = {
-                    ...currentPlan,
-                    semesters: currentPlan.semesters.filter(
-                        (semester: Semester): boolean =>
-                            semester.id !== currentSemester.id
-                    ),
-                    length: 0
-                };
-                // modify plans array so that the DegreePlan matching the
-                // current plan is switched with clearedPlan
-                const newPlans = plans.map(
-                    (currPlan: DegreePlan): DegreePlan =>
-                        currentPlan.id === currPlan.id
-                            ? rmvSemesterPlan
-                            : currPlan
-                );
-                // set plans to newPlans, and make currentPlan the new clearedPlan
-                setPlans(newPlans);
-                setCurrentPlan(rmvSemesterPlan);
-                setCurrentSemester(invalidSemester);
-            }}
-        >
-            {currentSemester.id !== -1
-                ? "Delete " +
-                  currentSemester.season +
-                  "-" +
-                  currentSemester.year.toString()
-                : "Pick a Semester!"}
-        </Button>
-    );
-}
-
-function RemoveAllSemestersButton({
-    currentPlan,
-    setCurrentPlan,
-    setPlans,
-    plans
-}: {
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
-    plans: DegreePlan[];
-}): JSX.Element {
-    return (
-        <div>
-            <Button
-                data-testid="remove-all-semesters-button"
-                className="mode-button"
-                onClick={() => {
-                    // create DegreePlan based on currentPlan, but with empty semesters
-                    const clearedPlan = {
-                        ...currentPlan,
-                        semesters: [],
-                        length: 0
-                    };
-                    // modify plans array so that the DegreePlan matching the
-                    // current plan is switched with clearedPlan
-                    const newPlans = plans.map(
-                        (currPlan: DegreePlan): DegreePlan =>
-                            currentPlan.id === currPlan.id
-                                ? clearedPlan
-                                : currPlan
-                    );
-                    // set plans to newPlans, and make currentPlan the new clearedPlan
-                    setPlans(newPlans);
-                    setCurrentPlan(clearedPlan);
-                }}
-            >
-                Remove All Semesters
-            </Button>
-        </div>
-    );
-}
-
 /*
 View for seeing the semesters of a plan laid out, also showing information about
 how the current plan compares to the necessary requirements for a specified major
@@ -202,7 +92,7 @@ export function PlanView({
                 plan={currentPlan}
                 setCurrentSemester={setCurrentSemester}
             />
-            <p>{currentPlan.length} Semesters Total</p>
+            <p>{currentPlan.semesters.length} Semesters Total</p>
             <SetDegreeList
                 plans={plans}
                 currentPlan={currentPlan}
@@ -223,6 +113,7 @@ export function PlanView({
                     setCurrentSemester={setCurrentSemester}
                 />
             </div>
+            <ViewProgress currentPlan={currentPlan} />
             <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
             {showAdd && (
                 <AddSemesterForm

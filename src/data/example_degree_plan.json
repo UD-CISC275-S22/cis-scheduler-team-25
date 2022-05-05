@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "name": "Naruto's Degree Plan 1",
+        "name": "Example Degree Plan 1",
         "semesters": [
             {
                 "id": 2022.4,
@@ -88,7 +88,6 @@
                 "year": 2023
             }
         ],
-        "length": 2,
         "degree": {
             "name": "Computer Science BS - Bioinformatics Concentration",
             "concentration": "Bioinformatics Concentration"
@@ -96,7 +95,7 @@
     },
     {
         "id": 1,
-        "name": "Naruto's Degree Plan 2",
+        "name": "Example Degree Plan 2",
         "semesters": [
             {
                 "id": 2022.4,
@@ -214,7 +213,6 @@
                 "year": 2023
             }
         ],
-        "length": 3,
         "degree": {
             "name": "Computer Science BS - Cybersecurity Concentration",
             "concentration": "Cybersecurity Concentration"

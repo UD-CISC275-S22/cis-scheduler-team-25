@@ -64,6 +64,32 @@
     min-height: calc(100px + 20vmin);
 }
 
+.collapsible {
+    /* background-color: #00539f; */
+    /* color: #ffffff; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px;
+    border: 3px solid #00539f;
+}
+
+.modalFull .modal-content {
+    background: #00539f;
+    border: 3px solid lightgoldenrodyellow;
+}
+.modalHead {
+    color: #ffffff;
+    background: #00539f;
+    border: 3px solid lightgoldenrodyellow;
+}
+.modalBody {
+    color: #ffffff;
+    border: 3px solid lightgoldenrodyellow;
+}
+.modalFoot {
+    color: #ffffff;
+    border: 3px solid lightgoldenrodyellow;
+}
 .modal-section {
     padding-bottom: calc(1% + 2vmin);
     border-bottom: 2px solid #a3b0ba;

@@ -1,6 +1,6 @@
 import { Course } from "../interfaces/course";
-import catalogData from "../exampleData/catalog.json";
-import courseCategoriesData from "../exampleData/category_courses.json";
+import catalogData from "../data/catalog.json";
+import courseCategoriesData from "../data/category_courses.json";
 
 // initial interface for the information in catalog.json
 interface CatalogCourse {
@@ -15,13 +15,12 @@ interface CatalogCourse {
     typ: string;
 }
 
-// read in catalog.json as a HashMap of Hashmaps to courses
+// read in catalog.json as a Record of Records to CatalogCourses
 const catalog = catalogData as Record<string, Record<string, CatalogCourse>>;
 
 // import a record of courseCategoriesData, containing a record where keys
-// represent degreeRequirementss whose values are a list of course code strings
-// const generalCategories = courseCategoriesData as Record<string, string[]>;
-
+// represent degreeRequirements whose values are a list of course code strings
+// for that category + requirement pair
 const CISCCourses = courseCategoriesData as Record<
     string,
     Record<string, string[]>
@@ -29,38 +28,21 @@ const CISCCourses = courseCategoriesData as Record<
 
 // Get array of degree requirement categories
 const categories = Object.keys(CISCCourses);
-// const concentrations = Object.keys(concCategories);
 
-// map each degree category to a list of Course objects based on the course codes.
-// Course codes are used to obtain the Course objects in the catalog
-// const generalCourseArrList = categories.map((category: string): Course[] =>
-//     generalCategories[category].map(
-//         (code: string): Course => ({
-//             ...catalog[code.slice(0, 4)][code],
-//             degreeCategory: [category]
-//         })
-//     )
-// );
-
+// Get all the courses specified by a category + requirement pair and convert them
+// into arrays of Course objects instead of strings, giving you an array of
+// arrays of Courses
 const courseArrList = categories.map((category: string): Course[][] =>
     Object.keys(CISCCourses[category]).map((requirement: string): Course[] =>
         CISCCourses[category][requirement].map(
             (code: string): Course => ({
                 ...catalog[code.slice(0, 4)][code],
+                credits: catalog[code.slice(0, 4)][code].credits.trim(),
                 degreeRequirements: [category + "-" + requirement]
             })
         )
     )
 );
-
-// Turn array of array of Courses into a single of array of Courses
-// const unfilteredGeneralCourseList = generalCourseArrList.reduce(
-//     (fullList: Course[], currentList: Course[]) => [
-//         ...fullList,
-//         ...currentList
-//     ],
-//     []
-// );
 
 // Turn array of array of Courses into a single of array of Courses
 const unfilteredCourseList = courseArrList.reduce(
@@ -76,11 +58,6 @@ const unfilteredCourseList = courseArrList.reduce(
     ],
     []
 );
-
-// const unfilteredFullList = [
-//     ...unfilteredGeneralCourseList,
-//     ...unfilteredConcCourseList
-// ];
 
 // unfilteredCourseList has duplicate course codes because a single course
 // can be in multiple degreeRequirementss, so we first get all unique course codes

@@ -7,7 +7,7 @@ describe("TransferModalView and SemesterTransferList Tests", () => {
     beforeEach(() => {
         render(<App />);
         const select = screen.getByTestId("plan-list");
-        userEvent.selectOptions(select, "Naruto's Degree Plan 2");
+        userEvent.selectOptions(select, "Example Degree Plan 2");
 
         screen.getByTestId("main-plan-button").click();
     });

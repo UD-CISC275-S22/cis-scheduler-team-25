@@ -29,7 +29,7 @@ describe("Add Semester Form Tests", () => {
         expect(confirmButton).toBeDisabled();
 
         const planNameTextBox = screen.getByTestId("insert-plan-add-name");
-        userEvent.type(planNameTextBox, "Naruto's Degree Plan 1");
+        userEvent.type(planNameTextBox, "Example Degree Plan 1");
         expect(confirmButton).toBeDisabled();
     });
     test("The confirm button works and you can insert a new plan.", () => {
@@ -37,13 +37,13 @@ describe("Add Semester Form Tests", () => {
         addPlanButton.click();
 
         const planNameTextBox = screen.getByTestId("insert-plan-add-name");
-        userEvent.type(planNameTextBox, "Naruto's Degree Plan 3");
+        userEvent.type(planNameTextBox, "Example Degree Plan 3");
 
         const confirmButton = screen.getByTestId("insert-plan-confirm-button");
         confirmButton.click();
 
         const select = screen.getByTestId("plan-list");
-        userEvent.selectOptions(select, "Naruto's Degree Plan 3");
+        userEvent.selectOptions(select, "Example Degree Plan 3");
         expect(screen.getByText("0 Semesters Included")).toBeInTheDocument();
     });
 });

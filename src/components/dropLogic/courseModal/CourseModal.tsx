@@ -99,7 +99,10 @@ export function CourseModal({
             size="lg"
             centered
             show={showCourseEditor}
-            onHide={() => setShowCourseEditor(false)}
+            onHide={() => {
+                setShowCourseEditor(false);
+                setCourseModalMode("info");
+            }}
         >
             {getView()}
         </Modal>

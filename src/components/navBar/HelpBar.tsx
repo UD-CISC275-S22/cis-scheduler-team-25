@@ -6,7 +6,8 @@ const GUIDES = [
     "Introduction",
     "Managing Your Degree Plans",
     "Selecting Semesters in a Plan",
-    "Editing Semesters with Course Drag and Drop"
+    "Editing Semesters with Course Drag and Drop",
+    "Using the Course Viewer, Editor, and Transfer"
 ];
 
 export function HelpBar(): JSX.Element {
@@ -30,19 +31,23 @@ export function HelpBar(): JSX.Element {
                         <Nav className="me-auto">
                             <NavDropdown
                                 title="How to Use the Scheduler"
-                                id="basic-nav-dropdown"
+                                data-testid="nav-drop-How to Use the Scheduler"
                             >
                                 {GUIDES.map(
                                     (guide: string): JSX.Element => (
-                                        <NavDropdown.Item
+                                        <div
                                             key={"nav-drop-" + guide}
-                                            onClick={() => {
-                                                setHelpMode(guide);
-                                                setShowModal(true);
-                                            }}
+                                            data-testid={"nav-drop-" + guide}
                                         >
-                                            {guide}
-                                        </NavDropdown.Item>
+                                            <NavDropdown.Item
+                                                onClick={() => {
+                                                    setHelpMode(guide);
+                                                    setShowModal(true);
+                                                }}
+                                            >
+                                                {guide}
+                                            </NavDropdown.Item>
+                                        </div>
                                     )
                                 )}
                             </NavDropdown>

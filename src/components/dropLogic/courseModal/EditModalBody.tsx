@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Modal } from "react-bootstrap";
 import { EditableCourse } from "../../../interfaces/editable_course";
-import degreeCategoriesData from "../../../exampleData/degree_categories.json";
+import degreeCategoriesData from "../../../data/degree_categories.json";
 
 type EditModalBodyProps = {
     editCourse: EditableCourse;
@@ -96,6 +96,22 @@ export function EditModalBody({
                     }
                     as="textarea"
                     rows={5}
+                />
+            </Form.Group>
+            <p></p>
+            <Form.Group controlId="form-course-preReqDesc">
+                <Form.Label>Prerequisite Description::</Form.Label>
+                <Form.Control
+                    data-testid="textbox-edit-preReqDesc"
+                    value={editCourse.preReqDesc}
+                    onChange={(e) =>
+                        setEditCourse({
+                            ...editCourse,
+                            preReqDesc: e.target.value
+                        })
+                    }
+                    as="textarea"
+                    rows={2}
                 />
             </Form.Group>
             <p></p>

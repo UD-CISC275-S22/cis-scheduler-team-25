@@ -1,0 +1,65 @@
+{
+    "General": {
+        "CISC Core": 31,
+        "Lab Requirements": 8,
+        "Writing Requirements": 6,
+        "Capstone": 6,
+        "First Year Seminar": 1
+    },
+    "Artifical Intelligence & Robotics Concentration": {
+        "Concentration Requirements": 18,
+        "Probability/Statistics Requirement": 3,
+        "Systems Requirement": 3,
+        "Restricted Electives": 12
+    },
+    "Bioinformatics Concentration": {
+        "Concentration Requirements": 32,
+        "Organic Chemistry Sequence": 4,
+        "Probability/Statistics Requirement": 3,
+        "Data Analysis Requirement": 3,
+        "Restricted Electives": 6
+    },
+    "Cybersecurity Concentration": {
+        "Concentration Requirements": 18,
+        "Probability/Statistics Requirements": 3,
+        "Advanced Cybersecurity Requirements": 6,
+        "Restricted Electives": 6
+    },
+    "Data Science Concentration": {
+        "Concentration Requirements": 27,
+        "Advanced Data Science": 3,
+        "Advanced Math": 3,
+        "Restricted Electives": 3
+    },
+    "High Performance Computing (Applied Math Track) Concentration": {
+        "Concentration Requirements": 23,
+        "Applied Math Track Requirements": 6,
+        "Proability/Statistics Requirement": 3,
+        "Applied Math Track Electives": 5
+    },
+    "High Performance Computing (Data Track) Concentration": {
+        "Concentration Requirements": 23,
+        "Data Track Requirements": 9,
+        "Machine Learning Requirement": 3,
+        "Data Track Electives": 5
+    },
+    "Systems & Networks Concentration": {
+        "Concentration Requirements": 15,
+        "Probability/Statistics Requirement": 3,
+        "Security Requirement": 3,
+        "Advanced Systems Requirement": 6,
+        "Restricted Electives": 6
+    },
+    "Theory & Computation (Discrete Track) Concentration": {
+        "Concentration Requirements": 13,
+        "Probability/Statistics Requirements": 3,
+        "Restricted Electives": 6,
+        "Discrete Track": 12
+    },
+    "Theory & Computation (Continuous Track) Concentration": {
+        "Concentration Requirements": 13,
+        "Probability/Statistics Requirements": 3,
+        "Restricted Electives": 6,
+        "Continuous Track": 13
+    }
+}

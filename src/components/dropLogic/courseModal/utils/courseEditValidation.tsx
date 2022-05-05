@@ -1,8 +1,8 @@
-import { Course } from "../../../interfaces/course";
-import { EditableCourse } from "../../../interfaces/editable_course";
-import { DegreePlan } from "../../../interfaces/degreeplan";
-import { Semester } from "../../../interfaces/semester";
-import { catalog } from "../../ReadJSON";
+import { Course } from "../../../../interfaces/course";
+import { EditableCourse } from "../../../../interfaces/editable_course";
+import { DegreePlan } from "../../../../interfaces/degreeplan";
+import { Semester } from "../../../../interfaces/semester";
+import { catalog } from "../../../ReadJSON";
 
 /**
  * Implements all the changes made in an EditableCourse object to be used to modify
@@ -35,6 +35,7 @@ function saveChanges(
         descr: editCourse.descr.trim(),
         credits: editCourse.credits.trim(),
         preReqs: editedPreReqs,
+        preReqDesc: editCourse.preReqDesc.trim(),
         degreeRequirements: editCourse.degreeRequirements
     };
 
