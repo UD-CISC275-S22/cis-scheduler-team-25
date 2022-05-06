@@ -25,7 +25,7 @@ export function ViewProgress({ currentPlan }: ViewProgressProps): JSX.Element {
             </Button>
 
             <Modal
-                // className="modalFull"
+                data-testid="progress-modal"
                 size="lg"
                 show={show}
                 onHide={handleClose}

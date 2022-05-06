@@ -67,6 +67,23 @@ describe("Add Semester Form Tests", () => {
 
         expect(confirmButton).toBeDisabled();
     });
+    test("Expect confirm button to be disabled when year is outside the range 1900 < year < 2200", () => {
+        screen.getByTestId("add-semester-button").click();
+
+        const confirmButton = screen.getByTestId("semester-add-confirm-button");
+        const yearTextBox = screen.getByTestId("semester-add-year");
+        const seasonSelect = screen.getByTestId("semester-add-season");
+
+        userEvent.selectOptions(seasonSelect, "Spring");
+
+        // year is below the limit
+        userEvent.type(yearTextBox, "1800");
+        expect(confirmButton).toBeDisabled();
+
+        // year is above the limit
+        userEvent.type(yearTextBox, "2800");
+        expect(confirmButton).toBeDisabled();
+    });
     test("Added semesters are automatically sorted", () => {
         screen.getByTestId("add-semester-button").click();
 

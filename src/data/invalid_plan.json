@@ -1,0 +1,9 @@
+{
+    "id": -1,
+    "name": "INVALID_PLAN",
+    "semesters": [],
+    "degree": {
+        "name": "INVALID_DEGREE",
+        "concentration": "INVALID_CONCENTRATION"
+    }
+}

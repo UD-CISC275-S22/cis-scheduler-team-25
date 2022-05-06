@@ -62,17 +62,23 @@ export function MissingCourses({
     category,
     requirement
 }: MissingCoursesProps): JSX.Element {
-    // get last semester to feed into getUnusedCourses()
-    const lastSemester =
-        currentPlan.semesters[currentPlan.semesters.length - 1];
+    let missingCourses: Course[];
 
-    // get all courses not taken for a particular category + requirement
-    const missingCourses = getUnusedCourses(
-        currentPlan,
-        lastSemester,
-        requiredCourses,
-        category + "-" + requirement
-    );
+    if (currentPlan.semesters.length !== 0) {
+        // get last semester to feed into getUnusedCourses()
+        const lastSemester =
+            currentPlan.semesters[currentPlan.semesters.length - 1];
+
+        // get all courses not taken for a particular category + requirement
+        missingCourses = getUnusedCourses(
+            currentPlan,
+            lastSemester,
+            requiredCourses,
+            category + "-" + requirement
+        );
+    } else {
+        missingCourses = [...requiredCourses];
+    }
 
     // sum all the credits taken for a particular category + requirement
     const creditTotal = currentPlan.semesters.reduce(

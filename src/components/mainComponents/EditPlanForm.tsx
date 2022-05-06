@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import INVALID_PLAN from "../../data/invalid_plan.json";
 import "../components.css";
 
 //filters through plans and removes the current plan selected and updates setPlan
@@ -14,7 +15,11 @@ function removePlanByName(
         (currPlan: DegreePlan): boolean => currPlan.id !== currentPlan.id
     );
     setPlans(updatedPlans);
-    setCurrentPlan(plans[0]);
+    if (updatedPlans.length === 0) {
+        setCurrentPlan({ ...INVALID_PLAN });
+    } else {
+        setCurrentPlan(updatedPlans[0]);
+    }
 }
 
 //iterates through plans and updates the current selected plans name
@@ -25,13 +30,17 @@ function editPlanName(
     newName: string,
     setCurrentPlan: (currentPlan: DegreePlan) => void
 ): void {
-    const updatedPlans = plans.map((currPlan: DegreePlan) =>
-        currPlan.id === currentPlan.id
-            ? { ...currPlan, name: newName, semesters: [...currPlan.semesters] }
-            : currPlan
+    // create new plan based on new name
+    const updatedPlan = { ...currentPlan, name: newName };
+
+    // create new plan array with updated plan
+    const newPlans = plans.map((currPlan: DegreePlan) =>
+        currPlan.id === currentPlan.id ? updatedPlan : currPlan
     );
-    setPlans(updatedPlans);
-    setCurrentPlan(plans[0]);
+
+    // update states
+    setCurrentPlan(updatedPlan);
+    setPlans(newPlans);
 }
 
 //remove plan button, calls removePlanByName function
