@@ -119,7 +119,7 @@ export function EditModalView({
                         setCourseModalMode("info");
                     }}
                 >
-                    Set Information as Default
+                    Reset Information as Default
                 </Button>
                 <Button
                     data-testid="courseModal-cancel-button"
