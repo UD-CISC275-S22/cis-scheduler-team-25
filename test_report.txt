@@ -2,28 +2,28 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (6.307 s)
-PASS src/tests/EditModalView.test.tsx (5.6 s)
+PASS src/tests/ProgressChecker.test.tsx (5.89 s)
+PASS src/tests/EditModalView.test.tsx
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/HelpBar.test.tsx
 PASS src/tests/CourseModal.test.tsx
+PASS src/tests/EditPlanForm.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/CourseDragDrop.test.tsx
 PASS src/tests/PlanView.test.tsx
-PASS src/tests/EditPlanForm.test.tsx
 PASS src/tests/AddPlanForm.test.tsx
 PASS src/tests/SetDegreeList.test.tsx
 PASS src/tests/CategoryRadioButtons.test.tsx
-PASS src/tests/SemesterView.test.tsx
-PASS src/tests/RequirementSelector.test.tsx
 PASS src/tests/DegreePlanList.test.tsx
 PASS src/tests/MainView.test.tsx
+PASS src/tests/SemesterView.test.tsx
+PASS src/tests/RequirementSelector.test.tsx
 PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   89.91 |     77.3 |    96.8 |   90.77 |                         
+All files                                   |   89.77 |    77.34 |   96.84 |   90.59 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -46,12 +46,13 @@ All files                                   |   89.91 |     77.3 |    96.8 |   9
   courseTransferUtils.tsx                   |   88.09 |    73.33 |     100 |   88.09 | 22,36,95,125-126        
  src/components/dropLogic/utils             |   65.33 |       50 |   85.71 |   68.57 |                         
   dragUtils.tsx                             |   65.33 |       50 |   85.71 |   68.57 | 83-94,97-98,239-309,345 
- src/components/mainComponents              |     100 |      100 |     100 |     100 |                         
+ src/components/mainComponents              |   96.22 |       75 |     100 |   96.15 |                         
   AddPlanButton.tsx                         |     100 |      100 |     100 |     100 |                         
   CSVExport.tsx                             |     100 |      100 |     100 |     100 |                         
-  DegreePlanList.tsx                        |     100 |      100 |     100 |     100 |                         
+  DegreePlanList.tsx                        |    87.5 |       70 |     100 |    87.5 | 22                      
   EditPlanButton.tsx                        |     100 |      100 |     100 |     100 |                         
   EditPlanForm.tsx                          |     100 |      100 |     100 |     100 |                         
+  InsertPlanForm.tsx                        |   94.44 |    66.66 |     100 |   94.11 | 35                      
  src/components/navBar                      |   95.23 |    83.33 |     100 |   95.23 |                         
   HelpBar.tsx                               |     100 |      100 |     100 |     100 |                         
   HelpCourseModalView.tsx                   |     100 |      100 |     100 |     100 |                         
@@ -60,17 +61,16 @@ All files                                   |   89.91 |     77.3 |    96.8 |   9
   HelpModal.tsx                             |   88.88 |    83.33 |     100 |   88.88 | 22                      
   HelpPlanView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSemesterView.tsx                      |     100 |      100 |     100 |     100 |                         
- src/components/planComponents              |   93.75 |    84.84 |     100 |   93.75 |                         
+ src/components/planComponents              |   92.42 |    87.09 |     100 |   92.42 |                         
   AddSemesterButton.tsx                     |     100 |      100 |     100 |     100 |                         
-  AddSemesterForm.tsx                       |   84.84 |    78.94 |     100 |   84.84 | 13,33-34,39-40          
-  InsertPlanForm.tsx                        |     100 |       75 |     100 |     100 | 14                      
+  AddSemesterForm.tsx                       |   84.84 |    80.95 |     100 |   84.84 | 13,33-34,39-40          
   RemoveAllSemestersButton.tsx              |     100 |      100 |     100 |     100 |                         
   RemoveCurrentSemestersButton.tsx          |     100 |      100 |     100 |     100 |                         
   SemesterBox.tsx                           |     100 |      100 |     100 |     100 |                         
   SemesterScrollBox.tsx                     |     100 |      100 |     100 |     100 |                         
   SetDegreeList.tsx                         |     100 |      100 |     100 |     100 |                         
- src/components/progressChecker             |    93.1 |       50 |   93.33 |   96.29 |                         
-  MissingCourses.tsx                        |   92.85 |       50 |     100 |   92.85 | 40                      
+ src/components/progressChecker             |   93.54 |    66.66 |   93.33 |   96.55 |                         
+  MissingCourses.tsx                        |   93.75 |    66.66 |     100 |   93.75 | 40                      
   ProgressList.tsx                          |     100 |      100 |     100 |     100 |                         
   ViewProgress.tsx                          |   83.33 |      100 |   66.66 |     100 |                         
  src/components/semesterComponents          |    92.3 |      100 |   83.33 |    92.3 |                         
@@ -90,7 +90,7 @@ All files                                   |   89.91 |     77.3 |    96.8 |   9
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
 Test Suites: 18 passed, 18 total
-Tests:       78 passed, 78 total
+Tests:       83 passed, 83 total
 Snapshots:   0 total
-Time:        32.132 s
+Time:        29.431 s
 Ran all test suites.
