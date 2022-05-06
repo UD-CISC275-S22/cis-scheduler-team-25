@@ -25,7 +25,7 @@ export function DegreePlanList({
                 <Form.Select
                     htmlSize={5}
                     data-testid="plan-list"
-                    value={currentPlan.id}
+                    value={currentPlan.id === -1 ? undefined : currentPlan.id}
                     onChange={updateSelection}
                 >
                     {plans.map(
@@ -41,7 +41,12 @@ export function DegreePlanList({
                     )}
                 </Form.Select>
             </Form.Group>
-            <p>{currentPlan.semesters.length} Semesters Included</p>
+            <p>
+                {plans.length === 0
+                    ? "There are currently no existing plans"
+                    : currentPlan.semesters.length.toString() +
+                      " Semesters Included"}
+            </p>
             <br></br>
         </div>
     );
