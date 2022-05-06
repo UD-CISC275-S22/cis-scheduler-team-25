@@ -5,8 +5,8 @@ import { Semester } from "../../../interfaces/semester";
 import { DegreePlan } from "../../../interfaces/degreeplan";
 import { TransferSemestersList } from "./TransferSemestersList";
 import "../../components.css";
-import { validateTransfer } from "./utils/modalUtils";
-import { transferCourse } from "./utils/modalUtils";
+import { validateTransfer } from "./utils/courseTransferUtils";
+import { transferCourse } from "./utils/courseTransferUtils";
 
 type TransferModalViewProps = {
     currentCourse: Course;
