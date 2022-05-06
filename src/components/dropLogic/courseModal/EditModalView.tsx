@@ -100,7 +100,7 @@ export function EditModalView({
                 <Button
                     data-testid="courseModal-default-button"
                     variant="primary"
-                    onClick={() =>
+                    onClick={() => {
                         saveChanges(
                             getDefaultCourse(currentCourse.code),
                             currentCourse,
@@ -115,8 +115,9 @@ export function EditModalView({
                             setPlans,
                             setCoursePool,
                             category + "-" + requirement
-                        )
-                    }
+                        );
+                        setCourseModalMode("info");
+                    }}
                 >
                     Set Information as Default
                 </Button>

@@ -27,13 +27,14 @@ function saveChanges(
     reqFilter: string
 ) {
     let editedPreReqs: string[][];
-    if (Object.keys(editCourse).length === 5) {
+
+    if (typeof editCourse.preReqs === "string") {
         editedPreReqs = editCourse.preReqs
             .trim()
             .split("\n")
             .map((preReqGroup: string): string[] => preReqGroup.split(","));
     } else {
-        editedPreReqs = 
+        editedPreReqs = editCourse.preReqs;
     }
 
     const newCourse = {
@@ -150,7 +151,12 @@ function checkValidFields(editCourse: EditableCourse): boolean {
     return preReqChecks.every((check: boolean): boolean => check);
 }
 
-export function getDefaultCourse(code: string): Course {
+/**
+ * Takes in a course code and returns the default information specified by
+ * the catalog.json and category_courses.json
+ * @param code Course code of the course you're querying for
+ */
+function getDefaultCourse(code: string): Course {
     const catalogCourse = catalog[code.slice(0, 4).trim()][code];
     const defaultCourse: Course = {
         ...catalogCourse,
@@ -168,7 +174,7 @@ export function getDefaultCourse(code: string): Course {
         string[]
     >;
     // Get array of degree requirement categories
-    const categories = Object.keys(CISCCourses);
+    const categories = Object.keys(categoryRequirements);
 
     const result = categories.map((category: string): string[] =>
         categoryRequirements[category].reduce(
@@ -191,4 +197,4 @@ export function getDefaultCourse(code: string): Course {
     return { ...defaultCourse, degreeRequirements: degreeRequirements };
 }
 
-export { saveChanges, checkValidFields };
+export { saveChanges, checkValidFields, getDefaultCourse };
