@@ -53,4 +53,17 @@ describe("Edit Plan Form Tests", () => {
             screen.queryByText("Example Degree Plan 2")
         ).not.toBeInTheDocument();
     });
+    test("An empty plan list disables edit-plan-button", () => {
+        const select = screen.getByTestId("plan-list");
+
+        userEvent.selectOptions(select, "Example Degree Plan 1");
+        screen.getByTestId("edit-plan-button").click();
+        screen.getByTestId("remove-plan-by-name-button").click();
+
+        userEvent.selectOptions(select, "Example Degree Plan 2");
+        screen.getByTestId("edit-plan-button").click();
+        screen.getByTestId("remove-plan-by-name-button").click();
+
+        expect(screen.getByTestId("edit-plan-button")).toBeDisabled();
+    });
 });

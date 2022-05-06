@@ -20,4 +20,19 @@ describe("DegreePlanList Tests", () => {
         userEvent.selectOptions(select, "Example Degree Plan 2");
         expect(screen.getByText("3 Semesters Included")).toBeInTheDocument();
     });
+    test("Deleting all plans shows alert message", () => {
+        const select = screen.getByTestId("plan-list");
+
+        userEvent.selectOptions(select, "Example Degree Plan 1");
+        screen.getByTestId("edit-plan-button").click();
+        screen.getByTestId("remove-plan-by-name-button").click();
+
+        userEvent.selectOptions(select, "Example Degree Plan 2");
+        screen.getByTestId("edit-plan-button").click();
+        screen.getByTestId("remove-plan-by-name-button").click();
+
+        expect(
+            screen.getByText("There are currently no existing plans")
+        ).toBeInTheDocument();
+    });
 });

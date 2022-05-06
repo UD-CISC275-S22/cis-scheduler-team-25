@@ -2,6 +2,7 @@ import React from "react";
 import "../components.css";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Form } from "react-bootstrap";
+import INVALID_PLAN from "../../data/invalid_plan.json";
 
 export function DegreePlanList({
     plans,
@@ -15,7 +16,21 @@ export function DegreePlanList({
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
         const id = parseInt(event.target.value);
-        setCurrentPlan(plans[id]);
+
+        // don't update if id is invalid
+        if (isNaN(id) || id === -1) {
+            return;
+        }
+
+        // get plan from plans using id
+        const selectedPlan = plans.find(
+            (plan: DegreePlan): boolean => plan.id === id
+        );
+
+        // set currentPlan to selectedPlan... INVALID_PLAN if can't be found
+        setCurrentPlan(
+            selectedPlan !== undefined ? selectedPlan : { ...INVALID_PLAN }
+        );
     }
 
     return (
@@ -25,7 +40,7 @@ export function DegreePlanList({
                 <Form.Select
                     htmlSize={5}
                     data-testid="plan-list"
-                    value={currentPlan.id === -1 ? undefined : currentPlan.id}
+                    value={currentPlan !== undefined ? currentPlan.id : -1}
                     onChange={updateSelection}
                 >
                     {plans.map(

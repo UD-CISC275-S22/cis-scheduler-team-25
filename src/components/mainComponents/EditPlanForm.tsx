@@ -18,7 +18,7 @@ function removePlanByName(
     if (updatedPlans.length === 0) {
         setCurrentPlan({ ...INVALID_PLAN });
     } else {
-        setCurrentPlan(updatedPlans[0]);
+        console.log(updatedPlans[0]);
     }
 }
 
@@ -30,13 +30,17 @@ function editPlanName(
     newName: string,
     setCurrentPlan: (currentPlan: DegreePlan) => void
 ): void {
-    const updatedPlans = plans.map((currPlan: DegreePlan) =>
-        currPlan.id === currentPlan.id
-            ? { ...currPlan, name: newName, semesters: [...currPlan.semesters] }
-            : currPlan
+    // create new plan based on new name
+    const updatedPlan = { ...currentPlan, name: newName };
+
+    // create new plan array with updated plan
+    const newPlans = plans.map((currPlan: DegreePlan) =>
+        currPlan.id === currentPlan.id ? updatedPlan : currPlan
     );
-    setPlans(updatedPlans);
-    setCurrentPlan(plans[0]);
+
+    // update states
+    setCurrentPlan(updatedPlan);
+    setPlans(newPlans);
 }
 
 //remove plan button, calls removePlanByName function

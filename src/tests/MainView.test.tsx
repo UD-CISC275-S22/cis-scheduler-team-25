@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "../App";
+import userEvent from "@testing-library/user-event";
 
 describe("MainView Tests", () => {
     beforeEach(() => {
@@ -15,5 +16,18 @@ describe("MainView Tests", () => {
         expect(
             screen.queryByText("Degree Plan Selector")
         ).not.toBeInTheDocument();
+    });
+    test("Any empty plan list disables main-plan-button", () => {
+        const select = screen.getByTestId("plan-list");
+
+        userEvent.selectOptions(select, "Example Degree Plan 1");
+        screen.getByTestId("edit-plan-button").click();
+        screen.getByTestId("remove-plan-by-name-button").click();
+
+        userEvent.selectOptions(select, "Example Degree Plan 2");
+        screen.getByTestId("edit-plan-button").click();
+        screen.getByTestId("remove-plan-by-name-button").click();
+
+        expect(screen.getByTestId("main-plan-button")).toBeDisabled();
     });
 });
