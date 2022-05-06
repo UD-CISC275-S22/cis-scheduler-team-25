@@ -2,9 +2,9 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (7.228 s)
+PASS src/tests/ProgressChecker.test.tsx (6.307 s)
+PASS src/tests/EditModalView.test.tsx (5.6 s)
 PASS src/tests/TransferModalView.test.tsx
-PASS src/tests/EditModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/HelpBar.test.tsx
 PASS src/tests/CourseModal.test.tsx
@@ -23,7 +23,7 @@ PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   89.59 |    76.72 |   96.72 |   90.47 |                         
+All files                                   |   89.91 |     77.3 |    96.8 |   90.77 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -34,16 +34,16 @@ All files                                   |   89.59 |    76.72 |   96.72 |   9
   CourseDragDrop.tsx                        |     100 |      100 |     100 |     100 |                         
   CourseDropPool.tsx                        |     100 |      100 |     100 |     100 |                         
   RequirementSelector.tsx                   |     100 |      100 |     100 |     100 |                         
- src/components/dropLogic/courseModal       |   96.15 |      100 |   97.05 |   96.15 |                         
+ src/components/dropLogic/courseModal       |   96.29 |      100 |   97.14 |   96.29 |                         
   CourseModal.tsx                           |   77.77 |      100 |   66.66 |   77.77 | 103-104                 
   EditModalBody.tsx                         |     100 |      100 |     100 |     100 |                         
   EditModalView.tsx                         |     100 |      100 |     100 |     100 |                         
   InfoModalView.tsx                         |     100 |      100 |     100 |     100 |                         
   TransferModalView.tsx                     |     100 |      100 |     100 |     100 |                         
   TransferSemestersList.tsx                 |     100 |      100 |     100 |     100 |                         
- src/components/dropLogic/courseModal/utils |   91.35 |    81.57 |     100 |   91.13 |                         
-  courseEditValidation.tsx                  |   94.87 |    86.95 |     100 |   94.59 | 119,129                 
-  modalUtils.tsx                            |   88.09 |    73.33 |     100 |   88.09 | 22,36,95,125-126        
+ src/components/dropLogic/courseModal/utils |   92.55 |    83.33 |     100 |   92.39 |                         
+  courseEditValidation.tsx                  |   96.15 |    88.88 |     100 |      96 | 127,137                 
+  courseTransferUtils.tsx                   |   88.09 |    73.33 |     100 |   88.09 | 22,36,95,125-126        
  src/components/dropLogic/utils             |   65.33 |       50 |   85.71 |   68.57 |                         
   dragUtils.tsx                             |   65.33 |       50 |   85.71 |   68.57 | 83-94,97-98,239-309,345 
  src/components/mainComponents              |     100 |      100 |     100 |     100 |                         
@@ -90,7 +90,7 @@ All files                                   |   89.59 |    76.72 |   96.72 |   9
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
 Test Suites: 18 passed, 18 total
-Tests:       76 passed, 76 total
+Tests:       78 passed, 78 total
 Snapshots:   0 total
-Time:        34.173 s
+Time:        32.132 s
 Ran all test suites.
