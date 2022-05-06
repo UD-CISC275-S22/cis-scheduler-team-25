@@ -18,7 +18,7 @@ function removePlanByName(
     if (updatedPlans.length === 0) {
         setCurrentPlan({ ...INVALID_PLAN });
     } else {
-        console.log(updatedPlans[0]);
+        setCurrentPlan(updatedPlans[0]);
     }
 }
 
