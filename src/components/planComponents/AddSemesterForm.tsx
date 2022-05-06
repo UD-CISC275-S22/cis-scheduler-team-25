@@ -82,14 +82,22 @@ function ConfirmButton({
     year: number;
     setShowAdd: (value: boolean) => void;
 }): JSX.Element {
-    const exists = currentPlan.semesters.filter(
+    const existingYears = currentPlan.semesters.filter(
         (semester: Semester): boolean =>
             semester.season === season && semester.year === year
     ).length;
 
+    /** Allow button to be enabled when:
+     * There are no semesters with that existing season-year combo
+     * When the year is an actual number
+     * When the 1900 < year < 2200 (allows for some hypothetical years or
+     * displaying plans of older people)
+     */
     return (
         <Button
-            disabled={exists > 0 || isNaN(year)}
+            disabled={
+                existingYears > 0 || isNaN(year) || year < 1900 || year > 2200
+            }
             data-testid="semester-add-confirm-button"
             onClick={() => {
                 makeNewSemester(
