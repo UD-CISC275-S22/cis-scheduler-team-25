@@ -2,21 +2,27 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { CSVLink } from "react-csv";
 import { DegreePlan } from "../../interfaces/degreeplan";
-import { planToCSV } from "../planComponents/CurrentPlanExport";
+import { planToCSV } from "../mainComponents/utils/CSVUtils";
 
-function getDownloadLink(currentPlan: DegreePlan): string {
+function downloadPlan(currentPlan: DegreePlan) {
     const header =
         "Semester,Course Code,Course Name,Description,Credits,Prerequisites,Prequesite Description,Restrictions,Breadth Details,Typical Availability,Degree Requirements\n";
 
+    // apply column header to CSV
     const csvContent = header + planToCSV(currentPlan);
-
-    console.log(csvContent);
 
     const blob = new Blob([csvContent], {
         type: "text/csv;charset=utf-8;"
     });
 
-    return URL.createObjectURL(blob);
+    // create downloadable url
+    const url = URL.createObjectURL(blob);
+
+    // Create a link to download it
+    const pom = document.createElement("a");
+    pom.href = url;
+    pom.setAttribute("download", currentPlan.name + ".csv");
+    pom.click();
 }
 
 export function CSVExport({
@@ -26,13 +32,11 @@ export function CSVExport({
 }): JSX.Element {
     return (
         <div>
-            <Button>
-                <a
-                    href={getDownloadLink(currentPlan)}
-                    download={currentPlan.name + ".csv"}
-                >
-                    Download Selected Degree Plan
-                </a>
+            <Button
+                disabled={currentPlan.id === -1}
+                onClick={() => downloadPlan(currentPlan)}
+            >
+                Download Selected Degree Plan
             </Button>
         </div>
     );
