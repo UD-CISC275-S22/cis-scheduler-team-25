@@ -36,8 +36,8 @@ const courseArrList = categories.map((category: string): Course[][] =>
     Object.keys(CISCCourses[category]).map((requirement: string): Course[] =>
         CISCCourses[category][requirement].map(
             (code: string): Course => ({
-                ...catalog[code.slice(0, 4)][code],
-                credits: catalog[code.slice(0, 4)][code].credits.trim(),
+                ...catalog[code.slice(0, 4).trim()][code],
+                credits: catalog[code.slice(0, 4).trim()][code].credits.trim(),
                 degreeRequirements: [category + "-" + requirement]
             })
         )

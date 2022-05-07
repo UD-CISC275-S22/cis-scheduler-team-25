@@ -236,4 +236,29 @@ describe("ProgressChecker Tests", () => {
             screen.getByTestId("collapsible-General-CISC Core")
         ).toHaveTextContent("(6/31) Credits");
     });
+    test("You can make a new, empty plan and view the degree progress", () => {
+        // return to main menu and create "Example Degree Plan 3"
+        screen.getByTestId("plan-main-button").click();
+
+        const addPlanButton = screen.getByTestId("add-plan-button");
+        addPlanButton.click();
+
+        const planNameTextBox = screen.getByTestId("insert-plan-add-name");
+        userEvent.type(planNameTextBox, "Example Degree Plan 3");
+
+        const confirmButton = screen.getByTestId("insert-plan-confirm-button");
+        confirmButton.click();
+
+        const select = screen.getByTestId("plan-list");
+        userEvent.selectOptions(select, "Example Degree Plan 3");
+
+        // go to PlanView and hit View Degree Progress button
+        screen.getByTestId("main-plan-button").click();
+        screen.getByTestId("view-progress-button").click();
+
+        // modal should have X instances of 0/(some number) for the AI and
+        // Robotics Concentration
+        const modal = screen.getByTestId("progress-modal");
+        expect(within(modal).queryAllByText(/0\/\d\d?/)).toHaveLength(9);
+    });
 });

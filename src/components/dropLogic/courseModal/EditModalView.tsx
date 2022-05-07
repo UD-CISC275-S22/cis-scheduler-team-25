@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { saveChanges, checkValidFields } from "./utils/courseEditValidation";
+import {
+    saveChanges,
+    checkValidFields,
+    getDefaultCourse
+} from "./utils/courseEditValidation";
 import { Course } from "../../../interfaces/course";
 import { EditableCourse } from "../../../interfaces/editable_course";
 import { Semester } from "../../../interfaces/semester";
@@ -92,6 +96,30 @@ export function EditModalView({
                     }
                 >
                     Save Changes
+                </Button>
+                <Button
+                    data-testid="courseModal-default-button"
+                    variant="primary"
+                    onClick={() => {
+                        saveChanges(
+                            getDefaultCourse(currentCourse.code),
+                            currentCourse,
+                            setCurrentCourse,
+                            courseList,
+                            setCourseList,
+                            currentSemester,
+                            setCurrentSemester,
+                            currentPlan,
+                            setCurrentPlan,
+                            plans,
+                            setPlans,
+                            setCoursePool,
+                            category + "-" + requirement
+                        );
+                        setCourseModalMode("info");
+                    }}
+                >
+                    Reset Information as Default
                 </Button>
                 <Button
                     data-testid="courseModal-cancel-button"

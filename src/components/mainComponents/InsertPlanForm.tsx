@@ -3,17 +3,23 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import "../components.css";
 
+// increments the maximum ID present by one
+function getNextId(plans: DegreePlan[]): number {
+    return Math.max(...plans.map((plan: DegreePlan): number => plan.id)) + 1;
+}
+
 function makeNewPlan(
     plans: DegreePlan[],
     setPlans: (newPlans: DegreePlan[]) => void,
-    name: string
+    name: string,
+    setCurrentPlan: (newPlan: DegreePlan) => void
 ): void {
     const valid = plans.every(
         (plan: DegreePlan): boolean => name !== plan.name
     );
     if (valid) {
         const newPlan = {
-            id: plans.length,
+            id: getNextId(plans),
             name: name,
             semesters: [],
             length: 0,
@@ -25,6 +31,9 @@ function makeNewPlan(
         };
 
         const newPlans = [...plans, newPlan];
+        if (plans.length === 0) {
+            setCurrentPlan(newPlan);
+        }
         setPlans(newPlans);
     }
 }
@@ -33,12 +42,14 @@ function ConfirmNewPlan({
     plans,
     setPlans,
     name,
-    setShowAdd
+    setShowAdd,
+    setCurrentPlan
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
     name: string;
     setShowAdd: (value: boolean) => void;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
 }): JSX.Element {
     const valid = plans.every(
         (plan: DegreePlan): boolean => name !== plan.name && name !== ""
@@ -48,7 +59,7 @@ function ConfirmNewPlan({
             disabled={!valid}
             data-testid="insert-plan-confirm-button"
             onClick={() => {
-                makeNewPlan(plans, setPlans, name);
+                makeNewPlan(plans, setPlans, name, setCurrentPlan);
                 setShowAdd(false);
             }}
         >
@@ -59,11 +70,13 @@ function ConfirmNewPlan({
 export function AddPlanForm({
     plans,
     setPlans,
-    setShowAdd
+    setShowAdd,
+    setCurrentPlan
 }: {
     plans: DegreePlan[];
     setPlans: (newPlans: DegreePlan[]) => void;
     setShowAdd: (value: boolean) => void;
+    setCurrentPlan: (newPlan: DegreePlan) => void;
 }): JSX.Element {
     const [name, setName] = useState<string>("");
     return (
@@ -88,6 +101,7 @@ export function AddPlanForm({
                 plans={plans}
                 setPlans={setPlans}
                 name={name}
+                setCurrentPlan={setCurrentPlan}
             ></ConfirmNewPlan>
         </div>
     );
