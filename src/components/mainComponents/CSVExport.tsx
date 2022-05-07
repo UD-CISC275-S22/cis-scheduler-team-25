@@ -5,11 +5,8 @@ import { DegreePlan } from "../../interfaces/degreeplan";
 import { planToCSV } from "../mainComponents/utils/CSVUtils";
 
 function downloadPlan(currentPlan: DegreePlan) {
-    const header =
-        "Semester,Course Code,Course Name,Description,Credits,Prerequisites,Prequesite Description,Restrictions,Breadth Details,Typical Availability,Degree Requirements\n";
-
     // apply column header to CSV
-    const csvContent = header + planToCSV(currentPlan);
+    const csvContent = planToCSV(currentPlan);
 
     const blob = new Blob([csvContent], {
         type: "text/csv;charset=utf-8;"

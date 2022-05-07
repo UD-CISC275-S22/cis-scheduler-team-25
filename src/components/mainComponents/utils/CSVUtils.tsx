@@ -2,33 +2,48 @@ import { Course } from "../../../interfaces/course";
 import { Semester } from "../../../interfaces/semester";
 import INVALID_COURSE from "../../../data/invalid_course.json";
 import { DegreePlan } from "../../../interfaces/degreeplan";
+import { getSemesterId } from "../../planComponents/utils/addSemesterUtils";
+import { getNextId } from "./insertPlanUtils";
+
+function flankQuotes(value: string): string {
+    const doubleQuote = String.fromCharCode(34);
+    const newValue = value === "" ? " " : value;
+    return (
+        doubleQuote +
+        newValue.replace(doubleQuote, doubleQuote + doubleQuote) +
+        doubleQuote
+    );
+}
+
+function unFlankQuotes(value: string): string {
+    const doubleQuote = String.fromCharCode(34);
+    const spacer = doubleQuote + "," + doubleQuote;
+    console.log(spacer);
+    const formattedValue = value
+        .replaceAll("\n", "")
+        .replaceAll(doubleQuote + doubleQuote, doubleQuote)
+        .replaceAll(spacer, "$$$$$");
+
+    return formattedValue.slice(1, -1);
+}
 
 function course2Row(semester: Semester, course: Course): string {
-    function flankQuotes(value: string): string {
-        const doubleQuote = String.fromCharCode(34);
-        return (
-            doubleQuote +
-            value.replace(doubleQuote, doubleQuote + doubleQuote) +
-            doubleQuote
-        );
-    }
-
     const row =
-        semester.season +
-        "-" +
-        semester.year.toString() +
+        flankQuotes(semester.season + "-" + semester.year.toString()) +
         "," +
-        course.code +
+        flankQuotes(course.code) +
         "," +
         flankQuotes(course.name) +
         "," +
         flankQuotes(course.descr) +
         "," +
-        course.credits +
+        flankQuotes(course.credits) +
         "," +
-        course.preReqs
-            .map((reqGroup: string[]): string => reqGroup.join("_"))
-            .join("|") +
+        flankQuotes(
+            course.preReqs
+                .map((reqGroup: string[]): string => reqGroup.join("_"))
+                .join("|")
+        ) +
         "," +
         flankQuotes(course.preReqDesc) +
         "," +
@@ -38,37 +53,45 @@ function course2Row(semester: Semester, course: Course): string {
         "," +
         flankQuotes(course.typ) +
         "," +
-        course.degreeRequirements.join("_");
+        flankQuotes(course.degreeRequirements.join("_"));
 
     return row;
 }
 
 function row2Course(row: string[]): Course {
+    console.log(row);
     if (row.length !== 10) {
         console.log("wrong size array entered, returning invalid course");
         return { ...INVALID_COURSE };
     }
 
+    // trim whitespace from courses caused by import
+    const trimRow = row.map((field: string): string => field.trim());
+
     const course = {
-        code: row[0],
-        name: row[1],
-        descr: row[2],
-        credits: row[3],
-        preReqs: row[4]
+        code: trimRow[0],
+        name: trimRow[1],
+        descr: trimRow[2],
+        credits: trimRow[3],
+        preReqs: trimRow[4]
             .split("|")
             .map((reqGroup: string): string[] => reqGroup.split("_")),
-        preReqDesc: row[5],
-        restrict: row[6],
-        breadth: row[7],
-        typ: row[8],
-        degreeRequirements: row[9].split("_")
+        preReqDesc: trimRow[5],
+        restrict: trimRow[6],
+        breadth: trimRow[7],
+        typ: trimRow[8],
+        degreeRequirements: trimRow[9].split("_")
     };
 
     return course;
 }
 
 function planToCSV(currPlan: DegreePlan): string {
-    const header =
+    // First row and second row spacer
+    const header = `Plan:,${currPlan.name},Degree:,${currPlan.degree.name}\n\n`;
+
+    // Third row (columns)
+    const columns =
         "Semester,Course Code,Course Name,Description,Credits,Prerequisites,Prequesite Description,Restrictions,Breadth Details,Typical Availability,Degree Requirements\n";
 
     const courseStrings = currPlan.semesters.map(
@@ -82,21 +105,55 @@ function planToCSV(currPlan: DegreePlan): string {
         .map((semesterGroup: string[]): string => semesterGroup.join("\n"))
         .join("\n");
 
-    // const csvOutput = header + csvRows;
-
-    return header + csvRows;
+    return header + columns + csvRows;
 }
 
-function CSVToPlan(rawCSV: string) {
-    const rowArr = rawCSV
-        .split("\n")
-        .map((row: string): string[] => row.split(","));
+function CSVToPlan(
+    rawCSV: string,
+    plans: DegreePlan[],
+    setPlans: (newPlans: DegreePlan[]) => void
+) {
+    const rawCSVArray = rawCSV.split("\n");
+    console.log(rawCSVArray);
+    const formattedCSVArray = rawCSVArray.map((row: string): string =>
+        unFlankQuotes(row)
+    );
+
+    console.log(formattedCSVArray);
+
+    const rowArr = formattedCSVArray
+        .slice(3)
+        .map((row: string): string[] => row.split("$$$"));
 
     const semesterRecord = rowArr.reduce(
         (semesters: Record<string, Course[]>, rowArr: string[]) =>
             reduceRowArr(semesters, rowArr),
         {}
     );
+
+    const semesters = formatSemesterRecord(semesterRecord);
+
+    // contains degree plan name and degree information
+    const header = rawCSVArray[0].split(",");
+
+    // if any existing plan matches the imported plan's name, tack on (copy), otherwise
+    // keep original
+    const importedPlanName = plans.some(
+        (plan: DegreePlan): boolean => plan.name === header[1]
+    )
+        ? header[1] + " (copy)"
+        : header[1];
+
+    const importedPlan = {
+        id: getNextId(plans),
+        name: importedPlanName,
+        semesters: semesters,
+        degree: { name: header[3], concentration: header[3].split(" - ")[1] }
+    };
+
+    console.log(importedPlan);
+
+    setPlans([...plans, importedPlan]);
 }
 
 function reduceRowArr(
@@ -122,15 +179,18 @@ function formatSemesterRecord(
     semesterRecord: Record<string, Course[]>
 ): Semester[] {
     const semesters = Object.keys(semesterRecord).map(
-        (semName: string): Semester => ({
-            id: 0,
-            courses: semesterRecord[semName],
-            season: semName.split("-")[0],
-            year: parseInt(semName.split("-")[1])
+        (semesterName: string): Semester => ({
+            id: getSemesterId(
+                semesterName.split("-")[0],
+                parseInt(semesterName.split("-")[1])
+            ),
+            courses: semesterRecord[semesterName],
+            season: semesterName.split("-")[0],
+            year: parseInt(semesterName.split("-")[1])
         })
     );
 
     return semesters;
 }
 
-export { course2Row, row2Course, planToCSV };
+export { planToCSV, CSVToPlan };
