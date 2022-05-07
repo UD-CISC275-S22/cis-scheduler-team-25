@@ -5,11 +5,7 @@ import { Semester } from "../../interfaces/semester";
 import { AddSemesterForm } from "../planComponents/AddSemesterForm";
 import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
 import { SetDegreeList } from "../planComponents/SetDegreeList";
-<<<<<<< HEAD
-import invalidSemester from "../../exampleData/invalid_semester.json";
 import { CSVExport } from "../mainComponents/CSVExport";
-=======
->>>>>>> 48eb974fb6803d9e450bd897c0fc7a4e592fbaa7
 import "../components.css";
 import { ViewProgress } from "../progressChecker/ViewProgress";
 import { RemoveCurrentSemestersButton } from "../planComponents/RemoveCurrentSemestersButton";

@@ -1,49 +1,19 @@
 import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
+import { course2Row } from "./utils/CSVUtils";
 
-export function courseToCSV(currPlan: DegreePlan): string[] {
-    let csvArray: string[];
-    currPlan.semesters.map((currSemester: Semester): void => {
-        {
-            const coursesString = currSemester.courses.map(
-                (course: Course): string => {
-                    {
-                        const returnString =
-                            course.code.toString() +
-                            "," +
-                            course.name +
-                            "," +
-                            course.descr +
-                            "," +
-                            course.credits +
-                            "," +
-                            course.preReqs
-                                .map((reqGroup: string[]): string =>
-                                    reqGroup.join("_")
-                                )
-                                .join("|") +
-                            "," +
-                            course.preReqDesc +
-                            "," +
-                            course.restrict +
-                            "," +
-                            course.breadth +
-                            "," +
-                            course.typ +
-                            "," +
-                            course.degreeRequirements.join("_");
-                        return returnString;
-                    }
-                }
-            );
-            csvArray.push(
-                currSemester.season +
-                    "," +
-                    currSemester.year.toString() +
-                    coursesString
-            );
-        }
-    });
-    return csvArray;
+export function planToCSV(currPlan: DegreePlan): string {
+    const courseStrings = currPlan.semesters.map(
+        (currSemester: Semester): string[] =>
+            currSemester.courses.map((course: Course): string =>
+                course2Row(currSemester, course)
+            )
+    );
+
+    const csvOutput = courseStrings
+        .map((semesterGroup: string[]): string => semesterGroup.join("\n"))
+        .join("\n");
+
+    return csvOutput;
 }

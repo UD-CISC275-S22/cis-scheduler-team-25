@@ -97,7 +97,7 @@ export function MainView({
                     setCurrentPlan={setCurrentPlan}
                 ></EditRemovePlanForm>
             )}
-            <CSVExport plans={plans}></CSVExport>
+            <CSVExport currentPlan={currentPlan}></CSVExport>
         </div>
     );
 }
