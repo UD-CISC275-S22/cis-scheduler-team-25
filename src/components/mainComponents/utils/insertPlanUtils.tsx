@@ -1,4 +1,3 @@
-import React from "react";
 import { DegreePlan } from "../../../interfaces/degreeplan";
 
 // increments the maximum ID present by one

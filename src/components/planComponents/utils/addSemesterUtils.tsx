@@ -1,4 +1,3 @@
-import React from "react";
 import { Semester } from "../../../interfaces/semester";
 
 function semesterSort(sem1: Semester, sem2: Semester): number {

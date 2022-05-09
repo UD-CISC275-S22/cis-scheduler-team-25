@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { CSVLink } from "react-csv";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { planToCSV } from "../mainComponents/utils/CSVUtils";
 
