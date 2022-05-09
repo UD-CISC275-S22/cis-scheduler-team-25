@@ -9,6 +9,7 @@ import { AddPlanButton } from "../mainComponents/AddPlanButton";
 import { EditPlanButton } from "../mainComponents/EditPlanButton";
 import { EditRemovePlanForm } from "../mainComponents/EditPlanForm";
 import { AddPlanForm } from "../mainComponents/InsertPlanForm";
+import { CSVImport } from "../mainComponents/CSVImport";
 
 type MainViewProps = {
     setPlans: (newPlans: DegreePlan[]) => void;
@@ -97,7 +98,8 @@ export function MainView({
                     setCurrentPlan={setCurrentPlan}
                 ></EditRemovePlanForm>
             )}
-            <CSVExport plans={plans} />
+            <CSVExport currentPlan={currentPlan}></CSVExport>
+            <CSVImport plans={plans} setPlans={setPlans} />
         </div>
     );
 }

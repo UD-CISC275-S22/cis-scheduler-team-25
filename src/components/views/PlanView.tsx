@@ -5,6 +5,7 @@ import { Semester } from "../../interfaces/semester";
 import { AddSemesterForm } from "../planComponents/AddSemesterForm";
 import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
 import { SetDegreeList } from "../planComponents/SetDegreeList";
+import { CSVExport } from "../mainComponents/CSVExport";
 import "../components.css";
 import { ViewProgress } from "../progressChecker/ViewProgress";
 import { RemoveCurrentSemestersButton } from "../planComponents/RemoveCurrentSemestersButton";

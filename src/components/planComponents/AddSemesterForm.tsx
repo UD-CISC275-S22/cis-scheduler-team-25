@@ -3,15 +3,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import "../components.css";
-
-function semesterSort(sem1: Semester, sem2: Semester): number {
-    if (sem1.id > sem2.id) {
-        return 1;
-    } else if (sem1.id < sem2.id) {
-        return -1;
-    }
-    return 0;
-}
+import { getSemesterId, semesterSort } from "./utils/addSemesterUtils";
 
 function makeNewSemester(
     plans: DegreePlan[],
@@ -21,24 +13,7 @@ function makeNewSemester(
     season: string,
     year: number
 ): void {
-    let id: number;
-    switch (season) {
-        case "Winter":
-            id = year + 0.1;
-            break;
-        case "Spring":
-            id = year + 0.2;
-            break;
-        case "Summer":
-            id = year + 0.3;
-            break;
-        case "Fall":
-            id = year + 0.4;
-            break;
-        default:
-            id = NaN;
-            break;
-    }
+    const id = getSemesterId(season, year);
 
     if (!isNaN(id) && season !== "") {
         const newSemester = {
