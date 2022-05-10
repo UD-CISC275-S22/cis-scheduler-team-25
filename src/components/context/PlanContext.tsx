@@ -1,26 +1,8 @@
 import { createContext, useContext } from "react";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
-import defaultPlans from "../../data/example_degree_plan.json";
 import invalidSemester from "../../data/invalid_semester.json";
-import { Course } from "../../interfaces/course";
-
-const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
-    (plan): DegreePlan => ({
-        ...plan,
-        semesters: plan.semesters.map(
-            (semester): Semester => ({
-                ...semester,
-                courses: semester.courses.map(
-                    (course): Course => ({
-                        ...course,
-                        preReqs: course.preReqs as string[][]
-                    })
-                )
-            })
-        )
-    })
-);
+import invalidPlan from "../../data/invalid_plan.json";
 
 export type PlanContent = {
     plans: DegreePlan[];
@@ -32,11 +14,11 @@ export type PlanContent = {
 };
 
 export const PlanContext = createContext<PlanContent>({
-    plans: DEFAULT_PLANS,
+    plans: [],
     setPlans: (newPlans: DegreePlan[]) => {
         console.log(newPlans);
     },
-    currentPlan: DEFAULT_PLANS[0],
+    currentPlan: invalidPlan,
     setCurrentPlan: (newPlan: DegreePlan) => {
         console.log(newPlan);
     },
