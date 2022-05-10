@@ -41,11 +41,7 @@ function SemesterViewButton({
 }
 
 // Button for switching back to the main menu
-function MainViewButton({
-    setMode
-}: {
-    setMode: (newMode: string) => void;
-}): JSX.Element {
+function MainViewButton({ setMode }: PlanViewProps): JSX.Element {
     return (
         <div>
             <Button
