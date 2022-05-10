@@ -9,6 +9,7 @@ import logo from "./ud-logo.png";
 import { Course } from "./interfaces/course";
 import { defaultCourseList } from "./components/ReadJSON";
 import { HelpBar } from "./components/navBar/HelpBar";
+import { PlanContext } from "./components/context/PlanContext";
 
 // default plans read in by degreeplans.json
 const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
@@ -49,29 +50,27 @@ function App(): JSX.Element {
                     <img src={logo}></img>
                 </div>
             </header>
-            {/* <h3 className="App-subheader">
-                <strong>UD-CIS-Scheduler</strong>{" "}
-            </h3> */}
             <div className="App-subheader">
                 <HelpBar />
             </div>
-            {/* <div>
-                Welcome to the UD CIS Course Scheduler. <br></br>Create and edit
-                degree plans following courses and requirements.
-            </div> */}
             <div>
-                <CurrentView
-                    mode={mode}
-                    setMode={setMode}
-                    plans={plans}
-                    setPlans={setPlans}
-                    currentPlan={currentPlan}
-                    setCurrentPlan={setCurrentPlan}
-                    currentSemester={currentSemester}
-                    setCurrentSemester={setCurrentSemester}
-                    courseList={courseList}
-                    setCourseList={setCourseList}
-                />
+                <PlanContext.Provider
+                    value={{
+                        plans,
+                        setPlans,
+                        currentPlan,
+                        setCurrentPlan,
+                        currentSemester,
+                        setCurrentSemester
+                    }}
+                >
+                    <CurrentView
+                        mode={mode}
+                        setMode={setMode}
+                        courseList={courseList}
+                        setCourseList={setCourseList}
+                    />
+                </PlanContext.Provider>
             </div>
             <div className="name-signatures">
                 ( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩 Quabili, and

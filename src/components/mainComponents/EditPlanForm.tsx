@@ -3,6 +3,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import INVALID_PLAN from "../../data/invalid_plan.json";
 import "../components.css";
+import { usePlanContext } from "../context/PlanContext";
 
 //filters through plans and removes the current plan selected and updates setPlan
 function removePlanByName(
@@ -45,18 +46,12 @@ function editPlanName(
 
 //remove plan button, calls removePlanByName function
 function RemovePlanButton({
-    plans,
-    setPlans,
-    currentPlan,
-    setShowRemove,
-    setCurrentPlan
+    setShowRemove
 }: {
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
     setShowRemove: (value: boolean) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
 }): JSX.Element {
+    const { plans, setPlans, currentPlan, setCurrentPlan } = usePlanContext();
+
     return (
         <Button
             data-testid="remove-plan-by-name-button"
@@ -72,20 +67,14 @@ function RemovePlanButton({
 
 //calls editPlanName function
 function EditPlanNameButton({
-    plans,
-    setPlans,
-    currentPlan,
     setShowRemove,
-    newName,
-    setCurrentPlan
+    newName
 }: {
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
     setShowRemove: (value: boolean) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
     newName: string;
 }): JSX.Element {
+    const { plans, setPlans, currentPlan, setCurrentPlan } = usePlanContext();
+
     return (
         <Button
             data-testid="edit-plan-by-name-button"
@@ -106,18 +95,10 @@ function EditPlanNameButton({
 }
 
 //name state to pass through to edit name
-export function EditRemovePlanForm({
-    plans,
-    setPlans,
-    setShowRemove,
-    currentPlan,
-    setCurrentPlan
+export function EditPlanForm({
+    setShowRemove
 }: {
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
     setShowRemove: (value: boolean) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
-    currentPlan: DegreePlan;
 }): JSX.Element {
     const [newName, setNewName] = useState<string>("");
     return (
@@ -138,20 +119,10 @@ export function EditRemovePlanForm({
                 </Row>
             </Form.Group>
             <EditPlanNameButton
-                plans={plans}
-                setPlans={setPlans}
-                currentPlan={currentPlan}
                 setShowRemove={setShowRemove}
                 newName={newName}
-                setCurrentPlan={setCurrentPlan}
             ></EditPlanNameButton>
-            <RemovePlanButton
-                plans={plans}
-                setPlans={setPlans}
-                currentPlan={currentPlan}
-                setShowRemove={setShowRemove}
-                setCurrentPlan={setCurrentPlan}
-            ></RemovePlanButton>
+            <RemovePlanButton setShowRemove={setShowRemove}></RemovePlanButton>
         </div>
     );
 }

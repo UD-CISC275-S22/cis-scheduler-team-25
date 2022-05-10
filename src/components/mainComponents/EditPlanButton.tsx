@@ -1,19 +1,18 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { DegreePlan } from "../../interfaces/degreeplan";
 import "../components.css";
+import { usePlanContext } from "../context/PlanContext";
 
 // dropdown list generated from a list of DegreePlan objects passed in
 // Updates the selected currentPlan when clicked
 export function EditPlanButton({
     showRemove,
-    setShowRemove,
-    currentPlan
+    setShowRemove
 }: {
     showRemove: boolean;
     setShowRemove: (value: boolean) => void;
-    currentPlan: DegreePlan;
 }): JSX.Element {
+    const { currentPlan } = usePlanContext();
     return (
         <div>
             <Button

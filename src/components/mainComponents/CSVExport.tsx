@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { usePlanContext } from "../context/PlanContext";
 import { planToCSV } from "../mainComponents/utils/CSVUtils";
 
 function downloadPlan(currentPlan: DegreePlan) {
@@ -21,11 +22,8 @@ function downloadPlan(currentPlan: DegreePlan) {
     pom.click();
 }
 
-export function CSVExport({
-    currentPlan
-}: {
-    currentPlan: DegreePlan;
-}): JSX.Element {
+export function CSVExport(): JSX.Element {
+    const { currentPlan } = usePlanContext();
     return (
         <div>
             <Button

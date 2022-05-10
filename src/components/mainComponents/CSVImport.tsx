@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { usePlanContext } from "../context/PlanContext";
 import { CSVToPlan } from "./utils/CSVUtils";
-
-type CSVImportProps = {
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
-};
 
 type ImportContentButtonProps = {
     plans: DegreePlan[];
@@ -31,7 +27,8 @@ function ImportContentButton({
     );
 }
 
-export function CSVImport({ plans, setPlans }: CSVImportProps): JSX.Element {
+export function CSVImport(): JSX.Element {
+    const { plans, setPlans } = usePlanContext();
     const [content, setContent] = useState<string>("");
 
     function uploadFile(event: React.ChangeEvent<HTMLInputElement>) {
