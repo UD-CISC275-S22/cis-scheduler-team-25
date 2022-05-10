@@ -334,5 +334,8 @@
             "MATH 451"
         ],
         "Continuous Track": ["MATH 243", "MATH 302", "MATH 535", "MATH 426"]
+    },
+    "Custom Category": {
+        "User Selected Courses": []
     }
 }

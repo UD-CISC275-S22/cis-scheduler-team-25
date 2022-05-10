@@ -4,8 +4,27 @@ import { Form } from "react-bootstrap";
 import { courseCodes } from "../ReadJSON";
 import "../components.css";
 import { AddNewCourseButton } from "./AddNewCourseButton";
+import { Course } from "../../interfaces/course";
 
-export function CourseAutoComplete(): JSX.Element {
+type CourseAutoCompleteProps = {
+    currentCourse: Course;
+    setCurrentCourse: (newCourse: Course) => void;
+    courseList: Course[];
+    setCourseList: (newCourses: Course[]) => void;
+    setCoursePool: (newCourses: Course[]) => void;
+    category: string;
+    requirement: string;
+};
+
+export function CourseAutoComplete({
+    currentCourse,
+    setCurrentCourse,
+    courseList,
+    setCourseList,
+    setCoursePool,
+    category,
+    requirement
+}: CourseAutoCompleteProps): JSX.Element {
     const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>(
         []
     );
@@ -90,7 +109,16 @@ export function CourseAutoComplete(): JSX.Element {
                 <br></br>Or, add a course from the catalog to the current course
                 pool
             </Form.Label>
-            <AddNewCourseButton input={input} />
+            <AddNewCourseButton
+                input={input}
+                currentCourse={currentCourse}
+                setCurrentCourse={setCurrentCourse}
+                courseList={courseList}
+                setCourseList={setCourseList}
+                setCoursePool={setCoursePool}
+                category={category}
+                requirement={requirement}
+            />
             <Form.Control
                 onChange={onChange}
                 onKeyDown={onKeyDown}

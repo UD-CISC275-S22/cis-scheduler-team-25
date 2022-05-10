@@ -1,26 +1,65 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { catalog } from "../ReadJSON";
 import "../components.css";
+import { usePlanContext } from "../context/PlanContext";
+import {
+    checkIfCourseExists,
+    addNewCourse
+} from "./courseModal/utils/courseEditValidation";
+import { Course } from "../../interfaces/course";
 
 type AddNewCourseButtonProps = {
     input: string;
+    currentCourse: Course;
+    setCurrentCourse: (newCourse: Course) => void;
+    courseList: Course[];
+    setCourseList: (newCourses: Course[]) => void;
+    setCoursePool: (newCourses: Course[]) => void;
+    category: string;
+    requirement: string;
 };
 
-function checkValidity(input: string) {
-    return (
-        catalog[input.slice(0, 4).trim()] !== undefined &&
-        catalog[input.slice(0, 4).trim()][input] !== undefined
-    );
-}
-
 export function AddNewCourseButton({
-    input
+    input,
+    currentCourse,
+    setCurrentCourse,
+    courseList,
+    setCourseList,
+    setCoursePool,
+    category,
+    requirement
 }: AddNewCourseButtonProps): JSX.Element {
-    const disabled = !checkValidity(input);
+    const disabled = !checkIfCourseExists(input);
+    const {
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        currentSemester,
+        setCurrentSemester
+    } = usePlanContext();
 
     return (
-        <Button disabled={disabled}>
+        <Button
+            disabled={disabled}
+            variant="primary"
+            onClick={() => {
+                addNewCourse(
+                    input,
+                    setCurrentCourse,
+                    courseList,
+                    setCourseList,
+                    currentSemester,
+                    setCurrentSemester,
+                    currentPlan,
+                    setCurrentPlan,
+                    plans,
+                    setPlans,
+                    setCoursePool,
+                    category + "-" + requirement
+                );
+            }}
+        >
             {disabled ? "Invalid Course" : "Add Course To Pool"}
         </Button>
     );

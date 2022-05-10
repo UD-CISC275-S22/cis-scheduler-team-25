@@ -167,7 +167,15 @@ export function CourseDragDrop({
                         ></RemoveAllCoursesButton>
                     </Col>
                     <Col>
-                        <CourseAutoComplete />
+                        <CourseAutoComplete
+                            currentCourse={currentCourse}
+                            setCurrentCourse={setCurrentCourse}
+                            courseList={courseList}
+                            setCourseList={setCourseList}
+                            setCoursePool={setCoursePool}
+                            category={category}
+                            requirement={requirement}
+                        />
                     </Col>
                 </Row>
             </DragDropContext>
