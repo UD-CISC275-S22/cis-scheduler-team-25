@@ -18,6 +18,17 @@ interface CatalogCourse {
 // read in catalog.json as a Record of Records to CatalogCourses
 const catalog = catalogData as Record<string, Record<string, CatalogCourse>>;
 
+// array of all valid course codes; used for suggestion autocomplete
+const courseCodes = Object.keys(catalog)
+    .map((dept: string): string[] => Object.keys(catalog[dept]))
+    .reduce(
+        (allCourses: string[], deptCourses: string[]) => [
+            ...allCourses,
+            ...deptCourses
+        ],
+        []
+    );
+
 // import a record of courseCategoriesData, containing a record where keys
 // represent degreeRequirements whose values are a list of course code strings
 // for that category + requirement pair
@@ -82,5 +93,5 @@ const defaultCourseList = uniqueCourseCodes.map(
 
 // simple log to check work
 // console.log(courseList);
-export { defaultCourseList, categories, catalog };
+export { defaultCourseList, categories, catalog, courseCodes };
 export type { CatalogCourse };
