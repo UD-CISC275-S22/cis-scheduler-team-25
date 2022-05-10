@@ -32,11 +32,11 @@ export function CategoryRadioButtons({
     courseList
 }: GroupRadioButtonsProps): JSX.Element {
     const { currentPlan, currentSemester } = usePlanContext();
-    const CATEGORIES = Object.keys(degreeCategoriesData).filter(
-        (catOption: string): boolean =>
-            catOption === "General" ||
-            catOption === currentPlan.degree.concentration
-    );
+    const CATEGORIES = [
+        "General",
+        currentPlan.degree.concentration,
+        "Custom Category"
+    ];
 
     function updateCategory(event: React.ChangeEvent<HTMLInputElement>) {
         const newCategory = event.target.value;
