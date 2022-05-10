@@ -1,6 +1,5 @@
 import React from "react";
 import { Course } from "../../interfaces/course";
-import { usePlanContext } from "../context/PlanContext";
 import { MainView } from "./MainView";
 import { PlanView } from "./PlanView";
 import { SemesterView } from "./SemesterView";
@@ -22,28 +21,13 @@ export function CurrentView({
     courseList,
     setCourseList
 }: CurrentViewProps): JSX.Element {
-    const {
-        plans,
-        setPlans,
-        currentPlan,
-        setCurrentPlan,
-        currentSemester,
-        setCurrentSemester
-    } = usePlanContext();
-
     switch (mode) {
         case "plan":
             return <PlanView setMode={setMode} />;
         case "semester":
             return (
                 <SemesterView
-                    setPlans={setPlans}
-                    plans={plans}
                     setMode={setMode}
-                    setCurrentSemester={setCurrentSemester}
-                    currentSemester={currentSemester}
-                    setCurrentPlan={setCurrentPlan}
-                    currentPlan={currentPlan}
                     courseList={courseList}
                     setCourseList={setCourseList}
                 />

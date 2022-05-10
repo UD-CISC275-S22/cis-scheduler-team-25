@@ -3,14 +3,9 @@ import { Button } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
+import { usePlanContext } from "../context/PlanContext";
 
 type RemoveAllCoursesButtonProps = {
-    setCurrentSemester: (currentSemester: Semester) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
-    setPlans: (plans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    plans: DegreePlan[];
-    currentSemester: Semester;
     courseList: Course[];
     setCoursePool: (newPool: Course[]) => void;
     requirement: string;
@@ -18,17 +13,20 @@ type RemoveAllCoursesButtonProps = {
 };
 
 export function RemoveAllCoursesButton({
-    setCurrentSemester,
-    setCurrentPlan,
-    setPlans,
-    currentPlan,
-    plans,
-    currentSemester,
     courseList,
     setCoursePool,
     requirement,
     category
 }: RemoveAllCoursesButtonProps): JSX.Element {
+    const {
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        currentSemester,
+        setCurrentSemester
+    } = usePlanContext();
+
     return (
         <Button
             data-testid="remove-all-courses-from-semester"

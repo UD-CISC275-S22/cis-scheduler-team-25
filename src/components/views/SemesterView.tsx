@@ -1,18 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
-import { DegreePlan } from "../../interfaces/degreeplan";
-import { Semester } from "../../interfaces/semester";
+import { usePlanContext } from "../context/PlanContext";
 import { CourseDragDrop } from "../dropLogic/CourseDragDrop";
 
 type SemesterViewProps = {
     setMode: (newMode: string) => void;
-    setCurrentSemester: (currentSemester: Semester) => void;
-    setCurrentPlan: (currentPlan: DegreePlan) => void;
-    currentSemester: Semester;
-    setPlans: (plans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    plans: DegreePlan[];
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
 };
@@ -40,15 +33,11 @@ selected classes
 */
 export function SemesterView({
     setMode,
-    setCurrentSemester,
-    setCurrentPlan,
-    setPlans,
-    currentPlan,
-    plans,
-    currentSemester,
     courseList,
     setCourseList
 }: SemesterViewProps): JSX.Element {
+    const { currentSemester } = usePlanContext();
+
     return (
         <div>
             <h1>
@@ -58,12 +47,6 @@ export function SemesterView({
                     currentSemester.year.toString()}
             </h1>
             <CourseDragDrop
-                currentSemester={currentSemester}
-                setCurrentSemester={setCurrentSemester}
-                plans={plans}
-                setPlans={setPlans}
-                currentPlan={currentPlan}
-                setCurrentPlan={setCurrentPlan}
                 courseList={courseList}
                 setCourseList={setCourseList}
             />

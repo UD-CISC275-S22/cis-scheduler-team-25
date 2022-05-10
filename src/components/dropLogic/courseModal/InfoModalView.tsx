@@ -1,13 +1,11 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
-import { DegreePlan } from "../../../interfaces/degreeplan";
 import { Semester } from "../../../interfaces/semester";
 import "../../components.css";
+import { usePlanContext } from "../../context/PlanContext";
 
 type InfoModalViewProps = {
-    currentPlan: DegreePlan;
-    currentSemester: Semester;
     currentCourse: Course;
     setShowCourseEditor: (newVal: boolean) => void;
     setCourseModalMode: (newMode: string) => void;
@@ -27,12 +25,11 @@ function validateTransferButton(
 
 // View that displays the course's general information
 export function InfoModalView({
-    currentPlan,
-    currentSemester,
     currentCourse,
     setShowCourseEditor,
     setCourseModalMode
 }: InfoModalViewProps): JSX.Element {
+    const { currentPlan, currentSemester } = usePlanContext();
     const validTransferSemesters = currentPlan.semesters.filter(
         (semester: Semester): boolean => semester.id !== currentSemester.id
     );
