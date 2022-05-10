@@ -33,17 +33,7 @@ export function CurrentView({
 
     switch (mode) {
         case "plan":
-            return (
-                <PlanView
-                    plans={plans}
-                    setPlans={setPlans}
-                    currentPlan={currentPlan}
-                    setCurrentPlan={setCurrentPlan}
-                    currentSemester={currentSemester}
-                    setCurrentSemester={setCurrentSemester}
-                    setMode={setMode}
-                />
-            );
+            return <PlanView setMode={setMode} />;
         case "semester":
             return (
                 <SemesterView

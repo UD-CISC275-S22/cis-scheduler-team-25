@@ -3,6 +3,7 @@ import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import "../components.css";
+import { usePlanContext } from "../context/PlanContext";
 import { getSemesterId, semesterSort } from "./utils/addSemesterUtils";
 
 function makeNewSemester(
@@ -92,20 +93,13 @@ function ConfirmButton({
 }
 
 export function AddSemesterForm({
-    plans,
-    setPlans,
-    currentPlan,
-    setCurrentPlan,
     setShowAdd
 }: {
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
     setShowAdd: (value: boolean) => void;
 }): JSX.Element {
     const [season, setSeason] = useState<string>("Fall");
     const [year, setYear] = useState<number>(NaN);
+    const { plans, setPlans, currentPlan, setCurrentPlan } = usePlanContext();
 
     function updateSeason(event: React.ChangeEvent<HTMLSelectElement>) {
         setSeason(event.target.value);

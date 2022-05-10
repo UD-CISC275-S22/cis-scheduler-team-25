@@ -1,16 +1,12 @@
 import React from "react";
 import { SemesterBox } from "./SemesterBox";
-import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import { ListGroup } from "react-bootstrap";
+import { usePlanContext } from "../context/PlanContext";
 
-export function SemesterScrollBox({
-    plan,
-    setCurrentSemester
-}: {
-    plan: DegreePlan;
-    setCurrentSemester: (newSemester: Semester) => void;
-}): JSX.Element {
+export function SemesterScrollBox(): JSX.Element {
+    const { currentPlan, setCurrentSemester } = usePlanContext();
+
     return (
         <div>
             <ListGroup
@@ -19,7 +15,7 @@ export function SemesterScrollBox({
                 data-testid="semester-scroll-box"
                 className="semester-scroll-box"
             >
-                {plan.semesters.map(
+                {currentPlan.semesters.map(
                     (semester: Semester): JSX.Element => (
                         <ListGroup.Item
                             data-testid={

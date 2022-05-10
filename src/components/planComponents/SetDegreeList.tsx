@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { usePlanContext } from "../context/PlanContext";
 import { categories } from "../ReadJSON";
 
 // concentrations are all category_courses.json keys except
@@ -15,17 +16,8 @@ a DegreePlan is using. This directly affects what courses are displayed
 in the coursePool in the Course Drag/Drop, and what requirements are
 met in the ProgressList
 */
-export function SetDegreeList({
-    plans,
-    currentPlan,
-    setCurrentPlan,
-    setPlans
-}: {
-    plans: DegreePlan[];
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
-}): JSX.Element {
+export function SetDegreeList(): JSX.Element {
+    const { plans, setPlans, currentPlan, setCurrentPlan } = usePlanContext();
     const [concentration, setConcentration] = useState<string>(
         currentPlan.degree.concentration
     );

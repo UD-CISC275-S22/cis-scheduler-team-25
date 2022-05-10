@@ -1,19 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
+import { usePlanContext } from "../context/PlanContext";
 
 // planview button to remove all existing semesters
-export function RemoveAllSemestersButton({
-    currentPlan,
-    setCurrentPlan,
-    setPlans,
-    plans
-}: {
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
-    plans: DegreePlan[];
-}): JSX.Element {
+export function RemoveAllSemestersButton(): JSX.Element {
+    const { plans, setPlans, currentPlan, setCurrentPlan } = usePlanContext();
     return (
         <div>
             <Button

@@ -4,23 +4,19 @@ import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import invalidSemester from "../../data/invalid_semester.json";
 import "../components.css";
+import { usePlanContext } from "../context/PlanContext";
 
 // planView button to remove the currently selected semester
-export function RemoveCurrentSemestersButton({
-    currentPlan,
-    setCurrentPlan,
-    currentSemester,
-    setCurrentSemester,
-    setPlans,
-    plans
-}: {
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-    setPlans: (newPlans: DegreePlan[]) => void;
-    plans: DegreePlan[];
-}): JSX.Element {
+export function RemoveCurrentSemestersButton(): JSX.Element {
+    const {
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        currentSemester,
+        setCurrentSemester
+    } = usePlanContext();
+
     return (
         <Button
             disabled={currentSemester.id === -1}
