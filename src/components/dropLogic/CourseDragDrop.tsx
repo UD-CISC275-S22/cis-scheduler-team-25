@@ -117,11 +117,9 @@ export function CourseDragDrop({
                         <RequirementSelector
                             category={category}
                             setCategory={setCategory}
-                            currentPlan={currentPlan}
                             requirement={requirement}
                             setRequirement={setRequirement}
                             setCoursePool={setCoursePool}
-                            currentSemester={currentSemester}
                             courseList={courseList}
                         />
                     </Col>
