@@ -29,11 +29,13 @@ function saveChanges(
     let editedPreReqs: string[][];
 
     if (typeof editCourse.preReqs === "string") {
+        // if editCourse.preReqs is a string, editCourse is an EditableCourse
         editedPreReqs = editCourse.preReqs
             .trim()
             .split("\n")
             .map((preReqGroup: string): string[] => preReqGroup.split(","));
     } else {
+        // otherwise, editCourse.prereqs must already be a string[][]
         editedPreReqs = editCourse.preReqs;
     }
 
@@ -47,10 +49,22 @@ function saveChanges(
         degreeRequirements: editCourse.degreeRequirements
     };
 
-    const newCourseList = courseList.map(
-        (course: Course): Course =>
-            course.code === currentCourse.code ? newCourse : course
-    );
+    let newCourseList: Course[];
+    // if the editCourse is already in the courseList, we are MODIFYING AN
+    // EXISTING COURSE! Otherwise, this is a new course being added to
+    // the courseList
+    if (
+        courseList
+            .map((course: Course): string => course.code)
+            .includes(newCourse.code)
+    ) {
+        newCourseList = courseList.map(
+            (course: Course): Course =>
+                course.code === currentCourse.code ? newCourse : course
+        );
+    } else {
+        newCourseList = [...courseList, newCourse];
+    }
 
     setCurrentCourse(newCourse);
     setCourseList(newCourseList);
@@ -153,10 +167,14 @@ function checkValidFields(editCourse: EditableCourse): boolean {
 
 /**
  * Takes in a course code and returns the default information specified by
- * the catalog.json and category_courses.json
+ * the catalog.json and category_courses.json.
+ * If the course isn't natively defined in General or a concentration already,
+ * that course is default assigned into the Custom Category
  * @param code Course code of the course you're querying for
  */
 function getDefaultCourse(code: string): Course {
+    // get CatalogCourse from master catalog, and create a new
+    // default course using the catalogCourse's original info
     const catalogCourse = catalog[code.slice(0, 4).trim()][code];
     const defaultCourse: Course = {
         ...catalogCourse,
@@ -164,6 +182,8 @@ function getDefaultCourse(code: string): Course {
         degreeRequirements: []
     };
 
+    // Use through CourseCategoriesData and CategoryRequirements
+    // to acquire the original degreeRequirements that the course fulfills
     const CISCCourses = CourseCategoriesData as Record<
         string,
         Record<string, string[]>
@@ -186,13 +206,20 @@ function getDefaultCourse(code: string): Course {
         )
     );
 
-    const degreeRequirements = result.reduce(
+    let degreeRequirements: string[];
+    degreeRequirements = result.reduce(
         (allPreReqs: string[], preReqGroup: string[]) => [
             ...allPreReqs,
             ...preReqGroup
         ],
         []
     );
+
+    // if absolutely no degreeRequirements are found, the course must be from
+    // the Custom Category
+    if (degreeRequirements.length === 0) {
+        degreeRequirements = ["Custom Category-User Selected Courses"];
+    }
 
     return { ...defaultCourse, degreeRequirements: degreeRequirements };
 }
