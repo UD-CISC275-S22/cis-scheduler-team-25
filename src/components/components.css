@@ -128,7 +128,8 @@
     border-top-width: 0;
     list-style: none;
     margin-top: 0;
-    overflow-y: auto;
+    overflow-y: scroll;
+    height: calc(25% + 2vmin);
     padding-left: 0;
     width: calc(25% + 1vmin);
     position: absolute;
