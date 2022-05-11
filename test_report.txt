@@ -2,37 +2,664 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (5.326 s)
+PASS src/tests/ProgressChecker.test.tsx (5.308 s)
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/EditModalView.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+      C
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CI
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CIS
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      M
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      MA
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      MAT
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      B
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      BI
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      BIS
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      C
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CI
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CIS
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+      C
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CI
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CIS
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      M
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      MA
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      MAT
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      B
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      BI
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      BIS
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      C
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CI
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+      CIS
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+          at Array.every (<anonymous>)
+          at Array.map (<anonymous>)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/TransferModalView.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/HelpBar.test.tsx
 PASS src/tests/CourseModal.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/EditPlanForm.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/CourseDragDrop.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/PlanView.test.tsx
 PASS src/tests/AddPlanForm.test.tsx
 PASS src/tests/SetDegreeList.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/CategoryRadioButtons.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/DegreePlanList.test.tsx
 PASS src/tests/MainView.test.tsx
 PASS src/tests/SemesterView.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/tests/RequirementSelector.test.tsx
+  ● Console
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
+    console.log
+
+
+      at checkIfCourseExists (src/components/dropLogic/courseModal/utils/courseEditValidation.tsx:229:17)
+
 PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   79.22 |    70.85 |   86.56 |   79.82 |                         
+All files                                   |   74.69 |    64.86 |   83.52 |   75.15 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
   ReadJSON.tsx                              |     100 |      100 |     100 |     100 |                         
  src/components/context                     |      50 |      100 |      25 |      40 |                         
   PlanContext.tsx                           |      50 |      100 |      25 |      40 | 19-27                   
- src/components/dropLogic                   |      90 |    66.66 |      95 |      90 |                         
+ src/components/dropLogic                   |   62.22 |    36.36 |   68.96 |   62.22 |                         
+  AddNewCourseButton.tsx                    |      75 |       50 |      50 |      75 | 45                      
   AlertMessage.tsx                          |   58.33 |       50 |      75 |   58.33 | 13-15,19,32,46          
   CategoryRadioButtons.tsx                  |     100 |      100 |     100 |     100 |                         
+  CourseAutoComplete.tsx                    |   24.32 |     6.66 |    12.5 |   24.32 | 35-45,49-52,57-74,79-93 
   CourseDragDrop.tsx                        |     100 |      100 |     100 |     100 |                         
   CourseDropPool.tsx                        |     100 |      100 |     100 |     100 |                         
   RequirementSelector.tsx                   |     100 |      100 |     100 |     100 |                         
@@ -43,8 +670,8 @@ All files                                   |   79.22 |    70.85 |   86.56 |   7
   InfoModalView.tsx                         |     100 |      100 |     100 |     100 |                         
   TransferModalView.tsx                     |     100 |      100 |     100 |     100 |                         
   TransferSemestersList.tsx                 |     100 |      100 |     100 |     100 |                         
- src/components/dropLogic/courseModal/utils |   92.55 |    83.33 |     100 |   92.39 |                         
-  courseEditValidation.tsx                  |   96.15 |    88.88 |     100 |      96 | 127,137                 
+ src/components/dropLogic/courseModal/utils |   81.81 |       75 |   94.44 |   81.48 |                         
+  courseEditValidation.tsx                  |   77.94 |    75.75 |    90.9 |   77.27 | 98-146,257,267,337      
   courseTransferUtils.tsx                   |   88.09 |    73.33 |     100 |   88.09 | 22,36,95,125-126        
  src/components/dropLogic/utils             |   65.33 |       50 |   85.71 |   68.57 |                         
   dragUtils.tsx                             |   65.33 |       50 |   85.71 |   68.57 | 83-94,97-98,239-309,345 
@@ -67,7 +694,7 @@ All files                                   |   79.22 |    70.85 |   86.56 |   7
   HelpModal.tsx                             |   88.88 |    83.33 |     100 |   88.88 | 22                      
   HelpPlanView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSemesterView.tsx                      |     100 |      100 |     100 |     100 |                         
- src/components/planComponents              |     100 |    95.45 |     100 |     100 |                         
+ src/components/planComponents              |     100 |    95.83 |     100 |     100 |                         
   AddSemesterButton.tsx                     |     100 |      100 |     100 |     100 |                         
   AddSemesterForm.tsx                       |     100 |    91.66 |     100 |     100 | 19                      
   RemoveAllSemestersButton.tsx              |     100 |      100 |     100 |     100 |                         
@@ -100,5 +727,5 @@ All files                                   |   79.22 |    70.85 |   86.56 |   7
 Test Suites: 18 passed, 18 total
 Tests:       83 passed, 83 total
 Snapshots:   0 total
-Time:        26.199 s
+Time:        25.954 s
 Ran all test suites.
