@@ -91,7 +91,7 @@ function addNewCourse(
     setPlans: (newPlans: DegreePlan[]) => void,
     setCoursePool: (newCourses: Course[]) => void,
     reqFilter: string
-) {
+): boolean {
     // if the editCourse is already in the courseList, we are MODIFYING AN
     // EXISTING COURSE! Otherwise, this is a new course being added to
     // the courseList
@@ -124,8 +124,10 @@ function addNewCourse(
                 setCoursePool,
                 reqFilter
             );
+            return true;
+        } else {
+            return false;
         }
-        return;
     }
 
     // otherwise, generate the default course from the catalog using that code
@@ -157,6 +159,8 @@ function addNewCourse(
         setCoursePool,
         reqFilter
     );
+
+    return true;
 }
 
 /**
