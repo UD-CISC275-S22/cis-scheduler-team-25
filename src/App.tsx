@@ -53,7 +53,7 @@ function App(): JSX.Element {
             <div className="App-subheader">
                 <HelpBar />
             </div>
-            <div>
+            <div className="current-view">
                 <PlanContext.Provider
                     value={{
                         plans,
@@ -71,10 +71,11 @@ function App(): JSX.Element {
                         setCourseList={setCourseList}
                     />
                 </PlanContext.Provider>
-            </div>
-            <div className="name-signatures">
-                ( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩 Quabili, and
-                Chad 🇨🇦 Haiges ( ͡° ͜ʖ ͡°)
+
+                <div className="name-signatures">
+                    ( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩 Quabili,
+                    and Chad 🇨🇦 Haiges ( ͡° ͜ʖ ͡°)
+                </div>
             </div>
         </div>
     );
