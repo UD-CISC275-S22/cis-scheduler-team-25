@@ -168,7 +168,6 @@ export function CourseDragDrop({
                     </Col>
                     <Col>
                         <CourseAutoComplete
-                            currentCourse={currentCourse}
                             setCurrentCourse={setCurrentCourse}
                             courseList={courseList}
                             setCourseList={setCourseList}

@@ -125,6 +125,7 @@ function addNewCourse(
                 reqFilter
             );
         }
+        return;
     }
 
     // otherwise, generate the default course from the catalog using that code

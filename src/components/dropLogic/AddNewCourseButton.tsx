@@ -10,7 +10,6 @@ import { Course } from "../../interfaces/course";
 
 type AddNewCourseButtonProps = {
     input: string;
-    currentCourse: Course;
     setCurrentCourse: (newCourse: Course) => void;
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
@@ -21,7 +20,6 @@ type AddNewCourseButtonProps = {
 
 export function AddNewCourseButton({
     input,
-    currentCourse,
     setCurrentCourse,
     courseList,
     setCourseList,

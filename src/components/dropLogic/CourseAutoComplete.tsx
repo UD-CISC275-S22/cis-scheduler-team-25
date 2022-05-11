@@ -7,7 +7,6 @@ import { AddNewCourseButton } from "./AddNewCourseButton";
 import { Course } from "../../interfaces/course";
 
 type CourseAutoCompleteProps = {
-    currentCourse: Course;
     setCurrentCourse: (newCourse: Course) => void;
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
@@ -17,7 +16,6 @@ type CourseAutoCompleteProps = {
 };
 
 export function CourseAutoComplete({
-    currentCourse,
     setCurrentCourse,
     courseList,
     setCourseList,
@@ -111,7 +109,6 @@ export function CourseAutoComplete({
             </Form.Label>
             <AddNewCourseButton
                 input={input}
-                currentCourse={currentCourse}
                 setCurrentCourse={setCurrentCourse}
                 courseList={courseList}
                 setCourseList={setCourseList}
