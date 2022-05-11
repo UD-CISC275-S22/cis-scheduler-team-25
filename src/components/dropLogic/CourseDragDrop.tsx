@@ -2,23 +2,16 @@ import React, { useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { Row, Col } from "react-bootstrap";
 import { Course } from "../../interfaces/course";
-import { Semester } from "../../interfaces/semester";
 import { CourseDropPool } from "./CourseDropPool";
 import { handleOnDragEnd, getUnusedCourses } from "./utils/dragUtils";
-import { DegreePlan } from "../../interfaces/degreeplan";
 import { RequirementSelector } from "./RequirementSelector";
 import { AlertMessage } from "./AlertMessage";
 import INVALID_COURSE from "../../data/invalid_course.json";
 import { CourseModal } from "./courseModal/CourseModal";
 import { RemoveAllCoursesButton } from "../semesterComponents/RemoveAllCoursesButton";
+import { usePlanContext } from "../context/PlanContext";
 
 type CourseDragDropProps = {
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
 };
@@ -30,15 +23,18 @@ to add to a selected semester. Organized into rows and columns
 Semester load is also displayed as credit total
 */
 export function CourseDragDrop({
-    currentSemester,
-    setCurrentSemester,
-    plans,
-    setPlans,
-    currentPlan,
-    setCurrentPlan,
     courseList,
     setCourseList
 }: CourseDragDropProps): JSX.Element {
+    const {
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        currentSemester,
+        setCurrentSemester
+    } = usePlanContext();
+
     // state for selecting what Degree Requirement you want to choose from
     const [requirement, setRequirement] = useState<string>("CISC Core");
 
@@ -72,12 +68,6 @@ export function CourseDragDrop({
                 setCurrentCourse={setCurrentCourse}
                 courseList={courseList}
                 setCourseList={setCourseList}
-                setCurrentSemester={setCurrentSemester}
-                setCurrentPlan={setCurrentPlan}
-                currentPlan={currentPlan}
-                currentSemester={currentSemester}
-                setPlans={setPlans}
-                plans={plans}
                 setCoursePool={setCoursePool}
                 category={category}
                 requirement={requirement}
@@ -127,11 +117,9 @@ export function CourseDragDrop({
                         <RequirementSelector
                             category={category}
                             setCategory={setCategory}
-                            currentPlan={currentPlan}
                             requirement={requirement}
                             setRequirement={setRequirement}
                             setCoursePool={setCoursePool}
-                            currentSemester={currentSemester}
                             courseList={courseList}
                         />
                     </Col>
@@ -158,12 +146,6 @@ export function CourseDragDrop({
                 </Row>
             </DragDropContext>
             <RemoveAllCoursesButton
-                setCurrentSemester={setCurrentSemester}
-                setCurrentPlan={setCurrentPlan}
-                currentPlan={currentPlan}
-                currentSemester={currentSemester}
-                setPlans={setPlans}
-                plans={plans}
                 courseList={courseList}
                 setCoursePool={setCoursePool}
                 requirement={requirement}

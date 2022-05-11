@@ -3,14 +3,11 @@ import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
 import degreeCategoriesData from "../../data/degree_categories.json";
-import { Semester } from "../../interfaces/semester";
-import { DegreePlan } from "../../interfaces/degreeplan";
 import { getUnusedCourses } from "./utils/dragUtils";
+import { usePlanContext } from "../context/PlanContext";
 
 type GroupRadioButtonsProps = {
-    currentPlan: DegreePlan;
     category: string;
-    currentSemester: Semester;
     setRequirement: (newGroup: string) => void;
     setCategory: (newCategory: string) => void;
     setCoursePool: (newPool: Course[]) => void;
@@ -28,14 +25,13 @@ for selecting a degreeCategory be from a specific subset for more easily
 choosing what courses you want the coursePool to show
 */
 export function CategoryRadioButtons({
-    currentPlan,
     category,
-    currentSemester,
     setRequirement,
     setCategory,
     setCoursePool,
     courseList
 }: GroupRadioButtonsProps): JSX.Element {
+    const { currentPlan, currentSemester } = usePlanContext();
     const CATEGORIES = Object.keys(degreeCategoriesData).filter(
         (catOption: string): boolean =>
             catOption === "General" ||

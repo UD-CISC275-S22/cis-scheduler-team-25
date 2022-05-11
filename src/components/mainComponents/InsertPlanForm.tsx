@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import "../components.css";
+import { usePlanContext } from "../context/PlanContext";
 import { makeNewPlan } from "./utils/insertPlanUtils";
 
 function ConfirmNewPlan({
@@ -34,16 +35,11 @@ function ConfirmNewPlan({
     );
 }
 export function AddPlanForm({
-    plans,
-    setPlans,
-    setShowAdd,
-    setCurrentPlan
+    setShowAdd
 }: {
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
     setShowAdd: (value: boolean) => void;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
 }): JSX.Element {
+    const { plans, setPlans, setCurrentPlan } = usePlanContext();
     const [name, setName] = useState<string>("");
     return (
         <div className="plan-form">

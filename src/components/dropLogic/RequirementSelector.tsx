@@ -1,21 +1,18 @@
 import React from "react";
-import { Semester } from "../../interfaces/semester";
 import { Course } from "../../interfaces/course";
 import { Form } from "react-bootstrap";
 import "../components.css";
 import degreeCategoriesData from "../../data/degree_categories.json";
 import { CategoryRadioButtons } from "./CategoryRadioButtons";
-import { DegreePlan } from "../../interfaces/degreeplan";
 import { getUnusedCourses } from "./utils/dragUtils";
+import { usePlanContext } from "../context/PlanContext";
 
 type RequirementSelectorProps = {
     category: string;
     setCategory: (newCat: string) => void;
-    currentPlan: DegreePlan;
     requirement: string;
     setRequirement: (newReq: string) => void;
     setCoursePool: (newPool: Course[]) => void;
-    currentSemester: Semester;
     courseList: Course[];
 };
 
@@ -26,13 +23,13 @@ const degreeCategories = degreeCategoriesData as Record<string, string[]>;
 export function RequirementSelector({
     category,
     setCategory,
-    currentPlan,
     requirement,
     setRequirement,
     setCoursePool,
-    currentSemester,
     courseList
 }: RequirementSelectorProps): JSX.Element {
+    const { currentPlan, currentSemester } = usePlanContext();
+
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
         const requirementOption = event.target.value;
@@ -53,9 +50,7 @@ export function RequirementSelector({
         <div className="DegreePlanList">
             <p>Please select a requirement</p>
             <CategoryRadioButtons
-                currentPlan={currentPlan}
                 category={category}
-                currentSemester={currentSemester}
                 setCategory={setCategory}
                 setRequirement={setRequirement}
                 setCoursePool={setCoursePool}

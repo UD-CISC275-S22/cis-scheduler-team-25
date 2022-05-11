@@ -7,10 +7,9 @@ import {
 } from "./utils/courseEditValidation";
 import { Course } from "../../../interfaces/course";
 import { EditableCourse } from "../../../interfaces/editable_course";
-import { Semester } from "../../../interfaces/semester";
-import { DegreePlan } from "../../../interfaces/degreeplan";
 import { EditModalBody } from "./EditModalBody";
 import "../../components.css";
+import { usePlanContext } from "../../context/PlanContext";
 
 type EditModalViewProps = {
     currentCourse: Course;
@@ -19,12 +18,6 @@ type EditModalViewProps = {
     setCourseModalMode: (newMode: string) => void;
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
     setCoursePool: (newCourses: Course[]) => void;
     category: string;
     requirement: string;
@@ -37,16 +30,18 @@ export function EditModalView({
     setCourseModalMode,
     courseList,
     setCourseList,
-    currentSemester,
-    setCurrentSemester,
-    currentPlan,
-    setCurrentPlan,
-    plans,
-    setPlans,
     setCoursePool,
     category,
     requirement
 }: EditModalViewProps): JSX.Element {
+    const {
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        currentSemester,
+        setCurrentSemester
+    } = usePlanContext();
     const [editCourse, setEditCourse] = useState<EditableCourse>({
         name: currentCourse.name,
         descr: currentCourse.descr,

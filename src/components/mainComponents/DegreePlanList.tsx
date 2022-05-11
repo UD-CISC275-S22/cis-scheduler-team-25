@@ -3,16 +3,11 @@ import "../components.css";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { Form } from "react-bootstrap";
 import INVALID_PLAN from "../../data/invalid_plan.json";
+import { usePlanContext } from "../context/PlanContext";
 
-export function DegreePlanList({
-    plans,
-    currentPlan,
-    setCurrentPlan
-}: {
-    plans: DegreePlan[];
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-}): JSX.Element {
+export function DegreePlanList(): JSX.Element {
+    const { plans, currentPlan, setCurrentPlan } = usePlanContext();
+
     // callback function for the Form onChange, updates the currently selected plan
     function updateSelection(event: React.ChangeEvent<HTMLSelectElement>) {
         const id = parseInt(event.target.value);

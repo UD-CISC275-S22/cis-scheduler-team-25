@@ -7,17 +7,13 @@ import invalidSemester from "../../data/invalid_semester.json";
 import { Semester } from "../../interfaces/semester";
 import { AddPlanButton } from "../mainComponents/AddPlanButton";
 import { EditPlanButton } from "../mainComponents/EditPlanButton";
-import { EditRemovePlanForm } from "../mainComponents/EditPlanForm";
+import { EditPlanForm } from "../mainComponents/EditPlanForm";
 import { AddPlanForm } from "../mainComponents/InsertPlanForm";
 import { CSVImport } from "../mainComponents/CSVImport";
+import { usePlanContext } from "../context/PlanContext";
 
 type MainViewProps = {
-    setPlans: (newPlans: DegreePlan[]) => void;
     setMode: (newMode: string) => void;
-    plans: DegreePlan[];
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    setCurrentSemester: (newSemester: Semester) => void;
 };
 
 // button for switching to the PlanView
@@ -48,25 +44,15 @@ function PlanViewButton({
 View for the main menu, showing a list of degree plans you can select OR choose
 to make a new one
 */
-export function MainView({
-    setMode,
-    plans,
-    currentPlan,
-    setCurrentPlan,
-    setCurrentSemester,
-    setPlans
-}: MainViewProps): JSX.Element {
+export function MainView({ setMode }: MainViewProps): JSX.Element {
+    const { currentPlan, setCurrentSemester } = usePlanContext();
     const [showAdd, setShowAdd] = useState<boolean>(false);
     const [showRemove, setShowRemove] = useState<boolean>(false);
 
     return (
         <div>
             <h1>Degree Plan Selector</h1>
-            <DegreePlanList
-                plans={plans}
-                currentPlan={currentPlan}
-                setCurrentPlan={setCurrentPlan}
-            />
+            <DegreePlanList />
             <PlanViewButton
                 setMode={setMode}
                 setCurrentSemester={setCurrentSemester}
@@ -76,30 +62,16 @@ export function MainView({
                 showAdd={showAdd}
                 setShowAdd={setShowAdd}
             ></AddPlanButton>
-            {showAdd && (
-                <AddPlanForm
-                    plans={plans}
-                    setPlans={setPlans}
-                    setShowAdd={setShowAdd}
-                    setCurrentPlan={setCurrentPlan}
-                ></AddPlanForm>
-            )}
+            {showAdd && <AddPlanForm setShowAdd={setShowAdd}></AddPlanForm>}
             <EditPlanButton
                 showRemove={showRemove}
                 setShowRemove={setShowRemove}
-                currentPlan={currentPlan}
             ></EditPlanButton>
             {showRemove && (
-                <EditRemovePlanForm
-                    plans={plans}
-                    setPlans={setPlans}
-                    currentPlan={currentPlan}
-                    setShowRemove={setShowRemove}
-                    setCurrentPlan={setCurrentPlan}
-                ></EditRemovePlanForm>
+                <EditPlanForm setShowRemove={setShowRemove}></EditPlanForm>
             )}
-            <CSVExport currentPlan={currentPlan}></CSVExport>
-            <CSVImport plans={plans} setPlans={setPlans} />
+            <CSVExport></CSVExport>
+            <CSVImport />
         </div>
     );
 }

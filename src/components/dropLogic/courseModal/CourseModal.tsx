@@ -3,8 +3,6 @@ import { Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
 import { InfoModalView } from "./InfoModalView";
 import { EditModalView } from "./EditModalView";
-import { Semester } from "../../../interfaces/semester";
-import { DegreePlan } from "../../../interfaces/degreeplan";
 import { TransferModalView } from "./TransferModalView";
 
 type CourseEditModalProps = {
@@ -14,12 +12,6 @@ type CourseEditModalProps = {
     setCurrentCourse: (newCourse: Course) => void;
     courseList: Course[];
     setCourseList: (newCourses: Course[]) => void;
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
     setCoursePool: (newCourses: Course[]) => void;
     category: string;
     requirement: string;
@@ -32,12 +24,6 @@ export function CourseModal({
     setCurrentCourse,
     courseList,
     setCourseList,
-    currentSemester,
-    setCurrentSemester,
-    currentPlan,
-    setCurrentPlan,
-    plans,
-    setPlans,
     setCoursePool,
     category,
     requirement
@@ -55,12 +41,6 @@ export function CourseModal({
                         setCourseModalMode={setCourseModalMode}
                         courseList={courseList}
                         setCourseList={setCourseList}
-                        setCurrentSemester={setCurrentSemester}
-                        setCurrentPlan={setCurrentPlan}
-                        currentPlan={currentPlan}
-                        currentSemester={currentSemester}
-                        setPlans={setPlans}
-                        plans={plans}
                         setCoursePool={setCoursePool}
                         category={category}
                         requirement={requirement}
@@ -69,13 +49,7 @@ export function CourseModal({
             case "transfer":
                 return (
                     <TransferModalView
-                        currentPlan={currentPlan}
-                        currentSemester={currentSemester}
                         currentCourse={currentCourse}
-                        setCurrentSemester={setCurrentSemester}
-                        setCurrentPlan={setCurrentPlan}
-                        plans={plans}
-                        setPlans={setPlans}
                         setShowCourseEditor={setShowCourseEditor}
                         setCourseModalMode={setCourseModalMode}
                     />
@@ -83,8 +57,6 @@ export function CourseModal({
             default:
                 return (
                     <InfoModalView
-                        currentPlan={currentPlan}
-                        currentSemester={currentSemester}
                         currentCourse={currentCourse}
                         setShowCourseEditor={setShowCourseEditor}
                         setCourseModalMode={setCourseModalMode}

@@ -2,35 +2,31 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Course } from "../../../interfaces/course";
 import { Semester } from "../../../interfaces/semester";
-import { DegreePlan } from "../../../interfaces/degreeplan";
 import { TransferSemestersList } from "./TransferSemestersList";
 import "../../components.css";
 import { validateTransfer } from "./utils/courseTransferUtils";
 import { transferCourse } from "./utils/courseTransferUtils";
+import { usePlanContext } from "../../context/PlanContext";
 
 type TransferModalViewProps = {
     currentCourse: Course;
-    currentSemester: Semester;
-    setCurrentSemester: (newSemester: Semester) => void;
-    currentPlan: DegreePlan;
-    setCurrentPlan: (newPlan: DegreePlan) => void;
-    plans: DegreePlan[];
-    setPlans: (newPlans: DegreePlan[]) => void;
     setCourseModalMode: (newMode: string) => void;
     setShowCourseEditor: (newShow: boolean) => void;
 };
 
 export function TransferModalView({
     currentCourse,
-    currentSemester,
-    setCurrentSemester,
-    currentPlan,
-    setCurrentPlan,
-    plans,
-    setPlans,
     setCourseModalMode,
     setShowCourseEditor
 }: TransferModalViewProps): JSX.Element {
+    const {
+        plans,
+        setPlans,
+        currentPlan,
+        setCurrentPlan,
+        currentSemester,
+        setCurrentSemester
+    } = usePlanContext();
     const validTransferSemesters = currentPlan.semesters.filter(
         (semester: Semester): boolean => semester.id !== currentSemester.id
     );
