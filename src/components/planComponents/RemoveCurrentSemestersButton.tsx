@@ -21,6 +21,7 @@ export function RemoveCurrentSemestersButton(): JSX.Element {
         <Button
             disabled={currentSemester.id === -1}
             data-testid="remove-current-semester-button"
+            variant="danger"
             className="mode-button"
             onClick={() => {
                 // create DegreePlan based on currentPlan, but with empty semesters
@@ -51,7 +52,7 @@ export function RemoveCurrentSemestersButton(): JSX.Element {
                   currentSemester.season +
                   "-" +
                   currentSemester.year.toString()
-                : "Pick a Semester!"}
+                : "Delete Semester"}
         </Button>
     );
 }

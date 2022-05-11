@@ -40,12 +40,14 @@ export function SemesterView({
 
     return (
         <div>
+            <br></br>
             <h1>
                 Schedule for{" "}
                 {currentSemester.season.toString() +
                     "-" +
                     currentSemester.year.toString()}
             </h1>
+            <br></br>
             <CourseDragDrop
                 courseList={courseList}
                 setCourseList={setCourseList}

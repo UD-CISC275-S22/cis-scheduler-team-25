@@ -15,6 +15,7 @@ export function AddSemesterButton({
             <Button
                 data-testid="add-semester-button"
                 className="mode-button"
+                variant="success"
                 onClick={() => setShowAdd(!showAdd)}
             >
                 {showAdd ? "Cancel Add" : "Add Semester"}
