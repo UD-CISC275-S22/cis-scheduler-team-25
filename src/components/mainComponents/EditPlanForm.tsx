@@ -60,7 +60,7 @@ function RemovePlanButton({
                 setShowRemove(false);
             }}
         >
-            Remove Plan
+            Remove Plan ⌫
         </Button>
     );
 }
@@ -89,7 +89,7 @@ function EditPlanNameButton({
                 setShowRemove(false);
             }}
         >
-            Confirm Edit Name
+            Confirm Edit Name ↵
         </Button>
     );
 }

@@ -21,7 +21,7 @@ function ImportContentButton({
                 disabled={content === "" || content === "Data cannot be loaded"}
                 onClick={() => CSVToPlan(content, plans, setPlans)}
             >
-                Use Imported CSV
+                Upload CSV ⬆
             </Button>
         </div>
     );

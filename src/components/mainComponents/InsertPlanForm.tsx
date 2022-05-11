@@ -30,7 +30,7 @@ function ConfirmNewPlan({
                 setShowAdd(false);
             }}
         >
-            Confirm
+            Confirm ↵
         </Button>
     );
 }

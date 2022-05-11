@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { DegreePlanList } from "../mainComponents/DegreePlanList";
 import { CSVExport } from "../mainComponents/CSVExport";
@@ -52,17 +52,27 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
     return (
         <div>
             <h1>Degree Plan Selector</h1>
-            <DegreePlanList />
-            <PlanViewButton
-                setMode={setMode}
-                setCurrentSemester={setCurrentSemester}
-                currentPlan={currentPlan}
-            />
-            <AddPlanButton
-                showAdd={showAdd}
-                setShowAdd={setShowAdd}
-            ></AddPlanButton>
-            {showAdd && <AddPlanForm setShowAdd={setShowAdd}></AddPlanForm>}
+            <Row>
+                <Col>
+                    <PlanViewButton
+                        setMode={setMode}
+                        setCurrentSemester={setCurrentSemester}
+                        currentPlan={currentPlan}
+                    />
+                </Col>
+                <Col>
+                    <DegreePlanList />
+                </Col>
+                <Col>
+                    <AddPlanButton
+                        showAdd={showAdd}
+                        setShowAdd={setShowAdd}
+                    ></AddPlanButton>
+                    {showAdd && (
+                        <AddPlanForm setShowAdd={setShowAdd}></AddPlanForm>
+                    )}
+                </Col>
+            </Row>
             <EditPlanButton
                 showRemove={showRemove}
                 setShowRemove={setShowRemove}
@@ -70,8 +80,8 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
             {showRemove && (
                 <EditPlanForm setShowRemove={setShowRemove}></EditPlanForm>
             )}
-            <CSVExport></CSVExport>
             <CSVImport />
+            <CSVExport></CSVExport>
         </div>
     );
 }

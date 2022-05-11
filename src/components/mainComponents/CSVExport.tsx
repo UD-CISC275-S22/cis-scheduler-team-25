@@ -30,7 +30,7 @@ export function CSVExport(): JSX.Element {
                 disabled={currentPlan.id === -1}
                 onClick={() => downloadPlan(currentPlan)}
             >
-                Download Selected Degree Plan
+                Download Selected Degree Plan ⬇
             </Button>
         </div>
     );
