@@ -63,7 +63,15 @@ export function CSVImport(): JSX.Element {
             <div>
                 <Form.Group controlId="exampleForm">
                     <Form.Label>Upload a file</Form.Label>
-                    <Form.Control type="file" onChange={uploadFile} />
+                    <div
+                    // style={{
+                    //     width: "500px",
+                    //     justifyContent: "center",
+                    //     alignItems: "center"
+                    // }}
+                    >
+                        <Form.Control type="file" onChange={uploadFile} />
+                    </div>
                 </Form.Group>
             </div>
             <ImportContentButton
