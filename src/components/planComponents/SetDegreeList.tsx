@@ -7,7 +7,8 @@ import { categories } from "../ReadJSON";
 // concentrations are all category_courses.json keys except
 // for the "General" categories
 const CONCENTRATIONS = categories.filter(
-    (category: string): boolean => category !== "General"
+    (category: string): boolean =>
+        category !== "General" && category !== "Custom Category"
 );
 
 /*

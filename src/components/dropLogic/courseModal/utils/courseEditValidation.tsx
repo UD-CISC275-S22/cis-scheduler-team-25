@@ -29,14 +29,17 @@ function saveChanges(
     let editedPreReqs: string[][];
 
     if (typeof editCourse.preReqs === "string") {
+        // if editCourse.preReqs is a string, editCourse is an EditableCourse
         editedPreReqs = editCourse.preReqs
             .trim()
             .split("\n")
             .map((preReqGroup: string): string[] => preReqGroup.split(","));
     } else {
+        // otherwise, editCourse.prereqs must already be a string[][]
         editedPreReqs = editCourse.preReqs;
     }
 
+    // generate new course to update state
     const newCourse = {
         ...currentCourse,
         name: editCourse.name.trim(),
@@ -47,14 +50,139 @@ function saveChanges(
         degreeRequirements: editCourse.degreeRequirements
     };
 
+    // likewise for the courseList
     const newCourseList = courseList.map(
         (course: Course): Course =>
             course.code === currentCourse.code ? newCourse : course
     );
 
+    // update states
+    updatePlansAndCourses(
+        newCourse,
+        setCurrentCourse,
+        newCourseList,
+        setCourseList,
+        currentSemester,
+        setCurrentSemester,
+        currentPlan,
+        setCurrentPlan,
+        plans,
+        setPlans,
+        setCoursePool,
+        reqFilter
+    );
+}
+
+/**
+ * Adds/updates a new course from the catalog to the current category-requirement
+ *
+ * @param code Course code string generated from the CourseAutoComplete
+ */
+function addNewCourse(
+    code: string,
+    setCurrentCourse: (newCourse: Course) => void,
+    courseList: Course[],
+    setCourseList: (newCourses: Course[]) => void,
+    currentSemester: Semester,
+    setCurrentSemester: (newSemester: Semester) => void,
+    currentPlan: DegreePlan,
+    setCurrentPlan: (newPlan: DegreePlan) => void,
+    plans: DegreePlan[],
+    setPlans: (newPlans: DegreePlan[]) => void,
+    setCoursePool: (newCourses: Course[]) => void,
+    reqFilter: string
+) {
+    // if the editCourse is already in the courseList, we are MODIFYING AN
+    // EXISTING COURSE! Otherwise, this is a new course being added to
+    // the courseList
+    const existingCourse = courseList.find(
+        (course: Course): boolean => course.code === code
+    );
+
+    if (existingCourse !== undefined) {
+        if (!existingCourse.degreeRequirements.includes(reqFilter)) {
+            const editCourse = {
+                ...existingCourse,
+                degreeRequirements: [
+                    ...existingCourse.degreeRequirements,
+                    reqFilter
+                ]
+            };
+            console.log(editCourse);
+            saveChanges(
+                editCourse,
+                existingCourse,
+                setCurrentCourse,
+                courseList,
+                setCourseList,
+                currentSemester,
+                setCurrentSemester,
+                currentPlan,
+                setCurrentPlan,
+                plans,
+                setPlans,
+                setCoursePool,
+                reqFilter
+            );
+        }
+        return;
+    }
+
+    // otherwise, generate the default course from the catalog using that code
+    const defaultCourse = getDefaultCourse(code);
+    const newCourse = {
+        ...defaultCourse,
+        name: defaultCourse.name.trim(),
+        descr: defaultCourse.descr.trim(),
+        credits: defaultCourse.credits.trim(),
+        preReqs: defaultCourse.preReqs,
+        preReqDesc: defaultCourse.preReqDesc.trim(),
+        degreeRequirements: [...defaultCourse.degreeRequirements, reqFilter]
+    };
+
+    const newCourseList = [...courseList, newCourse];
+
+    // update states
+    updatePlansAndCourses(
+        newCourse,
+        setCurrentCourse,
+        newCourseList,
+        setCourseList,
+        currentSemester,
+        setCurrentSemester,
+        currentPlan,
+        setCurrentPlan,
+        plans,
+        setPlans,
+        setCoursePool,
+        reqFilter
+    );
+}
+
+/**
+ * Helper function for addNewCourse and saveChanges.
+ * Updates states for the currentCourse, courseList, currentSemester,
+ * currentPlan, and plans.
+ */
+function updatePlansAndCourses(
+    newCourse: Course,
+    setCurrentCourse: (newCourse: Course) => void,
+    newCourseList: Course[],
+    setCourseList: (newCourses: Course[]) => void,
+    currentSemester: Semester,
+    setCurrentSemester: (newSemester: Semester) => void,
+    currentPlan: DegreePlan,
+    setCurrentPlan: (newPlan: DegreePlan) => void,
+    plans: DegreePlan[],
+    setPlans: (newPlans: DegreePlan[]) => void,
+    setCoursePool: (newCourses: Course[]) => void,
+    reqFilter: string
+) {
+    // set currentCourse and courseList to the modified courses and courseList, respectively
     setCurrentCourse(newCourse);
     setCourseList(newCourseList);
 
+    // perform chain of updates for the semester -> plans -> plans
     const newSemester = {
         ...currentSemester,
         courses: currentSemester.courses.map(
@@ -80,6 +208,7 @@ function saveChanges(
     setCurrentPlan(newPlan);
     setPlans(newPlans);
 
+    // update coursePool with the most recent changes
     setCoursePool(
         newCourseList.filter(
             (course: Course): boolean =>
@@ -97,6 +226,7 @@ function checkIfCourseExists(code: string) {
 
     // check if dept is valid (exists in catalog)
     if (catalog[dept] === undefined) {
+        console.log(dept);
         return false;
     }
 
@@ -153,17 +283,23 @@ function checkValidFields(editCourse: EditableCourse): boolean {
 
 /**
  * Takes in a course code and returns the default information specified by
- * the catalog.json and category_courses.json
+ * the catalog.json and category_courses.json.
+ * If the course isn't natively defined in General or a concentration already,
+ * that course is default assigned into the Custom Category
  * @param code Course code of the course you're querying for
  */
 function getDefaultCourse(code: string): Course {
-    const catalogCourse = catalog[code.slice(0, 4).trim()][code];
+    // get CatalogCourse from master catalog, and create a new
+    // default course using the catalogCourse's original info
+    const catalogCourse = catalog[code.slice(0, 4)][code];
     const defaultCourse: Course = {
         ...catalogCourse,
         credits: catalogCourse.credits.trim(),
         degreeRequirements: []
     };
 
+    // Use through CourseCategoriesData and CategoryRequirements
+    // to acquire the original degreeRequirements that the course fulfills
     const CISCCourses = CourseCategoriesData as Record<
         string,
         Record<string, string[]>
@@ -186,7 +322,8 @@ function getDefaultCourse(code: string): Course {
         )
     );
 
-    const degreeRequirements = result.reduce(
+    let degreeRequirements: string[];
+    degreeRequirements = result.reduce(
         (allPreReqs: string[], preReqGroup: string[]) => [
             ...allPreReqs,
             ...preReqGroup
@@ -194,7 +331,19 @@ function getDefaultCourse(code: string): Course {
         []
     );
 
+    // if absolutely no degreeRequirements are found, the course must be from
+    // the Custom Category
+    if (degreeRequirements.length === 0) {
+        degreeRequirements = ["Custom Category-User Selected Courses"];
+    }
+
     return { ...defaultCourse, degreeRequirements: degreeRequirements };
 }
 
-export { saveChanges, checkValidFields, getDefaultCourse };
+export {
+    saveChanges,
+    checkValidFields,
+    getDefaultCourse,
+    checkIfCourseExists,
+    addNewCourse
+};

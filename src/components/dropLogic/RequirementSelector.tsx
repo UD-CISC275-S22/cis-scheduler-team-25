@@ -48,7 +48,6 @@ export function RequirementSelector({
 
     return (
         <div className="DegreePlanList">
-            <p>Please select a requirement</p>
             <CategoryRadioButtons
                 category={category}
                 setCategory={setCategory}

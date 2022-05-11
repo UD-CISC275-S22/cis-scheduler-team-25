@@ -10,6 +10,7 @@ import INVALID_COURSE from "../../data/invalid_course.json";
 import { CourseModal } from "./courseModal/CourseModal";
 import { RemoveAllCoursesButton } from "../semesterComponents/RemoveAllCoursesButton";
 import { usePlanContext } from "../context/PlanContext";
+import { CourseAutoComplete } from "./CourseAutoComplete";
 
 type CourseDragDropProps = {
     courseList: Course[];
@@ -92,10 +93,13 @@ export function CourseDragDrop({
                     })
                 }
             >
+                <br></br>
                 <Row>
                     <Col>
                         <div>
-                            <p>Semester Load:</p>
+                            <p>
+                                <strong>Semester Load:</strong>
+                            </p>
                             <p>
                                 {currentSemester.courses
                                     .reduce(
@@ -113,7 +117,9 @@ export function CourseDragDrop({
                         />
                     </Col>
                     <Col>
-                        {" "}
+                        <p>
+                            <strong>Please select a requirement</strong>
+                        </p>
                         <RequirementSelector
                             category={category}
                             setCategory={setCategory}
@@ -126,7 +132,9 @@ export function CourseDragDrop({
                 </Row>
                 <Row>
                     <Col>
-                        <p>Current Course Schedule</p>
+                        <p>
+                            <strong>Current Course Schedule</strong>
+                        </p>
                         <CourseDropPool
                             courses={currentSemester.courses}
                             droppableId="semesterPool"
@@ -135,7 +143,9 @@ export function CourseDragDrop({
                         />
                     </Col>
                     <Col>
-                        <p>Potential Courses</p>
+                        <p>
+                            <strong>Potential Courses</strong>
+                        </p>
                         <CourseDropPool
                             courses={coursePool}
                             droppableId="coursePool"
@@ -144,13 +154,30 @@ export function CourseDragDrop({
                         />
                     </Col>
                 </Row>
+                <Row>
+                    <Col>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <RemoveAllCoursesButton
+                            courseList={courseList}
+                            setCoursePool={setCoursePool}
+                            requirement={requirement}
+                            category={category}
+                        ></RemoveAllCoursesButton>
+                    </Col>
+                    <Col>
+                        <CourseAutoComplete
+                            setCurrentCourse={setCurrentCourse}
+                            courseList={courseList}
+                            setCourseList={setCourseList}
+                            setCoursePool={setCoursePool}
+                            category={category}
+                            requirement={requirement}
+                        />
+                    </Col>
+                </Row>
             </DragDropContext>
-            <RemoveAllCoursesButton
-                courseList={courseList}
-                setCoursePool={setCoursePool}
-                requirement={requirement}
-                category={category}
-            ></RemoveAllCoursesButton>
         </div>
     );
 }

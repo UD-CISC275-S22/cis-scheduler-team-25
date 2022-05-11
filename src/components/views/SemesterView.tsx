@@ -50,7 +50,7 @@ export function SemesterView({
                 courseList={courseList}
                 setCourseList={setCourseList}
             />
-            <div></div>
+            <br></br>
             <PlanViewButton setMode={setMode} />
         </div>
     );
