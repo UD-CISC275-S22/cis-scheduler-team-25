@@ -112,9 +112,9 @@
     margin-left: 10px;
     margin-right: 10px;
     color: rgb(103, 96, 111);
-    border-color: rgb(145, 255, 187);
+    border-color: rgb(103, 179, 132);
     border-width: calc(1px + 0.2vmin);
-    background-color: rgb(202, 212, 213);
+    background-color: rgb(159, 177, 179);
     font-weight: 600;
 }
 

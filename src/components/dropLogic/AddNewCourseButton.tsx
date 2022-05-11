@@ -66,7 +66,7 @@ export function AddNewCourseButton({
     return (
         <Button
             disabled={disabled}
-            variant="primary"
+            variant="success"
             data-testid="add-autocomplete-course-button"
             onClick={() => updateCourseList()}
         >
