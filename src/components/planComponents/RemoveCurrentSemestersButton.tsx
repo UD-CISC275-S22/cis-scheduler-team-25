@@ -50,7 +50,8 @@ export function RemoveCurrentSemestersButton(): JSX.Element {
                 ? "Delete " +
                   currentSemester.season +
                   "-" +
-                  currentSemester.year.toString()
+                  currentSemester.year.toString() +
+                  " ⌫"
                 : "Pick a Semester!"}
         </Button>
     );

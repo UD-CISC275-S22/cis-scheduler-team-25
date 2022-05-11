@@ -17,7 +17,7 @@ export function AddSemesterButton({
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}
             >
-                {showAdd ? "Cancel Add" : "Add Semester"}
+                {showAdd ? "Cancel Add Ⓧ" : "Add Semester ＋"}
             </Button>
         </div>
     );
