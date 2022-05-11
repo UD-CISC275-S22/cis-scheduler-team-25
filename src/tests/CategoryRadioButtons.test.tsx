@@ -12,10 +12,11 @@ describe("CategoryRadioButtons Tests", () => {
     });
     test("There are two radio buttons shown, one for General and one for Concentration", () => {
         const radios = screen.getAllByRole("radio");
-        expect(radios).toHaveLength(2);
+        expect(radios).toHaveLength(3);
 
         screen.getByTestId("radio-General");
         screen.getByTestId("radio-Bioinformatics Concentration");
+        screen.getByTestId("radio-Custom Category");
     });
     test("Expect General button to be checked and Concentration to be unchecked", () => {
         const radios = screen.getAllByRole("radio");
