@@ -16,6 +16,13 @@
     border: 3px solid #00539f;
 }
 
+.download-bar {
+    width: calc(50% + 2vmin);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
 .semester-scroll-box {
     /* max-height: calc(30% + 2vmin); */
     /* max-width: calc(100% + 2vmin); */
