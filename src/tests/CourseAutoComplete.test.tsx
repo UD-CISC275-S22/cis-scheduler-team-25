@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
 
@@ -58,5 +58,25 @@ describe("CourseDragDrop Tests", () => {
         userEvent.type(auto, "{selectall}CISC 101");
         addButton.click();
         expect(screen.getByTestId("draggable-CISC 101")).toBeInTheDocument();
+    });
+    test("Expect an added autocomplete course to appear in the course pool", () => {
+        const auto = screen.getByTestId("course-autocomplete");
+        const addButton = screen.getByTestId("add-autocomplete-course-button");
+
+        expect(addButton).toBeDisabled();
+
+        userEvent.type(auto, "{selectall}CISC 101");
+        addButton.click();
+
+        const coursePool = screen.getByTestId("droppable-coursePool");
+        expect(
+            within(coursePool).getByTestId("draggable-CISC 101")
+        ).toBeInTheDocument();
+
+        screen.getByTestId("radio-Custom Category").click();
+        const coursePool2 = screen.getByTestId("droppable-coursePool");
+        expect(
+            within(coursePool2).getByTestId("draggable-CISC 101")
+        ).toBeInTheDocument();
     });
 });
