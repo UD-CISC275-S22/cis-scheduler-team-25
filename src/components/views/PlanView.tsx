@@ -93,6 +93,7 @@ export function PlanView({ setMode }: PlanViewProps): JSX.Element {
                             {showAdd && (
                                 <AddSemesterForm setShowAdd={setShowAdd} />
                             )}
+                            <br></br>
                             <RemoveCurrentSemestersButton />
                             <RemoveAllSemestersButton />
                         </div>

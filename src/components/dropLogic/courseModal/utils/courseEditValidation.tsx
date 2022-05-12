@@ -230,7 +230,7 @@ function checkIfCourseExists(code: string) {
 
     // check if dept is valid (exists in catalog)
     if (catalog[dept] === undefined) {
-        console.log(dept);
+        // console.log(dept);
         return false;
     }
 

@@ -4,7 +4,12 @@ import { DegreePlan } from "../../interfaces/degreeplan";
 import { Semester } from "../../interfaces/semester";
 import "../components.css";
 import { usePlanContext } from "../context/PlanContext";
-import { getSemesterId, semesterSort } from "./utils/addSemesterUtils";
+import {
+    getNextSeason,
+    getNextYear,
+    getSemesterId,
+    semesterSort
+} from "./utils/addSemesterUtils";
 
 function makeNewSemester(
     plans: DegreePlan[],
@@ -75,6 +80,7 @@ function ConfirmButton({
                 existingYears > 0 || isNaN(year) || year < 1900 || year > 2200
             }
             data-testid="semester-add-confirm-button"
+            variant="success"
             onClick={() => {
                 makeNewSemester(
                     plans,
@@ -87,7 +93,7 @@ function ConfirmButton({
                 setShowAdd(false);
             }}
         >
-            Confirm
+            Confirm Add
         </Button>
     );
 }
@@ -97,9 +103,9 @@ export function AddSemesterForm({
 }: {
     setShowAdd: (value: boolean) => void;
 }): JSX.Element {
-    const [season, setSeason] = useState<string>("Fall");
-    const [year, setYear] = useState<number>(NaN);
     const { plans, setPlans, currentPlan, setCurrentPlan } = usePlanContext();
+    const [season, setSeason] = useState<string>(getNextSeason(currentPlan));
+    const [year, setYear] = useState<number>(getNextYear(currentPlan));
 
     function updateSeason(event: React.ChangeEvent<HTMLSelectElement>) {
         setSeason(event.target.value);
@@ -150,7 +156,7 @@ export function AddSemesterForm({
                             type="number"
                             data-testid="semester-add-year"
                             placeholder="Year"
-                            value={year.toString()}
+                            value={year}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
                             ) => setYear(parseInt(event.target.value))}
