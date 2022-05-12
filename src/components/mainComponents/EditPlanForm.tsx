@@ -54,6 +54,7 @@ function RemovePlanButton({
 
     return (
         <Button
+            variant="danger"
             data-testid="remove-plan-by-name-button"
             onClick={() => {
                 removePlanByName(plans, setPlans, currentPlan, setCurrentPlan);
@@ -78,6 +79,7 @@ function EditPlanNameButton({
     return (
         <Button
             data-testid="edit-plan-by-name-button"
+            variant="success"
             onClick={() => {
                 editPlanName(
                     plans,

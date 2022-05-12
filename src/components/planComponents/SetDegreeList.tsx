@@ -47,10 +47,9 @@ export function SetDegreeList(): JSX.Element {
 
     return (
         <div
-            className="DegreePlanList"
+            className="SetDegreeList"
             style={{ paddingBottom: "calc(10px + 2vmin)" }}
         >
-            <p>Please choose a Degree Concentration:</p>
             <Form.Group
                 className="dropdown-border"
                 controlId="concentrationList"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { Semester } from "../../interfaces/semester";
 import { AddSemesterForm } from "../planComponents/AddSemesterForm";
 import { SemesterScrollBox } from "../planComponents/SemesterScrollBox";
@@ -31,11 +31,12 @@ function SemesterViewButton({
             onClick={() => setMode("semester")}
         >
             {currentSemester.id !== -1
-                ? "View " +
+                ? "Edit " +
                   currentSemester.season +
                   "-" +
-                  currentSemester.year.toString()
-                : "Pick a Semester!"}
+                  currentSemester.year.toString() +
+                  " Courses"
+                : "Edit Semester Courses"}
         </Button>
     );
 }
@@ -65,21 +66,51 @@ export function PlanView({ setMode }: PlanViewProps): JSX.Element {
 
     return (
         <div>
+            <br></br>
             <h1>{currentPlan.name}</h1>
-            <SemesterScrollBox />
-            <p>{currentPlan.semesters.length} Semesters Total</p>
-            <SetDegreeList />
+            <br></br>
+            <Container>
+                <Row>
+                    <Col xs={7}>
+                        <SemesterScrollBox />
+                        <p>{currentPlan.semesters.length} Semesters Total</p>
+                    </Col>
+                    <Col>
+                        <div className="plan-view-section">
+                            <p>
+                                <b>Change your Degree Concentration:</b>
+                            </p>
+                            <SetDegreeList />
+                        </div>
+                        <div className="plan-view-section-mid">
+                            <p>
+                                <b>Edit Plan Contents</b>
+                            </p>
+                            <AddSemesterButton
+                                showAdd={showAdd}
+                                setShowAdd={setShowAdd}
+                            />
+                            {showAdd && (
+                                <AddSemesterForm setShowAdd={setShowAdd} />
+                            )}
+                            <RemoveCurrentSemestersButton />
+                            <RemoveAllSemestersButton />
+                        </div>
+                        <div className="plan-view-section">
+                            <p>
+                                <b>Degree Completion Status</b>
+                            </p>
+                            <ViewProgress />
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
             <div>
                 <SemesterViewButton
                     setMode={setMode}
                     currentSemester={currentSemester}
                 />
-                <RemoveCurrentSemestersButton />
             </div>
-            <ViewProgress />
-            <AddSemesterButton showAdd={showAdd} setShowAdd={setShowAdd} />
-            {showAdd && <AddSemesterForm setShowAdd={setShowAdd} />}
-            <RemoveAllSemestersButton />
             <MainViewButton setMode={setMode} />
         </div>
     );

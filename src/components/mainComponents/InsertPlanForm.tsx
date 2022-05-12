@@ -25,6 +25,7 @@ function ConfirmNewPlan({
         <Button
             disabled={!valid}
             data-testid="insert-plan-confirm-button"
+            variant="success"
             onClick={() => {
                 makeNewPlan(plans, setPlans, name, setCurrentPlan);
                 setShowAdd(false);

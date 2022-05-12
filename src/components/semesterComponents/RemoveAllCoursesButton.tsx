@@ -31,6 +31,7 @@ export function RemoveAllCoursesButton({
         <Button
             data-testid="remove-all-courses-from-semester"
             className="mode-button"
+            variant="danger"
             onClick={() => {
                 const newSemester = { ...currentSemester, courses: [] };
                 const updateSemesters = currentPlan.semesters.map(
