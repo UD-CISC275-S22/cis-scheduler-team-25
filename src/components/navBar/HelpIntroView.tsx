@@ -5,7 +5,7 @@ export function HelpIntroView() {
     return (
         <Modal.Body data-testid="HelpIntroView">
             {" "}
-            Welcome to the UD CIS Course Scheduler!. This application allows you
+            Welcome to the UD CIS Course Scheduler! This application allows you
             to create and edit degree plans for Computer Science BS majors. You
             can begin by selecting a pre-made example plan or creating your own!
             <br></br>
