@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (5.727 s)
+PASS src/tests/ProgressChecker.test.tsx (5.676 s)
   ● Console
 
     console.log
@@ -766,7 +766,7 @@ PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   79.03 |    69.46 |   87.31 |   79.56 |                         
+All files                                   |   78.92 |    69.26 |   87.36 |   79.45 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -812,12 +812,12 @@ All files                                   |   79.03 |    69.46 |   87.31 |   7
   HelpModal.tsx                             |   88.88 |    83.33 |     100 |   88.88 | 22                      
   HelpPlanView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSemesterView.tsx                      |     100 |      100 |     100 |     100 |                         
- src/components/planComponents              |     100 |    95.83 |     100 |     100 |                         
+ src/components/planComponents              |   96.77 |    89.65 |     100 |   96.77 |                         
   AddSemesterButton.tsx                     |     100 |      100 |     100 |     100 |                         
   AddSemesterForm.tsx                       |     100 |    91.66 |     100 |     100 | 19                      
   RemoveAllSemestersButton.tsx              |     100 |      100 |     100 |     100 |                         
   RemoveCurrentSemestersButton.tsx          |     100 |      100 |     100 |     100 |                         
-  SemesterBox.tsx                           |     100 |      100 |     100 |     100 |                         
+  SemesterBox.tsx                           |      75 |       60 |     100 |      75 | 16-18                   
   SemesterScrollBox.tsx                     |     100 |      100 |     100 |     100 |                         
   SetDegreeList.tsx                         |     100 |      100 |     100 |     100 |                         
  src/components/planComponents/utils        |   72.72 |    66.66 |     100 |   72.72 |                         
@@ -827,7 +827,7 @@ All files                                   |   79.03 |    69.46 |   87.31 |   7
   ProgressList.tsx                          |     100 |      100 |     100 |     100 |                         
   ViewProgress.tsx                          |   85.71 |      100 |   66.66 |     100 |                         
  src/components/semesterComponents          |   92.85 |      100 |   83.33 |   92.85 |                         
-  RemoveAllCoursesButton.tsx                |   92.85 |      100 |   83.33 |   92.85 | 60                      
+  RemoveAllCoursesButton.tsx                |   92.85 |      100 |   83.33 |   92.85 | 61                      
  src/components/views                       |     100 |      100 |     100 |     100 |                         
   CurrentView.tsx                           |     100 |      100 |     100 |     100 |                         
   MainView.tsx                              |     100 |      100 |     100 |     100 |                         
@@ -845,5 +845,5 @@ All files                                   |   79.03 |    69.46 |   87.31 |   7
 Test Suites: 19 passed, 19 total
 Tests:       88 passed, 88 total
 Snapshots:   0 total
-Time:        29.892 s
+Time:        28.958 s
 Ran all test suites.
