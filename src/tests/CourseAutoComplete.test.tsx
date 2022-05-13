@@ -3,7 +3,7 @@ import { render, screen, within } from "@testing-library/react";
 import App from "../App";
 import userEvent from "@testing-library/user-event";
 
-describe("CourseDragDrop Tests", () => {
+describe("CourseAutoComplete Tests", () => {
     beforeEach(() => {
         render(<App />);
         screen.getByTestId("main-plan-button").click();
