@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { DegreePlan } from "../../interfaces/degreeplan";
+import { usePlanContext } from "../context/PlanContext";
 import { HelpModal } from "./HelpModal";
 
+const saveDataKey = "CIS-PLANNER-TEAM-25-DATA";
 const GUIDES = [
     "Introduction",
     "Managing Your Degree Plans",
@@ -10,9 +13,14 @@ const GUIDES = [
     "Using the Course Viewer, Editor, and Transfer"
 ];
 
+function savePlans(plans: DegreePlan[]) {
+    localStorage.setItem(saveDataKey, JSON.stringify(plans));
+}
+
 export function HelpBar(): JSX.Element {
     const [helpMode, setHelpMode] = useState<string>("Introduction");
     const [showModal, setShowModal] = useState<boolean>(true);
+    const { plans } = usePlanContext();
 
     return (
         <>
@@ -29,6 +37,9 @@ export function HelpBar(): JSX.Element {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
+                            <Nav.Link onClick={() => savePlans(plans)}>
+                                💾 Save Current Changes
+                            </Nav.Link>
                             <NavDropdown
                                 title="How to Use the Scheduler"
                                 data-testid="nav-drop-How to Use the Scheduler"
