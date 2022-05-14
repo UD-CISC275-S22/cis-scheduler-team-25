@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { usePlanContext } from "../context/PlanContext";
 import { HelpModal } from "./HelpModal";
+import { SaveModal } from "./SaveModal";
 
 const saveDataKey = "CIS-PLANNER-TEAM-25-DATA";
 const GUIDES = [
@@ -13,21 +14,30 @@ const GUIDES = [
     "Using the Course Viewer, Editor, and Transfer"
 ];
 
-function savePlans(plans: DegreePlan[]) {
+function savePlans(
+    plans: DegreePlan[],
+    setShowSaveModal: (s: boolean) => void
+) {
     localStorage.setItem(saveDataKey, JSON.stringify(plans));
+    setShowSaveModal(true);
 }
 
 export function HelpBar(): JSX.Element {
     const [helpMode, setHelpMode] = useState<string>("Introduction");
-    const [showModal, setShowModal] = useState<boolean>(true);
+    const [showHelpModal, setShowHelpModal] = useState<boolean>(true);
+    const [showSaveModal, setShowSaveModal] = useState<boolean>(false);
     const { plans } = usePlanContext();
 
     return (
         <>
             <HelpModal
                 helpMode={helpMode}
-                showModal={showModal}
-                setShowModal={setShowModal}
+                showModal={showHelpModal}
+                setShowModal={setShowHelpModal}
+            />
+            <SaveModal
+                showModal={showSaveModal}
+                setShowModal={setShowSaveModal}
             />
             <Navbar bg="light" expand="lg">
                 <Container>
@@ -37,7 +47,11 @@ export function HelpBar(): JSX.Element {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link onClick={() => savePlans(plans)}>
+                            <Nav.Link
+                                onClick={() =>
+                                    savePlans(plans, setShowSaveModal)
+                                }
+                            >
                                 💾 Save Current Changes
                             </Nav.Link>
                             <NavDropdown
@@ -53,7 +67,7 @@ export function HelpBar(): JSX.Element {
                                             <NavDropdown.Item
                                                 onClick={() => {
                                                     setHelpMode(guide);
-                                                    setShowModal(true);
+                                                    setShowHelpModal(true);
                                                 }}
                                             >
                                                 {guide}
