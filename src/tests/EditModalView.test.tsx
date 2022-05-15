@@ -20,8 +20,29 @@ describe("CourseModal Tests", () => {
         screen.getByTestId("textbox-edit-descr");
         screen.getByTestId("textbox-edit-credits");
         screen.getByTestId("textbox-edit-preReqs");
+        screen.getByTestId("checkbox-requirement-list");
 
-        expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(44);
+        expect(screen.queryAllByTestId(/radio-edit-degReq-/i)).toHaveLength(5);
+    });
+    test("Expect checkbox requirement list to have 11 options", () => {
+        expect(screen.getByTestId("checkbox-requirement-list")).toHaveLength(
+            11
+        );
+    });
+    test("Expect checkbox requirement to change the checkboxes on screen", () => {
+        const checkboxList = screen.getByTestId("checkbox-requirement-list");
+        const modal = screen.getByTestId("courseModal");
+        within(modal).getByText("CISC Core");
+        within(modal).getByText("Lab Requirements");
+        within(modal).getByText("Writing Requirements");
+        within(modal).getByText("Capstone");
+        within(modal).getByText("First Year Seminar");
+
+        userEvent.selectOptions(checkboxList, "Data Science Concentration");
+        within(modal).getByText("Concentration Requirements");
+        within(modal).getByText("Advanced Data Science");
+        within(modal).getByText("Advanced Math");
+        within(modal).getByText("Restricted Electives");
     });
     test("Expect textbox fields to appear for a Course's name, description, credits, and course prereqs", () => {
         const name = screen.getByTestId("textbox-edit-name");
@@ -60,10 +81,12 @@ describe("CourseModal Tests", () => {
         );
     });
     test("Expect checkboxes to change what requirements a course fulfills", () => {
+        const checkboxList = screen.getByTestId("checkbox-requirement-list");
         screen.getByTestId("radio-edit-degReq-General-CISC Core").click();
         screen
             .getByTestId("radio-edit-degReq-General-Lab Requirements")
             .click();
+        userEvent.selectOptions(checkboxList, "Bioinformatics Concentration");
         screen
             .getByTestId(
                 "radio-edit-degReq-Bioinformatics Concentration-Concentration Requirements"
@@ -105,6 +128,7 @@ describe("CourseModal Tests", () => {
         const credits = screen.getByTestId("textbox-edit-credits");
         const preReqs = screen.getByTestId("textbox-edit-preReqs");
         const preReqDesc = screen.getByTestId("textbox-edit-preReqDesc");
+        const checkboxList = screen.getByTestId("checkbox-requirement-list");
 
         // modify all editable textfields to be different than the CISC 181 standard
         // already confirmed to correctly edit fields in previous tests
@@ -128,6 +152,7 @@ describe("CourseModal Tests", () => {
         screen
             .getByTestId("radio-edit-degReq-General-Lab Requirements")
             .click();
+        userEvent.selectOptions(checkboxList, "Bioinformatics Concentration");
         screen
             .getByTestId(
                 "radio-edit-degReq-Bioinformatics Concentration-Concentration Requirements"
@@ -179,6 +204,9 @@ describe("CourseModal Tests", () => {
         expect(
             screen.getByTestId("radio-edit-degReq-General-Lab Requirements")
         ).not.toBeChecked();
+
+        const checkboxList2 = screen.getByTestId("checkbox-requirement-list");
+        userEvent.selectOptions(checkboxList2, "Bioinformatics Concentration");
         expect(
             screen.getByTestId(
                 "radio-edit-degReq-Bioinformatics Concentration-Concentration Requirements"
