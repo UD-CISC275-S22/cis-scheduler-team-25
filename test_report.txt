@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (6.033 s)
+PASS src/tests/ProgressChecker.test.tsx (5.592 s)
 PASS src/tests/EditModalView.test.tsx
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
@@ -25,7 +25,7 @@ PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   86.02 |    71.87 |   94.16 |   86.51 |                         
+All files                                   |   86.08 |    71.87 |   94.18 |   86.57 |                         
  src                                        |     100 |      100 |     100 |     100 |                         
   App.tsx                                   |     100 |      100 |     100 |     100 |                         
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -40,7 +40,7 @@ All files                                   |   86.02 |    71.87 |   94.16 |   8
   CourseDragDrop.tsx                        |     100 |      100 |     100 |     100 |                         
   CourseDropPool.tsx                        |     100 |      100 |     100 |     100 |                         
   RequirementSelector.tsx                   |     100 |      100 |     100 |     100 |                         
- src/components/dropLogic/courseModal       |   96.49 |      100 |   97.14 |   96.49 |                         
+ src/components/dropLogic/courseModal       |   96.66 |      100 |   97.22 |   96.66 |                         
   CourseModal.tsx                           |   77.77 |      100 |   66.66 |   77.77 | 75-76                   
   EditModalBody.tsx                         |     100 |      100 |     100 |     100 |                         
   EditModalView.tsx                         |     100 |      100 |     100 |     100 |                         
@@ -102,7 +102,7 @@ All files                                   |   86.02 |    71.87 |   94.16 |   8
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
 Test Suites: 20 passed, 20 total
-Tests:       93 passed, 93 total
+Tests:       95 passed, 95 total
 Snapshots:   0 total
-Time:        32.106 s
+Time:        28.403 s
 Ran all test suites.
