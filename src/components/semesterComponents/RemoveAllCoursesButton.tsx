@@ -68,7 +68,7 @@ export function RemoveAllCoursesButton({
                 );
             }}
         >
-            Remove All Courses
+            Remove All Courses ⌫
         </Button>
     );
 }

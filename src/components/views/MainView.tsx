@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { DegreePlanList } from "../mainComponents/DegreePlanList";
 import { CSVExport } from "../mainComponents/CSVExport";
@@ -11,6 +10,7 @@ import { EditPlanForm } from "../mainComponents/EditPlanForm";
 import { AddPlanForm } from "../mainComponents/InsertPlanForm";
 import { CSVImport } from "../mainComponents/CSVImport";
 import { usePlanContext } from "../context/PlanContext";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 type MainViewProps = {
     setMode: (newMode: string) => void;
@@ -51,27 +51,46 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
 
     return (
         <div>
-            <h1>Degree Plan Selector</h1>
-            <DegreePlanList />
-            <PlanViewButton
-                setMode={setMode}
-                setCurrentSemester={setCurrentSemester}
-                currentPlan={currentPlan}
-            />
-            <AddPlanButton
-                showAdd={showAdd}
-                setShowAdd={setShowAdd}
-            ></AddPlanButton>
-            {showAdd && <AddPlanForm setShowAdd={setShowAdd}></AddPlanForm>}
-            <EditPlanButton
-                showRemove={showRemove}
-                setShowRemove={setShowRemove}
-            ></EditPlanButton>
-            {showRemove && (
-                <EditPlanForm setShowRemove={setShowRemove}></EditPlanForm>
-            )}
-            <CSVExport></CSVExport>
-            <CSVImport />
+            <Container>
+                <Row>
+                    <Col xs={7}>
+                        <h1>Degree Plan Selector</h1>
+                        <DegreePlanList />
+                    </Col>
+                    <Col>
+                        <br></br>
+                        <div className="plan-view-section">
+                            <AddPlanButton
+                                showAdd={showAdd}
+                                setShowAdd={setShowAdd}
+                            ></AddPlanButton>
+                            {showAdd && (
+                                <AddPlanForm
+                                    setShowAdd={setShowAdd}
+                                ></AddPlanForm>
+                            )}
+                        </div>
+                        <div className="plan-view-section-mid">
+                            <EditPlanButton
+                                showRemove={showRemove}
+                                setShowRemove={setShowRemove}
+                            ></EditPlanButton>
+                            {showRemove && (
+                                <EditPlanForm
+                                    setShowRemove={setShowRemove}
+                                ></EditPlanForm>
+                            )}
+                        </div>
+                    </Col>
+                </Row>
+                <PlanViewButton
+                    setMode={setMode}
+                    setCurrentSemester={setCurrentSemester}
+                    currentPlan={currentPlan}
+                />
+                <CSVImport />
+                <CSVExport></CSVExport>
+            </Container>
         </div>
     );
 }

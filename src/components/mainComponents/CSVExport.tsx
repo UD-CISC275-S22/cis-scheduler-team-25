@@ -31,7 +31,7 @@ export function CSVExport(): JSX.Element {
                 data-testid="CSV-export-button"
                 onClick={() => downloadPlan(currentPlan)}
             >
-                Download Selected Degree Plan
+                Download Selected Degree Plan ⬇
             </Button>
         </div>
     );

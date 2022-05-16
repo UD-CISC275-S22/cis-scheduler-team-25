@@ -18,7 +18,7 @@ export function AddSemesterButton({
                 variant={showAdd ? "danger" : "success"}
                 onClick={() => setShowAdd(!showAdd)}
             >
-                {showAdd ? "Cancel Add" : "Add Semester"}
+                {showAdd ? "Cancel Add ✖" : "Add Semester ＋"}
             </Button>
         </div>
     );

@@ -21,7 +21,7 @@ export function EditPlanButton({
                 className="mode-button"
                 onClick={() => setShowRemove(!showRemove)}
             >
-                Edit Plan Name
+                Edit Plan Name ✎
             </Button>
         </div>
     );
