@@ -81,6 +81,10 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
                                 ></EditPlanForm>
                             )}
                         </div>
+                        <div className="plan-view-section">
+                            <CSVImport />
+                            <CSVExport></CSVExport>
+                        </div>
                     </Col>
                 </Row>
                 <PlanViewButton
@@ -88,8 +92,6 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
                     setCurrentSemester={setCurrentSemester}
                     currentPlan={currentPlan}
                 />
-                <CSVImport />
-                <CSVExport></CSVExport>
             </Container>
         </div>
     );
