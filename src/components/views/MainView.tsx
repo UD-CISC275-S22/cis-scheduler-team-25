@@ -51,15 +51,19 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
 
     return (
         <div>
+            <br></br>
+            <h1>Degree Plan Selector</h1>
             <Container>
                 <Row>
                     <Col xs={7}>
-                        <h1>Degree Plan Selector</h1>
                         <DegreePlanList />
                     </Col>
                     <Col>
                         <br></br>
                         <div className="plan-view-section">
+                            <p>
+                                <b>Create a New Plan</b>
+                            </p>
                             <AddPlanButton
                                 showAdd={showAdd}
                                 setShowAdd={setShowAdd}
@@ -71,6 +75,9 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
                             )}
                         </div>
                         <div className="plan-view-section-mid">
+                            <p>
+                                <b>Modify Selection ✎</b>
+                            </p>
                             <EditPlanButton
                                 showRemove={showRemove}
                                 setShowRemove={setShowRemove}
@@ -82,6 +89,9 @@ export function MainView({ setMode }: MainViewProps): JSX.Element {
                             )}
                         </div>
                         <div className="plan-view-section">
+                            <p>
+                                <b>Upload/Download Plans</b>
+                            </p>
                             <CSVImport />
                             <CSVExport></CSVExport>
                         </div>

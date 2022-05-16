@@ -1,5 +1,5 @@
 .DegreePlanList {
-    width: calc(50% + 2vmin);
+    width: calc(75% + 2vmin);
     align-items: center;
     justify-content: center;
     margin: 0 auto;
@@ -14,6 +14,17 @@
 
 .dropdown-border {
     border: 3px solid #00539f;
+}
+
+.message-holder {
+    border: 2px solid #61646d;
+    background-color: rgb(201, 209, 218);
+    width: calc(60% + 2vmin);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: calc(1% + 1vmin);
+    padding-bottom: calc(1% + 1vmin);
 }
 
 .download-bar {

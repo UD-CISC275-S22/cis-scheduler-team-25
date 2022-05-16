@@ -30,10 +30,12 @@ export function DegreePlanList(): JSX.Element {
 
     return (
         <div className="DegreePlanList">
-            <p>Please choose a Degree Plan:</p>
+            <p>
+                <b>Please choose a Degree Plan:</b>
+            </p>
             <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select
-                    htmlSize={5}
+                    htmlSize={15}
                     data-testid="plan-list"
                     value={currentPlan !== undefined ? currentPlan.id : -1}
                     onChange={updateSelection}
@@ -51,6 +53,7 @@ export function DegreePlanList(): JSX.Element {
                     )}
                 </Form.Select>
             </Form.Group>
+            <br></br>
             <p>
                 {plans.length === 0
                     ? "There are currently no existing plans"

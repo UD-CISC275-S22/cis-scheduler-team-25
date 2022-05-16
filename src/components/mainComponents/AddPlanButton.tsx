@@ -14,12 +14,12 @@ export function AddPlanButton({
     return (
         <div>
             <Button
-                variant="success"
+                variant={showAdd ? "danger" : "success"}
                 data-testid="add-plan-button"
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}
             >
-                Add Plan ＋
+                {showAdd ? "Cancel Add ⌫" : "Add Plan ＋"}
             </Button>
         </div>
     );

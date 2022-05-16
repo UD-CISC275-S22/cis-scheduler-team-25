@@ -98,6 +98,15 @@ export function CourseDragDrop({
                     <Col>
                         <div>
                             <p>
+                                <strong>Message Status</strong>
+                            </p>
+                            <AlertMessage
+                                alertActive={alertActive}
+                                setAlertActive={setAlertActive}
+                                status={status}
+                            />
+                            <br></br>
+                            <p>
                                 <strong>Semester Load:</strong>
                             </p>
                             <p>
@@ -110,11 +119,6 @@ export function CourseDragDrop({
                                     .toString() + " Credits"}
                             </p>
                         </div>
-                        <AlertMessage
-                            alertActive={alertActive}
-                            setAlertActive={setAlertActive}
-                            status={status}
-                        />
                     </Col>
                     <Col>
                         <p>
@@ -130,6 +134,7 @@ export function CourseDragDrop({
                         />
                     </Col>
                 </Row>
+                <br></br>
                 <Row>
                     <Col>
                         <p>

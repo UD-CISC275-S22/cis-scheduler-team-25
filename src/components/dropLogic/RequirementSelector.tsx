@@ -55,6 +55,7 @@ export function RequirementSelector({
                 setCoursePool={setCoursePool}
                 courseList={courseList}
             />
+            <br></br>
             <Form.Group className="dropdown-border" controlId="planList">
                 <Form.Select
                     data-testid="requirement-list"
