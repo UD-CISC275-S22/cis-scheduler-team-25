@@ -10,30 +10,40 @@ import { Course } from "./interfaces/course";
 import { defaultCourseList } from "./components/ReadJSON";
 import { HelpBar } from "./components/navBar/HelpBar";
 import { PlanContext } from "./components/context/PlanContext";
+import invalidPlan from "./data/invalid_plan.json";
 
-// default plans read in by degreeplans.json
-const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
-    (plan): DegreePlan => ({
-        ...plan,
-        semesters: plan.semesters.map(
-            (semester): Semester => ({
-                ...semester,
-                courses: semester.courses.map(
-                    (course): Course => ({
-                        ...course,
-                        preReqs: course.preReqs as string[][]
-                    })
-                )
-            })
-        )
-    })
-);
+let loadedPlans: DegreePlan[];
+const saveDataKey = "CIS-PLANNER-TEAM-25-DATA";
+const previousData = localStorage.getItem(saveDataKey);
+if (previousData !== null) {
+    loadedPlans = JSON.parse(previousData);
+} else {
+    // default plans read in by degreeplans.json
+    const DEFAULT_PLANS: DegreePlan[] = defaultPlans.map(
+        (plan): DegreePlan => ({
+            ...plan,
+            semesters: plan.semesters.map(
+                (semester): Semester => ({
+                    ...semester,
+                    courses: semester.courses.map(
+                        (course): Course => ({
+                            ...course,
+                            preReqs: course.preReqs as string[][]
+                        })
+                    )
+                })
+            )
+        })
+    );
+
+    loadedPlans = DEFAULT_PLANS;
+}
 
 function App(): JSX.Element {
-    const [plans, setPlans] = useState<DegreePlan[]>(DEFAULT_PLANS);
+    const [plans, setPlans] = useState<DegreePlan[]>(loadedPlans);
     const [mode, setMode] = useState<string>("main");
     const [currentPlan, setCurrentPlan] = useState<DegreePlan>(
-        DEFAULT_PLANS[0]
+        loadedPlans.length > 0 ? loadedPlans[0] : invalidPlan
     );
     const [currentSemester, setCurrentSemester] =
         useState<Semester>(invalidSemester);
@@ -50,33 +60,33 @@ function App(): JSX.Element {
                     <img src={logo}></img>
                 </div>
             </header>
-            <div className="App-subheader">
-                <HelpBar />
-            </div>
-            <div className="current-view">
-                <PlanContext.Provider
-                    value={{
-                        plans,
-                        setPlans,
-                        currentPlan,
-                        setCurrentPlan,
-                        currentSemester,
-                        setCurrentSemester
-                    }}
-                >
+            <PlanContext.Provider
+                value={{
+                    plans,
+                    setPlans,
+                    currentPlan,
+                    setCurrentPlan,
+                    currentSemester,
+                    setCurrentSemester
+                }}
+            >
+                <div className="App-subheader">
+                    <HelpBar />
+                </div>
+                <div className="current-view">
                     <CurrentView
                         mode={mode}
                         setMode={setMode}
                         courseList={courseList}
                         setCourseList={setCourseList}
                     />
-                </PlanContext.Provider>
 
-                <div className="name-signatures">
-                    ( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩 Quabili,
-                    and Chad 🇨🇦 Haiges ( ͡° ͜ʖ ͡°)
+                    <div className="name-signatures">
+                        ( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩
+                        Quabili, and Chad 🇨🇦 Haiges ( ͡° ͜ʖ ͡°)
+                    </div>
                 </div>
-            </div>
+            </PlanContext.Provider>
         </div>
     );
 }

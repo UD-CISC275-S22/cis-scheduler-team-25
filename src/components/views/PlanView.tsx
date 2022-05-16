@@ -73,7 +73,6 @@ export function PlanView({ setMode }: PlanViewProps): JSX.Element {
                 <Row>
                     <Col xs={7}>
                         <SemesterScrollBox />
-                        <p>{currentPlan.semesters.length} Semesters Total</p>
                     </Col>
                     <Col>
                         <div className="plan-view-section">
