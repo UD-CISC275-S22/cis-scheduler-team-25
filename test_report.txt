@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (7.294 s)
+PASS src/tests/ProgressChecker.test.tsx (6.944 s)
 PASS src/tests/EditModalView.test.tsx
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
@@ -13,7 +13,458 @@ PASS src/tests/CourseModal.test.tsx
 PASS src/tests/EditPlanForm.test.tsx
 PASS src/tests/SemesterScrollBox.test.tsx
 PASS src/tests/CourseDragDrop.test.tsx
-PASS src/tests/PlanView.test.tsx
+FAIL src/tests/PlanView.test.tsx
+  ● PlanView Tests › There is a button for removing all semesters
+
+    TestingLibraryElementError: Unable to find an element with the text: Remove All Semesters. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body[39m
+      [33mclass[39m=[32m"modal-open"[39m
+      [33mdata-rr-ui-modal-open[39m=[32m""[39m
+      [33mstyle[39m=[32m"padding-right: 2048px;"[39m
+    [36m>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"App-header-title"[39m
+            [36m>[39m
+              [36m<p>[39m
+                [0mCOMPUTER &[0m
+              [36m</p>[39m
+              [36m<p>[39m
+                [0mINFORMATION SCIENCES[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"App-header-subtitle"[39m
+            [36m>[39m
+              [36m<img[39m
+                [33msrc[39m=[32m"ud-logo.png"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</header>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"App-subheader"[39m
+          [36m>[39m
+            [36m<nav[39m
+              [33mclass[39m=[32m"navbar navbar-expand-lg navbar-light bg-light"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container"[39m
+              [36m>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"navbar-brand"[39m
+                  [33mhref[39m=[32m"#home"[39m
+                [36m>[39m
+                  [36m<strong>[39m
+                    [0mUD-CIS-Scheduler[0m
+                  [36m</strong>[39m
+                [36m</a>[39m
+                [36m<button[39m
+                  [33maria-controls[39m=[32m"basic-navbar-nav"[39m
+                  [33maria-label[39m=[32m"Toggle navigation"[39m
+                  [33mclass[39m=[32m"navbar-toggler collapsed"[39m
+                  [33mdata-margin-right[39m=[32m""[39m
+                  [33mstyle[39m=[32m""[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"navbar-toggler-icon"[39m
+                  [36m/>[39m
+                [36m</button>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"navbar-collapse collapse"[39m
+                  [33mid[39m=[32m"basic-navbar-nav"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"me-auto navbar-nav"[39m
+                  [36m>[39m
+                    [36m<a[39m
+                      [33mclass[39m=[32m"nav-link"[39m
+                      [33mrole[39m=[32m"button"[39m
+                      [33mtabindex[39m=[32m"0"[39m
+                    [36m>[39m
+                      [0m💾 Save Current Changes[0m
+                    [36m</a>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"nav-item dropdown"[39m
+                      [33mdata-testid[39m=[32m"nav-drop-How to Use the Scheduler"[39m
+                    [36m>[39m
+                      [36m<a[39m
+                        [33maria-expanded[39m=[32m"false"[39m
+                        [33mclass[39m=[32m"dropdown-toggle nav-link"[39m
+                        [33mrole[39m=[32m"button"[39m
+                        [33mtabindex[39m=[32m"0"[39m
+                      [36m>[39m
+                        [0mHow to Use the Scheduler[0m
+                      [36m</a>[39m
+                    [36m</div>[39m
+                    [36m<a[39m
+                      [33mclass[39m=[32m"nav-link"[39m
+                      [33mdata-rr-ui-event-key[39m=[32m"https://www.cis.udel.edu/academics/undergraduate-programs/"[39m
+                      [33mhref[39m=[32m"https://www.cis.udel.edu/academics/undergraduate-programs/"[39m
+                    [36m>[39m
+                      [0mUD CISC Undergraduate Programs[0m
+                    [36m</a>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</nav>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"current-view"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<br />[39m
+              [36m<h1>[39m
+                [0mExample Degree Plan 1[0m
+              [36m</h1>[39m
+              [36m<br />[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-7"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"scroll-box-container"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"semester-scroll-box list-group"[39m
+                        [33mdata-testid[39m=[32m"semester-scroll-box"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"semester-box-length list-group-item list-group-item-action"[39m
+                          [33mdata-testid[39m=[32m"semester-Fall-2022"[39m
+                        [36m>[39m
+                          [36m<div[39m
+                            [33mclass[39m=[32m"semester-box-height list-group"[39m
+                          [36m>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"background-color: rgb(226, 213, 189);"[39m
+                            [36m>[39m
+                              [36m<strong>[39m
+                                [0mFall-2022[0m
+                              [36m</strong>[39m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mCISC 108[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mIntroduction to Computer Science I[0m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mMATH 241[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mAnalytic Geometry and Calculus A[0m
+                            [36m</div>[39m
+                          [36m</div>[39m
+                        [36m</button>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"semester-box-length list-group-item list-group-item-action"[39m
+                          [33mdata-testid[39m=[32m"semester-Spring-2023"[39m
+                        [36m>[39m
+                          [36m<div[39m
+                            [33mclass[39m=[32m"semester-box-height list-group"[39m
+                          [36m>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"background-color: rgb(201, 226, 189);"[39m
+                            [36m>[39m
+                              [36m<strong>[39m
+                                [0mSpring-2023[0m
+                              [36m</strong>[39m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mMATH 242[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mAnalytic Geometry and Calculus B[0m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mCISC 181[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mIntroduction to Computer Science II[0m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mCISC 210[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mIntroduction to Systems Programming[0m
+                            [36m</div>[39m
+                          [36m</div>[39m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<p>[39m
+                        [0m2[0m
+                        [0m Semesters Total[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"plan-view-section"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [36m<b>[39m
+                          [0mChange your Degree Concentration:[0m
+                        [36m</b>[39m
+                      [36m</p>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"SetDegreeList"[39m
+                      [36m>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"dropdown-border"[39m
+                        [36m>[39m
+                          [36m<select[39m
+                            [33mclass[39m=[32m"form-select"[39m
+                            [33mdata-testid[39m=[32m"concentration-list"[39m
+                            [33mid[39m=[32m"concentrationList"[39m
+                          [36m>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Artificial Intelligence & Robotics Concentration"[39m
+                              [33mvalue[39m=[32m"Artificial Intelligence & Robotics Concentration"[39m
+                            [36m>[39m
+                              [0mArtificial Intelligence & Robotics Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Cybersecurity Concentration"[39m
+                              [33mvalue[39m=[32m"Cybersecurity Concentration"[39m
+                            [36m>[39m
+                              [0mCybersecurity Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Bioinformatics Concentration"[39m
+                              [33mvalue[39m=[32m"Bioinformatics Concentration"[39m
+                            [36m>[39m
+                              [0mBioinformatics Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Data Science Concentration"[39m
+                              [33mvalue[39m=[32m"Data Science Concentration"[39m
+                            [36m>[39m
+                              [0mData Science Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-High Performance Computing (Applied Math Track) Concentration"[39m
+                              [33mvalue[39m=[32m"High Performance Computing (Applied Math Track) Concentration"[39m
+                            [36m>[39m
+                              [0mHigh Performance Computing (Applied Math Track) Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-High Performance Computing (Data Track) Concentration"[39m
+                              [33mvalue[39m=[32m"High Performance Computing (Data Track) Concentration"[39m
+                            [36m>[39m
+                              [0mHigh Performance Computing (Data Track) Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Systems & Networks Concentration"[39m
+                              [33mvalue[39m=[32m"Systems & Networks Concentration"[39m
+                            [36m>[39m
+                              [0mSystems & Networks Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Theory & Computation (Discrete Track) Concentration"[39m
+                              [33mvalue[39m=[32m"Theory & Computation (Discrete Track) Concentration"[39m
+                            [36m>[39m
+                              [0mTheory & Computation (Discrete Track) Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Theory & Computation (Continuous Track) Concentration"[39m
+                              [33mvalue[39m=[32m"Theory & Computation (Continuous Track) Concentration"[39m
+                            [36m>[39m
+                              [0mTheory & Computation (Continuous Track) Concentration[0m
+                            [36m</option>[39m
+                          [36m</select>[39m
+                        [36m</div>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"plan-view-section-mid"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [36m<b>[39m
+                          [0mEdit Plan Contents ✎[0m
+                        [36m</b>[39m
+                      [36m</p>[39m
+                      [36m<div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"mode-button btn btn-success"[39m
+                          [33mdata-testid[39m=[32m"add-semester-button"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mAdd Semester ＋[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<br />[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"mode-button btn btn-danger"[39m
+                        [33mdata-testid[39m=[32m"remove-current-semester-button"[39m
+                        [33mdisabled[39m=[32m""[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mDelete Semester ⌫[0m
+                      [36m</button>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"mode-button btn btn-danger"[39m
+                        [33mdata-testid[39m=[32m"remove-all-semesters-button"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mRemove All Semesters ⌫[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"plan-view-section"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [36m<b>[39m
+                          [0mDegree Completion Status[0m
+                        [36m</b>[39m
+                      [36m</p>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mdata-testid[39m=[32m"view-progress-button"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mView Degree Progress[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"mode-button btn btn-primary"[39m
+                  [33mdata-testid[39m=[32m"plan-semester-button"[39m
+                  [33mdisabled[39m=[32m""[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mEdit Semester Courses[0m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"mode-button btn btn-primary"[39m
+                  [33mdata-testid[39m=[32m"plan-main-button"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mReturn to Main Menu[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"name-signatures"[39m
+            [36m>[39m
+              [0m( ͡° ͜ʖ ͡°) Created by Brennan 🇵🇭 Gallamoza, Faizel 🇧🇩 Quabili, and Chad 🇨🇦 Haiges ( ͡° ͜ʖ ͡°)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"fade modal-backdrop show"[39m
+      [36m/>[39m
+      [36m<div[39m
+        [33maria-modal[39m=[32m"true"[39m
+        [33mclass[39m=[32m"fade modal show"[39m
+        [33mrole[39m=[32m"dialog"[39m
+        [33mstyle[39m=[32m"display: block; padding-right: 0px;"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"modal-dialog"[39m
+          [33mdata-testid[39m=[32m"helpModal"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"modal-content"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-header"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"modal-title h4"[39m
+              [36m>[39m
+                [0mIntroduction[0m
+              [36m</div>[39m
+              [36m<button[39m
+                [33maria-label[39m=[32m"Close"[39m
+                [33mclass[39m=[32m"btn-close"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-body"[39m
+              [33mdata-testid[39m=[32m"HelpIntroView"[39m
+            [36m>[39m
+              [0m [0m
+              [0mWelcome to the UD CIS Course Scheduler! This application allows you to create and edit degree plans for Computer Science BS majors. You can begin by selecting a pre-made example plan or creating your own![0m
+              [36m<br />[39m
+              [36m<br />[39m
+              [0mIf you need help using the site, please click[0m
+              [0m [0m
+              [36m<b>[39m
+                [0mHow to Use the Scheduler[0m
+              [36m</b>[39m
+              [0m in the navigation bar. Have fun![0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-footer"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-secondary"[39m
+                [33mdata-testid[39m=[32m"help-close-button"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mClose[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      28 |         );
+      29 |
+    > 30 |         expect(screen.getByText("Remove All Semesters")).toBeInTheDocument();
+         |                       ^
+      31 |         removeAllSemesters.click();
+      32 |         expect(screen.queryByText("Fall-2022")).not.toBeInTheDocument();
+      33 |         expect(screen.queryByText("Spring-2023")).not.toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/tests/PlanView.test.tsx:30:23)
+
 PASS src/tests/AddPlanForm.test.tsx
 PASS src/tests/SetDegreeList.test.tsx
 PASS src/tests/CategoryRadioButtons.test.tsx
@@ -26,7 +477,7 @@ PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   86.05 |    71.53 |    93.9 |   86.54 |                         
+All files                                   |   85.34 |    70.76 |   93.18 |   85.81 |                         
  src                                        |   93.33 |       50 |     100 |   93.33 |                         
   App.tsx                                   |   93.33 |       50 |     100 |   93.33 | 19                      
  src/components                             |     100 |      100 |     100 |     100 |                         
@@ -73,10 +524,10 @@ All files                                   |   86.05 |    71.53 |    93.9 |   8
   HelpPlanView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSemesterView.tsx                      |     100 |      100 |     100 |     100 |                         
   SaveModal.tsx                             |      50 |      100 |      50 |      50 | 12                      
- src/components/planComponents              |   96.77 |    90.32 |     100 |   96.77 |                         
+ src/components/planComponents              |    88.7 |    83.87 |   92.85 |    88.7 |                         
   AddSemesterButton.tsx                     |     100 |      100 |     100 |     100 |                         
   AddSemesterForm.tsx                       |     100 |    91.66 |     100 |     100 | 24                      
-  RemoveAllSemestersButton.tsx              |     100 |      100 |     100 |     100 |                         
+  RemoveAllSemestersButton.tsx              |   28.57 |        0 |   33.33 |   28.57 | 16-29                   
   RemoveCurrentSemestersButton.tsx          |     100 |      100 |     100 |     100 |                         
   SemesterBox.tsx                           |      75 |       60 |     100 |      75 | 16-18                   
   SemesterScrollBox.tsx                     |     100 |      100 |     100 |     100 |                         
@@ -103,8 +554,462 @@ All files                                   |   86.05 |    71.53 |    93.9 |   8
   semester.ts                               |       0 |        0 |       0 |       0 |                         
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
-Test Suites: 21 passed, 21 total
-Tests:       97 passed, 97 total
+Summary of all failing tests
+FAIL src/tests/PlanView.test.tsx
+  ● PlanView Tests › There is a button for removing all semesters
+
+    TestingLibraryElementError: Unable to find an element with the text: Remove All Semesters. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body[39m
+      [33mclass[39m=[32m"modal-open"[39m
+      [33mdata-rr-ui-modal-open[39m=[32m""[39m
+      [33mstyle[39m=[32m"padding-right: 2048px;"[39m
+    [36m>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"App-header-title"[39m
+            [36m>[39m
+              [36m<p>[39m
+                [0mCOMPUTER &[0m
+              [36m</p>[39m
+              [36m<p>[39m
+                [0mINFORMATION SCIENCES[0m
+              [36m</p>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"App-header-subtitle"[39m
+            [36m>[39m
+              [36m<img[39m
+                [33msrc[39m=[32m"ud-logo.png"[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</header>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"App-subheader"[39m
+          [36m>[39m
+            [36m<nav[39m
+              [33mclass[39m=[32m"navbar navbar-expand-lg navbar-light bg-light"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container"[39m
+              [36m>[39m
+                [36m<a[39m
+                  [33mclass[39m=[32m"navbar-brand"[39m
+                  [33mhref[39m=[32m"#home"[39m
+                [36m>[39m
+                  [36m<strong>[39m
+                    [0mUD-CIS-Scheduler[0m
+                  [36m</strong>[39m
+                [36m</a>[39m
+                [36m<button[39m
+                  [33maria-controls[39m=[32m"basic-navbar-nav"[39m
+                  [33maria-label[39m=[32m"Toggle navigation"[39m
+                  [33mclass[39m=[32m"navbar-toggler collapsed"[39m
+                  [33mdata-margin-right[39m=[32m""[39m
+                  [33mstyle[39m=[32m""[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mclass[39m=[32m"navbar-toggler-icon"[39m
+                  [36m/>[39m
+                [36m</button>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"navbar-collapse collapse"[39m
+                  [33mid[39m=[32m"basic-navbar-nav"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"me-auto navbar-nav"[39m
+                  [36m>[39m
+                    [36m<a[39m
+                      [33mclass[39m=[32m"nav-link"[39m
+                      [33mrole[39m=[32m"button"[39m
+                      [33mtabindex[39m=[32m"0"[39m
+                    [36m>[39m
+                      [0m�� Save Current Changes[0m
+                    [36m</a>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"nav-item dropdown"[39m
+                      [33mdata-testid[39m=[32m"nav-drop-How to Use the Scheduler"[39m
+                    [36m>[39m
+                      [36m<a[39m
+                        [33maria-expanded[39m=[32m"false"[39m
+                        [33mclass[39m=[32m"dropdown-toggle nav-link"[39m
+                        [33mrole[39m=[32m"button"[39m
+                        [33mtabindex[39m=[32m"0"[39m
+                      [36m>[39m
+                        [0mHow to Use the Scheduler[0m
+                      [36m</a>[39m
+                    [36m</div>[39m
+                    [36m<a[39m
+                      [33mclass[39m=[32m"nav-link"[39m
+                      [33mdata-rr-ui-event-key[39m=[32m"https://www.cis.udel.edu/academics/undergraduate-programs/"[39m
+                      [33mhref[39m=[32m"https://www.cis.udel.edu/academics/undergraduate-programs/"[39m
+                    [36m>[39m
+                      [0mUD CISC Undergraduate Programs[0m
+                    [36m</a>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</nav>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"current-view"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<br />[39m
+              [36m<h1>[39m
+                [0mExample Degree Plan 1[0m
+              [36m</h1>[39m
+              [36m<br />[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-7"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"scroll-box-container"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"semester-scroll-box list-group"[39m
+                        [33mdata-testid[39m=[32m"semester-scroll-box"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"semester-box-length list-group-item list-group-item-action"[39m
+                          [33mdata-testid[39m=[32m"semester-Fall-2022"[39m
+                        [36m>[39m
+                          [36m<div[39m
+                            [33mclass[39m=[32m"semester-box-height list-group"[39m
+                          [36m>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"background-color: rgb(226, 213, 189);"[39m
+                            [36m>[39m
+                              [36m<strong>[39m
+                                [0mFall-2022[0m
+                              [36m</strong>[39m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mCISC 108[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mIntroduction to Computer Science I[0m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mMATH 241[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mAnalytic Geometry and Calculus A[0m
+                            [36m</div>[39m
+                          [36m</div>[39m
+                        [36m</button>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"semester-box-length list-group-item list-group-item-action"[39m
+                          [33mdata-testid[39m=[32m"semester-Spring-2023"[39m
+                        [36m>[39m
+                          [36m<div[39m
+                            [33mclass[39m=[32m"semester-box-height list-group"[39m
+                          [36m>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"background-color: rgb(201, 226, 189);"[39m
+                            [36m>[39m
+                              [36m<strong>[39m
+                                [0mSpring-2023[0m
+                              [36m</strong>[39m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mMATH 242[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mAnalytic Geometry and Calculus B[0m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mCISC 181[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mIntroduction to Computer Science II[0m
+                            [36m</div>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"list-group-item"[39m
+                              [33mstyle[39m=[32m"text-align: left;"[39m
+                            [36m>[39m
+                              [0mCISC 210[0m
+                              [0m [0m
+                              [36m<br />[39m
+                              [0mIntroduction to Systems Programming[0m
+                            [36m</div>[39m
+                          [36m</div>[39m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<p>[39m
+                        [0m2[0m
+                        [0m Semesters Total[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"plan-view-section"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [36m<b>[39m
+                          [0mChange your Degree Concentration:[0m
+                        [36m</b>[39m
+                      [36m</p>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"SetDegreeList"[39m
+                      [36m>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"dropdown-border"[39m
+                        [36m>[39m
+                          [36m<select[39m
+                            [33mclass[39m=[32m"form-select"[39m
+                            [33mdata-testid[39m=[32m"concentration-list"[39m
+                            [33mid[39m=[32m"concentrationList"[39m
+                          [36m>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Artificial Intelligence & Robotics Concentration"[39m
+                              [33mvalue[39m=[32m"Artificial Intelligence & Robotics Concentration"[39m
+                            [36m>[39m
+                              [0mArtificial Intelligence & Robotics Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Cybersecurity Concentration"[39m
+                              [33mvalue[39m=[32m"Cybersecurity Concentration"[39m
+                            [36m>[39m
+                              [0mCybersecurity Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Bioinformatics Concentration"[39m
+                              [33mvalue[39m=[32m"Bioinformatics Concentration"[39m
+                            [36m>[39m
+                              [0mBioinformatics Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Data Science Concentration"[39m
+                              [33mvalue[39m=[32m"Data Science Concentration"[39m
+                            [36m>[39m
+                              [0mData Science Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-High Performance Computing (Applied Math Track) Concentration"[39m
+                              [33mvalue[39m=[32m"High Performance Computing (Applied Math Track) Concentration"[39m
+                            [36m>[39m
+                              [0mHigh Performance Computing (Applied Math Track) Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-High Performance Computing (Data Track) Concentration"[39m
+                              [33mvalue[39m=[32m"High Performance Computing (Data Track) Concentration"[39m
+                            [36m>[39m
+                              [0mHigh Performance Computing (Data Track) Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Systems & Networks Concentration"[39m
+                              [33mvalue[39m=[32m"Systems & Networks Concentration"[39m
+                            [36m>[39m
+                              [0mSystems & Networks Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Theory & Computation (Discrete Track) Concentration"[39m
+                              [33mvalue[39m=[32m"Theory & Computation (Discrete Track) Concentration"[39m
+                            [36m>[39m
+                              [0mTheory & Computation (Discrete Track) Concentration[0m
+                            [36m</option>[39m
+                            [36m<option[39m
+                              [33mdata-testid[39m=[32m"conc-option-Theory & Computation (Continuous Track) Concentration"[39m
+                              [33mvalue[39m=[32m"Theory & Computation (Continuous Track) Concentration"[39m
+                            [36m>[39m
+                              [0mTheory & Computation (Continuous Track) Concentration[0m
+                            [36m</option>[39m
+                          [36m</select>[39m
+                        [36m</div>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"plan-view-section-mid"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [36m<b>[39m
+                          [0mEdit Plan Contents ✎[0m
+                        [36m</b>[39m
+                      [36m</p>[39m
+                      [36m<div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"mode-button btn btn-success"[39m
+                          [33mdata-testid[39m=[32m"add-semester-button"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mAdd Semester ＋[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<br />[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"mode-button btn btn-danger"[39m
+                        [33mdata-testid[39m=[32m"remove-current-semester-button"[39m
+                        [33mdisabled[39m=[32m""[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mDelete Semester ⌫[0m
+                      [36m</button>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"mode-button btn btn-danger"[39m
+                        [33mdata-testid[39m=[32m"remove-all-semesters-button"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mRemove All Semesters ⌫[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"plan-view-section"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [36m<b>[39m
+                          [0mDegree Completion Status[0m
+                        [36m</b>[39m
+                      [36m</p>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"btn btn-primary"[39m
+                        [33mdata-testid[39m=[32m"view-progress-button"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mView Degree Progress[0m
+                      [36m</button>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"mode-button btn btn-primary"[39m
+                  [33mdata-testid[39m=[32m"plan-semester-button"[39m
+                  [33mdisabled[39m=[32m""[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mEdit Semester Courses[0m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"mode-button btn btn-primary"[39m
+                  [33mdata-testid[39m=[32m"plan-main-button"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mReturn to Main Menu[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"name-signatures"[39m
+            [36m>[39m
+              [0m( ͡° ͜ʖ ͡°) Created by Brennan ���� Gallamoza, Faizel ���� Quabili, and Chad ���� Haiges ( ͡° ͜ʖ ͡°)[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"fade modal-backdrop show"[39m
+      [36m/>[39m
+      [36m<div[39m
+        [33maria-modal[39m=[32m"true"[39m
+        [33mclass[39m=[32m"fade modal show"[39m
+        [33mrole[39m=[32m"dialog"[39m
+        [33mstyle[39m=[32m"display: block; padding-right: 0px;"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"modal-dialog"[39m
+          [33mdata-testid[39m=[32m"helpModal"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"modal-content"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-header"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"modal-title h4"[39m
+              [36m>[39m
+                [0mIntroduction[0m
+              [36m</div>[39m
+              [36m<button[39m
+                [33maria-label[39m=[32m"Close"[39m
+                [33mclass[39m=[32m"btn-close"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-body"[39m
+              [33mdata-testid[39m=[32m"HelpIntroView"[39m
+            [36m>[39m
+              [0m [0m
+              [0mWelcome to the UD CIS Course Scheduler! This application allows you to create and edit degree plans for Computer Science BS majors. You can begin by selecting a pre-made example plan or creating your own![0m
+              [36m<br />[39m
+              [36m<br />[39m
+              [0mIf you need help using the site, please click[0m
+              [0m [0m
+              [36m<b>[39m
+                [0mHow to Use the Scheduler[0m
+              [36m</b>[39m
+              [0m in the navigation bar. Have fun![0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-footer"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-secondary"[39m
+                [33mdata-testid[39m=[32m"help-close-button"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mClose[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      28 |         );
+      29 |
+    > 30 |         expect(screen.getByText("Remove All Semesters")).toBeInTheDocument();
+         |                       ^
+      31 |         removeAllSemesters.click();
+      32 |         expect(screen.queryByText("Fall-2022")).not.toBeInTheDocument();
+      33 |         expect(screen.queryByText("Spring-2023")).not.toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/tests/PlanView.test.tsx:30:23)
+
+
+Test Suites: 1 failed, 20 passed, 21 total
+Tests:       1 failed, 96 passed, 97 total
 Snapshots:   0 total
-Time:        38.249 s
+Time:        36.36 s
 Ran all test suites.
