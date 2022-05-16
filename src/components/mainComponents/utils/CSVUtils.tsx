@@ -18,7 +18,6 @@ function flankQuotes(value: string): string {
 function unFlankQuotes(value: string): string {
     const doubleQuote = String.fromCharCode(34);
     const spacer = doubleQuote + "," + doubleQuote;
-    console.log(spacer);
     const formattedValue = value
         .replaceAll("\n", "")
         .replaceAll(doubleQuote + doubleQuote, doubleQuote)
@@ -59,7 +58,6 @@ function course2Row(semester: Semester, course: Course): string {
 }
 
 function row2Course(row: string[]): Course {
-    console.log(row);
     if (row.length !== 10) {
         console.log("wrong size array entered, returning invalid course");
         return { ...INVALID_COURSE };
@@ -68,19 +66,23 @@ function row2Course(row: string[]): Course {
     // trim whitespace from courses caused by import
     const trimRow = row.map((field: string): string => field.trim());
 
+    const splitPreReqs = trimRow[4]
+        .split("|")
+        .map((reqGroup: string): string[] => reqGroup.split("_"));
+
+    const preReqs = trimRow[4] === "" ? [] : splitPreReqs;
+
     const course = {
         code: trimRow[0],
         name: trimRow[1],
         descr: trimRow[2],
         credits: trimRow[3],
-        preReqs: trimRow[4]
-            .split("|")
-            .map((reqGroup: string): string[] => reqGroup.split("_")),
+        preReqs: preReqs,
         preReqDesc: trimRow[5],
         restrict: trimRow[6],
         breadth: trimRow[7],
         typ: trimRow[8],
-        degreeRequirements: trimRow[9].split("_")
+        degreeRequirements: trimRow[9] === "" ? [] : trimRow[9].split("_")
     };
 
     return course;
@@ -108,18 +110,20 @@ function planToCSV(currPlan: DegreePlan): string {
     return header + columns + csvRows;
 }
 
-function CSVToPlan(
+function addImportToPlans(
     rawCSV: string,
     plans: DegreePlan[],
     setPlans: (newPlans: DegreePlan[]) => void
 ) {
+    const importedPlan = CSVToPlan(rawCSV, plans);
+    setPlans([...plans, importedPlan]);
+}
+
+function CSVToPlan(rawCSV: string, plans: DegreePlan[]) {
     const rawCSVArray = rawCSV.split("\n");
-    console.log(rawCSVArray);
     const formattedCSVArray = rawCSVArray.map((row: string): string =>
         unFlankQuotes(row)
     );
-
-    console.log(formattedCSVArray);
 
     const rowArr = formattedCSVArray
         .slice(3)
@@ -151,9 +155,7 @@ function CSVToPlan(
         degree: { name: header[3], concentration: header[3].split(" - ")[1] }
     };
 
-    console.log(importedPlan);
-
-    setPlans([...plans, importedPlan]);
+    return importedPlan;
 }
 
 function reduceRowArr(
@@ -193,4 +195,4 @@ function formatSemesterRecord(
     return semesters;
 }
 
-export { planToCSV, CSVToPlan };
+export { planToCSV, CSVToPlan, addImportToPlans };

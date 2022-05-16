@@ -21,7 +21,11 @@ export function EditPlanButton({
                 className="mode-button"
                 onClick={() => setShowRemove(!showRemove)}
             >
+<<<<<<< HEAD
                 Edit Plan ✎
+=======
+                Edit Plan Name
+>>>>>>> 57e70213fe14fca2b2cced41f8f26b4e140aa11f
             </Button>
         </div>
     );

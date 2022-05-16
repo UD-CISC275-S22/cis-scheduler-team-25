@@ -8,10 +8,8 @@ export function SemesterScrollBox(): JSX.Element {
     const { currentPlan, setCurrentSemester } = usePlanContext();
 
     return (
-        <div>
+        <div className="scroll-box-container">
             <ListGroup
-                style={{ border: "3px solid #00539F" }}
-                horizontal={true}
                 data-testid="semester-scroll-box"
                 className="semester-scroll-box"
             >
@@ -39,6 +37,7 @@ export function SemesterScrollBox(): JSX.Element {
                     )
                 )}
             </ListGroup>
+            <p>{currentPlan.semesters.length} Semesters Total</p>
         </div>
     );
 }

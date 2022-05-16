@@ -63,6 +63,19 @@ export function HelpSemesterView() {
             menu. For example, CISC 108 is required as a &quot;CISC Core&quot;
             course, and therefore shows up under the &quot;General&quot; radio
             button, and &quot;CISC Core&quot; dropdown.
+            <br></br>
+            <br></br>
+            <p>
+                <strong>Added Non-Required Courses</strong>
+            </p>
+            If you want to arbitrarily add other courses not required for your
+            major, there is a searchable bar below the Course Pool for adding
+            courses. For example, if you wanted to add MMSC200 (not required for
+            any current CISC concentration), you can search for MMSC200 in the
+            search bar, and it will add it to your current Course Pool category
+            requirement. New courses not present in any of the General or
+            Concentration categories will be automatically added to your
+            &quot;Custom Category - User Selected Courses!&quot;
         </Modal.Body>
     );
 }

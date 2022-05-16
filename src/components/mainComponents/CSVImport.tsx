@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { DegreePlan } from "../../interfaces/degreeplan";
 import { usePlanContext } from "../context/PlanContext";
-import { CSVToPlan } from "./utils/CSVUtils";
+import { addImportToPlans } from "./utils/CSVUtils";
 
 type ImportContentButtonProps = {
     plans: DegreePlan[];
@@ -18,8 +18,9 @@ function ImportContentButton({
     return (
         <div>
             <Button
+                data-testid="CSV-import-button"
                 disabled={content === "" || content === "Data cannot be loaded"}
-                onClick={() => CSVToPlan(content, plans, setPlans)}
+                onClick={() => addImportToPlans(content, plans, setPlans)}
             >
                 Upload CSV ⬆
             </Button>
@@ -63,6 +64,7 @@ export function CSVImport(): JSX.Element {
             <div>
                 <Form.Group controlId="exampleForm">
                     <Form.Label>Upload a file</Form.Label>
+<<<<<<< HEAD
                     <div
                     // style={{
                     //     width: "500px",
@@ -72,6 +74,14 @@ export function CSVImport(): JSX.Element {
                     >
                         <Form.Control type="file" onChange={uploadFile} />
                     </div>
+=======
+                    <Form.Control
+                        data-testid="CSV-file-bar"
+                        type="file"
+                        onChange={uploadFile}
+                        className="download-bar"
+                    />
+>>>>>>> 57e70213fe14fca2b2cced41f8f26b4e140aa11f
                 </Form.Group>
             </div>
             <ImportContentButton

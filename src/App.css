@@ -1,7 +1,6 @@
 .App {
     text-align: center;
-    background-color: gold;
-    padding-bottom: calc(10px + 2vmin);
+    background-color: rgb(236, 203, 113);
 }
 
 .App-logo {
@@ -38,6 +37,15 @@
     background-color: rgb(243, 242, 228);
 }
 
+.current-view {
+    /* border-left: calc(5px + 4vmin) solid #00539f;
+    margin-left: -20px;
+    border-right: calc(5px + 4vmin) solid #00539f;
+    margin-right: -20px; */
+    border-bottom: calc(10px + 4vmin) solid #00539f;
+    padding-bottom: calc(8% + 2vmin);
+}
+
 .btn-primary {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -62,6 +70,54 @@
     font-weight: 600;
 }
 
+.btn-danger {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(0, 0, 0);
+    border-color: rgb(219, 82, 82);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(247, 217, 193);
+    font-weight: 600;
+}
+
+.btn-danger:disabled {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(103, 96, 111);
+    border-color: rgb(255, 198, 145);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(213, 211, 202);
+    font-weight: 600;
+}
+
+.btn-success {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(0, 0, 0);
+    border-color: rgb(70, 163, 58);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(232, 243, 169);
+    font-weight: 600;
+}
+
+.btn-success:disabled {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(103, 96, 111);
+    border-color: rgb(103, 179, 132);
+    border-width: calc(1px + 0.2vmin);
+    background-color: rgb(159, 177, 179);
+    font-weight: 600;
+}
+
 .name-signatures {
     padding-top: calc(10px + 2vmin);
 }
@@ -69,4 +125,16 @@
 img {
     width: calc(20% + 2vmin);
     height: auto;
+}
+
+.plan-view-section-mid {
+    padding-top: 4%;
+    padding-bottom: 8%;
+    border-bottom: 2px solid #8e9ca8;
+    border-top: 2px solid #8e9ca8;
+}
+
+.plan-view-section {
+    padding-top: 2%;
+    padding-bottom: 5%;
 }

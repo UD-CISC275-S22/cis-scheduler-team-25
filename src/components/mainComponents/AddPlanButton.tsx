@@ -14,6 +14,7 @@ export function AddPlanButton({
     return (
         <div>
             <Button
+                variant="success"
                 data-testid="add-plan-button"
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}

@@ -17,6 +17,8 @@ function getStatusMessage(status: string): string {
             return "Course order successfully swapped.";
         case "preReqError":
             return "Error! You do not meet the prerequesites to add this course.";
+        case "courseAutoCompleteSuccess":
+            return "Potential Courses Pool has been successfully updated.";
         default:
             return "You cannot perform that action.";
     }
@@ -27,6 +29,7 @@ function getStatusColor(status: string): string {
         case "addSuccess":
         case "removeSuccess":
         case "swapSuccess":
+        case "courseAutoCompleteSuccess":
             return "#bbffaf";
         case "preReqError":
             return "#ffafaf";

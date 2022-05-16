@@ -13,6 +13,8 @@ type CourseAutoCompleteProps = {
     setCoursePool: (newCourses: Course[]) => void;
     category: string;
     requirement: string;
+    setStatus: (s: string) => void;
+    setAlertActive: (a: boolean) => void;
 };
 
 export function CourseAutoComplete({
@@ -21,7 +23,9 @@ export function CourseAutoComplete({
     setCourseList,
     setCoursePool,
     category,
-    requirement
+    requirement,
+    setStatus,
+    setAlertActive
 }: CourseAutoCompleteProps): JSX.Element {
     const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>(
         []
@@ -89,7 +93,8 @@ export function CourseAutoComplete({
                     return (
                         <li
                             className={className}
-                            key={suggestion}
+                            key={"suggestion-" + suggestion}
+                            data-testid={"suggestion-" + suggestion}
                             onClick={() => onClick(suggestion)}
                         >
                             {suggestion}
@@ -115,6 +120,8 @@ export function CourseAutoComplete({
                 setCoursePool={setCoursePool}
                 category={category}
                 requirement={requirement}
+                setStatus={setStatus}
+                setAlertActive={setAlertActive}
             />
             <Form.Control
                 onChange={onChange}
@@ -122,6 +129,7 @@ export function CourseAutoComplete({
                 value={input}
                 className="dropdown-border"
                 placeholder="Enter a Course Code"
+                data-testid="course-autocomplete"
             />
             {showSuggestions && input && <SuggestionsListComponent />}
         </div>

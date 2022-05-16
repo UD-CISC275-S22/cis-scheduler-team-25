@@ -174,6 +174,8 @@ export function CourseDragDrop({
                             setCoursePool={setCoursePool}
                             category={category}
                             requirement={requirement}
+                            setStatus={setStatus}
+                            setAlertActive={setAlertActive}
                         />
                     </Col>
                 </Row>
