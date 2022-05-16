@@ -19,7 +19,7 @@ export function AddPlanButton({
                 className="mode-button"
                 onClick={() => setShowAdd(!showAdd)}
             >
-                Add Plan
+                Add Plan ＋
             </Button>
         </div>
     );

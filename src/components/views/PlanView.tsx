@@ -83,7 +83,7 @@ export function PlanView({ setMode }: PlanViewProps): JSX.Element {
                         </div>
                         <div className="plan-view-section-mid">
                             <p>
-                                <b>Edit Plan Contents</b>
+                                <b>Edit Plan Contents ✎</b>
                             </p>
                             <AddSemesterButton
                                 showAdd={showAdd}
