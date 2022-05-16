@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Modal } from "react-bootstrap";
 import { EditableCourse } from "../../../interfaces/editable_course";
 import degreeCategoriesData from "../../../data/degree_categories.json";
@@ -9,11 +9,16 @@ type EditModalBodyProps = {
 };
 
 const degreeCategories = degreeCategoriesData as Record<string, string[]>;
+const categories = Object.keys(degreeCategories);
 
 export function EditModalBody({
     editCourse,
     setEditCourse
 }: EditModalBodyProps) {
+    const [checkboxCategory, setCheckboxCategory] = useState<string>(
+        categories[0]
+    );
+
     function updatedegreeRequirements(
         event: React.ChangeEvent<HTMLInputElement>
     ) {
@@ -117,35 +122,41 @@ export function EditModalBody({
             <p></p>
             <Form.Group controlId="form-course-degreeRequirements">
                 <Form.Label>Degree Requirements:</Form.Label>
-                {Object.keys(degreeCategories).map(
-                    (category: string): JSX.Element => (
-                        <div key={category}>
-                            <Form.Label>
-                                <i>{category}:</i>
-                            </Form.Label>
-                            <p></p>
-                            {degreeCategories[category].map(
-                                (req: string): JSX.Element => (
-                                    <Form.Check
-                                        inline
-                                        key={category + "-" + req}
-                                        data-testid={
-                                            "radio-edit-degReq-" +
-                                            category +
-                                            "-" +
-                                            req
-                                        }
-                                        label={req}
-                                        value={category + "-" + req}
-                                        checked={editCourse.degreeRequirements.includes(
-                                            category + "-" + req
-                                        )}
-                                        onChange={updatedegreeRequirements}
-                                    />
-                                )
+                <Form.Select
+                    data-testid="checkbox-requirement-list"
+                    value={checkboxCategory}
+                    onChange={(e) => setCheckboxCategory(e.target.value)}
+                >
+                    {categories.map(
+                        (reqOption: string): JSX.Element => (
+                            <option
+                                key={reqOption}
+                                value={reqOption}
+                                data-testid={`requirement-option-${reqOption}`}
+                            >
+                                {reqOption}
+                            </option>
+                        )
+                    )}
+                </Form.Select>
+                {degreeCategories[checkboxCategory].map(
+                    (req: string): JSX.Element => (
+                        <Form.Check
+                            inline
+                            key={checkboxCategory + "-" + req}
+                            data-testid={
+                                "radio-edit-degReq-" +
+                                checkboxCategory +
+                                "-" +
+                                req
+                            }
+                            label={req}
+                            value={checkboxCategory + "-" + req}
+                            checked={editCourse.degreeRequirements.includes(
+                                checkboxCategory + "-" + req
                             )}
-                            <p></p>
-                        </div>
+                            onChange={updatedegreeRequirements}
+                        />
                     )
                 )}
             </Form.Group>
