@@ -5,6 +5,7 @@ import { HelpPlanView } from "./HelpPlanView";
 import { HelpMainView } from "./HelpMainView";
 import { HelpSemesterView } from "./HelpSemesterView";
 import { HelpCourseModalView } from "./HelpCourseModalView";
+import { HelpSaveView } from "./HelpSaveView";
 
 function getModalBody(helpMode: string): JSX.Element {
     switch (helpMode) {
@@ -18,6 +19,8 @@ function getModalBody(helpMode: string): JSX.Element {
             return <HelpSemesterView />;
         case "Using the Course Viewer, Editor, and Transfer":
             return <HelpCourseModalView />;
+        case "Saving Your Changes":
+            return <HelpSaveView />;
         default:
             return <HelpIntroView />;
     }

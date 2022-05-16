@@ -19,6 +19,7 @@ function ImportContentButton({
         <div>
             <Button
                 data-testid="CSV-import-button"
+                variant="success"
                 disabled={content === "" || content === "Data cannot be loaded"}
                 onClick={() => addImportToPlans(content, plans, setPlans)}
             >

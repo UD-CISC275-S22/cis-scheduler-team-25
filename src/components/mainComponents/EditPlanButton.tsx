@@ -18,10 +18,11 @@ export function EditPlanButton({
             <Button
                 disabled={currentPlan.id === -1}
                 data-testid="edit-plan-button"
+                variant={showRemove ? "danger" : "primary"}
                 className="mode-button"
                 onClick={() => setShowRemove(!showRemove)}
             >
-                Edit Plan Name ✎
+                {showRemove ? "Cancel Edit ⌫" : "Edit Plan ✎"}
             </Button>
         </div>
     );

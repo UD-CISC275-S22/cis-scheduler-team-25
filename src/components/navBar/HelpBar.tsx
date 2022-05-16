@@ -11,7 +11,8 @@ const GUIDES = [
     "Managing Your Degree Plans",
     "Selecting Semesters in a Plan",
     "Editing Semesters with Course Drag and Drop",
-    "Using the Course Viewer, Editor, and Transfer"
+    "Using the Course Viewer, Editor, and Transfer",
+    "Saving Your Changes"
 ];
 
 function savePlans(
