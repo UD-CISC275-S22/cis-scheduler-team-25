@@ -27,7 +27,7 @@ describe("PlanView Tests", () => {
             "remove-all-semesters-button"
         );
 
-        expect(screen.getByText("Remove All Semesters")).toBeInTheDocument();
+        expect(screen.getByText(/Remove All Semesters/i)).toBeInTheDocument();
         removeAllSemesters.click();
         expect(screen.queryByText("Fall-2022")).not.toBeInTheDocument();
         expect(screen.queryByText("Spring-2023")).not.toBeInTheDocument();

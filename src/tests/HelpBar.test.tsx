@@ -90,4 +90,20 @@ describe("HelpBar Tests", () => {
             "Using the Course Viewer, Editor, and Transfer"
         );
     });
+    test("Using the Saving Your Changes help button shows appropriate text", () => {
+        // get NavBar "How to Use the Scheduler" html element
+        const howToUse = screen
+            .getAllByText("How to Use the Scheduler")
+            .filter(
+                (e: HTMLElement): boolean => e.getAttribute("role") === "button"
+            )[0];
+
+        // click NavBar button to show dropdown choices and click one
+        howToUse.click();
+        screen.getByText("Saving Your Changes").click();
+
+        // expect helpModal to appear and have correct text
+        const modal = screen.getByTestId("helpModal");
+        expect(modal).toHaveTextContent("Saving Your Changes");
+    });
 });
