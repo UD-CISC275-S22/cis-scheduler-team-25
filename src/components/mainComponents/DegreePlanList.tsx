@@ -30,6 +30,8 @@ export function DegreePlanList(): JSX.Element {
 
     return (
         <div className="DegreePlanList">
+            <br></br>
+            <br></br>
             <p>
                 <b>Please choose a Degree Plan:</b>
             </p>
