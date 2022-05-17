@@ -64,13 +64,15 @@ export function AddNewCourseButton({
     }
 
     return (
-        <Button
-            disabled={disabled}
-            variant="success"
-            data-testid="add-autocomplete-course-button"
-            onClick={() => updateCourseList()}
-        >
-            {disabled ? "Invalid Course" : "Add Course To Pool"}
-        </Button>
+        <div>
+            <Button
+                disabled={disabled}
+                variant="success"
+                data-testid="add-autocomplete-course-button"
+                onClick={() => updateCourseList()}
+            >
+                {disabled ? "Invalid Course" : "Add Course To Pool"}
+            </Button>
+        </div>
     );
 }
