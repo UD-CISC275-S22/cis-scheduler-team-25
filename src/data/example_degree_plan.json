@@ -69,7 +69,7 @@
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
                         "degreeRequirements": ["General-CISC Core"],
-                        "preReqs": [["CISC 108", "CISC106"]]
+                        "preReqs": [["CISC 108", "CISC 106"]]
                     },
                     {
                         "code": "CISC 210",
@@ -194,7 +194,7 @@
                         "breadth": "University: Mathematics, Natural Sciences and Technology; A&S: GROUP D: A&S Math, Nat Sci & Technology",
                         "typ": "Fall, Summer and Spring",
                         "degreeRequirements": ["General-CISC Core"],
-                        "preReqs": [["CISC 108", "CISC106"]]
+                        "preReqs": [["CISC 108", "CISC 106"]]
                     },
                     {
                         "code": "CISC 210",
@@ -206,7 +206,7 @@
                         "breadth": "University: ; A&S: ",
                         "typ": "Fall and Spring",
                         "degreeRequirements": ["General-CISC Core"],
-                        "preReqs": [["CISC 108", "CISC106"]]
+                        "preReqs": [["CISC 108", "CISC 106"]]
                     }
                 ],
                 "season": "Fall",
