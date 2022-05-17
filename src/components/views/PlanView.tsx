@@ -72,6 +72,9 @@ export function PlanView({ setMode }: PlanViewProps): JSX.Element {
             <Container>
                 <Row>
                     <Col xs={7}>
+                        <p>
+                            <b>Click on a Semester!</b>
+                        </p>
                         <SemesterScrollBox />
                     </Col>
                     <Col>
