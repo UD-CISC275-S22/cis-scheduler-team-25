@@ -29,7 +29,7 @@ export function RemoveAllSemestersButton(): JSX.Element {
                 setCurrentPlan(clearedPlan);
             }}
         >
-            Remove All Semesters ⌫
+            Remove All Semesters
         </Button>
     );
 }
