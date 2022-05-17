@@ -2,8 +2,8 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (6.343 s)
-PASS src/tests/EditModalView.test.tsx
+PASS src/tests/ProgressChecker.test.tsx (8.316 s)
+PASS src/tests/EditModalView.test.tsx (5.09 s)
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
 PASS src/tests/CSVExportImport.test.tsx
@@ -107,5 +107,5 @@ All files                                   |   87.23 |    74.34 |   94.28 |   8
 Test Suites: 21 passed, 21 total
 Tests:       100 passed, 100 total
 Snapshots:   0 total
-Time:        33.851 s
+Time:        46.344 s
 Ran all test suites.
