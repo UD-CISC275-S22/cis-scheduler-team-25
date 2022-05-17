@@ -12,5 +12,6 @@ describe("NavBar Save Changes Tests", () => {
     test("Clicking the save button brings up a text modal", () => {
         screen.getByText(/Save Current Changes/i).click();
         screen.getByText(/Your plans have been successfully saved!/i);
+        screen.getByTestId("save-close-button").click();
     });
 });

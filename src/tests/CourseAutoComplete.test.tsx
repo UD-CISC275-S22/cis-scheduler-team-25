@@ -51,6 +51,33 @@ describe("CourseAutoComplete Tests", () => {
         expect(addButton).toBeEnabled();
         expect(auto).toHaveValue("CISC 101");
     });
+    test("Expect a course suggestions to be selectable through arrow keys", () => {
+        const auto = screen.getByTestId("course-autocomplete");
+        const addButton = screen.getByTestId("add-autocomplete-course-button");
+
+        expect(addButton).toBeDisabled();
+
+        userEvent.type(auto, "{selectall}CISC 10");
+        userEvent.type(auto, "{arrowdown}{enter}");
+
+        expect(addButton).toBeEnabled();
+        expect(auto).toHaveValue("CISC 103");
+    });
+    test("Expect a course suggestions to be selectable through arrow keys (2)", () => {
+        const auto = screen.getByTestId("course-autocomplete");
+        const addButton = screen.getByTestId("add-autocomplete-course-button");
+
+        expect(addButton).toBeDisabled();
+
+        userEvent.type(auto, "{selectall}CISC 10");
+        userEvent.type(
+            auto,
+            "{arrowdown}{arrowdown}{arrowdown}{arrowup}{enter}"
+        );
+
+        expect(addButton).toBeEnabled();
+        expect(auto).toHaveValue("CISC 106");
+    });
     test("Expect a valid course to be addable and change the potential course pool", () => {
         const auto = screen.getByTestId("course-autocomplete");
         const addButton = screen.getByTestId("add-autocomplete-course-button");
