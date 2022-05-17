@@ -61,7 +61,7 @@ export function CourseDragDrop({
     const [currentCourse, setCurrentCourse] = useState<Course>(INVALID_COURSE);
 
     return (
-        <div>
+        <div style={{ width: "calc(95% + 2vmin)" }}>
             <CourseModal
                 showCourseEditor={showCourseEditor}
                 setShowCourseEditor={setShowCourseEditor}

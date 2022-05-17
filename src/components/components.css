@@ -163,7 +163,7 @@
     overflow-y: scroll;
     height: calc(15% + 2vmin);
     padding-left: 0;
-    width: calc(37% + 2vmin);
+    width: calc(36% + 1vmin);
     position: absolute;
     background-color: #fff;
 }
