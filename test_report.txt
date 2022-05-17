@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/tests/ProgressChecker.test.tsx (5.85 s)
+PASS src/tests/ProgressChecker.test.tsx (6.554 s)
 PASS src/tests/EditModalView.test.tsx
 PASS src/tests/TransferModalView.test.tsx
 PASS src/tests/AddSemesterForm.test.tsx
@@ -26,18 +26,18 @@ PASS src/App.test.tsx
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 File                                        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------------------------|---------|----------|---------|---------|-------------------------
-All files                                   |   86.09 |    72.49 |   93.92 |   86.58 |                         
+All files                                   |   87.23 |    74.34 |   94.28 |   87.73 |                         
  src                                        |   93.33 |       50 |     100 |   93.33 |                         
   App.tsx                                   |   93.33 |       50 |     100 |   93.33 | 19                      
  src/components                             |     100 |      100 |     100 |     100 |                         
   ReadJSON.tsx                              |     100 |      100 |     100 |     100 |                         
  src/components/context                     |      50 |      100 |      25 |      40 |                         
   PlanContext.tsx                           |      50 |      100 |      25 |      40 | 19-27                   
- src/components/dropLogic                   |   85.26 |    62.16 |   96.66 |   85.26 |                         
+ src/components/dropLogic                   |   92.63 |    75.67 |   96.66 |   92.63 |                         
   AddNewCourseButton.tsx                    |     100 |       75 |     100 |     100 | 60                      
   AlertMessage.tsx                          |   61.53 |    57.14 |      75 |   61.53 | 13-15,19,35,49          
   CategoryRadioButtons.tsx                  |     100 |      100 |     100 |     100 |                         
-  CourseAutoComplete.tsx                    |   75.67 |    53.33 |     100 |   75.67 | 62-64,67-71,74-78       
+  CourseAutoComplete.tsx                    |   94.59 |    86.66 |     100 |   94.59 | 68,75                   
   CourseDragDrop.tsx                        |     100 |      100 |     100 |     100 |                         
   CourseDropPool.tsx                        |     100 |      100 |     100 |     100 |                         
   RequirementSelector.tsx                   |     100 |      100 |     100 |     100 |                         
@@ -64,7 +64,7 @@ All files                                   |   86.09 |    72.49 |   93.92 |   8
  src/components/mainComponents/utils        |   91.93 |    68.75 |   95.83 |   91.66 |                         
   CSVUtils.tsx                              |    92.3 |       75 |      95 |   92.15 | 62-63,118-119           
   insertPlanUtils.tsx                       |      90 |       50 |     100 |   88.88 | 32                      
- src/components/navBar                      |   93.54 |    85.71 |   93.75 |   93.54 |                         
+ src/components/navBar                      |   96.77 |    85.71 |     100 |   96.77 |                         
   HelpBar.tsx                               |     100 |      100 |     100 |     100 |                         
   HelpCourseModalView.tsx                   |     100 |      100 |     100 |     100 |                         
   HelpIntroView.tsx                         |     100 |      100 |     100 |     100 |                         
@@ -73,7 +73,7 @@ All files                                   |   86.09 |    72.49 |   93.92 |   8
   HelpPlanView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSaveView.tsx                          |     100 |      100 |     100 |     100 |                         
   HelpSemesterView.tsx                      |     100 |      100 |     100 |     100 |                         
-  SaveModal.tsx                             |      50 |      100 |      50 |      50 | 12                      
+  SaveModal.tsx                             |     100 |      100 |     100 |     100 |                         
  src/components/planComponents              |   96.77 |    90.32 |     100 |   96.77 |                         
   AddSemesterButton.tsx                     |     100 |      100 |     100 |     100 |                         
   AddSemesterForm.tsx                       |     100 |    91.66 |     100 |     100 | 24                      
@@ -105,7 +105,7 @@ All files                                   |   86.09 |    72.49 |   93.92 |   8
 --------------------------------------------|---------|----------|---------|---------|-------------------------
 
 Test Suites: 21 passed, 21 total
-Tests:       98 passed, 98 total
+Tests:       100 passed, 100 total
 Snapshots:   0 total
-Time:        30.273 s
+Time:        32.857 s
 Ran all test suites.
